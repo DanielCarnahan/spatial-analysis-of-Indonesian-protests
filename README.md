@@ -15,11 +15,7 @@ Do protests in one location trigger protests elsewhere, or do protest waves refl
 - **Martyrdom test.** Separate exposure terms for fatal and non-fatal protests, each with their own optimal decay parameters, plus a Wald test for coefficient equality.
 - **Robustness.** Geographic spline, exclusion of the national-shock control, VIF checks, Moran's I on residuals, a logistic specification on a binary outcome, and collapse-window sensitivity (0 / 2 / 3 / 5 / 7 days).
 
-## Main findings
-
-- Cross-district exposure significantly improves fit over the baseline (F-test, p < 0.001).
-- Roughly 7% of predicted protest intensity is attributable to diffusion rather than background factors.
-- Fatal and non-fatal protests diffuse through different channels: fatal events show national reach consistent with media-driven spread, while non-fatal events diffuse more locally.
+See the knit output for current results.
 
 ## Reproducing
 
