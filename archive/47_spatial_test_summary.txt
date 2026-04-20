@@ -1,0 +1,81 @@
+===============================================================================
+SPATIAL-TEMPORAL HAWKES TEST: SUMMARY OF FINDINGS
+===============================================================================
+
+HYPOTHESIS:
+  H₀: Protests do not spread spatially
+  H₁: Protests spread spatially with finite range σ
+
+-------------------------------------------------------------------------------
+KEY FINDING: UNIVARIATE MODEL HAS NO SELF-EXCITATION
+-------------------------------------------------------------------------------
+
+The univariate temporal Hawkes model (Model 1) parameters:
+  - α (triggering intensity): 4.5e-5 ≈ 0
+  - β (decay rate): 0.0015 (half-life: 477 days)
+
+Despite achieving better fit than Poisson (LR = 67,079, p < 0.001), the
+triggering parameters indicate essentially NO self-excitation. The improvement
+comes from fitting a very slow decay rate, not from meaningful protest-to-
+protest triggering.
+
+-------------------------------------------------------------------------------
+INTERPRETATION
+-------------------------------------------------------------------------------
+
+1. NO TEMPORAL CONTAGION AT AGGREGATE LEVEL
+   The univariate model finds that protest occurrence is explained by:
+   - Population (γ = 0.01, essentially no effect)
+   - Poverty (δ = -5.9, significant negative effect)
+   - Year fixed effects
+
+   NOT by one protest triggering another.
+
+2. SPATIAL TEST IS MEANINGLESS
+   Testing whether protests spread spatially requires there to be triggering
+   in the first place. With α ≈ 0, there's nothing to "spatialize."
+
+3. BIVARIATE MODEL TELLS A DIFFERENT STORY
+   The bivariate Hawkes model (Severe vs Peaceful) DOES find significant
+   triggering effects:
+   - Severe events trigger fewer follow-ups than peaceful events
+   - Type-dependent contagion is significant (LR = 1,496 vs univariate)
+
+   This suggests that "contagion" operates at the MARK level (what TYPE
+   of protest follows another), not at the spatial level.
+
+-------------------------------------------------------------------------------
+CONCLUSION
+-------------------------------------------------------------------------------
+
+The hypothesis that protests don't spread spatially CANNOT be directly tested
+with a univariate spatial-temporal Hawkes model because:
+
+1. The univariate temporal model finds no self-excitation to begin with
+2. Spatial weighting would only make sense if there was triggering to localize
+
+INDIRECT SUPPORT FOR NO SPATIAL SPREAD:
+- If protests DID spread spatially, we would expect stronger local triggering
+- The model's preference for α ≈ 0 suggests triggering doesn't dominate
+- The bivariate model's success indicates contagion is TYPE-based, not SPACE-based
+
+RECOMMENDATION:
+Rather than a spatial-temporal test, the evidence suggests:
+- Protest occurrence is driven by structural factors (poverty, population)
+- Protest TYPE evolution (Severe vs Peaceful) shows contagion patterns
+- Spatial proximity does not appear to be a dominant factor
+
+===============================================================================
+TECHNICAL NOTE: MODEL NON-NESTEDNESS
+===============================================================================
+
+A proper LR test requires nested models. The spatial-temporal model as
+formulated is NOT nested with the temporal model because:
+
+- Temporal: λ(t) = μ + Σ_{all j<i} α·h(τ)
+- Spatial-temporal with cutoff: λ(s,t) = μ + Σ_{j<i, d<cutoff} α·g(d)·h(τ)
+
+Events beyond the spatial cutoff are excluded in the spatial-temporal model,
+making it structurally different from the temporal model.
+
+===============================================================================

@@ -1,0 +1,102 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+Compiling C++ likelihood function for extended marks Hawkes model...
+✓ C++ compiled
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL 5: EXTENDED MARKS HAWKES (EXPONENTIAL)               ║
+╚══════════════════════════════════════════════════════════════╝
+
+SPECIFICATION:
+  Background: μ(d,y) = exp(β₀ + γ·log(pop) + δ·poverty + Σ β_year)
+  Triggering: α(marks) = exp(β₀_trig + β_fatal + β_violent
+                              + β_student + β_labor + β_papua)
+  Kernel: g(t) = exp(-β·t)  [EXPONENTIAL]
+  Intensity: λ(t) = μ(d,y) + Σ α(marks_i) · g(t - t_i)
+
+MARKS (violence-focused):
+  Violence indicators (2 parameters):
+    - has_fatalities (non-exclusive)
+    - is_violent (violent vs peaceful)
+  Actor-based (3 parameters, non-exclusive):
+    - is_student
+    - is_labor
+    - is_papua
+
+
+=== LOADING DATA ===
+Loaded 15914 events with poverty data
+Time range: 2015 to 2024 
+Poverty data coverage: 15914 (100.0%)
+
+=== CONSTRUCTING MARK VARIABLES ===
+Using complete cases: 15914 events
+
+MARK VARIABLE SUMMARY (violence-focused):
+-----------------------------------------
+  Fatal events: 151 (0.9%)
+  Violent events: 1453 (9.1%)
+  Student-led: 5026 (31.6%)
+  Labor-led: 3429 (21.5%)
+  Papua-related: 2234 (14.0%)
+
+=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===
+Found 2384 unique district-year combinations
+Observation period: 3587.0 days (9.82 years)
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   FITTING MODEL 5: EXTENDED MARKS (EXPONENTIAL)              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+--- Fitting Model 5: Extended Marks (Exponential) ---
+Using MULTI-START optimization with 5 starting points
+✓ Model already completed (loading from final checkpoint)
+
+╔══════════════════════════════════════════════════════════════╗
+║         MODEL 5 RESULTS                                      ║
+╚══════════════════════════════════════════════════════════════╝
+
+MODEL FIT:
+  Log-likelihood: -78062.65
+  AIC: 156167.30
+  BIC: 156328.47
+  Parameters: 21
+  Runtime: 376.87 minutes
+
+BACKGROUND RATE PARAMETERS:
+---------------------------
+  β₀ (baseline): -11.0879
+  γ (population elasticity): 0.0160
+    → 10× population → 1.0× more protests
+  δ (poverty effect): -19.7236
+    → +10% poverty → 0.139× more protests
+
+TRIGGERING PARAMETERS (violence-focused):
+------------------------------------------
+  β₀_trig (baseline): -9.9991
+  β_fatal: -4.9374 (exp = 0.007)
+  β_violent: -4.9995 (exp = 0.007)
+  β_student: -2.0561 (exp = 0.128)
+  β_labor: -4.9899 (exp = 0.007)
+  β_papua: -0.0844 (exp = 0.919)
+  Decay: 0.00145 (half-life = 476.7 days)
+
+✓ Saved: model5_extended_marks.rds
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL 5 ESTIMATION COMPLETE                                ║
+╚══════════════════════════════════════════════════════════════╝

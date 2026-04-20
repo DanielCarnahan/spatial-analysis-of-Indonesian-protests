@@ -1,0 +1,103 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+Compiling C++ likelihood function for power-law extended marks Hawkes model...
+✓ C++ compiled
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL 6: EXTENDED MARKS HAWKES (POWER-LAW)                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+SPECIFICATION:
+  Background: μ(d,y) = exp(β₀ + γ·log(pop) + δ·poverty + Σ β_year)
+  Triggering: α(marks) = exp(β₀_trig + β_fatal + β_violent
+                              + β_student + β_labor + β_papua)
+  Kernel: g(Δt) = (Δt + c)^(-α)  [POWER-LAW]
+  Intensity: λ(t) = μ(d,y) + Σ α(marks_i) · g(t - t_i)
+
+MARKS (violence-focused):
+  Violence indicators (2 parameters):
+    - has_fatalities (non-exclusive)
+    - is_violent (violent vs peaceful)
+  Actor-based (3 parameters, non-exclusive):
+    - is_student
+    - is_labor
+    - is_papua
+
+
+=== LOADING DATA ===
+Loaded 15914 events with poverty data
+Time range: 2015 to 2024 
+Poverty data coverage: 15914 (100.0%)
+
+=== CONSTRUCTING MARK VARIABLES ===
+Using complete cases: 15914 events
+
+MARK VARIABLE SUMMARY (violence-focused):
+-----------------------------------------
+  Fatal events: 151 (0.9%)
+  Violent events: 1453 (9.1%)
+  Student-led: 5026 (31.6%)
+  Labor-led: 3429 (21.5%)
+  Papua-related: 2234 (14.0%)
+
+=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===
+Found 2384 unique district-year combinations
+Observation period: 3587.0 days (9.82 years)
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   FITTING MODEL 6: EXTENDED MARKS (POWER-LAW)                ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+--- Fitting Model 6: Power-Law Extended Marks ---
+Using MULTI-START optimization with 3 starting points
+✓ Model already completed (loading from final checkpoint)
+
+╔══════════════════════════════════════════════════════════════╗
+║         MODEL 6 RESULTS                                      ║
+╚══════════════════════════════════════════════════════════════╝
+
+MODEL FIT:
+  Log-likelihood: -86574.00
+  AIC: 173192.00
+  BIC: 173360.85
+  Parameters: 22
+  Runtime: 213.87 minutes
+
+BACKGROUND RATE PARAMETERS:
+---------------------------
+  β₀ (baseline): -10.8925
+  γ (population elasticity): 0.0108
+    → 10× population → 1.0× more protests
+  δ (poverty effect): -19.9185
+    → +10% poverty → 0.136× more protests
+
+TRIGGERING PARAMETERS (violence-focused):
+------------------------------------------
+  β₀_trig (baseline): -8.2652
+  β_fatal: 0.3798 (exp = 1.462)
+  β_violent: 1.5942 (exp = 4.924)
+  β_student: -0.3037 (exp = 0.738)
+  β_labor: -0.6331 (exp = 0.531)
+  β_papua: 0.2830 (exp = 1.327)
+  α (power-law exponent): 1.0501
+  c (offset): 1.0000 days (24.0 hours)
+
+✓ Saved: model6_powerlaw_extended.rds
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL 6 ESTIMATION COMPLETE                                ║
+╚══════════════════════════════════════════════════════════════╝

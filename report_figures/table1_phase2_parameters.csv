@@ -1,0 +1,6 @@
+"Parameter","Estimate","Interpretation"
+"μ",0.271714515583248,"Background rate (events/day)"
+"β₀",-3.48352520679342,"Base excitation (log scale)"
+"β_violence",-0.304976832302545,"Violence reduces triggering"
+"β_state",-0.28364852496656,"State intervention reduces triggering"
+"decay",0.0303405980771176,"Temporal decay rate (1/β ≈ 33 days)"

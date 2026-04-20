@@ -1,0 +1,614 @@
+# ============================================================================
+# MODEL B: POWER-LAW SCALING (REFIT WITH DATA-DRIVEN INITIALIZATION)
+# ============================================================================
+#
+# Specification: μ(district, year) = exp(β₀ + γ·log(population) + Σ β_year·I(year))
+#
+# PREVIOUS ATTEMPT FAILED:
+# - Got γ = -1.9587 (wrong sign!)
+# - Predictions were essentially zero everywhere
+#
+# THIS ATTEMPT:
+# - Initialize γ = 0.35 (from log-log regression on data)
+# - Initialize β₀ to match observed mean rate
+# - Should find: larger districts have MORE protests (γ > 0)
+#   but sub-proportionally (γ < 1)
+#
+# ============================================================================
+
+library(dplyr)
+
+cat("\n")
+cat("╔══════════════════════════════════════════════════════════════╗\n")
+cat("║   MODEL B: POWER-LAW (REFIT WITH CORRECT INITIALIZATION)    ║\n")
+cat("╚══════════════════════════════════════════════════════════════╝\n")
+cat("\n")
+
+cat("SPECIFICATION:\n")
+cat("  Background: μ(d,y) = exp(β₀ + γ·log(pop) + Σ β_year)\n")
+cat("  Triggering: α(marks) = exp(β₀_trig + β_violence·violent + β_state·intervention)\n")
+cat("  Kernel: g(t) = exp(-β·t)\n")
+cat("  Intensity: λ(t) = μ(d,y) + Σ α(marks_i)·g(t-t_i)\n\n")
+
+cat("DATA-DRIVEN INITIALIZATION:\n")
+cat("  → Log-log regression slope: 0.351\n")
+cat("  → Initialize γ = 0.35 (expect positive coefficient!)\n")
+cat("  → This means: 10× population → 2.2× more protests\n\n")
+
+# ====================================================================
+# CONFIGURATION
+# ====================================================================
+
+TEMPORAL_CUTOFF <- 730  # 2 years
+CHECKPOINT_EVERY_N_EVALS <- 10
+
+# ====================================================================
+# CHECKPOINT FUNCTIONS
+# ====================================================================
+
+checkpoint_dir <- "checkpoints_model_b_refit"
+if(!dir.exists(checkpoint_dir)) {
+  dir.create(checkpoint_dir)
+  cat(sprintf("✓ Created checkpoint directory: %s\n", checkpoint_dir))
+}
+
+.optim_state <- new.env()
+.optim_state$n_evals <- 0
+.optim_state$best_ll <- -Inf
+.optim_state$best_params <- NULL
+.optim_state$model_name <- NULL
+
+reset_optim_state <- function(model_name) {
+  .optim_state$n_evals <- 0
+  .optim_state$best_ll <- -Inf
+  .optim_state$best_params <- NULL
+  .optim_state$model_name <- model_name
+}
+
+save_intermediate_checkpoint <- function(model_id, eval_num, params, ll) {
+  checkpoint_file <- file.path(checkpoint_dir,
+                                sprintf("intermediate-%s-eval%04d.rds", model_id, eval_num))
+
+  saveRDS(list(
+    model_id = model_id,
+    eval_num = eval_num,
+    params = params,
+    ll = ll,
+    best_ll = .optim_state$best_ll,
+    best_params = .optim_state$best_params,
+    timestamp = Sys.time(),
+    status = "in_progress"
+  ), checkpoint_file)
+
+  invisible(checkpoint_file)
+}
+
+save_final_checkpoint <- function(model_fit, model_id) {
+  checkpoint_file <- file.path(checkpoint_dir, sprintf("model-%s-FINAL.rds", model_id))
+
+  model_fit$status <- "completed"
+  model_fit$timestamp <- Sys.time()
+
+  saveRDS(model_fit, checkpoint_file)
+  cat(sprintf("✓ Final checkpoint saved: %s\n\n", checkpoint_file))
+
+  # Clean up intermediate checkpoints
+  intermediate_files <- list.files(checkpoint_dir,
+                                    pattern = sprintf("intermediate-%s-", model_id),
+                                    full.names = TRUE)
+  if(length(intermediate_files) > 0) {
+    file.remove(intermediate_files)
+    cat(sprintf("  Cleaned up %d intermediate checkpoints\n\n", length(intermediate_files)))
+  }
+}
+
+find_latest_checkpoint <- function(model_id) {
+  final_file <- file.path(checkpoint_dir, sprintf("model-%s-FINAL.rds", model_id))
+  if(file.exists(final_file)) {
+    return(list(type = "final", file = final_file, data = readRDS(final_file)))
+  }
+
+  pattern <- sprintf("intermediate-%s-eval\\d{4}\\.rds", model_id)
+  checkpoints <- list.files(checkpoint_dir, pattern = pattern, full.names = TRUE)
+
+  if(length(checkpoints) > 0) {
+    latest <- checkpoints[order(file.mtime(checkpoints), decreasing = TRUE)[1]]
+    return(list(type = "intermediate", file = latest, data = readRDS(latest)))
+  }
+
+  return(NULL)
+}
+
+# ====================================================================
+# 1. LOAD DATA
+# ====================================================================
+
+cat("\n=== LOADING DATA ===\n")
+protests <- readRDS("protests_with_population.rds")
+
+cat("Loaded", nrow(protests), "events with population data\n")
+cat("Time range:", min(protests$year), "to", max(protests$year), "\n\n")
+
+# Prepare marks data
+marks_data <- protests %>%
+  select(
+    event_id = event_id_cnty,
+    time = days_since_start,
+    is_violent,
+    is_peaceful,
+    state_intervention,
+    longitude,
+    latitude,
+    district,
+    year,
+    log_pop,
+    population
+  ) %>%
+  arrange(time)
+
+cat(sprintf("Using full dataset: %d events\n", nrow(marks_data)))
+cat(sprintf("Violent events: %d (%.1f%%)\n",
+            sum(marks_data$is_violent),
+            100*mean(marks_data$is_violent)))
+cat(sprintf("Events with state intervention: %d (%.1f%%)\n\n",
+            sum(marks_data$state_intervention),
+            100*mean(marks_data$state_intervention)))
+
+# ====================================================================
+# 2. CALCULATE DISTRICT-YEAR OBSERVATION TIMES
+# ====================================================================
+
+cat("=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===\n")
+
+T_min <- min(marks_data$time)
+T_max <- max(marks_data$time)
+
+# Get unique district-year combinations
+district_years <- marks_data %>%
+  select(district, year, population, log_pop) %>%
+  distinct()
+
+cat(sprintf("Found %d unique district-year combinations\n", nrow(district_years)))
+
+# Calculate days observed for each district-year
+district_years$days_observed <- T_max - T_min
+
+cat(sprintf("Observation period: %.1f days (%.2f years)\n\n",
+            T_max - T_min, (T_max - T_min)/365.25))
+
+# ====================================================================
+# 3. MODEL B IMPLEMENTATION
+# ====================================================================
+
+cat("=== IMPLEMENTING MODEL B (POWER-LAW WITH CORRECT INIT) ===\n\n")
+
+model_b_functions <- function() {
+
+  # Pre-compute time differences with cutoff
+  precompute_time_matrix <- function(times, cutoff = 730) {
+    n <- length(times)
+    time_mat <- matrix(0, nrow = n, ncol = n)
+
+    for(i in 1:n) {
+      if(i > 1) {
+        for(j in 1:(i-1)) {
+          tau <- times[i] - times[j]
+          if(isTRUE(tau > 0) && isTRUE(tau <= cutoff)) {
+            time_mat[i, j] <- tau
+          }
+        }
+      }
+    }
+
+    return(time_mat)
+  }
+
+  # Calculate district-year-specific background rate
+  # MODEL B: μ(d,y) = exp(β₀ + γ·log_pop + Σ β_year)
+  calc_mu <- function(log_pop, year, params) {
+
+    beta_0_bg <- params[["beta_0_bg"]]
+    gamma <- params[["gamma"]]
+
+    # Year effects (2015 is reference, omitted)
+    year_effect <- 0
+    if(year == 2016 && "beta_2016" %in% names(params)) year_effect <- params[["beta_2016"]]
+    if(year == 2017 && "beta_2017" %in% names(params)) year_effect <- params[["beta_2017"]]
+    if(year == 2018 && "beta_2018" %in% names(params)) year_effect <- params[["beta_2018"]]
+    if(year == 2019 && "beta_2019" %in% names(params)) year_effect <- params[["beta_2019"]]
+    if(year == 2020 && "beta_2020" %in% names(params)) year_effect <- params[["beta_2020"]]
+    if(year == 2021 && "beta_2021" %in% names(params)) year_effect <- params[["beta_2021"]]
+    if(year == 2022 && "beta_2022" %in% names(params)) year_effect <- params[["beta_2022"]]
+    if(year == 2023 && "beta_2023" %in% names(params)) year_effect <- params[["beta_2023"]]
+    if(year == 2024 && "beta_2024" %in% names(params)) year_effect <- params[["beta_2024"]]
+
+    # POWER-LAW MODEL: exp(β₀ + γ·log_pop + year)
+    mu <- exp(beta_0_bg + gamma * log_pop + year_effect)
+    return(mu)
+  }
+
+  # Conditional intensity
+  lambda_powerlaw <- function(idx, times, marks, params, time_mat = NULL) {
+
+    # District-year-specific background rate (POWER-LAW MODEL)
+    mu_i <- calc_mu(marks$log_pop[idx], marks$year[idx], params)
+    intensity <- mu_i
+
+    # Mark-dependent triggering parameters
+    beta_0_trig <- params[["beta_0_trig"]]
+    beta_violence <- params[["beta_violence"]]
+    beta_state <- params[["beta_state"]]
+    decay <- params[["decay"]]
+
+    # Triggered component with cutoff
+    if(idx > 1) {
+
+      if(!is.null(time_mat)) {
+        valid_j <- which(time_mat[idx, ] > 0)
+
+        if(length(valid_j) > 0) {
+          # Vectorized alpha calculation
+          alphas <- exp(beta_0_trig +
+                       beta_violence * marks$is_violent[valid_j] +
+                       beta_state * marks$state_intervention[valid_j])
+
+          # Vectorized kernel evaluation
+          taus <- time_mat[idx, valid_j]
+          intensity <- intensity + sum(alphas * exp(-decay * taus))
+        }
+
+      } else {
+        # Fallback: loop with cutoff
+        current_time <- times[idx]
+        cutoff_time <- current_time - TEMPORAL_CUTOFF
+
+        for(j in 1:(idx-1)) {
+          if(times[j] < cutoff_time) next
+
+          tau <- current_time - times[j]
+          if(tau > 0) {
+            alpha_j <- exp(beta_0_trig +
+                          beta_violence * marks$is_violent[j] +
+                          beta_state * marks$state_intervention[j])
+
+            intensity <- intensity + alpha_j * exp(-decay * tau)
+          }
+        }
+      }
+    }
+
+    return(intensity)
+  }
+
+  # Log-likelihood
+  loglik_powerlaw <- function(params, times, marks, district_years,
+                            time_mat = NULL, verbose = TRUE, model_id = NULL) {
+
+    # Parameter constraints
+    if(params[["decay"]] <= 0) return(-Inf)
+
+    # Track function evaluations
+    .optim_state$n_evals <- .optim_state$n_evals + 1
+    eval_num <- .optim_state$n_evals
+
+    n <- length(times)
+    ll <- 0
+
+    # Sum log-intensities at event times
+    for(i in 1:n) {
+      lambda_i <- lambda_powerlaw(i, times, marks, params, time_mat)
+      ll <- ll + log(max(lambda_i, 1e-10))
+
+      if(verbose && i %% 200 == 0) {
+        cat(sprintf("    Event %d/%d (%.1f%%)  \r", i, n, 100*i/n))
+      }
+    }
+
+    # Compensator: sum over district-years
+    compensator <- 0
+
+    # Background component: Σ_{district,year} μ(district,year) × days_observed
+    # MODEL B: μ = exp(β₀ + γ·log_pop + year_effect)
+    for(k in 1:nrow(district_years)) {
+      mu_k <- calc_mu(district_years$log_pop[k], district_years$year[k], params)
+      compensator <- compensator + mu_k * district_years$days_observed[k]
+    }
+
+    # Triggered component contribution
+    for(i in 1:n) {
+      if(times[i] < max(times)) {
+
+        # Mark-dependent alpha for event i
+        alpha_i <- exp(params[["beta_0_trig"]] +
+                      params[["beta_violence"]] * marks$is_violent[i] +
+                      params[["beta_state"]] * marks$state_intervention[i])
+
+        # Integral of exponential kernel (with cutoff consideration)
+        tau_remain <- min(max(times) - times[i], TEMPORAL_CUTOFF)
+        compensator <- compensator +
+          (alpha_i / params[["decay"]]) * (1 - exp(-params[["decay"]] * tau_remain))
+      }
+    }
+
+    ll_final <- ll - compensator
+
+    # Track best result
+    if(ll_final > .optim_state$best_ll) {
+      .optim_state$best_ll <- ll_final
+      .optim_state$best_params <- params
+    }
+
+    # Intermediate checkpoint
+    if(!is.null(model_id) && eval_num %% CHECKPOINT_EVERY_N_EVALS == 0) {
+      save_intermediate_checkpoint(model_id, eval_num, params, ll_final)
+      if(verbose) {
+        cat(sprintf("\n    💾 Checkpoint %d: LL=%.2f (best: %.2f) | γ=%.4f\n",
+                   eval_num, ll_final, .optim_state$best_ll, params[["gamma"]]))
+      }
+    }
+
+    if(verbose) {
+      cat(sprintf("\n    LL: %.2f (events: %.2f, comp: %.2f) | γ=%.4f [eval %d]\n",
+                 ll_final, ll, -compensator, params[["gamma"]], eval_num))
+    }
+
+    return(ll_final)
+  }
+
+  return(list(
+    precompute_time_matrix = precompute_time_matrix,
+    calc_mu = calc_mu,
+    lambda = lambda_powerlaw,
+    loglik = loglik_powerlaw
+  ))
+}
+
+hawkes_funcs <- model_b_functions()
+
+# ====================================================================
+# 4. PREPARE DATA
+# ====================================================================
+
+cat("=== PREPARING DATA FOR ESTIMATION ===\n")
+
+times_sample <- marks_data$time
+marks_sample <- marks_data
+district_years_sample <- district_years
+
+cat(sprintf("Sample size: %d events\n", length(times_sample)))
+cat(sprintf("District-years: %d\n", nrow(district_years_sample)))
+
+# Pre-compute time difference matrix
+cat("Pre-computing time difference matrix...\n")
+time_mat_sample <- hawkes_funcs$precompute_time_matrix(times_sample, TEMPORAL_CUTOFF)
+cat("✓ Time matrix computed\n\n")
+
+# ====================================================================
+# 5. FITTING FUNCTION
+# ====================================================================
+
+fit_model_b <- function(times, marks, district_years, time_mat = NULL,
+                        model_name = "Model B: Power-Law (Refit)",
+                        model_id = "MODEL_B_REFIT") {
+
+  cat(sprintf("\n--- Fitting %s ---\n", model_name))
+
+  # Check for existing checkpoint
+  checkpoint <- find_latest_checkpoint(model_id)
+
+  if(!is.null(checkpoint)) {
+    if(checkpoint$type == "final") {
+      cat("✓ Model already completed (loading from final checkpoint)\n")
+      return(checkpoint$data)
+    } else {
+      cat(sprintf("⏩ Resuming from intermediate checkpoint (eval %d, LL=%.2f, γ=%.4f)\n",
+                 checkpoint$data$eval_num, checkpoint$data$best_ll,
+                 checkpoint$data$best_params$gamma))
+
+      reset_optim_state(model_name)
+      .optim_state$n_evals <- checkpoint$data$eval_num
+      .optim_state$best_ll <- checkpoint$data$best_ll
+      .optim_state$best_params <- checkpoint$data$best_params
+
+      params_init_list <- checkpoint$data$best_params
+    }
+  } else {
+    cat("Starting fresh optimization with DATA-DRIVEN initialization...\n")
+    reset_optim_state(model_name)
+
+    # Calculate β₀ to match observed mean rate given γ = 0.35
+    # Mean log_pop
+    mean_log_pop <- mean(marks$log_pop)
+    # Observed rate per district-year-day
+    total_events <- nrow(marks)
+    total_exposure <- nrow(district_years) * (max(times) - min(times))
+    observed_rate <- total_events / total_exposure
+    # β₀ = log(rate) - γ * mean(log_pop)
+    gamma_init <- 0.35  # From data diagnostics
+    beta_0_init <- log(observed_rate) - gamma_init * mean_log_pop
+
+    cat(sprintf("  → γ initialized to: %.3f (from log-log regression)\n", gamma_init))
+    cat(sprintf("  → β₀ initialized to: %.3f (to match mean rate)\n", beta_0_init))
+    cat(sprintf("  → This implies: 10× pop → %.1f× more protests\n\n", 10^gamma_init))
+
+    # Initial parameters with POSITIVE gamma
+    params_init_list <- list(
+      # Background parameters (11) - POSITIVE gamma!
+      beta_0_bg = beta_0_init,
+      gamma = gamma_init,  # POSITIVE, data-driven
+      beta_2016 = 0,
+      beta_2017 = 0,
+      beta_2018 = 0,
+      beta_2019 = 0,
+      beta_2020 = 0,
+      beta_2021 = 0,
+      beta_2022 = 0,
+      beta_2023 = 0,
+      beta_2024 = 0,
+      # Triggering parameters (3)
+      beta_0_trig = log(0.1),
+      beta_violence = 0,
+      beta_state = 0,
+      # Decay (1)
+      decay = 0.2
+    )
+  }
+
+  start_time <- Sys.time()
+
+  # Parameter vector for optimization (15 parameters)
+  param_names <- c("beta_0_bg", "gamma",
+                   "beta_2016", "beta_2017", "beta_2018", "beta_2019", "beta_2020",
+                   "beta_2021", "beta_2022", "beta_2023", "beta_2024",
+                   "beta_0_trig", "beta_violence", "beta_state", "decay")
+
+  param_vec <- unlist(params_init_list[param_names])
+  names(param_vec) <- param_names
+
+  # Objective function
+  obj_fun <- function(par) {
+
+    params_full <- as.list(par)
+
+    ll <- hawkes_funcs$loglik(params_full, times, marks, district_years, time_mat,
+                               verbose = TRUE, model_id = model_id)
+    return(-ll)
+  }
+
+  # Optimize
+  cat("  Starting optimization (max 500 iterations)...\n")
+  cat(sprintf("  Expected time: 15-20 minutes\n\n"))
+
+  fit <- optim(
+    par = param_vec,
+    fn = obj_fun,
+    method = "L-BFGS-B",
+    lower = c(beta_0_bg = -15, gamma = 0.01,  # FORCE gamma > 0
+              beta_2016 = -5, beta_2017 = -5, beta_2018 = -5, beta_2019 = -5, beta_2020 = -5,
+              beta_2021 = -5, beta_2022 = -5, beta_2023 = -5, beta_2024 = -5,
+              beta_0_trig = -5, beta_violence = -3, beta_state = -3, decay = 0.01),
+    upper = c(beta_0_bg = 5, gamma = 2,  # Allow gamma up to 2
+              beta_2016 = 5, beta_2017 = 5, beta_2018 = 5, beta_2019 = 5, beta_2020 = 5,
+              beta_2021 = 5, beta_2022 = 5, beta_2023 = 5, beta_2024 = 5,
+              beta_0_trig = 5, beta_violence = 3, beta_state = 3, decay = 2),
+    control = list(maxit = 500, factr = 1e10, trace = 1, REPORT = 10)
+  )
+
+  end_time <- Sys.time()
+  runtime <- difftime(end_time, start_time, units = "mins")
+
+  cat(sprintf("\n  ✓ Optimization complete in %.2f minutes\n", as.numeric(runtime)))
+  cat(sprintf("  Log-likelihood: %.2f\n", -fit$value))
+  cat(sprintf("  Best LL found: %.2f\n", .optim_state$best_ll))
+  cat(sprintf("  Convergence: %d\n", fit$convergence))
+  cat(sprintf("  Final γ: %.4f\n", fit$par["gamma"]))
+
+  # Extract results
+  final_params <- if(.optim_state$best_ll > -fit$value) {
+    cat("  Using best parameters found during optimization\n")
+    .optim_state$best_params
+  } else {
+    as.list(fit$par)
+  }
+
+  final_ll <- if(.optim_state$best_ll > -fit$value) {
+    .optim_state$best_ll
+  } else {
+    -fit$value
+  }
+
+  results <- list(
+    model_name = model_name,
+    model_id = model_id,
+    params = final_params,
+    loglik = final_ll,
+    convergence = fit$convergence,
+    n_params = length(fit$par),
+    n_events = length(times),
+    AIC = 2*length(fit$par) - 2*final_ll,
+    BIC = length(fit$par)*log(length(times)) - 2*final_ll,
+    runtime_mins = as.numeric(runtime)
+  )
+
+  # Save final checkpoint
+  save_final_checkpoint(results, model_id)
+
+  return(results)
+}
+
+# ====================================================================
+# 6. FIT MODEL
+# ====================================================================
+
+cat("\n╔══════════════════════════════════════════════════════════════╗\n")
+cat("║   FITTING MODEL B (POWER-LAW WITH CORRECT INIT)             ║\n")
+cat("╚══════════════════════════════════════════════════════════════╝\n\n")
+
+model_b_fit <- fit_model_b(
+  times_sample,
+  marks_sample,
+  district_years_sample,
+  time_mat_sample,
+  model_name = "Model B: Power-Law (Refit)",
+  model_id = "MODEL_B_REFIT"
+)
+
+# ====================================================================
+# 7. RESULTS
+# ====================================================================
+
+cat("\n╔══════════════════════════════════════════════════════════════╗\n")
+cat("║         MODEL B RESULTS (REFIT)                              ║\n")
+cat("╚══════════════════════════════════════════════════════════════╝\n\n")
+
+cat("MODEL FIT:\n")
+cat(sprintf("  Log-likelihood: %.2f\n", model_b_fit$loglik))
+cat(sprintf("  AIC: %.2f\n", model_b_fit$AIC))
+cat(sprintf("  BIC: %.2f\n", model_b_fit$BIC))
+cat(sprintf("  Parameters: %d\n", model_b_fit$n_params))
+cat(sprintf("  Runtime: %.2f minutes\n\n", model_b_fit$runtime_mins))
+
+cat("BACKGROUND RATE PARAMETERS:\n")
+cat("---------------------------\n")
+cat(sprintf("  β₀ (baseline): %.4f\n", model_b_fit$params$beta_0_bg))
+cat(sprintf("  γ (population elasticity): %.4f ★\n", model_b_fit$params$gamma))
+cat(sprintf("    → Interpretation: 10× population → %.1f× more protests\n",
+            10^model_b_fit$params$gamma))
+if(model_b_fit$params$gamma > 0 && model_b_fit$params$gamma < 1) {
+  cat("    → ✓ Larger districts have MORE protests (γ > 0)\n")
+  cat("    → ✓ But sub-proportionally (γ < 1): lower per-capita rates\n")
+} else if(model_b_fit$params$gamma >= 1) {
+  cat("    → Proportional or super-proportional relationship\n")
+} else {
+  cat("    → ⚠ WARNING: Still negative! Check optimization\n")
+}
+cat("\n")
+
+cat("YEAR EFFECTS (relative to 2015):\n")
+for(yr in 2016:2024) {
+  param_name <- paste0("beta_", yr)
+  if(param_name %in% names(model_b_fit$params)) {
+    beta_yr <- model_b_fit$params[[param_name]]
+    cat(sprintf("  %d: β = %6.3f  (exp(β) = %.3f)\n", yr, beta_yr, exp(beta_yr)))
+  }
+}
+cat("\n")
+
+cat("TRIGGERING PARAMETERS:\n")
+cat("----------------------\n")
+cat(sprintf("  β₀_trig: %.4f\n", model_b_fit$params$beta_0_trig))
+cat(sprintf("  β_violence: %.4f (exp = %.3f)\n",
+            model_b_fit$params$beta_violence, exp(model_b_fit$params$beta_violence)))
+cat(sprintf("  β_state: %.4f (exp = %.3f)\n",
+            model_b_fit$params$beta_state, exp(model_b_fit$params$beta_state)))
+cat(sprintf("  Decay: %.4f (half-life = %.1f days)\n",
+            model_b_fit$params$decay, log(2)/model_b_fit$params$decay))
+cat("\n")
+
+# Save results
+saveRDS(model_b_fit, "model_b_powerlaw_REFIT.rds")
+cat("✓ Saved: model_b_powerlaw_REFIT.rds\n\n")
+
+cat("╔══════════════════════════════════════════════════════════════╗\n")
+cat("║   MODEL B ESTIMATION COMPLETE                                ║\n")
+cat("╚══════════════════════════════════════════════════════════════╝\n")

@@ -1,0 +1,2131 @@
+---
+title: "Protest Contagion and the Martyrdom Effect"
+subtitle: 
+author: "Daniel Carnahan & Risa Toha"
+date: "February 2026"
+output:
+  pdf_document:
+    toc: false
+    toc_depth: 3
+    number_sections: true
+    keep_tex: true
+    latex_engine: xelatex
+  html_document:
+    toc: false
+    toc_depth: 3
+    toc_float: true
+    number_sections: true
+    code_folding: hide
+    theme: flatly
+header-includes:
+  - \pagenumbering{gobble}
+abstract: |
+  Do protests in one location trigger protests elsewhere or do protest waves reflect independent responses to common shocks? Distinguishing contagion from correlated reactions is a central challenge in studying social movements. We introduce a new method that separates baseline protest risk driven by local conditions and national shocks from spillovers triggered by other protests. We apply this method to Indonesian protest history(2015-2024) and find statistically significant evidence of contagion with an estimated 7 percent of protest activity triggered by other protests. We also uncover heterogeneity in how protests spread with protests with at least 1 fatality showing stronger responses and diffusing nationally, while non-fatal protests spread locally with effects decaying over distance. These results indicate that violence can shape how social movements propagate across space and time.
+  
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 5,
+  fig.align = "center",
+  cache = TRUE
+)
+```
+
+```{r load-packages, cache=FALSE}
+# Core packages
+library(tidyverse)
+library(sf)
+library(readxl)
+library(lubridate)
+library(MASS)
+library(geosphere)
+library(scales)
+library(spdep)
+library(sandwich)
+library(lmtest)
+library(mgcv)
+library(zoo)
+library(numDeriv)
+library(knitr)
+library(kableExtra)
+
+select <- dplyr::select
+
+theme_paper <- theme_minimal(base_size = 11) +
+  theme(
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank(),
+    plot.title = element_text(face = "bold", size = 12),
+    axis.title = element_text(size = 10),
+    axis.text = element_text(size = 9),
+    legend.position = "bottom"
+  )
+```
+
+```{r data-preparation, cache=TRUE, include=FALSE}
+# ==============================================================================
+# DATA PREPARATION (runs silently)
+# ==============================================================================
+
+# Load ACLED data
+acled_raw <- read_excel("ACLED Data_2025-10-27_Indonesia20142024_OFFICIAL.xlsx")
+col_names <- as.character(acled_raw[1, ])
+acled <- acled_raw[-1, ]
+names(acled) <- col_names
+
+acled <- acled %>%
+  mutate(
+    event_date = if (is.numeric(event_date)) {
+      as.Date(event_date, origin = "1899-12-30")
+    } else {
+      lubridate::ymd(event_date)
+    },
+    year = as.integer(year),
+    latitude = as.numeric(latitude),
+    longitude = as.numeric(longitude),
+    fatalities = as.integer(fatalities),
+    time_precision = as.integer(time_precision)
+  )
+
+protests <- acled %>%
+  filter(event_type %in% c("Protests", "Riots")) %>%
+  mutate(
+    is_violent = sub_event_type %in% c("Violent demonstration",
+                                        "Protest with intervention",
+                                        "Mob violence",
+                                        "Looting/property destruction",
+                                        "Excessive force against protesters"),
+    is_peaceful = sub_event_type == "Peaceful protest",
+    has_fatalities = fatalities > 0,
+    month = month(event_date),
+    day_of_year = yday(event_date),
+    week = week(event_date),
+    days_since_start = as.numeric(event_date - min(event_date)),
+    year_month = floor_date(event_date, "month")
+  ) %>%
+  arrange(event_date)
+
+# Load population data
+pop_raw <- read.csv("district_level_population_2014_2020.csv", stringsAsFactors = FALSE)
+
+pop_data <- pop_raw %>%
+  filter(Series.Name == "Total Population (in number of people)") %>%
+  select(district = Provinces.Name,
+         `2014` = X2014..YR2014., `2015` = X2015..YR2015.,
+         `2016` = X2016..YR2016., `2017` = X2017..YR2017.,
+         `2018` = X2018..YR2018., `2019` = X2019..YR2019.,
+         `2020` = X2020..YR2020.)
+pop_data$district <- gsub('^"', '', pop_data$district)
+
+# Load GADM shapefile
+gadm <- st_read("Indonesian district-level shapefile copy 2/gadm41_IDN_2.shp", quiet = TRUE)
+
+gadm_centroids <- gadm %>%
+  mutate(
+    centroid = st_point_on_surface(geometry),
+    lon = st_coordinates(centroid)[, 1],
+    lat = st_coordinates(centroid)[, 2]
+  ) %>%
+  st_drop_geometry() %>%
+  select(admin2 = NAME_2, lon, lat)
+
+# Spatial join
+protests_with_coords <- protests %>%
+  filter(!is.na(latitude) & !is.na(longitude))
+
+protests_sf <- st_as_sf(protests_with_coords,
+                        coords = c("longitude", "latitude"),
+                        crs = 4326)
+
+protests_matched <- st_join(protests_sf, gadm, join = st_intersects)
+
+gadm_to_pop_name <- function(name_2, engtype_2) {
+  if (is.na(engtype_2) || is.na(name_2)) return(NA_character_)
+  if (engtype_2 == "City") {
+    base_name <- sub("^Kota\\s+", "", name_2)
+    return(paste0(base_name, ", Kota"))
+  } else {
+    return(paste0(name_2, ", Kab."))
+  }
+}
+
+protests_matched$district <- mapply(gadm_to_pop_name,
+                                    protests_matched$NAME_2,
+                                    protests_matched$ENGTYPE_2)
+
+protests_matched_df <- protests_matched %>%
+  st_drop_geometry() %>%
+  select(event_id_cnty, NAME_2, ENGTYPE_2, district)
+
+# Population long format with extrapolation
+pop_long <- pop_data %>%
+  pivot_longer(cols = starts_with("20"), names_to = "year", values_to = "population") %>%
+  mutate(year = as.integer(year), population = as.numeric(population)) %>%
+  filter(!is.na(population))
+
+districts_to_extrapolate <- unique(pop_long$district)
+
+extrapolated_pop <- lapply(districts_to_extrapolate, function(dist) {
+  hist_data <- pop_long %>% filter(district == dist)
+  if (nrow(hist_data) >= 3) {
+    model <- lm(population ~ year, data = hist_data)
+    future_years <- data.frame(year = 2021:2024)
+    predictions <- predict(model, newdata = future_years)
+    future_data <- data.frame(
+      district = dist, year = 2021:2024,
+      population = pmax(predictions, min(hist_data$population)),
+      extrapolated = TRUE
+    )
+    hist_data$extrapolated <- FALSE
+    return(rbind(hist_data, future_data))
+  } else {
+    hist_data$extrapolated <- FALSE
+    return(hist_data)
+  }
+})
+
+pop_complete <- do.call(rbind, extrapolated_pop)
+pop_complete$log_pop <- log(pmax(pop_complete$population, 1))
+
+# Join to protests
+protests_with_district <- protests %>%
+  left_join(protests_matched_df %>% select(event_id_cnty, district), by = "event_id_cnty")
+
+protests_with_pop <- protests_with_district %>%
+  left_join(pop_complete, by = c("district", "year"))
+
+# Poverty data
+poverty_data <- pop_raw %>%
+  filter(Series.Name == "Poverty Rate (in % of population)") %>%
+  select(district = Provinces.Name,
+         `2014` = X2014..YR2014., `2015` = X2015..YR2015.,
+         `2016` = X2016..YR2016., `2017` = X2017..YR2017.,
+         `2018` = X2018..YR2018., `2019` = X2019..YR2019.,
+         `2020` = X2020..YR2020.)
+poverty_data$district <- gsub('^"', '', poverty_data$district)
+
+poverty_long <- poverty_data %>%
+  pivot_longer(cols = `2014`:`2020`, names_to = "year", values_to = "poverty_rate") %>%
+  mutate(year = as.integer(year), poverty_rate = as.numeric(poverty_rate))
+
+poverty_clean <- poverty_long %>%
+  filter(year >= 2015 & year <= 2020) %>%
+  filter(!is.na(poverty_rate))
+
+poverty_trends <- poverty_clean %>%
+  filter(year >= 2018 & year <= 2020) %>%
+  group_by(district) %>%
+  summarise(
+    n_obs = n(),
+    poverty_2018 = poverty_rate[year == 2018][1],
+    poverty_2019 = poverty_rate[year == 2019][1],
+    poverty_2020 = poverty_rate[year == 2020][1],
+    annual_change = case_when(
+      n_obs >= 3 ~ (poverty_2020 - poverty_2018) / 2,
+      n_obs == 2 ~ poverty_2020 - poverty_2019,
+      TRUE ~ 0
+    ),
+    .groups = "drop"
+  )
+
+poverty_projected <- poverty_trends %>%
+  mutate(
+    poverty_2021 = pmax(0, pmin(100, poverty_2020 + annual_change)),
+    poverty_2022 = pmax(0, pmin(100, poverty_2020 + 2 * annual_change)),
+    poverty_2023 = pmax(0, pmin(100, poverty_2020 + 3 * annual_change)),
+    poverty_2024 = pmax(0, pmin(100, poverty_2020 + 4 * annual_change))
+  ) %>%
+  select(district, poverty_2021, poverty_2022, poverty_2023, poverty_2024)
+
+poverty_future <- poverty_projected %>%
+  pivot_longer(cols = starts_with("poverty_"),
+               names_to = "year", names_prefix = "poverty_",
+               values_to = "poverty_rate") %>%
+  mutate(year = as.integer(year), extrapolated = TRUE)
+
+poverty_clean <- poverty_clean %>% mutate(extrapolated = FALSE)
+poverty_full <- bind_rows(poverty_clean, poverty_future) %>% arrange(district, year)
+
+protests_with_poverty <- protests_with_pop %>%
+  left_join(poverty_full %>% select(district, year, poverty_rate),
+            by = c("district", "year")) %>%
+  mutate(poverty_decimal = poverty_rate / 100)
+
+# CPI data
+cpi_raw <- read_csv("indonesia_cpi_fred.csv", show_col_types = FALSE)
+
+cpi <- cpi_raw %>%
+  rename(date = observation_date, cpi = IDNCPIALLMINMEI) %>%
+  mutate(
+    date = as.Date(date),
+    year = year(date),
+    month = month(date),
+    year_month = format(date, "%Y-%m"),
+    log_cpi = log(cpi),
+    inflation_mom = 100 * (cpi / lag(cpi) - 1),
+    inflation_yoy = 100 * (cpi / lag(cpi, 12) - 1)
+  ) %>%
+  filter(year >= 2015 & year <= 2024)
+
+# Collapse multi-day protests
+topic_patterns <- list(
+  labor = "labor|worker|wage|minimum wage|buruh",
+  student = "student|mahasiswa|university|campus",
+  corruption = "corruption|korupsi|kpk",
+  religious = "religious|islam|muslim|christian|church|mosque",
+  election = "election|pemilu|pilkada|vote|voting",
+  land = "agrarian|land|eviction|housing",
+  papua = "papua|west papua",
+  environment = "environmental|environment|pollution|forest",
+  gender = "woman|women|gender|feminist"
+)
+
+protests_with_poverty <- protests_with_poverty %>%
+  mutate(notes_lower = tolower(notes))
+
+for (topic in names(topic_patterns)) {
+  protests_with_poverty[[topic]] <- grepl(topic_patterns[[topic]],
+                                          protests_with_poverty$notes_lower,
+                                          ignore.case = TRUE)
+}
+
+topic_cols <- names(topic_patterns)
+protests_with_poverty <- protests_with_poverty %>%
+  mutate(
+    topic_signature = apply(select(., all_of(topic_cols)), 1, function(x) {
+      detected <- topic_cols[x]
+      if (length(detected) == 0) "unknown" else paste(sort(detected), collapse = "|")
+    })
+  )
+
+protests_with_poverty <- protests_with_poverty %>%
+  mutate(
+    location_id = paste(round(latitude, 4), round(longitude, 4), sep = "_"),
+    is_jakarta = str_detect(admin1, regex("jakarta", ignore_case = TRUE)),
+    collapse_key = ifelse(is_jakarta,
+                          paste(location_id, topic_signature, sep = "__"),
+                          location_id)
+  ) %>%
+  arrange(collapse_key, event_date)
+
+assign_clusters <- function(dates, gap_days = 7) {
+  if (length(dates) == 1) return(1)
+  dates <- sort(dates)
+  cluster <- rep(1, length(dates))
+  current_cluster <- 1
+  for (i in 2:length(dates)) {
+    if (as.numeric(dates[i] - dates[i-1]) > gap_days) {
+      current_cluster <- current_cluster + 1
+    }
+    cluster[i] <- current_cluster
+  }
+  return(cluster)
+}
+
+protests_with_poverty <- protests_with_poverty %>%
+  group_by(collapse_key) %>%
+  mutate(cluster_id = assign_clusters(event_date, gap_days = 7)) %>%
+  ungroup() %>%
+  mutate(event_cluster = paste(collapse_key, cluster_id, sep = "_cluster_"))
+
+protests_collapsed <- protests_with_poverty %>%
+  group_by(event_cluster) %>%
+  summarize(
+    event_date = min(event_date),
+    latitude = first(latitude),
+    longitude = first(longitude),
+    location = first(location),
+    admin1 = first(admin1),
+    admin2 = first(admin2),
+    admin3 = first(admin3),
+    n_events_collapsed = n(),
+    event_span_days = as.numeric(max(event_date) - min(event_date)),
+    fatalities = sum(fatalities, na.rm = TRUE),
+    is_violent = any(is_violent, na.rm = TRUE),
+    sub_event_types = paste(unique(sub_event_type), collapse = "; "),
+    population = first(population),
+    log_pop = first(log_pop),
+    poverty_rate = first(poverty_rate),
+    poverty_decimal = first(poverty_decimal),
+    year = first(year),
+    is_jakarta = first(is_jakarta),
+    .groups = "drop"
+  ) %>%
+  mutate(
+    is_severe = fatalities > 0 | is_violent,
+    event_type = ifelse(is_severe, "Severe", "Peaceful"),
+    has_fatalities = fatalities > 0,
+    days_since_start = as.numeric(event_date - min(event_date))
+  )
+
+cpi_monthly <- cpi %>%
+  select(year_month, cpi) %>%
+  mutate(year_month = as.character(year_month))
+
+protests_with_cpi <- protests_collapsed %>%
+  mutate(date = event_date, year_month = format(date, "%Y-%m")) %>%
+  left_join(cpi_monthly, by = "year_month") %>%
+  mutate(log_cpi = log(cpi))
+
+protests_daily <- protests_with_cpi %>%
+  group_by(date, latitude, longitude) %>%
+  summarise(
+    is_severe = any(is_severe),
+    n_events_day = n(),
+    n_events_collapsed = sum(n_events_collapsed),
+    fatalities = sum(fatalities),
+    location = first(location),
+    admin1 = first(admin1),
+    admin2 = first(admin2),
+    admin3 = first(admin3),
+    log_pop = first(log_pop),
+    population = first(population),
+    poverty_decimal = first(poverty_decimal),
+    poverty_rate = first(poverty_rate),
+    log_cpi = first(log_cpi),
+    cpi = first(cpi),
+    year_month = first(year_month),
+    year = first(year),
+    .groups = "drop"
+  ) %>%
+  arrange(date) %>%
+  mutate(
+    event_type = ifelse(is_severe, "Severe", "Peaceful"),
+    days_since_start = as.numeric(date - min(date))
+  )
+
+# Store sample sizes
+n_raw_events <- nrow(acled)
+n_protest_events <- nrow(protests)
+n_collapsed <- nrow(protests_collapsed)
+n_daily <- nrow(protests_daily)
+date_range_start <- min(protests_daily$date)
+date_range_end <- max(protests_daily$date)
+```
+
+```{r panel-creation, cache=TRUE, include=FALSE}
+# ==============================================================================
+# PANEL CREATION AND MODEL ESTIMATION
+# ==============================================================================
+
+# District covariates from GADM
+district_covariates <- gadm %>%
+  st_drop_geometry() %>%
+  transmute(
+    admin2 = NAME_2,
+    admin1 = NAME_1,
+    ENGTYPE_2 = ENGTYPE_2,
+    district = mapply(gadm_to_pop_name, NAME_2, ENGTYPE_2)
+  ) %>%
+  left_join(gadm_centroids, by = "admin2") %>%
+  left_join(
+    pop_complete %>% filter(year == 2019) %>% select(district, log_pop),
+    by = "district"
+  ) %>%
+  left_join(
+    poverty_full %>% filter(year == 2019) %>% select(district, poverty_rate),
+    by = "district"
+  ) %>%
+  filter(!is.na(lon), !is.na(lat), !is.na(log_pop), !is.na(poverty_rate)) %>%
+  select(admin2, admin1, lon, lat, log_pop, poverty_rate)
+
+n_districts <- nrow(district_covariates)
+districts_with_protests <- n_distinct(protests_daily$admin2[protests_daily$admin2 %in% district_covariates$admin2])
+
+# Create panel
+all_districts <- district_covariates$admin2
+all_dates <- seq(min(protests_daily$date), max(protests_daily$date), by = "day")
+
+daily_counts <- protests_daily %>%
+  filter(admin2 %in% all_districts) %>%
+  group_by(admin2, date) %>%
+  summarise(count = n(), .groups = "drop")
+
+panel <- expand.grid(
+  admin2 = all_districts,
+  date = all_dates,
+  stringsAsFactors = FALSE
+) %>%
+  as_tibble() %>%
+  left_join(daily_counts, by = c("admin2", "date")) %>%
+  mutate(
+    count = replace_na(count, 0),
+    year_month = format(date, "%Y-%m"),
+    year = year(date)
+  ) %>%
+  left_join(district_covariates, by = "admin2") %>%
+  left_join(cpi_monthly, by = "year_month") %>%
+  arrange(admin2, date) %>%
+  mutate(
+    date_num = as.numeric(date - min(date)),
+    admin1_factor = factor(admin1),
+    prov_year = factor(paste(admin1, year, sep = "_"))
+  )
+
+n_panel_obs <- nrow(panel)
+n_days_observed <- length(all_dates)
+
+# National daily count
+national_daily <- panel %>%
+  group_by(date) %>%
+  summarise(national_total = sum(count), .groups = "drop")
+
+panel <- panel %>%
+  left_join(national_daily, by = "date") %>%
+  mutate(national_excl = national_total - count) %>%
+  rename(national_daily = national_excl)
+
+# Distance matrix
+coords <- as.matrix(district_covariates[, c("lon", "lat")])
+dist_matrix <- distm(coords, coords, fun = distHaversine) / 1000
+rownames(dist_matrix) <- district_covariates$admin2
+colnames(dist_matrix) <- district_covariates$admin2
+diag(dist_matrix) <- 0
+
+mean_distance <- round(mean(dist_matrix[dist_matrix > 0]))
+
+# Count matrix
+panel_wide <- panel %>%
+  select(admin2, date, count) %>%
+  pivot_wider(names_from = admin2, values_from = count, values_fill = 0, values_fn = sum)
+
+dates_vec <- panel_wide$date
+count_matrix <- as.matrix(panel_wide[, -1])
+count_matrix <- count_matrix[, rownames(dist_matrix)]
+
+n_days <- nrow(count_matrix)
+n_dist <- ncol(count_matrix)
+
+# Create stratified counts for fatality heterogeneity analysis
+daily_counts_fatal <- protests_daily %>%
+  filter(admin2 %in% all_districts, fatalities > 0) %>%
+  group_by(admin2, date) %>%
+  summarise(count_fatal = n(), .groups = "drop")
+
+daily_counts_nonfatal <- protests_daily %>%
+  filter(admin2 %in% all_districts, fatalities == 0) %>%
+  group_by(admin2, date) %>%
+  summarise(count_nonfatal = n(), .groups = "drop")
+
+# Add stratified counts to panel
+panel <- panel %>%
+  left_join(daily_counts_fatal, by = c("admin2", "date")) %>%
+  left_join(daily_counts_nonfatal, by = c("admin2", "date")) %>%
+  mutate(
+    count_fatal = replace_na(count_fatal, 0),
+    count_nonfatal = replace_na(count_nonfatal, 0)
+  )
+
+# Create count matrices for fatal/non-fatal protests
+panel_wide_fatal <- panel %>%
+  select(admin2, date, count_fatal) %>%
+  pivot_wider(names_from = admin2, values_from = count_fatal, values_fill = 0, values_fn = sum)
+
+panel_wide_nonfatal <- panel %>%
+  select(admin2, date, count_nonfatal) %>%
+  pivot_wider(names_from = admin2, values_from = count_nonfatal, values_fill = 0, values_fn = sum)
+
+count_matrix_fatal <- as.matrix(panel_wide_fatal[, -1])[, rownames(dist_matrix)]
+count_matrix_nonfatal <- as.matrix(panel_wide_nonfatal[, -1])[, rownames(dist_matrix)]
+
+# Store counts for verification
+n_fatal_events <- sum(count_matrix_fatal)
+n_nonfatal_events <- sum(count_matrix_nonfatal)
+
+# Spatial weight functions
+compute_spatial_weights <- function(theta, dist_matrix) {
+  if (is.infinite(theta)) {
+    W <- (dist_matrix > 0) * 1
+  } else {
+    W <- exp(-dist_matrix / theta)
+  }
+  diag(W) <- 0
+  sweep(W, 1, pmax(rowSums(W), 1e-10), FUN = "/")
+}
+
+compute_cross_exposure_fast <- function(W_norm, kappa, count_matrix, n_days, n_dist, max_lag = 30) {
+  temporal_weights <- kappa^(1:max_lag)
+  temporal_weights <- temporal_weights / sum(temporal_weights)
+
+  cross_exposure <- matrix(0, n_days, n_dist)
+  for (lag in 1:max_lag) {
+    lagged <- rbind(matrix(0, lag, n_dist), count_matrix[1:(n_days - lag), ])
+    cross_exposure <- cross_exposure + temporal_weights[lag] * t(W_norm %*% t(lagged))
+  }
+  cross_exposure
+}
+
+compute_cross_exposure <- function(theta, kappa, dist_matrix, count_matrix,
+                                   n_days, n_dist, max_lag = 30) {
+  W_norm <- compute_spatial_weights(theta, dist_matrix)
+  compute_cross_exposure_fast(W_norm, kappa, count_matrix, n_days, n_dist, max_lag)
+}
+```
+
+```{r model-estimation, cache=TRUE, include=FALSE}
+# ==============================================================================
+# MODEL ESTIMATION
+# ==============================================================================
+
+# Clean panel
+n_panel_raw <- nrow(panel)
+panel_clean <- panel %>%
+  filter(!is.na(log_pop), !is.na(poverty_rate), !is.na(cpi),
+         !is.na(national_daily), !is.na(admin2)) %>%
+  mutate(admin2_factor = as.factor(admin2))
+
+n_estimation_sample <- nrow(panel_clean)
+
+# M0: Background-only model
+m0 <- bam(count ~ poverty_rate + cpi +
+            s(admin2_factor, bs = "re") +
+            prov_year +
+            national_daily +
+            offset(log_pop),
+          data = panel_clean,
+          family = quasipoisson(link = "log"),
+          discrete = TRUE)
+
+dev_m0 <- deviance(m0)
+
+# 2D grid search
+theta_grid <- c(50, 100, 200, 300, 500, 750, 1000, 1500, Inf)
+kappa_grid <- c(0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.99, 1.0)
+
+library(future)
+library(future.apply)
+plan(multisession, workers = parallel::detectCores() - 1)
+
+W_norm_list <- lapply(theta_grid, function(theta) {
+  compute_spatial_weights(theta, dist_matrix)
+})
+names(W_norm_list) <- as.character(theta_grid)
+
+param_grid <- expand.grid(
+  theta_idx = seq_along(theta_grid),
+  kappa_idx = seq_along(kappa_grid)
+)
+
+results_list <- future_lapply(seq_len(nrow(param_grid)), function(i) {
+  theta_idx <- param_grid$theta_idx[i]
+  kappa_idx <- param_grid$kappa_idx[i]
+  theta <- theta_grid[theta_idx]
+  kappa <- kappa_grid[kappa_idx]
+  W_norm <- W_norm_list[[theta_idx]]
+
+  cross_exp <- compute_cross_exposure_fast(W_norm, kappa, count_matrix, n_days, n_dist, max_lag = 30)
+
+  exp_long <- data.frame(
+    date = rep(dates_vec, n_dist),
+    admin2 = rep(colnames(count_matrix), each = n_days),
+    cross_lag = as.vector(cross_exp)
+  )
+
+  panel_fit <- panel_clean %>%
+    left_join(exp_long, by = c("admin2", "date"))
+
+  m <- bam(count ~ poverty_rate + cpi +
+             s(admin2_factor, bs = "re") +
+             prov_year +
+             national_daily +
+             cross_lag +
+             offset(log_pop),
+           data = panel_fit,
+           family = poisson(link = "log"),
+           discrete = TRUE)
+
+  coefs <- coef(m)
+  se <- sqrt(diag(vcov(m)))
+
+  list(
+    theta = theta,
+    kappa = kappa,
+    deviance = deviance(m),
+    alpha_cross = coefs["cross_lag"],
+    se_cross = se["cross_lag"]
+  )
+}, future.seed = TRUE)
+
+plan(sequential)
+
+results_2d <- bind_rows(lapply(results_list, as.data.frame))
+
+best_idx <- which.min(results_2d$deviance)
+theta_hat <- results_2d$theta[best_idx]
+kappa_hat <- results_2d$kappa[best_idx]
+dev_optimal <- results_2d$deviance[best_idx]
+
+if (kappa_hat < 1) {
+  half_life <- log(0.5) / log(kappa_hat)
+} else {
+  half_life <- Inf
+}
+
+# Fit best model
+cross_exp_best <- compute_cross_exposure(theta_hat, kappa_hat, dist_matrix, count_matrix,
+                                         n_days, n_dist, max_lag = 30)
+exp_long_best <- data.frame(
+  date = rep(dates_vec, n_dist),
+  admin2 = rep(colnames(count_matrix), each = n_days),
+  cross_lag = as.vector(cross_exp_best)
+)
+panel_best <- panel_clean %>%
+  left_join(exp_long_best, by = c("admin2", "date"))
+
+panel_best <- panel_best %>%
+  mutate(
+    admin2_factor = factor(admin2_factor, levels = sort(unique(admin2_factor))),
+    admin1_factor = factor(admin1_factor, levels = sort(unique(admin1_factor)))
+  )
+
+m1_best <- bam(count ~ poverty_rate + cpi +
+                 s(admin2_factor, bs = "re") +
+                 prov_year +
+                 national_daily +
+                 cross_lag +
+                 offset(log_pop),
+               data = panel_best,
+               family = quasipoisson(link = "log"),
+               discrete = TRUE)
+
+# Re-estimate M0 on the same data as M1 for valid deviance comparison
+# (M0 was originally fit on panel_clean which may have different rows than panel_best)
+m0_compare <- bam(count ~ poverty_rate + cpi +
+                    s(admin2_factor, bs = "re") +
+                    prov_year +
+                    national_daily +
+                    offset(log_pop),
+                  data = panel_best,
+                  family = quasipoisson(link = "log"),
+                  discrete = TRUE)
+
+dev_m0_compare <- deviance(m0_compare)
+dev_m1 <- deviance(m1_best)
+dispersion <- sum(residuals(m1_best, type = "pearson")^2) / m1_best$df.residual
+df_residual <- m1_best$df.residual
+
+# Extract key statistics
+alpha_cross <- coef(m1_best)["cross_lag"]
+se_cross <- summary(m1_best)$p.table["cross_lag", "Std. Error"]
+t_cross <- alpha_cross / se_cross
+p_cross <- summary(m1_best)$p.table["cross_lag", "Pr(>|t|)"]
+
+# F-test for contagion (using M0 re-estimated on same data as M1)
+F_stat_contagion <- ((dev_m0_compare - dev_m1) / 1) / dispersion
+p_contagion <- pf(F_stat_contagion, 1, df_residual, lower.tail = FALSE)
+
+# Distance test
+dev_inf <- results_2d %>%
+  filter(is.infinite(theta), kappa == kappa_hat) %>%
+  pull(deviance)
+
+if (!is.infinite(theta_hat)) {
+  F_stat_distance <- ((dev_inf - dev_optimal) / 1) / dispersion
+  p_distance <- pf(F_stat_distance, 1, df_residual, lower.tail = FALSE)
+} else {
+  p_distance <- 1.0
+}
+
+# Temporal decay test
+dev_no_decay <- results_2d %>%
+  filter(theta == theta_hat, kappa == 1.0) %>%
+  pull(deviance)
+
+if (kappa_hat < 1) {
+  F_stat_temporal <- ((dev_no_decay - dev_optimal) / 1) / dispersion
+  p_temporal <- pf(F_stat_temporal, 1, df_residual, lower.tail = FALSE)
+} else {
+  p_temporal <- 1.0
+}
+```
+
+```{r count-distribution, include=FALSE}
+# ==============================================================================
+# COUNT DISTRIBUTION SUMMARY
+# ==============================================================================
+
+n_zero <- sum(panel_best$count == 0)
+n_one <- sum(panel_best$count == 1)
+n_two_plus <- sum(panel_best$count >= 2)
+pct_binary <- round(100 * n_one / (n_one + n_two_plus), 1)
+```
+
+```{r robustness-checks, cache=TRUE, include=FALSE}
+# ==============================================================================
+# ROBUSTNESS CHECKS
+# ==============================================================================
+
+# Geographic spline robustness
+m1_spline <- bam(count ~ poverty_rate + cpi +
+                   s(admin2_factor, bs = "re") +
+                   prov_year +
+                   s(lon, lat, bs = "tp", k = 30) +
+                   national_daily +
+                   cross_lag +
+                   offset(log_pop),
+                 data = panel_best,
+                 family = quasipoisson(link = "log"),
+                 discrete = TRUE)
+
+alpha_spline <- coef(m1_spline)["cross_lag"]
+se_spline <- summary(m1_spline)$p.table["cross_lag", "Std. Error"]
+
+# Without national daily control
+m1_no_national <- bam(count ~ poverty_rate + cpi +
+                        s(admin2_factor, bs = "re") +
+                        prov_year +
+                        cross_lag +
+                        offset(log_pop),
+                      data = panel_best,
+                      family = quasipoisson(link = "log"),
+                      discrete = TRUE)
+
+alpha_no_national <- coef(m1_no_national)["cross_lag"]
+se_no_national <- summary(m1_no_national)$p.table["cross_lag", "Std. Error"]
+
+# VIF calculation
+vif_data <- panel_best %>%
+  select(poverty_rate, cpi, national_daily, cross_lag) %>%
+  filter(complete.cases(.))
+
+compute_vif <- function(data) {
+  vars <- names(data)
+  vifs <- numeric(length(vars))
+  names(vifs) <- vars
+  for (j in seq_along(vars)) {
+    other_vars <- vars[-j]
+    formula_j <- as.formula(paste(vars[j], "~", paste(other_vars, collapse = " + ")))
+    r2_j <- summary(lm(formula_j, data = data))$r.squared
+    vifs[j] <- 1 / (1 - r2_j)
+  }
+  return(vifs)
+}
+
+vif_values <- compute_vif(vif_data)
+cor_cross_national <- cor(panel_best$cross_lag, panel_best$national_daily, use = "complete.obs")
+
+# Moran's I
+panel_best$resid <- residuals(m1_best, type = "pearson")
+
+district_resid <- panel_best %>%
+  group_by(admin2) %>%
+  summarise(mean_resid = mean(resid, na.rm = TRUE), .groups = "drop") %>%
+  left_join(district_covariates %>% select(admin2, lon, lat), by = "admin2") %>%
+  filter(!is.na(lon), !is.na(lat))
+
+coords_moran <- as.matrix(district_resid[, c("lon", "lat")])
+k <- 5
+knn <- knearneigh(coords_moran, k = k)
+nb <- knn2nb(knn)
+listw <- nb2listw(nb, style = "W")
+
+moran_result <- moran.test(district_resid$mean_resid, listw)
+moran_i <- moran_result$estimate["Moran I statistic"]
+moran_p <- moran_result$p.value
+```
+
+```{r logistic-robustness, cache=TRUE, include=FALSE}
+# ==============================================================================
+# LOGISTIC REGRESSION ROBUSTNESS CHECK
+# ==============================================================================
+
+# Binary outcome
+panel_best$protest_any <- as.numeric(panel_best$count > 0)
+
+# Logistic regression with same structure as m1_best
+# Note: log_pop enters as a covariate, not an offset
+# (offset interpretation differs for binomial vs Poisson)
+m1_logit <- bam(protest_any ~ poverty_rate + cpi +
+                  s(admin2_factor, bs = "re") +
+                  prov_year +
+                  national_daily +
+                  cross_lag +
+                  log_pop,
+                data = panel_best,
+                family = binomial(link = "logit"),
+                discrete = TRUE)
+
+# Extract key statistics
+alpha_logit <- coef(m1_logit)["cross_lag"]
+se_logit <- summary(m1_logit)$p.table["cross_lag", "Std. Error"]
+z_logit <- alpha_logit / se_logit
+p_logit <- summary(m1_logit)$p.table["cross_lag", "Pr(>|z|)"]
+```
+
+```{r collapse-window-robustness, cache=TRUE, include=FALSE}
+# ==============================================================================
+# COLLAPSE WINDOW ROBUSTNESS ANALYSIS
+# ==============================================================================
+
+# Function to collapse events with uniform logic (no Jakarta special treatment)
+collapse_events_uniform <- function(protest_data, gap_days) {
+  # If gap_days = 0, no collapsing (each event is its own cluster)
+  if (gap_days == 0) {
+    collapsed <- protest_data %>%
+      mutate(
+        location_id = paste(round(latitude, 4), round(longitude, 4), sep = "_"),
+        event_cluster = paste(location_id, row_number(), sep = "_cluster_")
+      ) %>%
+      group_by(event_cluster) %>%
+      summarize(
+        event_date = min(event_date),
+        latitude = first(latitude),
+        longitude = first(longitude),
+        location = first(location),
+        admin1 = first(admin1),
+        admin2 = first(admin2),
+        admin3 = first(admin3),
+        n_events_collapsed = n(),
+        fatalities = sum(fatalities, na.rm = TRUE),
+        is_violent = any(is_violent, na.rm = TRUE),
+        population = first(population),
+        log_pop = first(log_pop),
+        poverty_rate = first(poverty_rate),
+        poverty_decimal = first(poverty_decimal),
+        year = first(year),
+        .groups = "drop"
+      )
+  } else {
+    # Uniform collapse key for ALL locations (no Jakarta exception)
+    protest_data <- protest_data %>%
+      mutate(
+        location_id = paste(round(latitude, 4), round(longitude, 4), sep = "_"),
+        collapse_key = location_id  # Uniform for all locations
+      ) %>%
+      arrange(collapse_key, event_date)
+
+    # Assign clusters based on gap_days
+    assign_clusters_local <- function(dates, gap) {
+      if (length(dates) == 1) return(1)
+      dates <- sort(dates)
+      cluster <- rep(1, length(dates))
+      current_cluster <- 1
+      for (i in 2:length(dates)) {
+        if (as.numeric(dates[i] - dates[i-1]) > gap) {
+          current_cluster <- current_cluster + 1
+        }
+        cluster[i] <- current_cluster
+      }
+      return(cluster)
+    }
+
+    protest_data <- protest_data %>%
+      group_by(collapse_key) %>%
+      mutate(cluster_id = assign_clusters_local(event_date, gap_days)) %>%
+      ungroup() %>%
+      mutate(event_cluster = paste(collapse_key, cluster_id, sep = "_cluster_"))
+
+    collapsed <- protest_data %>%
+      group_by(event_cluster) %>%
+      summarize(
+        event_date = min(event_date),
+        latitude = first(latitude),
+        longitude = first(longitude),
+        location = first(location),
+        admin1 = first(admin1),
+        admin2 = first(admin2),
+        admin3 = first(admin3),
+        n_events_collapsed = n(),
+        fatalities = sum(fatalities, na.rm = TRUE),
+        is_violent = any(is_violent, na.rm = TRUE),
+        population = first(population),
+        log_pop = first(log_pop),
+        poverty_rate = first(poverty_rate),
+        poverty_decimal = first(poverty_decimal),
+        year = first(year),
+        .groups = "drop"
+      )
+  }
+
+  collapsed %>%
+    mutate(
+      is_severe = fatalities > 0 | is_violent,
+      days_since_start = as.numeric(event_date - min(event_date))
+    )
+}
+
+# Function to build panel and fit model for a given collapse window
+fit_collapse_window <- function(protest_data, gap_days, theta_opt, kappa_opt,
+                                 district_covariates, cpi_monthly, dist_matrix) {
+
+  # Collapse events
+  protests_collapsed_rob <- collapse_events_uniform(protest_data, gap_days)
+
+  # Merge CPI
+  protests_with_cpi_rob <- protests_collapsed_rob %>%
+    mutate(date = event_date, year_month = format(date, "%Y-%m")) %>%
+    left_join(cpi_monthly, by = "year_month")
+
+  # Create daily aggregation
+  protests_daily_rob <- protests_with_cpi_rob %>%
+    group_by(date, latitude, longitude) %>%
+    summarise(
+      is_severe = any(is_severe),
+      n_events_day = n(),
+      fatalities = sum(fatalities),
+      admin2 = first(admin2),
+      log_pop = first(log_pop),
+      poverty_rate = first(poverty_rate),
+      cpi = first(cpi),
+      year = first(year),
+      .groups = "drop"
+    ) %>%
+    arrange(date)
+
+  # Build panel
+  all_districts <- district_covariates$admin2
+  all_dates <- seq(min(protests_daily_rob$date), max(protests_daily_rob$date), by = "day")
+
+  daily_counts_rob <- protests_daily_rob %>%
+    filter(admin2 %in% all_districts) %>%
+    group_by(admin2, date) %>%
+    summarise(count = n(), .groups = "drop")
+
+  panel_rob <- expand.grid(
+    admin2 = all_districts,
+    date = all_dates,
+    stringsAsFactors = FALSE
+  ) %>%
+    as_tibble() %>%
+    left_join(daily_counts_rob, by = c("admin2", "date")) %>%
+    mutate(
+      count = replace_na(count, 0),
+      year_month = format(date, "%Y-%m"),
+      year = year(date)
+    ) %>%
+    left_join(district_covariates, by = "admin2") %>%
+    left_join(cpi_monthly, by = "year_month") %>%
+    arrange(admin2, date) %>%
+    mutate(
+      admin1_factor = factor(admin1),
+      prov_year = factor(paste(admin1, year, sep = "_"))
+    )
+
+  # National daily (excluding own district)
+  national_daily_rob <- panel_rob %>%
+    group_by(date) %>%
+    summarise(national_total = sum(count), .groups = "drop")
+
+  panel_rob <- panel_rob %>%
+    left_join(national_daily_rob, by = "date") %>%
+    mutate(national_excl = national_total - count) %>%
+    rename(national_daily = national_excl)
+
+  # Count matrix
+  panel_wide_rob <- panel_rob %>%
+    select(admin2, date, count) %>%
+    pivot_wider(names_from = admin2, values_from = count, values_fill = 0, values_fn = sum)
+
+  dates_vec_rob <- panel_wide_rob$date
+  count_matrix_rob <- as.matrix(panel_wide_rob[, -1])
+  count_matrix_rob <- count_matrix_rob[, rownames(dist_matrix)]
+
+  n_days_rob <- nrow(count_matrix_rob)
+  n_dist_rob <- ncol(count_matrix_rob)
+
+  # Compute cross-exposure with optimal parameters from main analysis
+  cross_exp_rob <- compute_cross_exposure(theta_opt, kappa_opt, dist_matrix, count_matrix_rob,
+                                           n_days_rob, n_dist_rob, max_lag = 30)
+
+  exp_long_rob <- data.frame(
+    date = rep(dates_vec_rob, n_dist_rob),
+    admin2 = rep(colnames(count_matrix_rob), each = n_days_rob),
+    cross_lag = as.vector(cross_exp_rob)
+  )
+
+  # Clean and merge
+  panel_clean_rob <- panel_rob %>%
+    filter(!is.na(log_pop), !is.na(poverty_rate), !is.na(cpi),
+           !is.na(national_daily), !is.na(admin2)) %>%
+    mutate(admin2_factor = as.factor(admin2)) %>%
+    left_join(exp_long_rob, by = c("admin2", "date"))
+
+  # Fit model
+  m_rob <- bam(count ~ poverty_rate + cpi +
+                 s(admin2_factor, bs = "re") +
+                 prov_year +
+                 national_daily +
+                 cross_lag +
+                 offset(log_pop),
+               data = panel_clean_rob,
+               family = quasipoisson(link = "log"),
+               discrete = TRUE)
+
+  # Extract statistics
+  alpha_rob <- coef(m_rob)["cross_lag"]
+  se_rob <- summary(m_rob)$p.table["cross_lag", "Std. Error"]
+  t_rob <- alpha_rob / se_rob
+  p_rob <- summary(m_rob)$p.table["cross_lag", "Pr(>|t|)"]
+
+  list(
+    gap_days = gap_days,
+    n_events = nrow(protests_collapsed_rob),
+    alpha = alpha_rob,
+    se = se_rob,
+    t_stat = t_rob,
+    p_value = p_rob,
+    ci_lower = alpha_rob - 1.96 * se_rob,
+    ci_upper = alpha_rob + 1.96 * se_rob
+  )
+}
+
+# Run robustness analysis for different collapse windows
+collapse_windows <- c(0, 2, 3, 5, 7)
+
+collapse_results <- lapply(collapse_windows, function(gap) {
+  fit_collapse_window(
+    protest_data = protests_with_poverty,
+    gap_days = gap,
+    theta_opt = theta_hat,
+    kappa_opt = kappa_hat,
+    district_covariates = district_covariates,
+    cpi_monthly = cpi_monthly,
+    dist_matrix = dist_matrix
+  )
+})
+
+collapse_robustness_table <- bind_rows(lapply(collapse_results, as.data.frame))
+```
+
+```{r fatality-heterogeneity, cache=TRUE, include=FALSE}
+# ==============================================================================
+# FATALITY HETEROGENEITY ANALYSIS
+# ==============================================================================
+
+# Compute separate exposure terms using optimal parameters
+W_opt <- compute_spatial_weights(theta_hat, dist_matrix)
+cross_exp_fatal <- compute_cross_exposure_fast(W_opt, kappa_hat, count_matrix_fatal, n_days, n_dist, max_lag = 30)
+cross_exp_nonfatal <- compute_cross_exposure_fast(W_opt, kappa_hat, count_matrix_nonfatal, n_days, n_dist, max_lag = 30)
+
+# Merge into panel
+exp_fatal_long <- data.frame(
+  date = rep(dates_vec, n_dist),
+  admin2 = rep(colnames(count_matrix), each = n_days),
+  cross_fatal = as.vector(cross_exp_fatal),
+  cross_nonfatal = as.vector(cross_exp_nonfatal)
+)
+
+panel_fatal <- panel_best %>%
+  left_join(exp_fatal_long, by = c("admin2", "date"))
+
+# Fit decomposed model
+m_fatal <- bam(count ~ poverty_rate + cpi +
+                 s(admin2_factor, bs = "re") +
+                 prov_year +
+                 national_daily +
+                 cross_fatal + cross_nonfatal +
+                 offset(log_pop),
+               data = panel_fatal,
+               family = quasipoisson(link = "log"),
+               discrete = TRUE)
+
+# Extract coefficients
+alpha_fatal <- coef(m_fatal)["cross_fatal"]
+alpha_nonfatal <- coef(m_fatal)["cross_nonfatal"]
+vcov_fatal <- vcov(m_fatal)
+se_fatal <- sqrt(vcov_fatal["cross_fatal", "cross_fatal"])
+se_nonfatal <- sqrt(vcov_fatal["cross_nonfatal", "cross_nonfatal"])
+cov_fatal_nonfatal <- vcov_fatal["cross_fatal", "cross_nonfatal"]
+
+# Wald test for coefficient equality
+diff_fatal <- alpha_fatal - alpha_nonfatal
+se_diff_fatal <- sqrt(vcov_fatal["cross_fatal", "cross_fatal"] +
+                      vcov_fatal["cross_nonfatal", "cross_nonfatal"] -
+                      2 * cov_fatal_nonfatal)
+z_fatal <- diff_fatal / se_diff_fatal
+p_fatal <- 2 * pnorm(-abs(z_fatal))
+
+# Multiplicative effects
+mult_fatal <- exp(alpha_fatal)
+mult_nonfatal <- exp(alpha_nonfatal)
+ratio_fatal_nonfatal <- alpha_fatal / alpha_nonfatal
+```
+
+```{r endogenous-fraction, cache=TRUE, include=FALSE}
+# ==============================================================================
+# ENDOGENOUS FRACTION CALCULATION
+# ==============================================================================
+
+# Counterfactual: predict from SAME model (m1_best) with cross_lag set to 0
+panel_counterfactual <- panel_best %>%
+  mutate(cross_lag = 0)
+
+lambda_bg <- predict(m1_best, newdata = panel_counterfactual, type = "response")
+lambda_full <- predict(m1_best, newdata = panel_best, type = "response")
+lambda_triggered <- lambda_full - lambda_bg
+
+# Store lambda values in panel_best for later visualization
+panel_best <- panel_best %>%
+  mutate(
+    lambda_bg = lambda_bg,
+    lambda_full = lambda_full,
+    lambda_triggered = lambda_triggered
+  )
+
+total_observed <- sum(panel_best$count)
+total_expected <- sum(lambda_full)
+total_background <- sum(lambda_bg)
+total_triggered <- sum(lambda_triggered)
+
+endogenous_fraction <- total_triggered / total_expected
+
+# Weekly lag structure
+if (is.infinite(theta_hat)) {
+  W_best <- (dist_matrix > 0) * 1
+  diag(W_best) <- 0
+} else {
+  W_best <- exp(-dist_matrix / theta_hat)
+  diag(W_best) <- 0
+}
+W_best_norm <- sweep(W_best, 1, pmax(rowSums(W_best), 1e-10), FUN = "/")
+
+week_exposures <- list(
+  week1 = matrix(0, n_days, n_dist),
+  week2 = matrix(0, n_days, n_dist),
+  week3 = matrix(0, n_days, n_dist),
+  week4 = matrix(0, n_days, n_dist)
+)
+
+for (lag in 1:30) {
+  lagged <- rbind(matrix(0, lag, n_dist), count_matrix[1:(n_days - lag), ])
+  lag_exp <- t(W_best_norm %*% t(lagged))
+  if (lag <= 7) {
+    week_exposures$week1 <- week_exposures$week1 + lag_exp
+  } else if (lag <= 14) {
+    week_exposures$week2 <- week_exposures$week2 + lag_exp
+  } else if (lag <= 21) {
+    week_exposures$week3 <- week_exposures$week3 + lag_exp
+  } else {
+    week_exposures$week4 <- week_exposures$week4 + lag_exp
+  }
+}
+
+lag_df <- data.frame(
+  date = rep(dates_vec, n_dist),
+  admin2 = rep(colnames(count_matrix), each = n_days),
+  week1 = as.vector(week_exposures$week1),
+  week2 = as.vector(week_exposures$week2),
+  week3 = as.vector(week_exposures$week3),
+  week4 = as.vector(week_exposures$week4)
+)
+
+panel_lags <- panel_clean %>%
+  left_join(lag_df, by = c("admin2", "date"))
+
+m_lags <- bam(count ~ poverty_rate + cpi +
+                s(admin2_factor, bs = "re") +
+                prov_year +
+                national_daily +
+                week1 + week2 + week3 + week4 +
+                offset(log_pop),
+              data = panel_lags,
+              family = quasipoisson(link = "log"),
+              discrete = TRUE)
+
+lag_coefs <- data.frame(
+  Week = c("Week 1 (days 1-7)", "Week 2 (days 8-14)", "Week 3 (days 15-21)", "Week 4 (days 22-30)"),
+  Estimate = coef(m_lags)[paste0("week", 1:4)],
+  SE = summary(m_lags)$p.table[paste0("week", 1:4), "Std. Error"],
+  t = summary(m_lags)$p.table[paste0("week", 1:4), "t value"]
+)
+```
+
+# Introduction
+
+When protests erupt in one city, do they spread to neighboring regions? Scholars of contentious politics have long observed that protest activity clusters in space and time in ways that exceed what shared grievances or simultaneous political opportunities would predict [@tarrow2011]. A demonstration in one location appears to increase the likelihood of demonstrations elsewhere, suggesting that protests may be genuinely contagious, meaning that observing collective action in one place lowers the barriers to mobilization in another. Yet distinguishing true contagion from the mere appearance of diffusion poses formidable methodological challenges.
+
+This paper addresses a fundamental empirical question: to what extent does protest activity spread across geographic space through a genuine diffusion process, as opposed to reflecting coincidental clustering driven by common underlying causes? The distinction matters. If protests genuinely diffuse, then early mobilization can trigger cascades of subsequent activity, and understanding the dynamics of spread becomes essential for both movement organizers and authorities seeking to anticipate unrest. If apparent diffusion is merely an artifact of correlated shocks or shared structural conditions, then the policy implications differ substantially.
+
+The theoretical stakes of this question are considerable. Classic accounts of contentious politics emphasize *demonstration effects*: successful collective action in one location reveals information about government vulnerability, reduces perceived costs of participation, and provides coordination signals to potential activists elsewhere [@kuran1991; @lohmann1994]. Under this view, protests are self-reinforcing, with each instance of mobilization making subsequent mobilization elsewhere more likely. Alternative accounts, however, suggest that apparent clustering may arise from common shocks (national political events, economic crises) that simultaneously raise grievances or lower barriers across multiple locations without any genuine cross-location influence.
+
+This paper makes three contributions to the literature on protest diffusion. First, I adapt methods used in seismology to study earthquakes and aftershocks to the study of protest of protest diffusions. These method separates *background protest intensity*, defined as the expected level of protest in a area based on its structural characteristics, regional political context, and national protest waves, from *cross-regional spillovers* that may reflect genuine diffusion
+
+Second, I quantify the magnitude and structure of diffusion. Moving beyond the binary question of whether diffusion exists, I estimate its contribution to overall protest activity (approximately 7% of events are attributable to cross-district spillovers), its spatial reach (effects decay with a characteristic distance of approximately 200 kilometers), and its temporal persistence (effects decay with a half-life of approximately 4.3 days). These quantitative estimates characterize the dynamics of protest spread in ways that inform both theory and practice.
+
+Third, I test for *heterogeneous diffusion* based on the level of violence. Specifically, I examine whether fatal protests (those involving deaths of participants or bystanders) generate stronger downstream mobilization than non-fatal events. This *martyrdom hypothesis* posits that deaths attract disproportionate media coverage, provoke moral outrage, and create focal points for subsequent action. In addition to differences in triggering potential, we also compare the spatial and temporal reach of fatal and non-fatal protests. 
+
+The remainder of this paper is organized as follows. Section 2 reviews the literature on protest diffusion, martyrdom effects, and methodological approaches to identifying contagion. Section 3 describes the Indonesian context, including the political system, patterns of protest activity during the study period, and why Indonesia provides a valuable setting for studying diffusion. Section 4 presents the research design, including the data, modeling approach, and identification strategy. Section 5 reports results on the existence and magnitude of diffusion, its spatial-temporal structure, and the martyrdom effect.
+
+# Literature Review
+
+This section reviews three bodies of scholarship relevant to this paper: research on protest diffusion and contagion, studies of martyrdom effects and the consequences of fatal repression, and methodological approaches to identifying genuine diffusion. I conclude by positioning the contributions of this paper relative to existing work.
+
+The idea that protests spread from place to place has deep roots in the study of contentious politics. @tarrow2011 describes *cycles of contention*, periods when protest activity intensifies across multiple sectors and locations, with tactics and frames spreading from early movers to later adopters. Central to this account is the concept of *demonstration effects*: successful collective action in one location provides a model for action elsewhere, revealing both the feasibility of mobilization and the vulnerability of authorities. @beissinger2002 extends this logic in analyzing nationalist mobilization across Soviet republics, emphasizing the *modularity* of protest tactics. When activists observe successful strategies elsewhere (occupations, general strikes, human chains), they adapt these templates to local contexts. The spread of modular tactics generates spatial-temporal clustering even when underlying grievances differ across locations.
+
+Formal models of informational cascades provide microfoundations for these dynamics. @kuran1991 argues that individuals hold private preferences about collective action but base their decisions partly on observed behavior of others. When a sufficient number of people mobilize, this reveals information about the distribution of preferences, potentially triggering rapid cascades as previously hesitant individuals join. @lohmann1994 applies this logic to the Monday demonstrations in Leipzig, showing how participation grew as each week's turnout provided information about popular opposition to the regime.
+
+Identifying genuine protest diffusion is methodologically challenging because multiple processes can generate spatial-temporal clustering. Protests may cluster because nearby locations share common structural conditions (poverty, urbanization, ethnic composition) that independently generate grievances. Protests may cluster in time because of common shocks (national political events, economic crises, policy announcements) that simultaneously trigger mobilization across locations. Or protests may cluster because of genuine diffusion, with activity in one location causally influencing activity elsewhere.
+
+The challenge is that all three processes generate similar patterns in the data: positive spatial-temporal correlation in protest activity. Disentangling these explanations requires either experimental variation (which is rarely available) or careful observational designs that control for common causes sufficiently that remaining correlation can plausibly be attributed to diffusion.
+
+The literature has employed several methodological approaches to test for diffusion. The simplest and most common approach asks whether protest activity today predicts elevated protest activity tomorrow, essentially testing for positive temporal autocorrelation in protest counts. While such tests frequently find positive associations, they cannot distinguish genuine diffusion from serial correlation induced by persistent grievances or slowly-evolving political opportunities. Knox-type tests extend this logic to space-time clustering, examining whether events occur closer together in space and time than would be expected under independence, but again cannot separate diffusion from common shocks. Difference-in-differences designs examine changes in protest activity following triggering events, but require parallel trends assumptions that are difficult to verify and are generally more suited for studying the mechanisms of diffusion rather than diffusion itself.
+
+The approach most closely aligned with this paper is @biggs2005, who models strike waves in Chicago and Paris as "forest fires" using self-exciting point process methods adapted from seismology. This framework, known as Hawkes processes [@hawkes1971; @ogata1988], decomposes event intensity into a *background* component reflecting structural conditions and a *triggered* component attributable to recent activity elsewhere. The key innovation is the explicit separation of baseline risk from contagion, allowing quantification of the share of events attributable to diffusion. @mohler2011 demonstrate the value of these methods for modeling crime, and @reinhart2018 provides a comprehensive review of self-exciting point process methods and their applications. However, standard Hawkes process implementations require continuous time data and specific functional form assumptions that may not match the discrete daily structure of most data on social movements and protests. 
+
+This paper develops a discrete-time spatial-temporal model that builds on @biggs2005's decomposition while incorporating panel data methods to strengthen identification. Like Hawkes process models, the approach separates background protest intensity from triggered activity, allowing quantification of the share attributable to diffusion. Like panel data methods, the approach incorporates controls to absorb persistent heterogeneity and regional political shocks. These controls are difficult to implement in continuous-time point process frameworks. A similar approach was also undertaken more recently at the country-year level for cross-national protest diffusion in Europe [@gonzalezrostani2025].
+
+
+A central question in the study of repression is whether state violence deters or mobilizes opposition. The*backfire hypothesis posits that under certain conditions, repression, particularly when perceived as illegitimate or disproportionate, increases rather than decreases subsequent mobilization [@martin2007]. This occurs because harsh repression generates outrage, attracts media attention, and delegitimizes authorities in ways that lower barriers to participation. @francisco2004 provides evidence for this dynamic, showing that mobilization often increases in the aftermath of massacres and other severe repressive episodes. @rasler1996 documents this pattern in the Iranian Revolution, showing that protest waves intensified following episodes of harsh repression. @chenoweth2011 extend this logic in explaining why nonviolent resistance campaigns succeed more often than violent ones: violence against nonviolent protesters is perceived as particularly illegitimate, generating domestic and international backlash that undermines regime support.
+
+Empirical research has increasingly examined how fatal events shape subsequent mobilization. @williamson2018 study the Black Lives Matter movement, finding that police killings of Black Americans predict subsequent protest activity. Their analysis shows that fatal incidents, particularly those receiving substantial media coverage, trigger mobilization in ways that non-fatal encounters do not.This work, while focused on the United States, provides methodological precedent for examining how violence shapes diffusion. 
+
+Testing for differential diffusion effects of fatal versus non-fatal protests thus provides leverage on the mechanisms underlying protest contagion. If diffusion operates primarily through information about feasibility, we might expect fatal and non-fatal protests to have similar effects, since both demonstrate that mobilization is possible. If, however, emotional resonance and moral outrage drive diffusion, fatal events should produce substantially larger spillovers.
+
+This paper addresses several gaps in the existing literature on protest diffusion. First, while most prior work tests for the *existence* of diffusion, providing binary yes/no conclusions, this paper *quantifies* the magnitude of diffusion by estimating both the share of protest activity attributable to spillovers and the spatial-temporal structure of those spillovers.
+
+Second, we examine the role of violence in diffusion. The martyrdom hypothesis has been tested primarily in qualtitative case studies of high-repression authoritarian contexts. This paper tests whether fatal protests generate stronger diffusion with quantitative methods. We also test whether fatal and non-fatal protest differ not only in the strength of their triggering potential but in the spatial and temporal reach of their effects. 
+
+# Institutional Setting: Indonesia
+
+Before presenting the research design, this section provides context on Indonesia's political system, patterns of protest activity during the study period, and why Indonesia offers a valuable setting for studying protest diffusion.
+
+Indonesia is the world's third-largest democracy and the largest Muslim-majority nation, with a population exceeding 270 million spread across more than 17,000 islands. Following the fall of President Suharto in 1998, a transition known as *reformasi*. Indonesia subsequently underwent substantial political liberalization. The contemporary political system features direct elections at national, provincial, and district levels; constitutional protections for freedom of assembly; and an active civil society with numerous labor unions, student organizations, and advocacy groups.
+
+The country is administratively divided into 38 provinces, which are further subdivided into over 500 districts (*kabupaten* and *kota*). This multi-level structure creates substantial variation in local political contexts, as gubernatorial and district-head elections occur on staggered schedules and local governments exercise considerable autonomy over policy implementation.
+
+While Indonesia is a consolidated democracy, the enforcement of civil liberties varies. Protests are legal and common, but authorities sometimes respond with force, particularly when demonstrations turn violent or threaten to disrupt economic activity. This variation in state responses across events and locations provides an opportunity to examine how event characteristics, including fatalities, shape diffusion dynamics.
+
+The study period encompasses several major waves of protest activity that illustrate both the prevalence of collective action in Indonesia and the potential for protests to spread across locations.
+
+The dynamics of the 2025 anti-corruption protests provide a vivid illustration of both protest diffusion and the martyrdom effect that this paper seeks to analyze. In late 2025, demonstrations erupted across Indonesia in response to reports regarding the income and financial benefits received by legislators. What began as scattered student protests in Jakarta quickly escalated following a tragic incident that transformed the movement.
+
+On August 28th, 2025, a Gojek driver, a young man working for Indonesia's ubiquitous ride-hailing service, was killed during clashes between protesters and security forces in Central Jakarta. The driver, who was not a protester but was caught in the violence while making deliveries, became an immediate symbol of state overreach and the human costs of repression. His death generated extensive media coverage, trending on Indonesian social media for days, and provoked moral outrage that extended far beyond the activist community.
+
+In the days following the driver's death, protests spread rapidly to cities that had previously seen little activity. Within 48 hours, demonstrations emerged in Surabaya, Bandung, Yogyakarta, Medan, and Makassar. By the end of the week, protests had been recorded in over 60 districts across the archipelago. Many of these subsequent protests explicitly invoked the driver's death, with participants carrying his photograph and demanding accountability.
+
+This episode illustrates the core questions of this paper. Did the geographic spread of protests following the fatality reflect genuine diffusion, with the driver's death causally triggering mobilization in locations that would not otherwise have protested? Or were these protests independent responses to the same national political grievances, with the timing merely coincidental? The research design that follows attempts to disentangle these explanations by testing whether fatal events generate systematically stronger cross-district spillovers than non-fatal protests, after controlling for common national shocks.
+
+
+# Research Design
+
+This section describes the data and empirical strategy for testing whether protests spread across districts in Indonesia. We develop a baseline-plus-contagion framework in which protest intensity is modeled as the product of (i) a background rate capturing persistent and contextual determinants of protest and (ii) a spatial–temporal exposure term capturing diffusion.
+
+The core approach compares two models: a baseline that explains protest counts using structural factors alone, and an augmented model that adds a measure of exposure to recent protests elsewhere. If the augmented model fits significantly better, this provides evidence consistent with spatial diffusion of protest activity.
+
+### Protest Events
+
+The analysis uses geo-coded protest data from the Armed Conflict Location and Event Data Project (ACLED), which systematically records political violence and protest events worldwide. ACLED provides the date, precise geographic coordinates, and descriptive information for each event. I focus on events coded as "Protests" or "Riots" occurring in Indonesia.
+
+The raw data contain `r format(n_protest_events, big.mark=",")` protest and riot events. Because ACLED sometimes records multi-day protests as separate daily entries, I collapse events occurring at the same location within a 7-day window into single episodes, treating the first day as the event date. This yields 8508 unique protest-location-days for analysis. Of these, `r format(n_fatal_events, big.mark = ",")` involved at least one fatality.
+
+### Unit of Analysis
+
+The unit of analysis is the district-day. Indonesia contains `r n_districts` districts (kabupaten and kota) at the second administrative level below provinces. For each district $r$ and day $t$, I observe the count of protest events $Y_{tr}$. The data span `r format(date_range_start, "%B %d, %Y")` through `r format(date_range_end, "%B %d, %Y")`, yielding `r format(n_estimation_sample, big.mark=",")` district-day observations in the estimation sample.
+
+Daily discrete-time modeling is appropriate because protest timing in event data is typically precise to the day but rarely to the hour. Daily aggregation also aligns with the temporal dynamics of interest: if protests diffuse, the relevant time scale is days to weeks rather than minutes or hours. In practice, district-day counts rarely exceed 1, making the outcome effectively binary; a logistic regression robustness check reported in Section 5 confirms that results are invariant to this modeling choice.
+
+### Temporal Distribution of Protests
+
+```{r figure-timeseries-main, echo=FALSE, fig.cap="Daily protest counts in Indonesia. The figure shows substantial day-to-day variation with occasional spikes corresponding to major national events.", fig.height=3.5}
+daily_counts_plot <- protests_daily %>%
+  group_by(date) %>%
+  summarise(n = n(), .groups = "drop")
+
+ggplot(daily_counts_plot, aes(x = date, y = n)) +
+  geom_col(fill = "#2c3e50", alpha = 0.7, width = 1) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, NA)) +
+  labs(x = NULL, y = "Daily Protest Count") +
+  theme_paper +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Figure 1 displays the temporal distribution of protests over the study period. Protest activity varies substantially across time, with periodic spikes that often correspond to national political events such as elections, legislative debates, or judicial decisions. This temporal clustering motivates the inclusion of controls for national-level shocks in the analysis.
+
+## Testing for Spatial Diffusion
+
+The central empirical question is whether protests in one district predict subsequent protests in other districts, beyond what structural factors explain. I address this by comparing two nested models.
+
+### Baseline Model: Background Protest Intensity
+
+The baseline model (M0) explains protest counts using structural factors that capture *background protest intensity*, the expected level of protest activity in a district based on its persistent characteristics, time-varying economic conditions, and political context:
+
+$$\log(E[Y_{tr}]) = \alpha_r  + \gamma \cdot \text{National}_t + \text{ProvinceYear}_{tr} + \beta_1 \text{Poverty}_r + \beta_2 \text{CPI}_t + \log(\text{Pop}_r)$$
+
+The components of background intensity are a district random intercept ($\alpha_r$) to capture persistent district-level differences in protest propensity. Some districts are consistently more protest-prone due to urbanization, university presence, activist networks, or political traditions. These intercepts absorb stable cross-district heterogeneity. To account for national shocks and coordinated protests we use a count of total protests on a given day excluding the focal district. This measure accounts for Indonesia-wide protest waves synchronized spikes driven by national events such as elections, legislative debates, or judicial decisions. This variable (excluding the focal district) ensures that apparent diffusion is not merely simultaneous response to common national triggers.
+
+To account for regional clustering in space and time, we include a Province-Year fixed effect. This should absorb clustering associated regional political contexts that vary annually, such as gubernatorial elections, local policy changes, or province-specific economic shocks.We also include a set of socioeconomic covariates including te district poverty rates, population rate, and a monthly measure of the consumer price index to capture economic conditions that may affect protest propensity.
+
+This baseline embodies the null hypothesis of no spatial diffusion: conditional on structural factors, protest intensity in district $r$ is independent of recent protest activity elsewhere. Under this view, cross-district correlation arises only through shared exposure to national shocks and common provincial conditions.
+
+### Cross-District Exposure
+
+The contagion model (M1) augments the baseline with a measure of exposure to recent protests in other districts:
+
+$$\log(E[Y_{tr}]) = \alpha_r + \beta' X_{tr} + \gamma \cdot \text{National}_t + \alpha_{\text{cross}} \cdot \text{Cross}_{tr}(\theta, \kappa) + \log(\text{Pop}_r)$$
+
+The cross-district exposure term ($\text{Cross}_{tr}$) is a weighted average of recent protest activity elsewhere, with weights determined by two decay parameters:
+
+$$\text{Cross}_{tr}(\theta, \kappa) = \sum_{s \neq r} w_{rs}(\theta) \times \sum_{\ell=1}^{L} g(\ell; \kappa) \times Y_{t-\ell,s}$$
+
+ a spatial decay parameter ($\theta$) and a temporal decay parameter ($\kappa$). The spatial weights $w_{rs}(\theta) = \exp(-d_{rs}/\theta) / \sum_{s'} \exp(-d_{rs'}/\theta)$ decline with geographic distance. Larger $\theta$ means slower decay; $\theta = \infty$ implies uniform weighting regardless of distance. The temporal weights $g(\ell; \kappa) = \kappa^\ell / \sum_m \kappa^m$ decline with lag. Smaller $\kappa$ means faster decay; protests from last week matter more than those from three weeks ago.
+
+Both weight vectors are normalized to sum to one, which has an important implication: the exposure variable is mechanically compressed, and its scale is not directly intuitive. The coefficient $\alpha_{\text{cross}}$ captures the log-multiplicative change in expected protests associated with a one-unit increase in normalized exposure, but a one-unit increase corresponds to an extreme scenario (all other districts averaging one protest per day). In practice, exposure values are much smaller, so the raw coefficient magnitude can be misleading. The substantive magnitude of diffusion is better captured by the endogenous share decomposition presented in the Results.
+
+A positive and significant $\alpha_{\text{cross}}$ indicates that, controlling for structural factors and national shocks, districts with more protest activity nearby experience elevated protest intensity, which is evidence consistent with spatial diffusion.
+
+### Model Comparison Test
+
+Because M0 is nested within M1, I test for diffusion by comparing model fit. Under the null hypothesis of no diffusion, $\alpha_{\text{cross}} = 0$ and M0 should fit as well as M1. Under the alternative, M1 should achieve significantly lower deviance.
+
+I conduct an F-test using the quasi-Poisson dispersion estimate to account for overdispersion:
+
+$$F = \frac{(\text{Deviance}_{M0} - \text{Deviance}_{M1}) / 1}{\hat{\phi}}$$
+
+where $\hat{\phi}$ is the estimated dispersion parameter. Rejection of the null provides evidence that cross-district exposure contains predictive information beyond structural factors.
+
+The spatial and temporal decay parameters ($\theta$ and $\kappa$) are estimated via profile likelihood over a two-dimensional grid. For each combination, I fit the contagion model and record the deviance. The values minimizing deviance are taken as the estimates.
+
+### Testing the Martyrdom Effect
+
+A central theoretical extension asks whether all protests are equally effective at triggering subsequent protests, or whether event severity amplifies diffusion. The martyrdom hypothesis predicts that protests involving fatalities, which attract greater media attention and provoke stronger emotional responses, should have larger spillover effects than routine, non-fatal events.
+
+To test this, I decompose the cross-district exposure term into two components:
+
+$$\text{Cross}^{\text{fatal}}_{tr} = \sum_{s \neq r} w_{rs}(\theta) \times \sum_{\ell=1}^{L} g(\ell; \kappa) \times Y^{\text{fatal}}_{t-\ell,s}$$
+
+$$\text{Cross}^{\text{nonfatal}}_{tr} = \sum_{s \neq r} w_{rs}(\theta) \times \sum_{\ell=1}^{L} g(\ell; \kappa) \times Y^{\text{nonfatal}}_{t-\ell,s}$$
+
+where $Y^{\text{fatal}}_{t,s}$ counts only protests with at least one fatality, and $Y^{\text{nonfatal}}_{t,s}$ counts protests with zero fatalities. The decomposed model is:
+
+$$\log(E[Y_{tr}]) = \alpha_r + \beta' X_{tr} + \alpha_{\text{fatal}} \cdot \text{Cross}^{\text{fatal}}_{tr} + \alpha_{\text{nonfatal}} \cdot \text{Cross}^{\text{nonfatal}}_{tr} + \log(\text{Pop}_r)$$
+
+The martyrdom effect is present if $\alpha_{\text{fatal}} > \alpha_{\text{nonfatal}}$. I test this using a Wald test for coefficient equality:
+
+$$z = \frac{\hat{\alpha}_{\text{fatal}} - \hat{\alpha}_{\text{nonfatal}}}{\sqrt{\text{Var}(\hat{\alpha}_{\text{fatal}}) + \text{Var}(\hat{\alpha}_{\text{nonfatal}}) - 2\text{Cov}(\hat{\alpha}_{\text{fatal}}, \hat{\alpha}_{\text{nonfatal}})}}$$
+
+### Summary of Empirical Strategy
+
+Results proceed in four parts: (1) evidence that cross-district exposure improves model fit (the baseline diffusion test), (2) the implied magnitude of diffusion via an endogenous share decomposition, (3) the spatial and temporal structure of contagion (how quickly effects decay over distance and time), and (4) the martyrdom effect (whether fatal protests generate stronger spillovers than non-fatal events).
+
+# Results
+
+## Background Protest Intensity and National Waves
+
+The baseline model (M0) captures the background intensity through several components. District random intercepts absorb persistent cross-district heterogeneity, as some districts are consistently more protest-prone than others. The national daily count variable captures synchronized spikes that reflect Indonesia-wide mobilization. Province-year fixed effects absorb regional political contexts. Together, these components define what we would expect protest intensity to be in the absence of any cross-district contagion.
+
+## Evidence of Diffusion
+
+The central test compares the baseline model (M0), which includes only structural factors, against the contagion model (M1), which adds cross-district exposure. Table 1 presents the results.
+
+```{r table-model-comparison, echo=FALSE}
+comparison_table <- data.frame(
+  Model = c("M0: Baseline (structural factors only)",
+            "M1: Contagion (structural + cross-district exposure)"),
+  Deviance = c(format(round(dev_m0_compare), big.mark=","),
+               format(round(dev_m1), big.mark=",")),
+  Difference = c("--", format(round(dev_m0_compare - dev_m1), big.mark=","))
+)
+
+kable(comparison_table, caption = "Model Comparison: Testing for Cross-District Diffusion",
+      col.names = c("Model", "Deviance", "Deviance Reduction"),
+      align = c("l", "r", "r")) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+The contagion model achieves substantially lower deviance than the baseline. An F-test comparing the nested models yields F = `r round(F_stat_contagion, 1)` with $p$ < 0.001. This provides strong evidence that cross-district exposure contains predictive information beyond what structural factors capture. Protests elsewhere do appear to predict protests here.
+
+### Full Model Estimates
+
+Table 2 presents the complete coefficient estimates from the contagion model (M1). The model is estimated using quasi-Poisson regression with district random intercepts, province-year fixed effects, and population as an offset.
+
+```{r table-full-model, echo=FALSE}
+# Extract all parametric coefficients from M1
+m1_summary <- summary(m1_best)$p.table
+
+# Select key coefficients (excluding province-year FE which are numerous)
+key_vars <- c("(Intercept)", "poverty_rate", "cpi", "national_daily", "cross_lag")
+key_coefs <- m1_summary[rownames(m1_summary) %in% key_vars, ]
+
+full_table <- data.frame(
+  Variable = c("Intercept", "Poverty rate", "Consumer price index",
+               "National daily count", "Cross-district exposure"),
+  Estimate = round(key_coefs[, "Estimate"], 4),
+  SE = round(key_coefs[, "Std. Error"], 4),
+  t = round(key_coefs[, "t value"], 2),
+  p = ifelse(key_coefs[, "Pr(>|t|)"] < 0.001, "< 0.001",
+             round(key_coefs[, "Pr(>|t|)"], 3))
+)
+
+kable(full_table, caption = "Contagion Model (M1): Full Coefficient Estimates",
+      col.names = c("Variable", "Estimate", "Std. Error", "t-value", "p-value"),
+      align = c("l", "r", "r", "r", "r"),
+      row.names = FALSE) %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  footnote(general = "Quasi-Poisson with district random intercepts, province-year fixed effects, log(population) offset.",
+           general_title = "Note: ",
+           footnote_as_chunk = TRUE)
+```
+
+The cross-district exposure coefficient is `r round(alpha_cross, 2)` (SE = `r round(se_cross, 2)`), which is positive and highly statistically significant. The coefficient captures the log-multiplicative change in expected protests associated with a one-unit increase in normalized exposure. Because both the spatial and temporal kernels are normalized to sum to one, the exposure variable represents a weighted average of recent protest activity in other districts. A coefficient of `r round(alpha_cross, 2)` implies that moving from zero exposure to full exposure (equivalent to all other districts averaging one protest per day over the lag window) would multiply expected protests by $\exp(`r round(alpha_cross, 2)`)$ = `r round(exp(alpha_cross), 1)`.
+
+In practice, exposure values are much smaller than one, so the implied effects are correspondingly modest. The substantive magnitude is better captured by the endogenous share calculation below.
+
+## Magnitude: Implied Endogenous Share
+
+While the diffusion coefficient is statistically significant, its raw magnitude is difficult to interpret due to the normalization of exposure. A more intuitive measure is the implied endogenous share: what fraction of predicted protest activity is attributable to cross-district contagion versus background factors?
+
+To compute this, I conduct a counterfactual decomposition using the fitted contagion model (M1). For each district-day,we estimate the expected protests using actual cross-district exposure values ($\hat{\lambda}^{full}$), the expected protests with cross-district exposure set to zero ($\hat{\lambda}^{bg}$), and the he difference $\hat{\lambda}^{full} - \hat{\lambda}^{bg}$ represents protests attributable to contagion.
+
+```{r endogenous-display, echo=FALSE}
+endog_pct <- round(100 * endogenous_fraction, 1)
+```
+
+Summing across all observations, the implied endogenous share is:
+
+$$\text{Endogenous Share} = \frac{\sum (\hat{\lambda}^{full} - \hat{\lambda}^{bg})}{\sum \hat{\lambda}^{full}} = `r endog_pct`\%$$
+
+Approximately `r endog_pct`% of predicted protest intensity is attributable to cross-district contagion, with the remainder (`r 100 - endog_pct`%) reflecting background factors (persistent district propensity, province-year context, national waves, and structural covariates). In absolute terms, the model attributes approximately `r round(total_triggered)` expected protests (out of `r format(round(total_expected), big.mark=",")` total) to the diffusion process.
+
+This quantity is analogous to the branching ratio in continuous-time Hawkes processes, though not identical due to the discrete-time specification. It provides a summary measure of how much protest activity propagates through cross-district spillovers versus arising from background conditions. This is arguably the most relevant number for understanding the overall importance of contagion.
+
+## Spatial and Temporal Footprint
+
+Having established that diffusion exists and quantified its overall magnitude, I now examine its structure: how quickly do effects decay over space and time?
+
+### Temporal Decay
+
+The estimated temporal decay parameter is $\hat{\kappa}$ = `r round(kappa_hat, 2)`, implying a half-life of `r round(half_life, 1)` days. The influence of a protest elsewhere on local protest intensity drops by half within the first `r round(half_life, 1)` days and continues to decay thereafter.
+
+```{r table-lags, echo=FALSE}
+lag_coefs_display <- lag_coefs
+lag_coefs_display$Estimate <- round(lag_coefs_display$Estimate, 4)
+lag_coefs_display$SE <- round(lag_coefs_display$SE, 4)
+lag_coefs_display$t <- round(lag_coefs_display$t, 2)
+
+kable(lag_coefs_display, caption = "Cross-District Exposure Effect by Temporal Lag",
+      col.names = c("Lag Window", "Estimate", "Std. Error", "t-value"),
+      align = c("l", "r", "r", "r"),
+      row.names = FALSE) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+Table 3 presents coefficients from a specification that separates exposure by weekly lag windows. The pattern confirms rapid temporal decay: the effect is strongest in the first week (days 1-7) and diminishes in subsequent weeks. By the fourth week, past protests elsewhere have negligible predictive power. Any negative coefficients in later weeks should be interpreted as dissipation or reversion rather than a "suppression" effect; the aggregate impact of exposure remains positive. This temporal concentration suggests that diffusion operates through rapid information transmission, perhaps via news coverage or social media, rather than slow-building organizational momentum.
+
+### Spatial Decay
+
+A key question is whether diffusion operates through localized channels (nearby districts influencing each other) or through national networks (protests anywhere in Indonesia being equally relevant). The spatial decay parameter $\theta$ governs this distinction: finite $\theta$ implies localized diffusion where nearby districts matter more, while $\theta = \infty$ implies uniform national influence.
+
+```{r figure-deviance-theta, echo=FALSE, fig.cap="Model fit across spatial decay parameters. Bars show deviance relative to the best-fitting model (0 = optimal). Higher bars indicate worse fit.", fig.height=4}
+# Create deviance plot by theta (at optimal kappa)
+# Show deviance RELATIVE to optimal for easier interpretation
+theta_profile <- results_2d %>%
+  filter(kappa == kappa_hat) %>%
+  mutate(
+    theta_label = ifelse(is.infinite(theta), "∞", as.character(theta)),
+    theta_num = ifelse(is.infinite(theta), 2000, theta),
+    is_optimal = (theta == theta_hat),
+    dev_relative = deviance - min(deviance)  # 0 = best fit
+  )
+
+ggplot(theta_profile, aes(x = reorder(theta_label, theta_num), y = dev_relative)) +
+  geom_col(aes(fill = is_optimal), width = 0.7) +
+  scale_fill_manual(values = c("FALSE" = "#3498db", "TRUE" = "#c0392b"), guide = "none") +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.05))) +
+  labs(x = "Spatial Decay Parameter θ (km)",
+       y = "Deviance Above Optimal",
+       title = "Model Fit Across Spatial Kernels",
+       subtitle = sprintf("Optimal: θ = %s (0 = best fit)",
+                         ifelse(is.infinite(theta_hat), "∞", theta_hat))) +
+  theme_paper +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+Figure 2 displays model fit across spatial decay parameters, with the y-axis showing deviance *relative to the best-fitting model* (so 0 = optimal, and taller bars indicate worse fit). This makes differences between kernels immediately visible. `r ifelse(is.infinite(theta_hat), "The model with θ = ∞ (uniform spatial weighting) achieves the best fit (bar at zero), indicating that geographic distance does not attenuate diffusion. Protests anywhere in Indonesia appear equally relevant for predicting local protest intensity. This suggests diffusion operates through national channels, perhaps national media coverage, social media networks, or coordinated activist organizations that span the archipelago, rather than purely localized mechanisms.", paste0("The model with θ = ", theta_hat, " km achieves the best fit. Comparing against θ = ∞ (uniform weighting), the F-test yields F = ", round(F_stat_distance, 1), " (p = ", round(p_distance, 3), "), confirming that spatial decay significantly improves fit. Diffusion is spatially localized: protests in nearby districts matter substantially more than those far away. At θ = ", theta_hat, " km, a district 200 km away exerts ", round(100*exp(-200/theta_hat)), "% as much influence as an adjacent district."))`
+
+```{r figure-spatial-kernel, echo=FALSE, fig.cap="Estimated spatial decay kernel. The curve shows how the weight on protests in other districts declines with geographic distance.", fig.height=4}
+distances_plot <- seq(0, 1500, by = 10)
+
+if (is.infinite(theta_hat)) {
+  spatial_kernel_data <- expand.grid(distance = distances_plot,
+                                      theta_val = c(100, 200, 500)) %>%
+    mutate(
+      weight = exp(-distance / theta_val),
+      theta_label = paste0("θ = ", theta_val, " km")
+    )
+
+  ggplot(spatial_kernel_data, aes(x = distance, y = weight, color = theta_label)) +
+    geom_line(linewidth = 1) +
+    geom_hline(yintercept = 1, linetype = "solid", color = "#c0392b", linewidth = 1.2) +
+    scale_color_viridis_d(option = "plasma", end = 0.8, name = "Alternative\nkernels") +
+    labs(x = "Distance (km)", y = "Relative Weight",
+         title = "Spatial Kernels: Optimal vs. Alternatives",
+         subtitle = "Optimal model (θ = ∞) shown as flat line at weight = 1") +
+    annotate("text", x = 1200, y = 0.95, label = "θ = ∞ (optimal)",
+             color = "#c0392b", size = 3.5, fontface = "bold") +
+    theme_paper
+} else {
+  spatial_kernel_data <- data.frame(
+    distance = distances_plot,
+    weight = exp(-distances_plot / theta_hat)
+  )
+
+  ggplot(spatial_kernel_data, aes(x = distance, y = weight)) +
+    geom_line(color = "#c0392b", linewidth = 1.2) +
+    geom_hline(yintercept = exp(-1), linetype = "dotted", color = "gray50") +
+    geom_vline(xintercept = theta_hat, linetype = "dotted", color = "gray50") +
+    annotate("text", x = theta_hat + 50, y = 0.5,
+             label = sprintf("θ = %d km", theta_hat),
+             hjust = 0, color = "#c0392b", size = 3.5) +
+    annotate("text", x = 1000, y = exp(-1) + 0.05,
+             label = "37% weight",
+             color = "gray40", size = 3) +
+    scale_x_continuous(breaks = c(0, 250, 500, 750, 1000, 1250, 1500)) +
+    scale_y_continuous(limits = c(0, 1.05), expand = c(0, 0)) +
+    labs(x = "Distance (km)", y = "Relative Weight",
+         title = sprintf("Estimated Spatial Decay Kernel: θ = %d km", theta_hat),
+         subtitle = "Weight on protests in other districts as function of distance") +
+    theme_paper
+}
+```
+
+Figure 3 displays the estimated spatial kernel. `r ifelse(is.infinite(theta_hat), "With θ = ∞, all districts receive equal weight regardless of distance (flat line at 1). The alternative curves show how finite θ values would concentrate influence locally. The data reject these alternatives in favor of uniform national weighting.", paste0("The exponential decay concentrates influence locally. At distance θ = ", theta_hat, " km, weight drops to 37% of its maximum. By distance 2θ = ", 2*theta_hat, " km, weight drops to 14%. Districts beyond ", 3*theta_hat, " km exert minimal influence."))`
+
+### Geographic Distribution of Diffusion Effects
+
+While the preceding analysis establishes that diffusion occurs and how it decays over distance, it does not reveal where diffusion matters most. Figure 4 maps the average triggered intensity across districts, showing geographic heterogeneity in susceptibility to cross-district spillovers.
+
+```{r figure-diffusion-map, echo=FALSE, fig.cap="Geographic distribution of diffusion effects. Districts are colored by their average triggered protest intensity (expected protests attributable to cross-district contagion). Darker colors indicate districts where diffusion contributes more to local protest activity.", fig.height=6}
+# Aggregate triggered intensity by district
+district_diffusion <- panel_best %>%
+  group_by(admin2) %>%
+  summarise(
+    total_triggered = sum(lambda_triggered),
+    mean_triggered = mean(lambda_triggered),
+    total_background = sum(lambda_bg),
+    diffusion_ratio = sum(lambda_triggered) / (sum(lambda_bg) + 1e-6),
+    .groups = "drop"
+  )
+
+# Join directly on NAME_2 since panel_best$admin2 comes from NAME_2
+gadm_plot <- gadm %>%
+  left_join(district_diffusion, by = c("NAME_2" = "admin2"))
+
+# Choropleth map
+ggplot(gadm_plot) +
+  geom_sf(aes(fill = mean_triggered), color = "white", linewidth = 0.05) +
+  scale_fill_viridis_c(option = "plasma",
+                       name = "Mean Triggered\nIntensity",
+                       na.value = "gray90") +
+  labs(title = "Where Does Diffusion Matter Most?",
+       subtitle = "Average triggered protest intensity by district, 2015-2024") +
+  theme_paper +
+  theme(axis.text = element_blank(),
+        axis.ticks = element_blank(),
+        panel.grid = element_blank(),
+        legend.position = "right")
+```
+
+```{r diffusion-map-stats, include=FALSE}
+# Calculate summary statistics for interpretation
+top_districts <- district_diffusion %>%
+  arrange(desc(mean_triggered)) %>%
+  head(10)
+
+# Identify if Java districts dominate
+java_provinces <- c("Banten", "DKI Jakarta", "West Java", "Central Java",
+                    "DI Yogyakarta", "East Java")
+```
+
+The map reveals substantial geographic heterogeneity in diffusion effects. Districts with higher triggered intensity tend to cluster in areas with greater overall protest activity, particularly on Java and on Papua. This pattern is expected: diffusion amplifies existing protest patterns rather than redistributing them. Districts that experience many protests also generate more exposure for their neighbors, creating feedback loops that concentrate diffusion effects in already-active regions. In short, urban Java is prone to protests and these protests tend to trigger other protests in Java but not elsewhere while grievance-ridden Papua also has a higher rate of protests but primarily trigger protests elsewhere in Papua not in the rest of Indonesia. 
+
+## Model Assessment and Diagnostics
+
+Before turning to heterogeneity in diffusion effects, I assess model adequacy through two diagnostics: residual spatial autocorrelation and potential confounding with national shocks.
+
+### Residual Spatial Autocorrelation
+
+If the contagion specification is correct, model residuals should not exhibit spatial clustering. I test this using Moran's I statistic on district-averaged residuals. Moran's I measures the correlation between residuals in nearby districts. Under the null hypothesis of no spatial autocorrelation, Moran's I should be close to zero. Significant positive values indicate that the model leaves unexplained spatial structure.
+
+```{r moran-results, echo=FALSE}
+moran_table <- data.frame(
+  Statistic = c("Moran's I", "Expected value", "Variance", "Z-score", "p-value"),
+  Value = c(round(moran_result$estimate["Moran I statistic"], 4),
+            round(moran_result$estimate["Expectation"], 4),
+            round(moran_result$estimate["Variance"], 6),
+            round(moran_result$statistic, 3),
+            round(moran_result$p.value, 4))
+)
+
+kable(moran_table, caption = "Moran's I Test for Residual Spatial Autocorrelation",
+      col.names = c("Statistic", "Value"),
+      align = c("l", "r")) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+Table 4 presents the Moran's I test results. The estimated Moran's I is `r round(moran_i, 3)` with a p-value of `r round(moran_p, 3)`. `r ifelse(moran_p < 0.05, "This indicates statistically significant residual spatial autocorrelation. The contagion model does not fully capture all spatial structure in the data. This could reflect omitted spatially-correlated variables, misspecification of the spatial kernel, or other forms of spatial dependence not captured by the cross-district exposure term. Standard errors from the quasi-Poisson model may understate true uncertainty, and coefficient estimates should be interpreted with appropriate caution.", "This indicates no statistically significant residual spatial autocorrelation. The contagion model appears to adequately capture the spatial structure in the data. Residuals in nearby districts are no more similar than expected by chance, suggesting that the cross-district exposure term successfully accounts for spatial dependence in protest occurrence.")`
+
+### Model Specification: Count vs. Binary
+
+Because ACLED geocodes events at the district level and the 7-day collapsing window merges nearby events, the district-day count variable is effectively binary: `r pct_binary`% of non-zero observations have a count of exactly 1, with only `r format(n_two_plus, big.mark=",")` district-days recording two or more events. To confirm that the count framing does not drive results, I re-estimate the main specification as a logistic regression with a binary outcome $\mathbb{1}(Y_{tr} > 0)$.
+
+```{r logistic-table, echo=FALSE}
+logit_table <- data.frame(
+  Model = c("Quasi-Poisson (main)", "Logistic"),
+  Scale = c("log-rate", "log-odds"),
+  Coefficient = c(round(alpha_cross, 4), round(alpha_logit, 4)),
+  SE = c(round(se_cross, 4), round(se_logit, 4)),
+  `p-value` = c(format.pval(p_cross, digits = 3), format.pval(p_logit, digits = 3)),
+  check.names = FALSE
+)
+
+kable(logit_table, caption = "Cross-District Exposure Coefficient: Quasi-Poisson vs. Logistic Specification",
+      align = c("l", "l", "r", "r", "r")) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+The coefficients are on different scales, log-rate for the quasi-Poisson model and log-odds for the logistic model,so their magnitudes are not directly comparable. However, the cross-district exposure coefficient is positive and statistically significant under both specifications, confirming that the contagion finding is not an artifact of the count model choice. 
+
+```{r separate-decay-search, cache=TRUE, include=FALSE}
+# ==============================================================================
+# SEPARATE DECAY PARAMETER ESTIMATION
+# ==============================================================================
+# Estimate optimal (theta, kappa) separately for fatal and non-fatal exposure
+
+library(future)
+library(future.apply)
+
+# Use coarser grid for computational tractability
+theta_grid_sep <- c(100, 300, 500, 1000, Inf)
+kappa_grid_sep <- c(0.8, 0.9, 0.95, 0.99, 1.0)
+
+# Pre-compute spatial weight matrices
+W_norm_list_sep <- lapply(theta_grid_sep, function(theta) {
+  compute_spatial_weights(theta, dist_matrix)
+})
+names(W_norm_list_sep) <- as.character(theta_grid_sep)
+
+param_grid_sep <- expand.grid(
+  theta_idx = seq_along(theta_grid_sep),
+  kappa_idx = seq_along(kappa_grid_sep)
+)
+
+# -----------------------------------------------------------------------------
+# Grid search for FATAL exposure only
+# -----------------------------------------------------------------------------
+plan(multisession, workers = parallel::detectCores() - 1)
+
+results_fatal_list <- future_lapply(seq_len(nrow(param_grid_sep)), function(i) {
+  theta_idx <- param_grid_sep$theta_idx[i]
+  kappa_idx <- param_grid_sep$kappa_idx[i]
+  theta <- theta_grid_sep[theta_idx]
+  kappa <- kappa_grid_sep[kappa_idx]
+  W_norm <- W_norm_list_sep[[theta_idx]]
+
+  cross_exp <- compute_cross_exposure_fast(W_norm, kappa, count_matrix_fatal, n_days, n_dist, max_lag = 30)
+
+  exp_long <- data.frame(
+    date = rep(dates_vec, n_dist),
+    admin2 = rep(colnames(count_matrix), each = n_days),
+    cross_fatal_only = as.vector(cross_exp)
+  )
+
+  panel_fit <- panel_clean %>%
+    left_join(exp_long, by = c("admin2", "date"))
+
+  m <- bam(count ~ poverty_rate + cpi +
+             s(admin2_factor, bs = "re") +
+             prov_year +
+             national_daily +
+             cross_fatal_only +
+             offset(log_pop),
+           data = panel_fit,
+           family = poisson(link = "log"),
+           discrete = TRUE)
+
+  list(
+    theta = theta,
+    kappa = kappa,
+    deviance = deviance(m),
+    alpha = coef(m)["cross_fatal_only"],
+    se = sqrt(diag(vcov(m)))["cross_fatal_only"]
+  )
+}, future.seed = TRUE)
+
+plan(sequential)
+
+results_fatal_2d <- bind_rows(lapply(results_fatal_list, as.data.frame))
+best_idx_fatal <- which.min(results_fatal_2d$deviance)
+theta_fatal_hat <- results_fatal_2d$theta[best_idx_fatal]
+kappa_fatal_hat <- results_fatal_2d$kappa[best_idx_fatal]
+
+# -----------------------------------------------------------------------------
+# Grid search for NON-FATAL exposure only
+# -----------------------------------------------------------------------------
+plan(multisession, workers = parallel::detectCores() - 1)
+
+results_nonfatal_list <- future_lapply(seq_len(nrow(param_grid_sep)), function(i) {
+  theta_idx <- param_grid_sep$theta_idx[i]
+  kappa_idx <- param_grid_sep$kappa_idx[i]
+  theta <- theta_grid_sep[theta_idx]
+  kappa <- kappa_grid_sep[kappa_idx]
+  W_norm <- W_norm_list_sep[[theta_idx]]
+
+  cross_exp <- compute_cross_exposure_fast(W_norm, kappa, count_matrix_nonfatal, n_days, n_dist, max_lag = 30)
+
+  exp_long <- data.frame(
+    date = rep(dates_vec, n_dist),
+    admin2 = rep(colnames(count_matrix), each = n_days),
+    cross_nonfatal_only = as.vector(cross_exp)
+  )
+
+  panel_fit <- panel_clean %>%
+    left_join(exp_long, by = c("admin2", "date"))
+
+  m <- bam(count ~ poverty_rate + cpi +
+             s(admin2_factor, bs = "re") +
+             prov_year +
+             national_daily +
+             cross_nonfatal_only +
+             offset(log_pop),
+           data = panel_fit,
+           family = poisson(link = "log"),
+           discrete = TRUE)
+
+  list(
+    theta = theta,
+    kappa = kappa,
+    deviance = deviance(m),
+    alpha = coef(m)["cross_nonfatal_only"],
+    se = sqrt(diag(vcov(m)))["cross_nonfatal_only"]
+  )
+}, future.seed = TRUE)
+
+plan(sequential)
+
+results_nonfatal_2d <- bind_rows(lapply(results_nonfatal_list, as.data.frame))
+best_idx_nonfatal <- which.min(results_nonfatal_2d$deviance)
+theta_nonfatal_hat <- results_nonfatal_2d$theta[best_idx_nonfatal]
+kappa_nonfatal_hat <- results_nonfatal_2d$kappa[best_idx_nonfatal]
+```
+
+```{r separate-decay-model, cache=TRUE, include=FALSE}
+# ==============================================================================
+# FIT MODEL WITH TYPE-SPECIFIC DECAY PARAMETERS
+# ==============================================================================
+
+# Compute exposure terms with type-specific optimal parameters
+W_fatal_opt <- compute_spatial_weights(theta_fatal_hat, dist_matrix)
+W_nonfatal_opt <- compute_spatial_weights(theta_nonfatal_hat, dist_matrix)
+
+cross_exp_fatal_sep <- compute_cross_exposure_fast(
+  W_fatal_opt, kappa_fatal_hat, count_matrix_fatal, n_days, n_dist, max_lag = 30
+)
+cross_exp_nonfatal_sep <- compute_cross_exposure_fast(
+  W_nonfatal_opt, kappa_nonfatal_hat, count_matrix_nonfatal, n_days, n_dist, max_lag = 30
+)
+
+# Merge into panel
+exp_sep_long <- data.frame(
+  date = rep(dates_vec, n_dist),
+  admin2 = rep(colnames(count_matrix), each = n_days),
+  cross_fatal_sep = as.vector(cross_exp_fatal_sep),
+  cross_nonfatal_sep = as.vector(cross_exp_nonfatal_sep)
+)
+
+panel_sep <- panel_best %>%
+  left_join(exp_sep_long, by = c("admin2", "date"))
+
+# Fit model with separate decay parameters
+m_sep <- bam(count ~ poverty_rate + cpi +
+               s(admin2_factor, bs = "re") +
+               prov_year +
+               national_daily +
+               cross_fatal_sep + cross_nonfatal_sep +
+               offset(log_pop),
+             data = panel_sep,
+             family = quasipoisson(link = "log"),
+             discrete = TRUE)
+
+# Extract coefficients
+alpha_fatal_sep <- coef(m_sep)["cross_fatal_sep"]
+alpha_nonfatal_sep <- coef(m_sep)["cross_nonfatal_sep"]
+vcov_sep <- vcov(m_sep)
+se_fatal_sep <- sqrt(vcov_sep["cross_fatal_sep", "cross_fatal_sep"])
+se_nonfatal_sep <- sqrt(vcov_sep["cross_nonfatal_sep", "cross_nonfatal_sep"])
+cov_sep <- vcov_sep["cross_fatal_sep", "cross_nonfatal_sep"]
+
+# Wald test for coefficient equality
+diff_sep <- alpha_fatal_sep - alpha_nonfatal_sep
+se_diff_sep <- sqrt(se_fatal_sep^2 + se_nonfatal_sep^2 - 2 * cov_sep)
+z_sep <- diff_sep / se_diff_sep
+p_sep <- 2 * pnorm(-abs(z_sep))
+
+# Compute half-lives
+half_life_fatal <- if (kappa_fatal_hat < 1) log(0.5) / log(kappa_fatal_hat) else Inf
+half_life_nonfatal <- if (kappa_nonfatal_hat < 1) log(0.5) / log(kappa_nonfatal_hat) else Inf
+```
+
+## Heterogeneous Diffusion: The Martyrdom Effect
+
+The preceding analysis treats all protests as equivalent triggers for diffusion. However, the theory motivating this study suggests that event characteristics, particularly severity, should shape both the magnitude and the spatial-temporal structure of spillovers. This section investigates heterogeneous diffusion by event type, first asking whether fatal and non-fatal protests diffuse through different channels, then testing whether fatal protests generate stronger spillovers.
+
+### Do Fatal and Non-Fatal Protests Diffuse Differently?
+
+Fatal events may spread nationally through mass media regardless of geographic distance, while non-fatal protests might diffuse primarily to nearby districts through local networks and regional media markets. Similarly, the temporal persistence of spillovers might differ: fatal events that generate sustained media coverage and moral outrage may trigger mobilization over longer periods than routine protests that fade quickly from public attention.
+
+To investigate this, I estimate separate optimal decay parameters for fatal exposure ($\theta_F$, $\kappa_F$) and non-fatal exposure ($\theta_N$, $\kappa_N$) using the same grid search procedure as the main analysis.
+
+```{r table-decay-params, echo=FALSE}
+decay_table <- data.frame(
+  Parameter = c("Spatial decay θ (km)", "Temporal decay κ", "Half-life (days)"),
+  Fatal = c(
+    ifelse(is.infinite(theta_fatal_hat), "∞", format(theta_fatal_hat, big.mark = ",")),
+    format(round(kappa_fatal_hat, 3), nsmall = 3),
+    ifelse(is.infinite(half_life_fatal), "∞", format(round(half_life_fatal, 1), nsmall = 1))
+  ),
+  `Non-Fatal` = c(
+    ifelse(is.infinite(theta_nonfatal_hat), "∞", format(theta_nonfatal_hat, big.mark = ",")),
+    format(round(kappa_nonfatal_hat, 3), nsmall = 3),
+    ifelse(is.infinite(half_life_nonfatal), "∞", format(round(half_life_nonfatal, 1), nsmall = 1))
+  ),
+  Pooled = c(
+    ifelse(is.infinite(theta_hat), "∞", format(theta_hat, big.mark = ",")),
+    format(round(kappa_hat, 3), nsmall = 3),
+    ifelse(is.infinite(half_life), "∞", format(round(half_life, 1), nsmall = 1))
+  )
+)
+
+kable(decay_table,
+      caption = "Decay Parameters by Exposure Type",
+      col.names = c("Parameter", "Fatal", "Non-Fatal", "Pooled (Main)"),
+      align = c("l", "r", "r", "r")) %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  footnote(general = "Parameters estimated via grid search. Half-life = days for exposure weight to halve.",
+           general_title = "Note: ",
+           footnote_as_chunk = TRUE)
+```
+
+```{r decay-interpretation, echo=FALSE, results='asis'}
+theta_diff <- theta_fatal_hat != theta_nonfatal_hat
+kappa_diff <- abs(kappa_fatal_hat - kappa_nonfatal_hat) > 0.01
+
+if (theta_diff & kappa_diff) {
+  cat("The results reveal that fatal and non-fatal protests exhibit markedly different diffusion patterns in *both* spatial reach and temporal persistence. ")
+} else if (theta_diff) {
+  cat("The results reveal that fatal and non-fatal protests exhibit different spatial diffusion patterns. ")
+} else if (kappa_diff) {
+  cat("The results reveal that fatal and non-fatal protests exhibit different temporal persistence. ")
+} else {
+  cat("The results suggest similar decay structures for both event types. ")
+}
+
+if (is.infinite(theta_fatal_hat) & !is.infinite(theta_nonfatal_hat)) {
+  cat(sprintf("Fatal protests diffuse nationally regardless of distance (θ_F = ∞), while non-fatal protests show localized diffusion with effects concentrated among nearby districts (θ_N = %s km). ", format(theta_nonfatal_hat, big.mark = ",")))
+} else if (!is.infinite(theta_fatal_hat) & is.infinite(theta_nonfatal_hat)) {
+  cat(sprintf("Fatal protests show localized diffusion (θ_F = %s km), while non-fatal protests diffuse more broadly (θ_N = ∞). ", format(theta_fatal_hat, big.mark = ",")))
+} else if (theta_fatal_hat > theta_nonfatal_hat) {
+  cat(sprintf("Fatal protests diffuse over greater distances (θ_F = %s km vs. θ_N = %s km). ",
+              ifelse(is.infinite(theta_fatal_hat), "∞", format(theta_fatal_hat, big.mark = ",")),
+              ifelse(is.infinite(theta_nonfatal_hat), "∞", format(theta_nonfatal_hat, big.mark = ","))))
+}
+
+if (kappa_fatal_hat > kappa_nonfatal_hat) {
+  cat(sprintf("Fatal protests also show greater temporal persistence (κ_F = %.2f vs. κ_N = %.2f), with half-lives of %s vs. %s days respectively.",
+              kappa_fatal_hat, kappa_nonfatal_hat,
+              ifelse(is.infinite(half_life_fatal), "∞", round(half_life_fatal, 1)),
+              ifelse(is.infinite(half_life_nonfatal), "∞", round(half_life_nonfatal, 1))))
+} else if (kappa_fatal_hat < kappa_nonfatal_hat) {
+  cat(sprintf("Non-fatal protests show greater temporal persistence (κ_N = %.2f vs. κ_F = %.2f), with half-lives of %s vs. %s days respectively.",
+              kappa_nonfatal_hat, kappa_fatal_hat,
+              ifelse(is.infinite(half_life_nonfatal), "∞", round(half_life_nonfatal, 1)),
+              ifelse(is.infinite(half_life_fatal), "∞", round(half_life_fatal, 1))))
+}
+```
+
+These differences have substantive implications. Fatal protests, which receive national media coverage and provoke widespread moral outrage, trigger action regardless of geographic proximity. Non-fatal protests, by contrast, spread primarily through local networks, personal contacts, and regional media markets that attenuate with distance.
+
+### Do Fatal Protests Trigger Stronger Spillovers?
+
+Given that fatal and non-fatal protests diffuse through different spatial-temporal structures, the natural next question is whether fatal protests also generate *stronger* spillovers. The martyrdom hypothesis predicts that protests involving fatalities should produce larger downstream effects: deaths attract disproportionate media attention, provoke moral outrage, and create focal points for collective action.
+
+To test this while respecting the different decay structures identified above, I estimate a model that allows each exposure type to use its own optimal decay parameters. This provides a cleaner comparison than imposing common decay on processes that operate at different scales. For reference, I also report results from a model with pooled decay parameters.
+
+```{r table-separate-model, echo=FALSE}
+model_table <- data.frame(
+  Model = c("Pooled decay parameters", "Separate decay parameters"),
+  `Fatal Coef` = c(
+    sprintf("%.3f (%.3f)", alpha_fatal, se_fatal),
+    sprintf("%.3f (%.3f)", alpha_fatal_sep, se_fatal_sep)
+  ),
+  `Non-Fatal Coef` = c(
+    sprintf("%.3f (%.3f)", alpha_nonfatal, se_nonfatal),
+    sprintf("%.3f (%.3f)", alpha_nonfatal_sep, se_nonfatal_sep)
+  ),
+  `Difference` = c(
+    sprintf("%.3f (%.3f)", diff_fatal, se_diff_fatal),
+    sprintf("%.3f (%.3f)", diff_sep, se_diff_sep)
+  ),
+  `p-value` = c(
+    ifelse(p_fatal < 0.001, "< 0.001", format(round(p_fatal, 4), nsmall = 4)),
+    ifelse(p_sep < 0.001, "< 0.001", format(round(p_sep, 4), nsmall = 4))
+  )
+)
+
+kable(model_table,
+      caption = "The Martyrdom Effect: Fatal vs. Non-Fatal Protest Spillovers",
+      col.names = c("Decay Parameters", "Fatal α", "Non-Fatal α", "Difference", "p-value"),
+      align = c("l", "r", "r", "r", "r")) %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  footnote(general = "Standard errors in parentheses. p-value tests H0: α_fatal = α_nonfatal.",
+           general_title = "Note: ",
+           footnote_as_chunk = TRUE)
+```
+
+```{r martyrdom-interpretation, echo=FALSE, results='asis'}
+if (p_sep < 0.05 & diff_sep > 0) {
+  cat(sprintf("Using type-specific decay parameters, the coefficient on fatal protest exposure ($\\hat{\\alpha}_F$ = %.3f) is significantly larger than the coefficient on non-fatal exposure ($\\hat{\\alpha}_N$ = %.3f), with a difference of %.3f (p = %.4f). Fatal protests generate stronger spillovers than non-fatal protests, consistent with the martyrdom hypothesis.", alpha_fatal_sep, alpha_nonfatal_sep, diff_sep, p_sep))
+} else if (p_sep < 0.05 & diff_sep < 0) {
+  cat(sprintf("Using type-specific decay parameters, the coefficient on non-fatal protest exposure ($\\hat{\\alpha}_N$ = %.3f) is significantly larger than the coefficient on fatal exposure ($\\hat{\\alpha}_F$ = %.3f), with p = %.4f. This is the opposite of what the martyrdom hypothesis predicts.", alpha_nonfatal_sep, alpha_fatal_sep, p_sep))
+} else if (p_sep >= 0.05) {
+  cat(sprintf("Using type-specific decay parameters, the difference between fatal ($\\hat{\\alpha}_F$ = %.3f) and non-fatal ($\\hat{\\alpha}_N$ = %.3f) coefficients is not statistically significant (p = %.4f). While fatal and non-fatal protests diffuse through different spatial-temporal structures, their overall capacity to trigger subsequent protests is similar in magnitude.", alpha_fatal_sep, alpha_nonfatal_sep, p_sep))
+}
+```
+
+Taken together, these results reveal that protest diffusion is more nuanced than a single coefficient can capture. Fatal and non-fatal protests differ in their spatial reach, with fatal protests spreading nationally while non-fatal protests diffuse locally. Future work might explore the mechanisms underlying these differences, whether through media markets, social networks, or other channels that vary with event severity.
+
+\newpage
+
+### Next Steps
+
+I first aim to refine the framing of this method as I am concerned that I might be overconfident in the novelty of this methods and results. I need to find a better way to balance the literature review between the advantages of this method over other designs without misrepresenting the goals and methods used in other papers. There are many papers that I did not cite in the literature review that make claims about how and why protests spread without explicit investigation into protest diffusion that I do not necessarily want to criticize. The literature on cross-national protest diffusion is also fairly robust and I may need to more explicitly position my interest as in subnational diffusion and why that is an important departure. The novelty in this paper may ultimately just be in the differences in the spatial decay between fatal and non-fatal protests which might need to be given more priority.
+
+This study intentionally excludes the possibility that protest in a location at one point in time increase the number of protests in the same location at a later point in time. I made this decision for a few reasons. First, I aim to study spatial diffusion of protests not the persistence of a given protest. Second most protest data does not distinguish between multi-day protests and independent protests reported on consecutive days which poses empirical challenges. It is also ambiguous where we should draw the line conceptually between old protests and new protests across consecutive days. My question for the committee is whether this is a defensible position or should I endeavor to better incorporate
+within-location contagion across time into the model?
+
+I used a Poisson model to estimate the conditional intensity of protests at a given district-day. I did this because it is the standard approach for Hawkes model and other point process methods. However, there are very few district-days with more than one protest which essentially means the outcome is binary. While a quasi-poisson and logistic regression should converge under these conditions to the similar values, I'd still like to confirm the findings would be substantively similar under a different modelling choice. I have done one robustness test to confirm the contagion outcome still held when using a binary outcome and a logistic regression but I'd like to redo the other parts of the paper for confidence. 
+
+
+\newpage
+
+# Appendix: Additional Figures
+
+```{r figure-profile-2d, echo=FALSE, fig.cap="Two-dimensional profile likelihood over spatial (θ) and temporal (κ) decay parameters. Darker colors indicate lower deviance (better fit). The optimal combination is marked with ×.", fig.height=5}
+profile_2d <- results_2d %>%
+  mutate(
+    theta_label = ifelse(is.infinite(theta), "∞", as.character(theta)),
+    theta_label = factor(theta_label,
+                         levels = c("50", "100", "200", "300", "500", "750", "1000", "1500", "∞")),
+    kappa_label = sprintf("%.2f", kappa),
+    kappa_label = factor(kappa_label, levels = sprintf("%.2f", sort(unique(kappa)))),
+    is_optimal = (theta == theta_hat & kappa == kappa_hat)
+  )
+
+opt_point <- profile_2d %>% filter(is_optimal)
+
+ggplot(profile_2d, aes(x = theta_label, y = kappa_label, fill = deviance)) +
+  geom_tile(color = "white", linewidth = 0.3) +
+  geom_point(data = opt_point, aes(x = theta_label, y = kappa_label),
+             color = "#e74c3c", size = 4, shape = 4, stroke = 1.5) +
+  scale_fill_viridis_c(option = "plasma", direction = -1, name = "Deviance") +
+  labs(x = expression(paste("Spatial Decay ", theta, " (km)")),
+       y = expression(paste("Temporal Decay ", kappa))) +
+  theme_paper +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r figure-timeseries, echo=FALSE, fig.cap="Daily protest counts in Indonesia, 2015-2024.", fig.height=3.5}
+daily_counts_plot <- protests_daily %>%
+  group_by(date) %>%
+  summarise(n = n(), .groups = "drop")
+
+ggplot(daily_counts_plot, aes(x = date, y = n)) +
+  geom_col(fill = "#2c3e50", alpha = 0.7, width = 1) +
+  scale_x_date(date_breaks = "1 year", date_labels = "%Y") +
+  scale_y_continuous(expand = c(0, 0), limits = c(0, NA)) +
+  labs(x = NULL, y = "Daily Protest Count") +
+  theme_paper +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+```{r figure-lag-structure, echo=FALSE, fig.cap="Cross-district contagion coefficients by weekly lag window. Error bars show 95% confidence intervals.", fig.height=3.5}
+lag_data <- data.frame(
+  week = factor(c("Week 1\n(1-7)", "Week 2\n(8-14)", "Week 3\n(15-21)", "Week 4\n(22-30)"),
+                levels = c("Week 1\n(1-7)", "Week 2\n(8-14)", "Week 3\n(15-21)", "Week 4\n(22-30)")),
+  coef = coef(m_lags)[paste0("week", 1:4)],
+  se = summary(m_lags)$p.table[paste0("week", 1:4), "Std. Error"]
+)
+
+ggplot(lag_data, aes(x = week, y = coef)) +
+  geom_col(fill = "#3498db", alpha = 0.8, width = 0.6) +
+  geom_errorbar(aes(ymin = coef - 1.96*se, ymax = coef + 1.96*se),
+                width = 0.2, linewidth = 0.6) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  labs(x = "Lag Period", y = "Coefficient") +
+  theme_paper
+```
+
+\newpage
+
+# Appendix: Data and Sample
+
+### Sensitivity to Event Collapse Window
+
+The main analysis collapses multi-day protests at the same location within a 7-day window into single events. This prevents double-counting of continuous protests but involves a researcher discretion. To assess sensitivity to this choice, I re-estimate the contagion model using alternative collapse windows: 0 days (no collapsing, with each reported event treated as separate), 2, 3, and 5 days. All windows use uniform collapse logic without special treatment for any location, and all use the optimal spatial and temporal decay parameters ($\hat{\theta}$ = `r ifelse(is.infinite(theta_hat), "∞", theta_hat)` km, $\hat{\kappa}$ = `r round(kappa_hat, 2)`) from the main analysis.
+
+```{r table-collapse-robustness, echo=FALSE}
+collapse_table <- collapse_robustness_table %>%
+  mutate(
+    Window = paste0(gap_days, ifelse(gap_days == 1, " day", " days")),
+    Window = ifelse(gap_days == 0, "None", Window),
+    Events = format(n_events, big.mark = ","),
+    Estimate = round(alpha, 3),
+    SE = round(se, 3),
+    CI = paste0("[", round(ci_lower, 3), ", ", round(ci_upper, 3), "]"),
+    p = ifelse(p_value < 0.001, "< 0.001", round(p_value, 3))
+  ) %>%
+  select(Window, Events, Estimate, SE, CI, p)
+
+kable(collapse_table,
+      caption = "Sensitivity of Contagion Estimate to Event Collapse Window",
+      col.names = c("Collapse Window", "Events", "α̂", "SE", "95% CI", "p-value"),
+      align = c("l", "r", "r", "r", "c", "r"),
+      row.names = FALSE) %>%
+  kable_styling(latex_options = c("hold_position")) %>%
+  footnote(general = "All models use optimal decay parameters from main analysis.",
+           general_title = "Note: ",
+           footnote_as_chunk = TRUE)
+```
+
+The table shows that the cross-district contagion coefficient remains `r if(all(collapse_robustness_table$p_value < 0.05)) "statistically significant" else "positive"` across all collapse window choices. The point estimates range from `r round(min(collapse_robustness_table$alpha), 3)` to `r round(max(collapse_robustness_table$alpha), 3)`, with the 7-day window (main specification) yielding an estimate of `r round(collapse_robustness_table$alpha[collapse_robustness_table$gap_days == 7], 3)`. `r if(abs(max(collapse_robustness_table$alpha) - min(collapse_robustness_table$alpha)) / mean(collapse_robustness_table$alpha) < 0.3) "The estimates are reasonably stable across windows, suggesting that the main finding is not driven by the particular collapse window choice." else "Some variation in estimates across windows suggests that the collapse decision matters for the precise magnitude, though the qualitative conclusion of positive contagion remains robust."`
+
+```{r table-sample, echo=FALSE}
+sample_table <- data.frame(
+  Stage = c("Raw ACLED events",
+            "Protests and riots",
+            "After 7-day collapse",
+            "Unique protest-location-days",
+            "Districts in panel",
+            "District-days in estimation sample"),
+  N = c(format(n_raw_events, big.mark=","),
+        format(n_protest_events, big.mark=","),
+        format(n_collapsed, big.mark=","),
+        format(n_daily, big.mark=","),
+        format(n_districts, big.mark=","),
+        format(n_estimation_sample, big.mark=","))
+)
+
+kable(sample_table, caption = "Sample Construction",
+      col.names = c("Stage", "N"),
+      align = c("l", "r")) %>%
+  kable_styling(latex_options = c("hold_position"))
+```
+
+
+
+
+```{r session-info, echo=FALSE, eval=FALSE}
+sessionInfo()
+```
+
+
+\newpage
+
+# References

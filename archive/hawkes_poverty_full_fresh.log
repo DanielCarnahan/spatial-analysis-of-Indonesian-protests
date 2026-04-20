@@ -1,0 +1,74 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   HAWKES MODEL WITH POVERTY RATE COVARIATE                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+SPECIFICATION:
+  Background: μ(d,y) = exp(β₀ + γ·log(pop) + δ·poverty_decimal + Σ β_year)
+             (poverty_decimal = poverty_rate/100, range 0.017-0.437)
+  Triggering: α(marks) = exp(β₀_trig + β_violence·violent + β_state·intervention)
+  Kernel: g(t) = exp(-β·t)
+  Intensity: λ(t) = μ(d,y) + Σ α(marks_i)·g(t-t_i)
+
+HYPOTHESIS:
+  → Larger districts have lower poverty (cor = -0.480)
+  → If poverty explains sub-proportional effect, γ should increase
+  → Baseline γ ≈ 0.35, with poverty expect γ ≈ 0.6-1.0
+
+✓ Parameter transformations verified
+✓ Created checkpoint directory: checkpoints_model_poverty
+
+=== LOADING DATA WITH POVERTY ===
+Loaded 15914 events with poverty data
+Time range: 2015 to 2024 
+Poverty data coverage: 15914 (100.0%)
+
+Poverty rate summary (rescaled to decimal):
+  Mean: 0.0920 (9.20%)
+  Median: 0.0764 (7.64%)
+  Range: 0.0168 to 0.4373 (1.68% to 43.73%)
+
+Correlation (log(pop) vs poverty): -0.480
+  ✓ Low to moderate correlation
+
+Using complete cases: 15914 events (100.0% of total)
+Violent events: 2153 (13.5%)
+Events with state intervention: 1259 (7.9%)
+
+=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===
+Found 2384 unique district-year combinations
+Observation period: 3587.0 days (9.82 years)
+
+=== IMPLEMENTING MODEL WITH POVERTY ===
+
+=== PREPARING DATA FOR ESTIMATION ===
+Sample size: 15914 events
+District-years: 2384
+Pre-computing time difference matrix...
+✓ Time matrix computed
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   FITTING MODEL WITH POVERTY RATE                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+--- Fitting Model with Poverty Rate (Multi-Start) ---
+Using MULTI-START optimization with 5 starting points
+Starting fresh optimization...
+
+=== MULTI-START OPTIMIZATION (5 starts) ===
+
+--- Start 1/5: Data-driven ---
+  Initial: γ=0.350, δ=0.000

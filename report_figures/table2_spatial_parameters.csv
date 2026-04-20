@@ -1,0 +1,5 @@
+"Configuration","Model","sigma_km","omega","Lower_Bound","Upper_Bound","At_Boundary","LogLik"
+"Power-law 500km","M1",0.1,50,"0.1 km","500 km","Yes",8629
+"Gaussian 500km","M1",1,NA,"1.0 km","500 km","Yes",8629
+"Gaussian 100km","M1",1,NA,"1.0 km","100 km","Yes",8629
+"Gaussian 1000km","M1",1,NA,"1.0 km","1000 km","Yes",8629

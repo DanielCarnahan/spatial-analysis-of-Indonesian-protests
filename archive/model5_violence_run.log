@@ -1,0 +1,492 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+Compiling C++ likelihood function for extended marks Hawkes model...
+✓ C++ compiled
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL 5: EXTENDED MARKS HAWKES (EXPONENTIAL)               ║
+╚══════════════════════════════════════════════════════════════╝
+
+SPECIFICATION:
+  Background: μ(d,y) = exp(β₀ + γ·log(pop) + δ·poverty + Σ β_year)
+  Triggering: α(marks) = exp(β₀_trig + β_fatal + β_violent
+                              + β_student + β_labor + β_papua)
+  Kernel: g(t) = exp(-β·t)  [EXPONENTIAL]
+  Intensity: λ(t) = μ(d,y) + Σ α(marks_i) · g(t - t_i)
+
+MARKS (violence-focused):
+  Violence indicators (2 parameters):
+    - has_fatalities (non-exclusive)
+    - is_violent (violent vs peaceful)
+  Actor-based (3 parameters, non-exclusive):
+    - is_student
+    - is_labor
+    - is_papua
+
+✓ Created checkpoint directory: checkpoints_model5_extended
+
+=== LOADING DATA ===
+Loaded 15914 events with poverty data
+Time range: 2015 to 2024 
+Poverty data coverage: 15914 (100.0%)
+
+=== CONSTRUCTING MARK VARIABLES ===
+Using complete cases: 15914 events
+
+MARK VARIABLE SUMMARY (violence-focused):
+-----------------------------------------
+  Fatal events: 151 (0.9%)
+  Violent events: 1453 (9.1%)
+  Student-led: 5026 (31.6%)
+  Labor-led: 3429 (21.5%)
+  Papua-related: 2234 (14.0%)
+
+=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===
+Found 2384 unique district-year combinations
+Observation period: 3587.0 days (9.82 years)
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   FITTING MODEL 5: EXTENDED MARKS (EXPONENTIAL)              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+--- Fitting Model 5: Extended Marks (Exponential) ---
+Using MULTI-START optimization with 5 starting points
+Starting fresh optimization...
+
+=== MULTI-START OPTIMIZATION (5 starts) ===
+
+--- Start 1/5: Data-driven ---
+  Initial: γ=0.350
+  → LL: -78643.62 | γ=0.0102 | Conv: 0 | Time: 34.9 min
+
+--- Start 2/5: Conservative ---
+  Initial: γ=0.200
+  → LL: -78635.98 | γ=0.0165 | Conv: 0 | Time: 41.4 min
+
+--- Start 3/5: Proportional ---
+  Initial: γ=0.800
+  → LL: -112999.36 | γ=0.4343 | Conv: 0 | Time: 54.6 min
+
+--- Start 4/5: High-fatality ---
+  Initial: γ=0.500
+  → LL: -112997.82 | γ=0.4348 | Conv: 0 | Time: 90.6 min
+
+--- Start 5/5: Papua-focused ---
+  Initial: γ=0.400
+  → LL: -112997.90 | γ=0.4320 | Conv: 0 | Time: 72.2 min
+
+╔══════════════════════════════════════════════════════════════╗
+║  BEST START: Conservative (LL=-78635.98)
+╚══════════════════════════════════════════════════════════════╝
+
+Re-running best initialization with full tracking...
+
+    💾 Checkpoint 1: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 1]
+
+    💾 Checkpoint 2: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 2]
+
+    💾 Checkpoint 3: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 3]
+
+    💾 Checkpoint 4: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 4]
+
+    💾 Checkpoint 5: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 5]
+
+    💾 Checkpoint 6: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 6]
+
+    💾 Checkpoint 7: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 7]
+
+    💾 Checkpoint 8: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 8]
+
+    💾 Checkpoint 9: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 9]
+
+    💾 Checkpoint 10: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 10]
+
+    💾 Checkpoint 11: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 11]
+
+    💾 Checkpoint 12: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 12]
+
+    💾 Checkpoint 13: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 13]
+
+    💾 Checkpoint 14: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 14]
+
+    💾 Checkpoint 15: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 15]
+
+    💾 Checkpoint 16: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 16]
+
+    💾 Checkpoint 17: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 17]
+
+    💾 Checkpoint 18: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 18]
+
+    💾 Checkpoint 19: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 19]
+
+    💾 Checkpoint 20: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 20]
+
+    💾 Checkpoint 21: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 21]
+
+    💾 Checkpoint 22: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 22]
+
+    💾 Checkpoint 23: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 23]
+
+    💾 Checkpoint 24: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 24]
+
+    💾 Checkpoint 25: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 25]
+
+    💾 Checkpoint 26: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 26]
+
+    💾 Checkpoint 27: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 27]
+
+    💾 Checkpoint 28: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 28]
+
+    💾 Checkpoint 29: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 29]
+
+    💾 Checkpoint 30: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 30]
+
+    💾 Checkpoint 31: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 31]
+
+    💾 Checkpoint 32: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 32]
+
+    💾 Checkpoint 33: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 33]
+
+    💾 Checkpoint 34: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 34]
+
+    💾 Checkpoint 35: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 35]
+
+    💾 Checkpoint 36: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 36]
+
+    💾 Checkpoint 37: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 37]
+
+    💾 Checkpoint 38: LL=-78636.08 (best: -78635.98) | γ=0.0165
+    LL: -78636.08 | γ=0.0165 [eval 38]
+
+    💾 Checkpoint 39: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 39]
+
+    💾 Checkpoint 40: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 40]
+
+    💾 Checkpoint 41: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 41]
+
+    💾 Checkpoint 42: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 42]
+
+    💾 Checkpoint 43: LL=-78750.49 (best: -78635.98) | γ=0.0166
+    LL: -78750.49 | γ=0.0166 [eval 43]
+
+    💾 Checkpoint 44: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 44]
+
+    💾 Checkpoint 45: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 45]
+
+    💾 Checkpoint 46: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 46]
+
+    💾 Checkpoint 47: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 47]
+
+    💾 Checkpoint 48: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 48]
+
+    💾 Checkpoint 49: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 49]
+
+    💾 Checkpoint 50: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 50]
+
+    💾 Checkpoint 51: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 51]
+
+    💾 Checkpoint 52: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 52]
+
+    💾 Checkpoint 53: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 53]
+
+    💾 Checkpoint 54: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 54]
+
+    💾 Checkpoint 55: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 55]
+
+    💾 Checkpoint 56: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 56]
+
+    💾 Checkpoint 57: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 57]
+
+    💾 Checkpoint 58: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 58]
+
+    💾 Checkpoint 59: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 59]
+
+    💾 Checkpoint 60: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 60]
+
+    💾 Checkpoint 61: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 61]
+
+    💾 Checkpoint 62: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 62]
+
+    💾 Checkpoint 63: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 63]
+
+    💾 Checkpoint 64: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 64]
+
+    💾 Checkpoint 65: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 65]
+
+    💾 Checkpoint 66: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 66]
+
+    💾 Checkpoint 67: LL=-78749.75 (best: -78635.98) | γ=0.0165
+    LL: -78749.75 | γ=0.0165 [eval 67]
+
+    💾 Checkpoint 68: LL=-78751.23 (best: -78635.98) | γ=0.0165
+    LL: -78751.23 | γ=0.0165 [eval 68]
+
+    💾 Checkpoint 69: LL=-78748.71 (best: -78635.98) | γ=0.0165
+    LL: -78748.71 | γ=0.0165 [eval 69]
+
+    💾 Checkpoint 70: LL=-78752.27 (best: -78635.98) | γ=0.0165
+    LL: -78752.27 | γ=0.0165 [eval 70]
+
+    💾 Checkpoint 71: LL=-78750.26 (best: -78635.98) | γ=0.0165
+    LL: -78750.26 | γ=0.0165 [eval 71]
+
+    💾 Checkpoint 72: LL=-78750.72 (best: -78635.98) | γ=0.0165
+    LL: -78750.72 | γ=0.0165 [eval 72]
+
+    💾 Checkpoint 73: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 73]
+
+    💾 Checkpoint 74: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 74]
+
+    💾 Checkpoint 75: LL=-78749.50 (best: -78635.98) | γ=0.0165
+    LL: -78749.50 | γ=0.0165 [eval 75]
+
+    💾 Checkpoint 76: LL=-78751.48 (best: -78635.98) | γ=0.0165
+    LL: -78751.48 | γ=0.0165 [eval 76]
+
+    💾 Checkpoint 77: LL=-78750.61 (best: -78635.98) | γ=0.0165
+    LL: -78750.61 | γ=0.0165 [eval 77]
+
+    💾 Checkpoint 78: LL=-78750.49 (best: -78635.98) | γ=0.0165
+    LL: -78750.49 | γ=0.0165 [eval 78]
+
+    💾 Checkpoint 79: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 79]
+
+    💾 Checkpoint 80: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 80]
+
+    💾 Checkpoint 81: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 81]
+
+    💾 Checkpoint 82: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 82]
+
+    💾 Checkpoint 83: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 83]
+
+    💾 Checkpoint 84: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 84]
+
+    💾 Checkpoint 85: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 85]
+
+    💾 Checkpoint 86: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 86]
+
+    💾 Checkpoint 87: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 87]
+
+    💾 Checkpoint 88: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 88]
+
+    💾 Checkpoint 89: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 89]
+
+    💾 Checkpoint 90: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 90]
+
+    💾 Checkpoint 91: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 91]
+
+    💾 Checkpoint 92: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 92]
+
+    💾 Checkpoint 93: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 93]
+
+    💾 Checkpoint 94: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 94]
+
+    💾 Checkpoint 95: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 95]
+
+    💾 Checkpoint 96: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 96]
+
+    💾 Checkpoint 97: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 97]
+
+    💾 Checkpoint 98: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 98]
+
+    💾 Checkpoint 99: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 99]
+
+    💾 Checkpoint 100: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 100]
+
+    💾 Checkpoint 101: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 101]
+
+    💾 Checkpoint 102: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 102]
+
+    💾 Checkpoint 103: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 103]
+
+    💾 Checkpoint 104: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 104]
+
+    💾 Checkpoint 105: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 105]
+
+    💾 Checkpoint 106: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 106]
+
+    💾 Checkpoint 107: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 107]
+
+    💾 Checkpoint 108: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 108]
+
+    💾 Checkpoint 109: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 109]
+
+    💾 Checkpoint 110: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 110]
+
+    💾 Checkpoint 111: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 111]
+
+    💾 Checkpoint 112: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 112]
+
+    💾 Checkpoint 113: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 113]
+
+    💾 Checkpoint 114: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 114]
+
+    💾 Checkpoint 115: LL=-78635.99 (best: -78635.98) | γ=0.0165
+    LL: -78635.99 | γ=0.0165 [eval 115]
+
+    💾 Checkpoint 116: LL=-78636.08 (best: -78635.98) | γ=0.0165
+    LL: -78636.08 | γ=0.0165 [eval 116]
+
+    💾 Checkpoint 117: LL=-78635.98 (best: -78635.98) | γ=0.0165
+    LL: -78635.98 | γ=0.0165 [eval 117]
+final  value 78635.983373 
+converged
+
+  ✓ Optimization complete in 294.40 minutes
+  Log-likelihood: -78635.98
+  Convergence: 0
+✓ Final checkpoint saved: checkpoints_model5_extended/model-MODEL5_EXTENDED-FINAL.rds
+
+  Cleaned up 117 intermediate checkpoints
+
+
+╔══════════════════════════════════════════════════════════════╗
+║         MODEL 5 RESULTS                                      ║
+╚══════════════════════════════════════════════════════════════╝
+
+MODEL FIT:
+  Log-likelihood: -78635.98
+  AIC: 157309.97
+  BIC: 157455.79
+  Parameters: 19
+  Runtime: 294.40 minutes
+
+BACKGROUND RATE PARAMETERS:
+---------------------------
+  β₀ (baseline): -11.6183
+  γ (population elasticity): 0.0165
+    → 10× population → 1.0× more protests
+  δ (poverty effect): -17.5138
+    → +10% poverty → 0.174× more protests
+
+TRIGGERING PARAMETERS (violence-focused):
+------------------------------------------
+  β₀_trig (baseline): -9.9991
+  β_fatal: 1.5308 (exp = 4.622)
+  β_violent: 1.6967 (exp = 5.456)
+  β_student: -1.7522 (exp = 0.173)
+  β_labor: -4.9995 (exp = 0.007)
+  β_papua: -0.0856 (exp = 0.918)
+  Decay: 0.00145 (half-life = 476.7 days)
+
+✓ Saved: model5_extended_marks.rds
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL 5 ESTIMATION COMPLETE                                ║
+╚══════════════════════════════════════════════════════════════╝

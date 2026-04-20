@@ -1,0 +1,5137 @@
+"district","year","poverty_rate","extrapolated"
+"Aceh Barat Daya, Kab.",2015,18.25,FALSE
+"Aceh Barat Daya, Kab.",2016,18.03,FALSE
+"Aceh Barat Daya, Kab.",2017,18.31,FALSE
+"Aceh Barat Daya, Kab.",2018,17.1,FALSE
+"Aceh Barat Daya, Kab.",2019,16.26,FALSE
+"Aceh Barat Daya, Kab.",2020,15.93,FALSE
+"Aceh Barat Daya, Kab.",2021,15.345,TRUE
+"Aceh Barat Daya, Kab.",2022,14.76,TRUE
+"Aceh Barat Daya, Kab.",2023,14.175,TRUE
+"Aceh Barat Daya, Kab.",2024,13.59,TRUE
+"Aceh Barat, Kab.",2015,21.46,FALSE
+"Aceh Barat, Kab.",2016,20.38,FALSE
+"Aceh Barat, Kab.",2017,20.28,FALSE
+"Aceh Barat, Kab.",2018,19.31,FALSE
+"Aceh Barat, Kab.",2019,18.79,FALSE
+"Aceh Barat, Kab.",2020,18.34,FALSE
+"Aceh Barat, Kab.",2021,17.855,TRUE
+"Aceh Barat, Kab.",2022,17.37,TRUE
+"Aceh Barat, Kab.",2023,16.885,TRUE
+"Aceh Barat, Kab.",2024,16.4,TRUE
+"Aceh Besar, Kab.",2015,15.93,FALSE
+"Aceh Besar, Kab.",2016,15.55,FALSE
+"Aceh Besar, Kab.",2017,15.41,FALSE
+"Aceh Besar, Kab.",2018,14.47,FALSE
+"Aceh Besar, Kab.",2019,13.92,FALSE
+"Aceh Besar, Kab.",2020,13.84,FALSE
+"Aceh Besar, Kab.",2021,13.525,TRUE
+"Aceh Besar, Kab.",2022,13.21,TRUE
+"Aceh Besar, Kab.",2023,12.895,TRUE
+"Aceh Besar, Kab.",2024,12.58,TRUE
+"Aceh Jaya, Kab.",2015,15.93,FALSE
+"Aceh Jaya, Kab.",2016,15.01,FALSE
+"Aceh Jaya, Kab.",2017,14.85,FALSE
+"Aceh Jaya, Kab.",2018,14.16,FALSE
+"Aceh Jaya, Kab.",2019,13.36,FALSE
+"Aceh Jaya, Kab.",2020,12.87,FALSE
+"Aceh Jaya, Kab.",2021,12.225,TRUE
+"Aceh Jaya, Kab.",2022,11.58,TRUE
+"Aceh Jaya, Kab.",2023,10.935,TRUE
+"Aceh Jaya, Kab.",2024,10.29,TRUE
+"Aceh Selatan, Kab.",2015,13.24,FALSE
+"Aceh Selatan, Kab.",2016,13.48,FALSE
+"Aceh Selatan, Kab.",2017,14.07,FALSE
+"Aceh Selatan, Kab.",2018,14.01,FALSE
+"Aceh Selatan, Kab.",2019,13.09,FALSE
+"Aceh Selatan, Kab.",2020,12.87,FALSE
+"Aceh Selatan, Kab.",2021,12.3,TRUE
+"Aceh Selatan, Kab.",2022,11.73,TRUE
+"Aceh Selatan, Kab.",2023,11.16,TRUE
+"Aceh Selatan, Kab.",2024,10.59,TRUE
+"Aceh Singkil, Kab.",2015,21.72,FALSE
+"Aceh Singkil, Kab.",2016,21.6,FALSE
+"Aceh Singkil, Kab.",2017,22.11,FALSE
+"Aceh Singkil, Kab.",2018,21.25,FALSE
+"Aceh Singkil, Kab.",2019,20.78,FALSE
+"Aceh Singkil, Kab.",2020,20.2,FALSE
+"Aceh Singkil, Kab.",2021,19.675,TRUE
+"Aceh Singkil, Kab.",2022,19.15,TRUE
+"Aceh Singkil, Kab.",2023,18.625,TRUE
+"Aceh Singkil, Kab.",2024,18.1,TRUE
+"Aceh Tamiang, Kab.",2015,14.57,FALSE
+"Aceh Tamiang, Kab.",2016,14.51,FALSE
+"Aceh Tamiang, Kab.",2017,14.69,FALSE
+"Aceh Tamiang, Kab.",2018,14.21,FALSE
+"Aceh Tamiang, Kab.",2019,13.38,FALSE
+"Aceh Tamiang, Kab.",2020,13.08,FALSE
+"Aceh Tamiang, Kab.",2021,12.515,TRUE
+"Aceh Tamiang, Kab.",2022,11.95,TRUE
+"Aceh Tamiang, Kab.",2023,11.385,TRUE
+"Aceh Tamiang, Kab.",2024,10.82,TRUE
+"Aceh Tengah, Kab.",2015,17.51,FALSE
+"Aceh Tengah, Kab.",2016,16.64,FALSE
+"Aceh Tengah, Kab.",2017,16.84,FALSE
+"Aceh Tengah, Kab.",2018,15.58,FALSE
+"Aceh Tengah, Kab.",2019,15.5,FALSE
+"Aceh Tengah, Kab.",2020,15.08,FALSE
+"Aceh Tengah, Kab.",2021,14.83,TRUE
+"Aceh Tengah, Kab.",2022,14.58,TRUE
+"Aceh Tengah, Kab.",2023,14.33,TRUE
+"Aceh Tengah, Kab.",2024,14.08,TRUE
+"Aceh Tenggara, Kab.",2015,14.91,FALSE
+"Aceh Tenggara, Kab.",2016,14.46,FALSE
+"Aceh Tenggara, Kab.",2017,14.86,FALSE
+"Aceh Tenggara, Kab.",2018,14.29,FALSE
+"Aceh Tenggara, Kab.",2019,13.43,FALSE
+"Aceh Tenggara, Kab.",2020,13.21,FALSE
+"Aceh Tenggara, Kab.",2021,12.67,TRUE
+"Aceh Tenggara, Kab.",2022,12.13,TRUE
+"Aceh Tenggara, Kab.",2023,11.59,TRUE
+"Aceh Tenggara, Kab.",2024,11.05,TRUE
+"Aceh Timur, Kab.",2015,15.85,FALSE
+"Aceh Timur, Kab.",2016,15.06,FALSE
+"Aceh Timur, Kab.",2017,15.25,FALSE
+"Aceh Timur, Kab.",2018,14.49,FALSE
+"Aceh Timur, Kab.",2019,14.47,FALSE
+"Aceh Timur, Kab.",2020,14.08,FALSE
+"Aceh Timur, Kab.",2021,13.875,TRUE
+"Aceh Timur, Kab.",2022,13.67,TRUE
+"Aceh Timur, Kab.",2023,13.465,TRUE
+"Aceh Timur, Kab.",2024,13.26,TRUE
+"Aceh Utara, Kab.",2015,19.2,FALSE
+"Aceh Utara, Kab.",2016,19.46,FALSE
+"Aceh Utara, Kab.",2017,19.78,FALSE
+"Aceh Utara, Kab.",2018,18.27,FALSE
+"Aceh Utara, Kab.",2019,17.39,FALSE
+"Aceh Utara, Kab.",2020,17.02,FALSE
+"Aceh Utara, Kab.",2021,16.395,TRUE
+"Aceh Utara, Kab.",2022,15.77,TRUE
+"Aceh Utara, Kab.",2023,15.145,TRUE
+"Aceh Utara, Kab.",2024,14.52,TRUE
+"Adm. Kepulauan Seribu, Kab.",2015,11.4,FALSE
+"Adm. Kepulauan Seribu, Kab.",2016,12.58,FALSE
+"Adm. Kepulauan Seribu, Kab.",2017,12.98,FALSE
+"Adm. Kepulauan Seribu, Kab.",2018,11.98,FALSE
+"Adm. Kepulauan Seribu, Kab.",2019,12.09,FALSE
+"Adm. Kepulauan Seribu, Kab.",2020,14.87,FALSE
+"Adm. Kepulauan Seribu, Kab.",2021,16.315,TRUE
+"Adm. Kepulauan Seribu, Kab.",2022,17.76,TRUE
+"Adm. Kepulauan Seribu, Kab.",2023,19.205,TRUE
+"Adm. Kepulauan Seribu, Kab.",2024,20.65,TRUE
+"Agam, Kab.",2015,7.58,FALSE
+"Agam, Kab.",2016,7.83,FALSE
+"Agam, Kab.",2017,7.59,FALSE
+"Agam, Kab.",2018,6.76,FALSE
+"Agam, Kab.",2019,6.75,FALSE
+"Agam, Kab.",2020,6.75,FALSE
+"Agam, Kab.",2021,6.745,TRUE
+"Agam, Kab.",2022,6.74,TRUE
+"Agam, Kab.",2023,6.735,TRUE
+"Agam, Kab.",2024,6.73,TRUE
+"Alor, Kab.",2015,22.92,FALSE
+"Alor, Kab.",2016,22.35,FALSE
+"Alor, Kab.",2017,21.67,FALSE
+"Alor, Kab.",2018,21.63,FALSE
+"Alor, Kab.",2019,21.59,FALSE
+"Alor, Kab.",2020,21.09,FALSE
+"Alor, Kab.",2021,20.82,TRUE
+"Alor, Kab.",2022,20.55,TRUE
+"Alor, Kab.",2023,20.28,TRUE
+"Alor, Kab.",2024,20.01,TRUE
+"Ambon, Kota",2015,4.38,FALSE
+"Ambon, Kota",2016,4.64,FALSE
+"Ambon, Kota",2017,4.46,FALSE
+"Ambon, Kota",2018,4.72,FALSE
+"Ambon, Kota",2019,4.57,FALSE
+"Ambon, Kota",2020,4.51,FALSE
+"Ambon, Kota",2021,4.405,TRUE
+"Ambon, Kota",2022,4.3,TRUE
+"Ambon, Kota",2023,4.195,TRUE
+"Ambon, Kota",2024,4.09,TRUE
+"Asahan, Kab.",2015,12.09,FALSE
+"Asahan, Kab.",2016,11.86,FALSE
+"Asahan, Kab.",2017,11.67,FALSE
+"Asahan, Kab.",2018,10.25,FALSE
+"Asahan, Kab.",2019,9.68,FALSE
+"Asahan, Kab.",2020,9.04,FALSE
+"Asahan, Kab.",2021,8.435,TRUE
+"Asahan, Kab.",2022,7.83,TRUE
+"Asahan, Kab.",2023,7.225,TRUE
+"Asahan, Kab.",2024,6.62,TRUE
+"Asmat, Kab.",2015,28.48,FALSE
+"Asmat, Kab.",2016,27.79,FALSE
+"Asmat, Kab.",2017,27.16,FALSE
+"Asmat, Kab.",2018,27.41,FALSE
+"Asmat, Kab.",2019,26.6,FALSE
+"Asmat, Kab.",2020,25.49,FALSE
+"Asmat, Kab.",2021,24.53,TRUE
+"Asmat, Kab.",2022,23.57,TRUE
+"Asmat, Kab.",2023,22.61,TRUE
+"Asmat, Kab.",2024,21.65,TRUE
+"Badung, Kab.",2015,2.33,FALSE
+"Badung, Kab.",2016,2.06,FALSE
+"Badung, Kab.",2017,2.06,FALSE
+"Badung, Kab.",2018,1.98,FALSE
+"Badung, Kab.",2019,1.78,FALSE
+"Badung, Kab.",2020,2.02,FALSE
+"Badung, Kab.",2021,2.04,TRUE
+"Badung, Kab.",2022,2.06,TRUE
+"Badung, Kab.",2023,2.08,TRUE
+"Badung, Kab.",2024,2.1,TRUE
+"Balangan, Kab.",2015,5.87,FALSE
+"Balangan, Kab.",2016,5.67,FALSE
+"Balangan, Kab.",2017,5.68,FALSE
+"Balangan, Kab.",2018,5.59,FALSE
+"Balangan, Kab.",2019,5.55,FALSE
+"Balangan, Kab.",2020,5.32,FALSE
+"Balangan, Kab.",2021,5.185,TRUE
+"Balangan, Kab.",2022,5.05,TRUE
+"Balangan, Kab.",2023,4.915,TRUE
+"Balangan, Kab.",2024,4.78,TRUE
+"Balikpapan, Kota",2015,2.91,FALSE
+"Balikpapan, Kota",2016,2.81,FALSE
+"Balikpapan, Kota",2017,2.82,FALSE
+"Balikpapan, Kota",2018,2.64,FALSE
+"Balikpapan, Kota",2019,2.42,FALSE
+"Balikpapan, Kota",2020,2.57,FALSE
+"Balikpapan, Kota",2021,2.535,TRUE
+"Balikpapan, Kota",2022,2.5,TRUE
+"Balikpapan, Kota",2023,2.465,TRUE
+"Balikpapan, Kota",2024,2.43,TRUE
+"Banda Aceh, Kota",2015,7.72,FALSE
+"Banda Aceh, Kota",2016,7.41,FALSE
+"Banda Aceh, Kota",2017,7.44,FALSE
+"Banda Aceh, Kota",2018,7.25,FALSE
+"Banda Aceh, Kota",2019,7.22,FALSE
+"Banda Aceh, Kota",2020,6.9,FALSE
+"Banda Aceh, Kota",2021,6.725,TRUE
+"Banda Aceh, Kota",2022,6.55,TRUE
+"Banda Aceh, Kota",2023,6.375,TRUE
+"Banda Aceh, Kota",2024,6.2,TRUE
+"Bandar Lampung, Kota",2015,10.33,FALSE
+"Bandar Lampung, Kota",2016,10.15,FALSE
+"Bandar Lampung, Kota",2017,9.94,FALSE
+"Bandar Lampung, Kota",2018,9.04,FALSE
+"Bandar Lampung, Kota",2019,8.71,FALSE
+"Bandar Lampung, Kota",2020,8.81,FALSE
+"Bandar Lampung, Kota",2021,8.695,TRUE
+"Bandar Lampung, Kota",2022,8.58,TRUE
+"Bandar Lampung, Kota",2023,8.465,TRUE
+"Bandar Lampung, Kota",2024,8.35,TRUE
+"Bandung Barat, Kab.",2015,12.67,FALSE
+"Bandung Barat, Kab.",2016,11.71,FALSE
+"Bandung Barat, Kab.",2017,11.49,FALSE
+"Bandung Barat, Kab.",2018,10.06,FALSE
+"Bandung Barat, Kab.",2019,9.38,FALSE
+"Bandung Barat, Kab.",2020,10.49,FALSE
+"Bandung Barat, Kab.",2021,10.705,TRUE
+"Bandung Barat, Kab.",2022,10.92,TRUE
+"Bandung Barat, Kab.",2023,11.135,TRUE
+"Bandung Barat, Kab.",2024,11.35,TRUE
+"Bandung, Kab.",2015,8,FALSE
+"Bandung, Kab.",2016,7.61,FALSE
+"Bandung, Kab.",2017,7.36,FALSE
+"Bandung, Kab.",2018,6.65,FALSE
+"Bandung, Kab.",2019,5.94,FALSE
+"Bandung, Kab.",2020,6.91,FALSE
+"Bandung, Kab.",2021,7.04,TRUE
+"Bandung, Kab.",2022,7.17,TRUE
+"Bandung, Kab.",2023,7.3,TRUE
+"Bandung, Kab.",2024,7.43,TRUE
+"Bandung, Kota",2015,4.61,FALSE
+"Bandung, Kota",2016,4.32,FALSE
+"Bandung, Kota",2017,4.17,FALSE
+"Bandung, Kota",2018,3.57,FALSE
+"Bandung, Kota",2019,3.38,FALSE
+"Bandung, Kota",2020,3.99,FALSE
+"Bandung, Kota",2021,4.2,TRUE
+"Bandung, Kota",2022,4.41,TRUE
+"Bandung, Kota",2023,4.62,TRUE
+"Bandung, Kota",2024,4.83,TRUE
+"Banggai Kepulauan, Kab.",2015,16.08,FALSE
+"Banggai Kepulauan, Kab.",2016,16.18,FALSE
+"Banggai Kepulauan, Kab.",2017,15.92,FALSE
+"Banggai Kepulauan, Kab.",2018,15.65,FALSE
+"Banggai Kepulauan, Kab.",2019,14.84,FALSE
+"Banggai Kepulauan, Kab.",2020,14.04,FALSE
+"Banggai Kepulauan, Kab.",2021,13.235,TRUE
+"Banggai Kepulauan, Kab.",2022,12.43,TRUE
+"Banggai Kepulauan, Kab.",2023,11.625,TRUE
+"Banggai Kepulauan, Kab.",2024,10.82,TRUE
+"Banggai Laut, Kab.",2015,17.68,FALSE
+"Banggai Laut, Kab.",2016,16.6,FALSE
+"Banggai Laut, Kab.",2017,16.17,FALSE
+"Banggai Laut, Kab.",2018,16.32,FALSE
+"Banggai Laut, Kab.",2019,15.34,FALSE
+"Banggai Laut, Kab.",2020,14.6,FALSE
+"Banggai Laut, Kab.",2021,13.74,TRUE
+"Banggai Laut, Kab.",2022,12.88,TRUE
+"Banggai Laut, Kab.",2023,12.02,TRUE
+"Banggai Laut, Kab.",2024,11.16,TRUE
+"Banggai, Kab.",2015,9.84,FALSE
+"Banggai, Kab.",2016,9.47,FALSE
+"Banggai, Kab.",2017,9.2,FALSE
+"Banggai, Kab.",2018,9.12,FALSE
+"Banggai, Kab.",2019,7.8,FALSE
+"Banggai, Kab.",2020,7.39,FALSE
+"Banggai, Kab.",2021,6.525,TRUE
+"Banggai, Kab.",2022,5.66,TRUE
+"Banggai, Kab.",2023,4.795,TRUE
+"Banggai, Kab.",2024,3.93,TRUE
+"Bangka Barat, Kab.",2015,3.08,FALSE
+"Bangka Barat, Kab.",2016,2.74,FALSE
+"Bangka Barat, Kab.",2017,2.98,FALSE
+"Bangka Barat, Kab.",2018,3.05,FALSE
+"Bangka Barat, Kab.",2019,2.67,FALSE
+"Bangka Barat, Kab.",2020,2.7,FALSE
+"Bangka Barat, Kab.",2021,2.525,TRUE
+"Bangka Barat, Kab.",2022,2.35,TRUE
+"Bangka Barat, Kab.",2023,2.175,TRUE
+"Bangka Barat, Kab.",2024,2,TRUE
+"Bangka Selatan, Kab.",2015,3.74,FALSE
+"Bangka Selatan, Kab.",2016,3.62,FALSE
+"Bangka Selatan, Kab.",2017,3.92,FALSE
+"Bangka Selatan, Kab.",2018,3.7,FALSE
+"Bangka Selatan, Kab.",2019,3.36,FALSE
+"Bangka Selatan, Kab.",2020,3.52,FALSE
+"Bangka Selatan, Kab.",2021,3.43,TRUE
+"Bangka Selatan, Kab.",2022,3.34,TRUE
+"Bangka Selatan, Kab.",2023,3.25,TRUE
+"Bangka Selatan, Kab.",2024,3.16,TRUE
+"Bangka Tengah, Kab.",2015,5.67,FALSE
+"Bangka Tengah, Kab.",2016,5.64,FALSE
+"Bangka Tengah, Kab.",2017,6.07,FALSE
+"Bangka Tengah, Kab.",2018,5.81,FALSE
+"Bangka Tengah, Kab.",2019,5.02,FALSE
+"Bangka Tengah, Kab.",2020,4.85,FALSE
+"Bangka Tengah, Kab.",2021,4.37,TRUE
+"Bangka Tengah, Kab.",2022,3.89,TRUE
+"Bangka Tengah, Kab.",2023,3.41,TRUE
+"Bangka Tengah, Kab.",2024,2.93,TRUE
+"Bangka, Kab.",2015,5.63,FALSE
+"Bangka, Kab.",2016,5.52,FALSE
+"Bangka, Kab.",2017,5.1,FALSE
+"Bangka, Kab.",2018,5.47,FALSE
+"Bangka, Kab.",2019,4.92,FALSE
+"Bangka, Kab.",2020,4.51,FALSE
+"Bangka, Kab.",2021,4.03,TRUE
+"Bangka, Kab.",2022,3.55,TRUE
+"Bangka, Kab.",2023,3.07,TRUE
+"Bangka, Kab.",2024,2.59,TRUE
+"Bangkalan, Kab.",2015,22.57,FALSE
+"Bangkalan, Kab.",2016,21.41,FALSE
+"Bangkalan, Kab.",2017,21.32,FALSE
+"Bangkalan, Kab.",2018,19.59,FALSE
+"Bangkalan, Kab.",2019,18.9,FALSE
+"Bangkalan, Kab.",2020,20.56,FALSE
+"Bangkalan, Kab.",2021,21.045,TRUE
+"Bangkalan, Kab.",2022,21.53,TRUE
+"Bangkalan, Kab.",2023,22.015,TRUE
+"Bangkalan, Kab.",2024,22.5,TRUE
+"Bangli, Kab.",2015,5.73,FALSE
+"Bangli, Kab.",2016,5.22,FALSE
+"Bangli, Kab.",2017,5.23,FALSE
+"Bangli, Kab.",2018,4.89,FALSE
+"Bangli, Kab.",2019,4.44,FALSE
+"Bangli, Kab.",2020,4.19,FALSE
+"Bangli, Kab.",2021,3.84,TRUE
+"Bangli, Kab.",2022,3.49,TRUE
+"Bangli, Kab.",2023,3.14,TRUE
+"Bangli, Kab.",2024,2.79,TRUE
+"Banjar Baru, Kota",2015,4.9,FALSE
+"Banjar Baru, Kota",2016,4.62,FALSE
+"Banjar Baru, Kota",2017,4.68,FALSE
+"Banjar Baru, Kota",2018,4.19,FALSE
+"Banjar Baru, Kota",2019,4.3,FALSE
+"Banjar Baru, Kota",2020,4.01,FALSE
+"Banjar Baru, Kota",2021,3.92,TRUE
+"Banjar Baru, Kota",2022,3.83,TRUE
+"Banjar Baru, Kota",2023,3.74,TRUE
+"Banjar Baru, Kota",2024,3.65,TRUE
+"Banjar, Kab.",2015,3.26,FALSE
+"Banjar, Kab.",2016,3.1,FALSE
+"Banjar, Kab.",2017,2.96,FALSE
+"Banjar, Kab.",2018,2.7,FALSE
+"Banjar, Kab.",2019,2.72,FALSE
+"Banjar, Kab.",2020,2.55,FALSE
+"Banjar, Kab.",2021,2.475,TRUE
+"Banjar, Kab.",2022,2.4,TRUE
+"Banjar, Kab.",2023,2.325,TRUE
+"Banjar, Kab.",2024,2.25,TRUE
+"Banjar, Kota",2015,7.41,FALSE
+"Banjar, Kota",2016,7.01,FALSE
+"Banjar, Kota",2017,7.06,FALSE
+"Banjar, Kota",2018,5.7,FALSE
+"Banjar, Kota",2019,5.5,FALSE
+"Banjar, Kota",2020,6.09,FALSE
+"Banjar, Kota",2021,6.285,TRUE
+"Banjar, Kota",2022,6.48,TRUE
+"Banjar, Kota",2023,6.675,TRUE
+"Banjar, Kota",2024,6.87,TRUE
+"Banjarmasin, Kota",2015,4.44,FALSE
+"Banjarmasin, Kota",2016,4.22,FALSE
+"Banjarmasin, Kota",2017,4.19,FALSE
+"Banjarmasin, Kota",2018,4.18,FALSE
+"Banjarmasin, Kota",2019,4.2,FALSE
+"Banjarmasin, Kota",2020,4.39,FALSE
+"Banjarmasin, Kota",2021,4.495,TRUE
+"Banjarmasin, Kota",2022,4.6,TRUE
+"Banjarmasin, Kota",2023,4.705,TRUE
+"Banjarmasin, Kota",2024,4.81,TRUE
+"Banjarnegara, Kab.",2015,18.37,FALSE
+"Banjarnegara, Kab.",2016,17.46,FALSE
+"Banjarnegara, Kab.",2017,17.21,FALSE
+"Banjarnegara, Kab.",2018,15.46,FALSE
+"Banjarnegara, Kab.",2019,14.76,FALSE
+"Banjarnegara, Kab.",2020,15.64,FALSE
+"Banjarnegara, Kab.",2021,15.73,TRUE
+"Banjarnegara, Kab.",2022,15.82,TRUE
+"Banjarnegara, Kab.",2023,15.91,TRUE
+"Banjarnegara, Kab.",2024,16,TRUE
+"Bantaeng, Kab.",2015,9.53,FALSE
+"Bantaeng, Kab.",2016,9.51,FALSE
+"Bantaeng, Kab.",2017,9.66,FALSE
+"Bantaeng, Kab.",2018,9.23,FALSE
+"Bantaeng, Kab.",2019,9.03,FALSE
+"Bantaeng, Kab.",2020,8.95,FALSE
+"Bantaeng, Kab.",2021,8.81,TRUE
+"Bantaeng, Kab.",2022,8.67,TRUE
+"Bantaeng, Kab.",2023,8.53,TRUE
+"Bantaeng, Kab.",2024,8.39,TRUE
+"Bantul, Kab.",2015,16.33,FALSE
+"Bantul, Kab.",2016,14.55,FALSE
+"Bantul, Kab.",2017,14.07,FALSE
+"Bantul, Kab.",2018,13.43,FALSE
+"Bantul, Kab.",2019,12.92,FALSE
+"Bantul, Kab.",2020,13.5,FALSE
+"Bantul, Kab.",2021,13.535,TRUE
+"Bantul, Kab.",2022,13.57,TRUE
+"Bantul, Kab.",2023,13.605,TRUE
+"Bantul, Kab.",2024,13.64,TRUE
+"Banyuasin, Kab.",2015,12.45,FALSE
+"Banyuasin, Kab.",2016,11.72,FALSE
+"Banyuasin, Kab.",2017,11.47,FALSE
+"Banyuasin, Kab.",2018,11.32,FALSE
+"Banyuasin, Kab.",2019,11.33,FALSE
+"Banyuasin, Kab.",2020,11.17,FALSE
+"Banyuasin, Kab.",2021,11.095,TRUE
+"Banyuasin, Kab.",2022,11.02,TRUE
+"Banyuasin, Kab.",2023,10.945,TRUE
+"Banyuasin, Kab.",2024,10.87,TRUE
+"Banyumas, Kab.",2015,17.52,FALSE
+"Banyumas, Kab.",2016,17.23,FALSE
+"Banyumas, Kab.",2017,17.05,FALSE
+"Banyumas, Kab.",2018,13.5,FALSE
+"Banyumas, Kab.",2019,12.53,FALSE
+"Banyumas, Kab.",2020,13.26,FALSE
+"Banyumas, Kab.",2021,13.14,TRUE
+"Banyumas, Kab.",2022,13.02,TRUE
+"Banyumas, Kab.",2023,12.9,TRUE
+"Banyumas, Kab.",2024,12.78,TRUE
+"Banyuwangi, Kab.",2015,9.17,FALSE
+"Banyuwangi, Kab.",2016,8.79,FALSE
+"Banyuwangi, Kab.",2017,8.64,FALSE
+"Banyuwangi, Kab.",2018,7.8,FALSE
+"Banyuwangi, Kab.",2019,7.52,FALSE
+"Banyuwangi, Kab.",2020,8.06,FALSE
+"Banyuwangi, Kab.",2021,8.19,TRUE
+"Banyuwangi, Kab.",2022,8.32,TRUE
+"Banyuwangi, Kab.",2023,8.45,TRUE
+"Banyuwangi, Kab.",2024,8.58,TRUE
+"Barito Kuala, Kab.",2015,5.37,FALSE
+"Barito Kuala, Kab.",2016,5.22,FALSE
+"Barito Kuala, Kab.",2017,5.13,FALSE
+"Barito Kuala, Kab.",2018,4.56,FALSE
+"Barito Kuala, Kab.",2019,4.63,FALSE
+"Barito Kuala, Kab.",2020,4.51,FALSE
+"Barito Kuala, Kab.",2021,4.485,TRUE
+"Barito Kuala, Kab.",2022,4.46,TRUE
+"Barito Kuala, Kab.",2023,4.435,TRUE
+"Barito Kuala, Kab.",2024,4.41,TRUE
+"Barito Selatan, Kab.",2015,5.07,FALSE
+"Barito Selatan, Kab.",2016,4.58,FALSE
+"Barito Selatan, Kab.",2017,4.44,FALSE
+"Barito Selatan, Kab.",2018,4.55,FALSE
+"Barito Selatan, Kab.",2019,4.39,FALSE
+"Barito Selatan, Kab.",2020,4.45,FALSE
+"Barito Selatan, Kab.",2021,4.4,TRUE
+"Barito Selatan, Kab.",2022,4.35,TRUE
+"Barito Selatan, Kab.",2023,4.3,TRUE
+"Barito Selatan, Kab.",2024,4.25,TRUE
+"Barito Timur, Kab.",2015,8.41,FALSE
+"Barito Timur, Kab.",2016,7.64,FALSE
+"Barito Timur, Kab.",2017,7.17,FALSE
+"Barito Timur, Kab.",2018,6.56,FALSE
+"Barito Timur, Kab.",2019,6.32,FALSE
+"Barito Timur, Kab.",2020,6.09,FALSE
+"Barito Timur, Kab.",2021,5.855,TRUE
+"Barito Timur, Kab.",2022,5.62,TRUE
+"Barito Timur, Kab.",2023,5.385,TRUE
+"Barito Timur, Kab.",2024,5.15,TRUE
+"Barito Utara, Kab.",2015,5.93,FALSE
+"Barito Utara, Kab.",2016,5.38,FALSE
+"Barito Utara, Kab.",2017,5.21,FALSE
+"Barito Utara, Kab.",2018,5,FALSE
+"Barito Utara, Kab.",2019,4.95,FALSE
+"Barito Utara, Kab.",2020,5.17,FALSE
+"Barito Utara, Kab.",2021,5.255,TRUE
+"Barito Utara, Kab.",2022,5.34,TRUE
+"Barito Utara, Kab.",2023,5.425,TRUE
+"Barito Utara, Kab.",2024,5.51,TRUE
+"Barru, Kab.",2015,9.42,FALSE
+"Barru, Kab.",2016,9.45,FALSE
+"Barru, Kab.",2017,9.71,FALSE
+"Barru, Kab.",2018,9.04,FALSE
+"Barru, Kab.",2019,8.57,FALSE
+"Barru, Kab.",2020,8.26,FALSE
+"Barru, Kab.",2021,7.87,TRUE
+"Barru, Kab.",2022,7.48,TRUE
+"Barru, Kab.",2023,7.09,TRUE
+"Barru, Kab.",2024,6.7,TRUE
+"Batam, Kota",2015,5.08,FALSE
+"Batam, Kota",2016,4.68,FALSE
+"Batam, Kota",2017,4.81,FALSE
+"Batam, Kota",2018,5.11,FALSE
+"Batam, Kota",2019,4.85,FALSE
+"Batam, Kota",2020,4.75,FALSE
+"Batam, Kota",2021,4.57,TRUE
+"Batam, Kota",2022,4.39,TRUE
+"Batam, Kota",2023,4.21,TRUE
+"Batam, Kota",2024,4.03,TRUE
+"Batang Hari, Kab.",2015,10.69,FALSE
+"Batang Hari, Kab.",2016,10.79,FALSE
+"Batang Hari, Kab.",2017,10.33,FALSE
+"Batang Hari, Kab.",2018,10.23,FALSE
+"Batang Hari, Kab.",2019,9.75,FALSE
+"Batang Hari, Kab.",2020,9.65,FALSE
+"Batang Hari, Kab.",2021,9.36,TRUE
+"Batang Hari, Kab.",2022,9.07,TRUE
+"Batang Hari, Kab.",2023,8.78,TRUE
+"Batang Hari, Kab.",2024,8.49,TRUE
+"Batang, Kab.",2015,11.27,FALSE
+"Batang, Kab.",2016,11.04,FALSE
+"Batang, Kab.",2017,10.8,FALSE
+"Batang, Kab.",2018,8.69,FALSE
+"Batang, Kab.",2019,8.35,FALSE
+"Batang, Kab.",2020,9.13,FALSE
+"Batang, Kab.",2021,9.35,TRUE
+"Batang, Kab.",2022,9.57,TRUE
+"Batang, Kab.",2023,9.79,TRUE
+"Batang, Kab.",2024,10.01,TRUE
+"Batu Bara, Kab.",2015,12.61,FALSE
+"Batu Bara, Kab.",2016,12.24,FALSE
+"Batu Bara, Kab.",2017,12.48,FALSE
+"Batu Bara, Kab.",2018,12.57,FALSE
+"Batu Bara, Kab.",2019,12.14,FALSE
+"Batu Bara, Kab.",2020,11.88,FALSE
+"Batu Bara, Kab.",2021,11.535,TRUE
+"Batu Bara, Kab.",2022,11.19,TRUE
+"Batu Bara, Kab.",2023,10.845,TRUE
+"Batu Bara, Kab.",2024,10.5,TRUE
+"Batu, Kota",2015,4.71,FALSE
+"Batu, Kota",2016,4.48,FALSE
+"Batu, Kota",2017,4.31,FALSE
+"Batu, Kota",2018,3.89,FALSE
+"Batu, Kota",2019,3.81,FALSE
+"Batu, Kota",2020,3.89,FALSE
+"Batu, Kota",2021,3.89,TRUE
+"Batu, Kota",2022,3.89,TRUE
+"Batu, Kota",2023,3.89,TRUE
+"Batu, Kota",2024,3.89,TRUE
+"Bau-Bau, Kota",2015,9.24,FALSE
+"Bau-Bau, Kota",2016,8.81,FALSE
+"Bau-Bau, Kota",2017,8.39,FALSE
+"Bau-Bau, Kota",2018,7.57,FALSE
+"Bau-Bau, Kota",2019,7.27,FALSE
+"Bau-Bau, Kota",2020,7.15,FALSE
+"Bau-Bau, Kota",2021,6.94,TRUE
+"Bau-Bau, Kota",2022,6.73,TRUE
+"Bau-Bau, Kota",2023,6.52,TRUE
+"Bau-Bau, Kota",2024,6.31,TRUE
+"Bekasi, Kab.",2015,5.27,FALSE
+"Bekasi, Kab.",2016,4.92,FALSE
+"Bekasi, Kab.",2017,4.73,FALSE
+"Bekasi, Kab.",2018,4.37,FALSE
+"Bekasi, Kab.",2019,4.01,FALSE
+"Bekasi, Kab.",2020,4.82,FALSE
+"Bekasi, Kab.",2021,5.045,TRUE
+"Bekasi, Kab.",2022,5.27,TRUE
+"Bekasi, Kab.",2023,5.495,TRUE
+"Bekasi, Kab.",2024,5.72,TRUE
+"Bekasi, Kota",2015,5.46,FALSE
+"Bekasi, Kota",2016,5.06,FALSE
+"Bekasi, Kota",2017,4.79,FALSE
+"Bekasi, Kota",2018,4.11,FALSE
+"Bekasi, Kota",2019,3.81,FALSE
+"Bekasi, Kota",2020,4.38,FALSE
+"Bekasi, Kota",2021,4.515,TRUE
+"Bekasi, Kota",2022,4.65,TRUE
+"Bekasi, Kota",2023,4.785,TRUE
+"Bekasi, Kota",2024,4.92,TRUE
+"Belitung Timur, Kab.",2015,7.33,FALSE
+"Belitung Timur, Kab.",2016,6.99,FALSE
+"Belitung Timur, Kab.",2017,6.81,FALSE
+"Belitung Timur, Kab.",2018,7.06,FALSE
+"Belitung Timur, Kab.",2019,6.6,FALSE
+"Belitung Timur, Kab.",2020,6.52,FALSE
+"Belitung Timur, Kab.",2021,6.25,TRUE
+"Belitung Timur, Kab.",2022,5.98,TRUE
+"Belitung Timur, Kab.",2023,5.71,TRUE
+"Belitung Timur, Kab.",2024,5.44,TRUE
+"Belitung, Kab.",2015,8.38,FALSE
+"Belitung, Kab.",2016,7.85,FALSE
+"Belitung, Kab.",2017,7.77,FALSE
+"Belitung, Kab.",2018,7.56,FALSE
+"Belitung, Kab.",2019,6.29,FALSE
+"Belitung, Kab.",2020,6.27,FALSE
+"Belitung, Kab.",2021,5.625,TRUE
+"Belitung, Kab.",2022,4.98,TRUE
+"Belitung, Kab.",2023,4.335,TRUE
+"Belitung, Kab.",2024,3.69,TRUE
+"Belu, Kab.",2015,16.81,FALSE
+"Belu, Kab.",2016,15.82,FALSE
+"Belu, Kab.",2017,15.95,FALSE
+"Belu, Kab.",2018,15.7,FALSE
+"Belu, Kab.",2019,15.54,FALSE
+"Belu, Kab.",2020,15.37,FALSE
+"Belu, Kab.",2021,15.205,TRUE
+"Belu, Kab.",2022,15.04,TRUE
+"Belu, Kab.",2023,14.875,TRUE
+"Belu, Kab.",2024,14.71,TRUE
+"Bener Meriah, Kab.",2015,21.55,FALSE
+"Bener Meriah, Kab.",2016,21.43,FALSE
+"Bener Meriah, Kab.",2017,21.14,FALSE
+"Bener Meriah, Kab.",2018,20.13,FALSE
+"Bener Meriah, Kab.",2019,19.3,FALSE
+"Bener Meriah, Kab.",2020,18.89,FALSE
+"Bener Meriah, Kab.",2021,18.27,TRUE
+"Bener Meriah, Kab.",2022,17.65,TRUE
+"Bener Meriah, Kab.",2023,17.03,TRUE
+"Bener Meriah, Kab.",2024,16.41,TRUE
+"Bengkalis, Kab.",2015,7.38,FALSE
+"Bengkalis, Kab.",2016,6.82,FALSE
+"Bengkalis, Kab.",2017,6.85,FALSE
+"Bengkalis, Kab.",2018,6.22,FALSE
+"Bengkalis, Kab.",2019,6.27,FALSE
+"Bengkalis, Kab.",2020,6.4,FALSE
+"Bengkalis, Kab.",2021,6.49,TRUE
+"Bengkalis, Kab.",2022,6.58,TRUE
+"Bengkalis, Kab.",2023,6.67,TRUE
+"Bengkalis, Kab.",2024,6.76,TRUE
+"Bengkayang, Kab.",2015,6.94,FALSE
+"Bengkayang, Kab.",2016,7.46,FALSE
+"Bengkayang, Kab.",2017,7.51,FALSE
+"Bengkayang, Kab.",2018,7.17,FALSE
+"Bengkayang, Kab.",2019,6.96,FALSE
+"Bengkayang, Kab.",2020,6.62,FALSE
+"Bengkayang, Kab.",2021,6.345,TRUE
+"Bengkayang, Kab.",2022,6.07,TRUE
+"Bengkayang, Kab.",2023,5.795,TRUE
+"Bengkayang, Kab.",2024,5.52,TRUE
+"Bengkulu Selatan, Kab.",2015,22.76,FALSE
+"Bengkulu Selatan, Kab.",2016,22.1,FALSE
+"Bengkulu Selatan, Kab.",2017,21.06,FALSE
+"Bengkulu Selatan, Kab.",2018,18.65,FALSE
+"Bengkulu Selatan, Kab.",2019,18.54,FALSE
+"Bengkulu Selatan, Kab.",2020,17.82,FALSE
+"Bengkulu Selatan, Kab.",2021,17.405,TRUE
+"Bengkulu Selatan, Kab.",2022,16.99,TRUE
+"Bengkulu Selatan, Kab.",2023,16.575,TRUE
+"Bengkulu Selatan, Kab.",2024,16.16,TRUE
+"Bengkulu Tengah, Kab.",2015,8.33,FALSE
+"Bengkulu Tengah, Kab.",2016,8.71,FALSE
+"Bengkulu Tengah, Kab.",2017,8.41,FALSE
+"Bengkulu Tengah, Kab.",2018,8.2,FALSE
+"Bengkulu Tengah, Kab.",2019,8.8,FALSE
+"Bengkulu Tengah, Kab.",2020,9.3,FALSE
+"Bengkulu Tengah, Kab.",2021,9.85,TRUE
+"Bengkulu Tengah, Kab.",2022,10.4,TRUE
+"Bengkulu Tengah, Kab.",2023,10.95,TRUE
+"Bengkulu Tengah, Kab.",2024,11.5,TRUE
+"Bengkulu Utara, Kab.",2015,14.78,FALSE
+"Bengkulu Utara, Kab.",2016,13.67,FALSE
+"Bengkulu Utara, Kab.",2017,13.11,FALSE
+"Bengkulu Utara, Kab.",2018,11.81,FALSE
+"Bengkulu Utara, Kab.",2019,11.65,FALSE
+"Bengkulu Utara, Kab.",2020,11.67,FALSE
+"Bengkulu Utara, Kab.",2021,11.6,TRUE
+"Bengkulu Utara, Kab.",2022,11.53,TRUE
+"Bengkulu Utara, Kab.",2023,11.46,TRUE
+"Bengkulu Utara, Kab.",2024,11.39,TRUE
+"Bengkulu, Kota",2015,21.14,FALSE
+"Bengkulu, Kota",2016,20.72,FALSE
+"Bengkulu, Kota",2017,19.18,FALSE
+"Bengkulu, Kota",2018,18.82,FALSE
+"Bengkulu, Kota",2019,18.09,FALSE
+"Bengkulu, Kota",2020,17.65,FALSE
+"Bengkulu, Kota",2021,17.065,TRUE
+"Bengkulu, Kota",2022,16.48,TRUE
+"Bengkulu, Kota",2023,15.895,TRUE
+"Bengkulu, Kota",2024,15.31,TRUE
+"Berau, Kab.",2015,5.33,FALSE
+"Berau, Kab.",2016,5.37,FALSE
+"Berau, Kab.",2017,5.41,FALSE
+"Berau, Kab.",2018,5.04,FALSE
+"Berau, Kab.",2019,5.04,FALSE
+"Berau, Kab.",2020,5.19,FALSE
+"Berau, Kab.",2021,5.265,TRUE
+"Berau, Kab.",2022,5.34,TRUE
+"Berau, Kab.",2023,5.415,TRUE
+"Berau, Kab.",2024,5.49,TRUE
+"Biak Numfor, Kab.",2015,27.23,FALSE
+"Biak Numfor, Kab.",2016,26.99,FALSE
+"Biak Numfor, Kab.",2017,25.44,FALSE
+"Biak Numfor, Kab.",2018,25.72,FALSE
+"Biak Numfor, Kab.",2019,25.5,FALSE
+"Biak Numfor, Kab.",2020,24.57,FALSE
+"Biak Numfor, Kab.",2021,23.995,TRUE
+"Biak Numfor, Kab.",2022,23.42,TRUE
+"Biak Numfor, Kab.",2023,22.845,TRUE
+"Biak Numfor, Kab.",2024,22.27,TRUE
+"Bima, Kab.",2015,15.78,FALSE
+"Bima, Kab.",2016,15.31,FALSE
+"Bima, Kab.",2017,15.1,FALSE
+"Bima, Kab.",2018,14.84,FALSE
+"Bima, Kab.",2019,14.76,FALSE
+"Bima, Kab.",2020,14.49,FALSE
+"Bima, Kab.",2021,14.315,TRUE
+"Bima, Kab.",2022,14.14,TRUE
+"Bima, Kab.",2023,13.965,TRUE
+"Bima, Kab.",2024,13.79,TRUE
+"Bima, Kota",2015,9.85,FALSE
+"Bima, Kota",2016,9.51,FALSE
+"Bima, Kota",2017,9.27,FALSE
+"Bima, Kota",2018,8.79,FALSE
+"Bima, Kota",2019,8.6,FALSE
+"Bima, Kota",2020,8.35,FALSE
+"Bima, Kota",2021,8.13,TRUE
+"Bima, Kota",2022,7.91,TRUE
+"Bima, Kota",2023,7.69,TRUE
+"Bima, Kota",2024,7.47,TRUE
+"Binjai, Kota",2015,7.03,FALSE
+"Binjai, Kota",2016,6.67,FALSE
+"Binjai, Kota",2017,6.75,FALSE
+"Binjai, Kota",2018,5.88,FALSE
+"Binjai, Kota",2019,5.66,FALSE
+"Binjai, Kota",2020,5.71,FALSE
+"Binjai, Kota",2021,5.625,TRUE
+"Binjai, Kota",2022,5.54,TRUE
+"Binjai, Kota",2023,5.455,TRUE
+"Binjai, Kota",2024,5.37,TRUE
+"Bintan, Kab.",2015,6.07,FALSE
+"Bintan, Kab.",2016,6.43,FALSE
+"Bintan, Kab.",2017,6.01,FALSE
+"Bintan, Kab.",2018,6.61,FALSE
+"Bintan, Kab.",2019,6.37,FALSE
+"Bintan, Kab.",2020,6.36,FALSE
+"Bintan, Kab.",2021,6.235,TRUE
+"Bintan, Kab.",2022,6.11,TRUE
+"Bintan, Kab.",2023,5.985,TRUE
+"Bintan, Kab.",2024,5.86,TRUE
+"Bireuen, Kab.",2015,16.94,FALSE
+"Bireuen, Kab.",2016,15.95,FALSE
+"Bireuen, Kab.",2017,15.87,FALSE
+"Bireuen, Kab.",2018,14.31,FALSE
+"Bireuen, Kab.",2019,13.56,FALSE
+"Bireuen, Kab.",2020,13.06,FALSE
+"Bireuen, Kab.",2021,12.435,TRUE
+"Bireuen, Kab.",2022,11.81,TRUE
+"Bireuen, Kab.",2023,11.185,TRUE
+"Bireuen, Kab.",2024,10.56,TRUE
+"Bitung, Kota",2015,6.87,FALSE
+"Bitung, Kota",2016,6.57,FALSE
+"Bitung, Kota",2017,6.62,FALSE
+"Bitung, Kota",2018,6.67,FALSE
+"Bitung, Kota",2019,6.49,FALSE
+"Bitung, Kota",2020,6.41,FALSE
+"Bitung, Kota",2021,6.28,TRUE
+"Bitung, Kota",2022,6.15,TRUE
+"Bitung, Kota",2023,6.02,TRUE
+"Bitung, Kota",2024,5.89,TRUE
+"Blitar, Kab.",2015,9.97,FALSE
+"Blitar, Kab.",2016,9.88,FALSE
+"Blitar, Kab.",2017,9.8,FALSE
+"Blitar, Kab.",2018,9.72,FALSE
+"Blitar, Kab.",2019,8.94,FALSE
+"Blitar, Kab.",2020,9.33,FALSE
+"Blitar, Kab.",2021,9.135,TRUE
+"Blitar, Kab.",2022,8.94,TRUE
+"Blitar, Kab.",2023,8.745,TRUE
+"Blitar, Kab.",2024,8.55,TRUE
+"Blitar, Kota",2015,7.29,FALSE
+"Blitar, Kota",2016,7.18,FALSE
+"Blitar, Kota",2017,8.03,FALSE
+"Blitar, Kota",2018,7.44,FALSE
+"Blitar, Kota",2019,7.13,FALSE
+"Blitar, Kota",2020,7.78,FALSE
+"Blitar, Kota",2021,7.95,TRUE
+"Blitar, Kota",2022,8.12,TRUE
+"Blitar, Kota",2023,8.29,TRUE
+"Blitar, Kota",2024,8.46,TRUE
+"Blora, Kab.",2015,13.52,FALSE
+"Blora, Kab.",2016,13.33,FALSE
+"Blora, Kab.",2017,13.04,FALSE
+"Blora, Kab.",2018,11.9,FALSE
+"Blora, Kab.",2019,11.32,FALSE
+"Blora, Kab.",2020,11.96,FALSE
+"Blora, Kab.",2021,11.99,TRUE
+"Blora, Kab.",2022,12.02,TRUE
+"Blora, Kab.",2023,12.05,TRUE
+"Blora, Kab.",2024,12.08,TRUE
+"Boalemo, Kab.",2015,21.67,FALSE
+"Boalemo, Kab.",2016,21.11,FALSE
+"Boalemo, Kab.",2017,21.85,FALSE
+"Boalemo, Kab.",2018,20.33,FALSE
+"Boalemo, Kab.",2019,18.87,FALSE
+"Boalemo, Kab.",2020,18.57,FALSE
+"Boalemo, Kab.",2021,17.69,TRUE
+"Boalemo, Kab.",2022,16.81,TRUE
+"Boalemo, Kab.",2023,15.93,TRUE
+"Boalemo, Kab.",2024,15.05,TRUE
+"Bogor, Kab.",2015,8.96,FALSE
+"Bogor, Kab.",2016,8.83,FALSE
+"Bogor, Kab.",2017,8.57,FALSE
+"Bogor, Kab.",2018,7.14,FALSE
+"Bogor, Kab.",2019,6.66,FALSE
+"Bogor, Kab.",2020,7.69,FALSE
+"Bogor, Kab.",2021,7.965,TRUE
+"Bogor, Kab.",2022,8.24,TRUE
+"Bogor, Kab.",2023,8.515,TRUE
+"Bogor, Kab.",2024,8.79,TRUE
+"Bogor, Kota",2015,7.6,FALSE
+"Bogor, Kota",2016,7.29,FALSE
+"Bogor, Kota",2017,7.11,FALSE
+"Bogor, Kota",2018,5.93,FALSE
+"Bogor, Kota",2019,5.77,FALSE
+"Bogor, Kota",2020,6.68,FALSE
+"Bogor, Kota",2021,7.055,TRUE
+"Bogor, Kota",2022,7.43,TRUE
+"Bogor, Kota",2023,7.805,TRUE
+"Bogor, Kota",2024,8.18,TRUE
+"Bojonegoro, Kab.",2015,15.71,FALSE
+"Bojonegoro, Kab.",2016,14.6,FALSE
+"Bojonegoro, Kab.",2017,14.34,FALSE
+"Bojonegoro, Kab.",2018,13.16,FALSE
+"Bojonegoro, Kab.",2019,12.38,FALSE
+"Bojonegoro, Kab.",2020,12.87,FALSE
+"Bojonegoro, Kab.",2021,12.725,TRUE
+"Bojonegoro, Kab.",2022,12.58,TRUE
+"Bojonegoro, Kab.",2023,12.435,TRUE
+"Bojonegoro, Kab.",2024,12.29,TRUE
+"Bolaang Mongondow Selatan, Kab.",2015,15.17,FALSE
+"Bolaang Mongondow Selatan, Kab.",2016,14.85,FALSE
+"Bolaang Mongondow Selatan, Kab.",2017,14.16,FALSE
+"Bolaang Mongondow Selatan, Kab.",2018,13.6,FALSE
+"Bolaang Mongondow Selatan, Kab.",2019,13.27,FALSE
+"Bolaang Mongondow Selatan, Kab.",2020,12.77,FALSE
+"Bolaang Mongondow Selatan, Kab.",2021,12.355,TRUE
+"Bolaang Mongondow Selatan, Kab.",2022,11.94,TRUE
+"Bolaang Mongondow Selatan, Kab.",2023,11.525,TRUE
+"Bolaang Mongondow Selatan, Kab.",2024,11.11,TRUE
+"Bolaang Mongondow Timur, Kab.",2015,6.9,FALSE
+"Bolaang Mongondow Timur, Kab.",2016,6.77,FALSE
+"Bolaang Mongondow Timur, Kab.",2017,6.2,FALSE
+"Bolaang Mongondow Timur, Kab.",2018,6.03,FALSE
+"Bolaang Mongondow Timur, Kab.",2019,6.1,FALSE
+"Bolaang Mongondow Timur, Kab.",2020,5.88,FALSE
+"Bolaang Mongondow Timur, Kab.",2021,5.805,TRUE
+"Bolaang Mongondow Timur, Kab.",2022,5.73,TRUE
+"Bolaang Mongondow Timur, Kab.",2023,5.655,TRUE
+"Bolaang Mongondow Timur, Kab.",2024,5.58,TRUE
+"Bolaang Mongondow Utara, Kab.",2015,9.72,FALSE
+"Bolaang Mongondow Utara, Kab.",2016,9.38,FALSE
+"Bolaang Mongondow Utara, Kab.",2017,8.89,FALSE
+"Bolaang Mongondow Utara, Kab.",2018,8.64,FALSE
+"Bolaang Mongondow Utara, Kab.",2019,8.45,FALSE
+"Bolaang Mongondow Utara, Kab.",2020,8.41,FALSE
+"Bolaang Mongondow Utara, Kab.",2021,8.295,TRUE
+"Bolaang Mongondow Utara, Kab.",2022,8.18,TRUE
+"Bolaang Mongondow Utara, Kab.",2023,8.065,TRUE
+"Bolaang Mongondow Utara, Kab.",2024,7.95,TRUE
+"Bolaang Mongondow, Kab.",2015,8.63,FALSE
+"Bolaang Mongondow, Kab.",2016,8.34,FALSE
+"Bolaang Mongondow, Kab.",2017,8.02,FALSE
+"Bolaang Mongondow, Kab.",2018,7.67,FALSE
+"Bolaang Mongondow, Kab.",2019,7.47,FALSE
+"Bolaang Mongondow, Kab.",2020,7.27,FALSE
+"Bolaang Mongondow, Kab.",2021,7.07,TRUE
+"Bolaang Mongondow, Kab.",2022,6.87,TRUE
+"Bolaang Mongondow, Kab.",2023,6.67,TRUE
+"Bolaang Mongondow, Kab.",2024,6.47,TRUE
+"Bombana, Kab.",2015,12.55,FALSE
+"Bombana, Kab.",2016,13.06,FALSE
+"Bombana, Kab.",2017,12.36,FALSE
+"Bombana, Kab.",2018,11.05,FALSE
+"Bombana, Kab.",2019,10.56,FALSE
+"Bombana, Kab.",2020,10.01,FALSE
+"Bombana, Kab.",2021,9.49,TRUE
+"Bombana, Kab.",2022,8.97,TRUE
+"Bombana, Kab.",2023,8.45,TRUE
+"Bombana, Kab.",2024,7.93,TRUE
+"Bondowoso, Kab.",2015,14.96,FALSE
+"Bondowoso, Kab.",2016,15,FALSE
+"Bondowoso, Kab.",2017,14.54,FALSE
+"Bondowoso, Kab.",2018,14.39,FALSE
+"Bondowoso, Kab.",2019,13.33,FALSE
+"Bondowoso, Kab.",2020,14.17,FALSE
+"Bondowoso, Kab.",2021,14.06,TRUE
+"Bondowoso, Kab.",2022,13.95,TRUE
+"Bondowoso, Kab.",2023,13.84,TRUE
+"Bondowoso, Kab.",2024,13.73,TRUE
+"Bone Bolango, Kab.",2015,18.49,FALSE
+"Bone Bolango, Kab.",2016,17.97,FALSE
+"Bone Bolango, Kab.",2017,17.81,FALSE
+"Bone Bolango, Kab.",2018,17.4,FALSE
+"Bone Bolango, Kab.",2019,16.12,FALSE
+"Bone Bolango, Kab.",2020,15.81,FALSE
+"Bone Bolango, Kab.",2021,15.015,TRUE
+"Bone Bolango, Kab.",2022,14.22,TRUE
+"Bone Bolango, Kab.",2023,13.425,TRUE
+"Bone Bolango, Kab.",2024,12.63,TRUE
+"Bone, Kab.",2015,10.12,FALSE
+"Bone, Kab.",2016,10.07,FALSE
+"Bone, Kab.",2017,10.28,FALSE
+"Bone, Kab.",2018,10.55,FALSE
+"Bone, Kab.",2019,10.06,FALSE
+"Bone, Kab.",2020,10.68,FALSE
+"Bone, Kab.",2021,10.745,TRUE
+"Bone, Kab.",2022,10.81,TRUE
+"Bone, Kab.",2023,10.875,TRUE
+"Bone, Kab.",2024,10.94,TRUE
+"Bontang, Kota",2015,5.06,FALSE
+"Bontang, Kota",2016,5.18,FALSE
+"Bontang, Kota",2017,5.16,FALSE
+"Bontang, Kota",2018,4.67,FALSE
+"Bontang, Kota",2019,4.22,FALSE
+"Bontang, Kota",2020,4.38,FALSE
+"Bontang, Kota",2021,4.235,TRUE
+"Bontang, Kota",2022,4.09,TRUE
+"Bontang, Kota",2023,3.945,TRUE
+"Bontang, Kota",2024,3.8,TRUE
+"Boven Digoel, Kab.",2015,19.5,FALSE
+"Boven Digoel, Kab.",2016,20.82,FALSE
+"Boven Digoel, Kab.",2017,19.9,FALSE
+"Boven Digoel, Kab.",2018,20.35,FALSE
+"Boven Digoel, Kab.",2019,19.66,FALSE
+"Boven Digoel, Kab.",2020,19.41,FALSE
+"Boven Digoel, Kab.",2021,18.94,TRUE
+"Boven Digoel, Kab.",2022,18.47,TRUE
+"Boven Digoel, Kab.",2023,18,TRUE
+"Boven Digoel, Kab.",2024,17.53,TRUE
+"Boyolali, Kab.",2015,12.45,FALSE
+"Boyolali, Kab.",2016,12.09,FALSE
+"Boyolali, Kab.",2017,11.96,FALSE
+"Boyolali, Kab.",2018,10.04,FALSE
+"Boyolali, Kab.",2019,9.53,FALSE
+"Boyolali, Kab.",2020,10.18,FALSE
+"Boyolali, Kab.",2021,10.25,TRUE
+"Boyolali, Kab.",2022,10.32,TRUE
+"Boyolali, Kab.",2023,10.39,TRUE
+"Boyolali, Kab.",2024,10.46,TRUE
+"Brebes, Kab.",2015,19.79,FALSE
+"Brebes, Kab.",2016,19.47,FALSE
+"Brebes, Kab.",2017,19.14,FALSE
+"Brebes, Kab.",2018,17.17,FALSE
+"Brebes, Kab.",2019,16.22,FALSE
+"Brebes, Kab.",2020,17.03,FALSE
+"Brebes, Kab.",2021,16.96,TRUE
+"Brebes, Kab.",2022,16.89,TRUE
+"Brebes, Kab.",2023,16.82,TRUE
+"Brebes, Kab.",2024,16.75,TRUE
+"Bukittinggi, Kota",2015,5.36,FALSE
+"Bukittinggi, Kota",2016,5.48,FALSE
+"Bukittinggi, Kota",2017,5.35,FALSE
+"Bukittinggi, Kota",2018,4.92,FALSE
+"Bukittinggi, Kota",2019,4.6,FALSE
+"Bukittinggi, Kota",2020,4.54,FALSE
+"Bukittinggi, Kota",2021,4.35,TRUE
+"Bukittinggi, Kota",2022,4.16,TRUE
+"Bukittinggi, Kota",2023,3.97,TRUE
+"Bukittinggi, Kota",2024,3.78,TRUE
+"Buleleng, Kab.",2015,6.74,FALSE
+"Buleleng, Kab.",2016,5.79,FALSE
+"Buleleng, Kab.",2017,5.74,FALSE
+"Buleleng, Kab.",2018,5.36,FALSE
+"Buleleng, Kab.",2019,5.19,FALSE
+"Buleleng, Kab.",2020,5.32,FALSE
+"Buleleng, Kab.",2021,5.3,TRUE
+"Buleleng, Kab.",2022,5.28,TRUE
+"Buleleng, Kab.",2023,5.26,TRUE
+"Buleleng, Kab.",2024,5.24,TRUE
+"Bulukumba, Kab.",2015,8.15,FALSE
+"Bulukumba, Kab.",2016,8.06,FALSE
+"Bulukumba, Kab.",2017,7.97,FALSE
+"Bulukumba, Kab.",2018,7.48,FALSE
+"Bulukumba, Kab.",2019,7.26,FALSE
+"Bulukumba, Kab.",2020,7.1,FALSE
+"Bulukumba, Kab.",2021,6.91,TRUE
+"Bulukumba, Kab.",2022,6.72,TRUE
+"Bulukumba, Kab.",2023,6.53,TRUE
+"Bulukumba, Kab.",2024,6.34,TRUE
+"Bulungan, Kab.",2015,8.5,FALSE
+"Bulungan, Kab.",2016,8.99,FALSE
+"Bulungan, Kab.",2017,9.93,FALSE
+"Bulungan, Kab.",2018,9.44,FALSE
+"Bulungan, Kab.",2019,8.78,FALSE
+"Bulungan, Kab.",2020,9.06,FALSE
+"Bulungan, Kab.",2021,8.87,TRUE
+"Bulungan, Kab.",2022,8.68,TRUE
+"Bulungan, Kab.",2023,8.49,TRUE
+"Bulungan, Kab.",2024,8.3,TRUE
+"Bungo, Kab.",2015,5.7,FALSE
+"Bungo, Kab.",2016,5.99,FALSE
+"Bungo, Kab.",2017,5.82,FALSE
+"Bungo, Kab.",2018,5.78,FALSE
+"Bungo, Kab.",2019,5.6,FALSE
+"Bungo, Kab.",2020,5.8,FALSE
+"Bungo, Kab.",2021,5.81,TRUE
+"Bungo, Kab.",2022,5.82,TRUE
+"Bungo, Kab.",2023,5.83,TRUE
+"Bungo, Kab.",2024,5.84,TRUE
+"Buol, Kab.",2015,16.36,FALSE
+"Buol, Kab.",2016,16.68,FALSE
+"Buol, Kab.",2017,16.65,FALSE
+"Buol, Kab.",2018,16.08,FALSE
+"Buol, Kab.",2019,15.19,FALSE
+"Buol, Kab.",2020,13.93,FALSE
+"Buol, Kab.",2021,12.855,TRUE
+"Buol, Kab.",2022,11.78,TRUE
+"Buol, Kab.",2023,10.705,TRUE
+"Buol, Kab.",2024,9.63,TRUE
+"Buru Selatan, Kab.",2015,17.58,FALSE
+"Buru Selatan, Kab.",2016,16.86,FALSE
+"Buru Selatan, Kab.",2017,16.83,FALSE
+"Buru Selatan, Kab.",2018,16.31,FALSE
+"Buru Selatan, Kab.",2019,16.13,FALSE
+"Buru Selatan, Kab.",2020,15.75,FALSE
+"Buru Selatan, Kab.",2021,15.47,TRUE
+"Buru Selatan, Kab.",2022,15.19,TRUE
+"Buru Selatan, Kab.",2023,14.91,TRUE
+"Buru Selatan, Kab.",2024,14.63,TRUE
+"Buru, Kab.",2015,18.47,FALSE
+"Buru, Kab.",2016,18.02,FALSE
+"Buru, Kab.",2017,17.4,FALSE
+"Buru, Kab.",2018,17.03,FALSE
+"Buru, Kab.",2019,16.74,FALSE
+"Buru, Kab.",2020,16.64,FALSE
+"Buru, Kab.",2021,16.445,TRUE
+"Buru, Kab.",2022,16.25,TRUE
+"Buru, Kab.",2023,16.055,TRUE
+"Buru, Kab.",2024,15.86,TRUE
+"Buton Selatan, Kab.",2016,13.74,FALSE
+"Buton Selatan, Kab.",2017,15.99,FALSE
+"Buton Selatan, Kab.",2018,14.82,FALSE
+"Buton Selatan, Kab.",2019,14.66,FALSE
+"Buton Selatan, Kab.",2020,14.11,FALSE
+"Buton Selatan, Kab.",2021,13.755,TRUE
+"Buton Selatan, Kab.",2022,13.4,TRUE
+"Buton Selatan, Kab.",2023,13.045,TRUE
+"Buton Selatan, Kab.",2024,12.69,TRUE
+"Buton Tengah, Kab.",2016,13.69,FALSE
+"Buton Tengah, Kab.",2017,18.35,FALSE
+"Buton Tengah, Kab.",2018,14.88,FALSE
+"Buton Tengah, Kab.",2019,15.77,FALSE
+"Buton Tengah, Kab.",2020,15.32,FALSE
+"Buton Tengah, Kab.",2021,15.54,TRUE
+"Buton Tengah, Kab.",2022,15.76,TRUE
+"Buton Tengah, Kab.",2023,15.98,TRUE
+"Buton Tengah, Kab.",2024,16.2,TRUE
+"Buton Utara, Kab.",2015,15.86,FALSE
+"Buton Utara, Kab.",2016,15.78,FALSE
+"Buton Utara, Kab.",2017,15.58,FALSE
+"Buton Utara, Kab.",2018,14.93,FALSE
+"Buton Utara, Kab.",2019,14.38,FALSE
+"Buton Utara, Kab.",2020,14.1,FALSE
+"Buton Utara, Kab.",2021,13.685,TRUE
+"Buton Utara, Kab.",2022,13.27,TRUE
+"Buton Utara, Kab.",2023,12.855,TRUE
+"Buton Utara, Kab.",2024,12.44,TRUE
+"Buton, Kab.",2015,13.75,FALSE
+"Buton, Kab.",2016,13.22,FALSE
+"Buton, Kab.",2017,13.46,FALSE
+"Buton, Kab.",2018,13.67,FALSE
+"Buton, Kab.",2019,13.65,FALSE
+"Buton, Kab.",2020,13.21,FALSE
+"Buton, Kab.",2021,12.98,TRUE
+"Buton, Kab.",2022,12.75,TRUE
+"Buton, Kab.",2023,12.52,TRUE
+"Buton, Kab.",2024,12.29,TRUE
+"Ciamis, Kab.",2015,8.98,FALSE
+"Ciamis, Kab.",2016,8.42,FALSE
+"Ciamis, Kab.",2017,8.2,FALSE
+"Ciamis, Kab.",2018,7.22,FALSE
+"Ciamis, Kab.",2019,6.65,FALSE
+"Ciamis, Kab.",2020,7.62,FALSE
+"Ciamis, Kab.",2021,7.82,TRUE
+"Ciamis, Kab.",2022,8.02,TRUE
+"Ciamis, Kab.",2023,8.22,TRUE
+"Ciamis, Kab.",2024,8.42,TRUE
+"Cianjur, Kab.",2015,12.21,FALSE
+"Cianjur, Kab.",2016,11.62,FALSE
+"Cianjur, Kab.",2017,11.41,FALSE
+"Cianjur, Kab.",2018,9.81,FALSE
+"Cianjur, Kab.",2019,9.15,FALSE
+"Cianjur, Kab.",2020,10.36,FALSE
+"Cianjur, Kab.",2021,10.635,TRUE
+"Cianjur, Kab.",2022,10.91,TRUE
+"Cianjur, Kab.",2023,11.185,TRUE
+"Cianjur, Kab.",2024,11.46,TRUE
+"Cilacap, Kab.",2015,14.39,FALSE
+"Cilacap, Kab.",2016,14.12,FALSE
+"Cilacap, Kab.",2017,13.94,FALSE
+"Cilacap, Kab.",2018,11.25,FALSE
+"Cilacap, Kab.",2019,10.73,FALSE
+"Cilacap, Kab.",2020,11.46,FALSE
+"Cilacap, Kab.",2021,11.565,TRUE
+"Cilacap, Kab.",2022,11.67,TRUE
+"Cilacap, Kab.",2023,11.775,TRUE
+"Cilacap, Kab.",2024,11.88,TRUE
+"Cilegon, Kota",2015,4.1,FALSE
+"Cilegon, Kota",2016,3.57,FALSE
+"Cilegon, Kota",2017,3.52,FALSE
+"Cilegon, Kota",2018,3.25,FALSE
+"Cilegon, Kota",2019,3.03,FALSE
+"Cilegon, Kota",2020,3.69,FALSE
+"Cilegon, Kota",2021,3.91,TRUE
+"Cilegon, Kota",2022,4.13,TRUE
+"Cilegon, Kota",2023,4.35,TRUE
+"Cilegon, Kota",2024,4.57,TRUE
+"Cimahi, Kota",2015,5.84,FALSE
+"Cimahi, Kota",2016,5.92,FALSE
+"Cimahi, Kota",2017,5.76,FALSE
+"Cimahi, Kota",2018,4.94,FALSE
+"Cimahi, Kota",2019,4.39,FALSE
+"Cimahi, Kota",2020,5.11,FALSE
+"Cimahi, Kota",2021,5.195,TRUE
+"Cimahi, Kota",2022,5.28,TRUE
+"Cimahi, Kota",2023,5.365,TRUE
+"Cimahi, Kota",2024,5.45,TRUE
+"Cirebon, Kab.",2015,14.77,FALSE
+"Cirebon, Kab.",2016,13.49,FALSE
+"Cirebon, Kab.",2017,12.97,FALSE
+"Cirebon, Kab.",2018,10.7,FALSE
+"Cirebon, Kab.",2019,9.94,FALSE
+"Cirebon, Kab.",2020,11.24,FALSE
+"Cirebon, Kab.",2021,11.51,TRUE
+"Cirebon, Kab.",2022,11.78,TRUE
+"Cirebon, Kab.",2023,12.05,TRUE
+"Cirebon, Kab.",2024,12.32,TRUE
+"Cirebon, Kota",2015,10.36,FALSE
+"Cirebon, Kota",2016,9.73,FALSE
+"Cirebon, Kota",2017,9.66,FALSE
+"Cirebon, Kota",2018,8.88,FALSE
+"Cirebon, Kota",2019,8.41,FALSE
+"Cirebon, Kota",2020,9.52,FALSE
+"Cirebon, Kota",2021,9.84,TRUE
+"Cirebon, Kota",2022,10.16,TRUE
+"Cirebon, Kota",2023,10.48,TRUE
+"Cirebon, Kota",2024,10.8,TRUE
+"Dairi, Kab.",2015,9.09,FALSE
+"Dairi, Kab.",2016,8.9,FALSE
+"Dairi, Kab.",2017,8.87,FALSE
+"Dairi, Kab.",2018,8.2,FALSE
+"Dairi, Kab.",2019,7.7,FALSE
+"Dairi, Kab.",2020,8.04,FALSE
+"Dairi, Kab.",2021,7.96,TRUE
+"Dairi, Kab.",2022,7.88,TRUE
+"Dairi, Kab.",2023,7.8,TRUE
+"Dairi, Kab.",2024,7.72,TRUE
+"Deiyai, Kab.",2015,45.74,FALSE
+"Deiyai, Kab.",2016,45.11,FALSE
+"Deiyai, Kab.",2017,43.63,FALSE
+"Deiyai, Kab.",2018,43.49,FALSE
+"Deiyai, Kab.",2019,43.65,FALSE
+"Deiyai, Kab.",2020,41.76,FALSE
+"Deiyai, Kab.",2021,40.895,TRUE
+"Deiyai, Kab.",2022,40.03,TRUE
+"Deiyai, Kab.",2023,39.165,TRUE
+"Deiyai, Kab.",2024,38.3,TRUE
+"Deli Serdang, Kab.",2015,4.74,FALSE
+"Deli Serdang, Kab.",2016,4.86,FALSE
+"Deli Serdang, Kab.",2017,4.62,FALSE
+"Deli Serdang, Kab.",2018,4.13,FALSE
+"Deli Serdang, Kab.",2019,3.89,FALSE
+"Deli Serdang, Kab.",2020,3.88,FALSE
+"Deli Serdang, Kab.",2021,3.755,TRUE
+"Deli Serdang, Kab.",2022,3.63,TRUE
+"Deli Serdang, Kab.",2023,3.505,TRUE
+"Deli Serdang, Kab.",2024,3.38,TRUE
+"Demak, Kab.",2015,14.44,FALSE
+"Demak, Kab.",2016,14.1,FALSE
+"Demak, Kab.",2017,13.41,FALSE
+"Demak, Kab.",2018,12.54,FALSE
+"Demak, Kab.",2019,11.86,FALSE
+"Demak, Kab.",2020,12.54,FALSE
+"Demak, Kab.",2021,12.54,TRUE
+"Demak, Kab.",2022,12.54,TRUE
+"Demak, Kab.",2023,12.54,TRUE
+"Demak, Kab.",2024,12.54,TRUE
+"Denpasar, Kota",2015,2.39,FALSE
+"Denpasar, Kota",2016,2.15,FALSE
+"Denpasar, Kota",2017,2.27,FALSE
+"Denpasar, Kota",2018,2.24,FALSE
+"Denpasar, Kota",2019,2.1,FALSE
+"Denpasar, Kota",2020,2.14,FALSE
+"Denpasar, Kota",2021,2.09,TRUE
+"Denpasar, Kota",2022,2.04,TRUE
+"Denpasar, Kota",2023,1.99,TRUE
+"Denpasar, Kota",2024,1.94,TRUE
+"Depok, Kota",2015,2.4,FALSE
+"Depok, Kota",2016,2.34,FALSE
+"Depok, Kota",2017,2.34,FALSE
+"Depok, Kota",2018,2.14,FALSE
+"Depok, Kota",2019,2.07,FALSE
+"Depok, Kota",2020,2.45,FALSE
+"Depok, Kota",2021,2.605,TRUE
+"Depok, Kota",2022,2.76,TRUE
+"Depok, Kota",2023,2.915,TRUE
+"Depok, Kota",2024,3.07,TRUE
+"Dharmasraya, Kab.",2015,7.17,FALSE
+"Dharmasraya, Kab.",2016,7.16,FALSE
+"Dharmasraya, Kab.",2017,6.68,FALSE
+"Dharmasraya, Kab.",2018,6.42,FALSE
+"Dharmasraya, Kab.",2019,6.29,FALSE
+"Dharmasraya, Kab.",2020,6.23,FALSE
+"Dharmasraya, Kab.",2021,6.135,TRUE
+"Dharmasraya, Kab.",2022,6.04,TRUE
+"Dharmasraya, Kab.",2023,5.945,TRUE
+"Dharmasraya, Kab.",2024,5.85,TRUE
+"Dogiyai, Kab.",2015,29.1,FALSE
+"Dogiyai, Kab.",2016,31.21,FALSE
+"Dogiyai, Kab.",2017,30.36,FALSE
+"Dogiyai, Kab.",2018,30.48,FALSE
+"Dogiyai, Kab.",2019,31.12,FALSE
+"Dogiyai, Kab.",2020,28.62,FALSE
+"Dogiyai, Kab.",2021,27.69,TRUE
+"Dogiyai, Kab.",2022,26.76,TRUE
+"Dogiyai, Kab.",2023,25.83,TRUE
+"Dogiyai, Kab.",2024,24.9,TRUE
+"Dompu, Kab.",2015,15.11,FALSE
+"Dompu, Kab.",2016,14.23,FALSE
+"Dompu, Kab.",2017,13.43,FALSE
+"Dompu, Kab.",2018,12.4,FALSE
+"Dompu, Kab.",2019,12.25,FALSE
+"Dompu, Kab.",2020,12.16,FALSE
+"Dompu, Kab.",2021,12.04,TRUE
+"Dompu, Kab.",2022,11.92,TRUE
+"Dompu, Kab.",2023,11.8,TRUE
+"Dompu, Kab.",2024,11.68,TRUE
+"Donggala, Kab.",2015,18.11,FALSE
+"Donggala, Kab.",2016,18.59,FALSE
+"Donggala, Kab.",2017,18.17,FALSE
+"Donggala, Kab.",2018,18.03,FALSE
+"Donggala, Kab.",2019,18.4,FALSE
+"Donggala, Kab.",2020,17.39,FALSE
+"Donggala, Kab.",2021,17.07,TRUE
+"Donggala, Kab.",2022,16.75,TRUE
+"Donggala, Kab.",2023,16.43,TRUE
+"Donggala, Kab.",2024,16.11,TRUE
+"Dumai, Kota",2015,5.26,FALSE
+"Dumai, Kota",2016,4.74,FALSE
+"Dumai, Kota",2017,4.57,FALSE
+"Dumai, Kota",2018,3.71,FALSE
+"Dumai, Kota",2019,3.56,FALSE
+"Dumai, Kota",2020,3.16,FALSE
+"Dumai, Kota",2021,2.885,TRUE
+"Dumai, Kota",2022,2.61,TRUE
+"Dumai, Kota",2023,2.335,TRUE
+"Dumai, Kota",2024,2.06,TRUE
+"Empat Lawang, Kab.",2015,13.33,FALSE
+"Empat Lawang, Kab.",2016,12.54,FALSE
+"Empat Lawang, Kab.",2017,12.44,FALSE
+"Empat Lawang, Kab.",2018,12.25,FALSE
+"Empat Lawang, Kab.",2019,12.3,FALSE
+"Empat Lawang, Kab.",2020,12.63,FALSE
+"Empat Lawang, Kab.",2021,12.82,TRUE
+"Empat Lawang, Kab.",2022,13.01,TRUE
+"Empat Lawang, Kab.",2023,13.2,TRUE
+"Empat Lawang, Kab.",2024,13.39,TRUE
+"Ende, Kab.",2015,23.49,FALSE
+"Ende, Kab.",2016,23.89,FALSE
+"Ende, Kab.",2017,23.95,FALSE
+"Ende, Kab.",2018,24.2,FALSE
+"Ende, Kab.",2019,23.18,FALSE
+"Ende, Kab.",2020,23.76,FALSE
+"Ende, Kab.",2021,23.54,TRUE
+"Ende, Kab.",2022,23.32,TRUE
+"Ende, Kab.",2023,23.1,TRUE
+"Ende, Kab.",2024,22.88,TRUE
+"Enrekang, Kab.",2015,13.82,FALSE
+"Enrekang, Kab.",2016,13.41,FALSE
+"Enrekang, Kab.",2017,13.16,FALSE
+"Enrekang, Kab.",2018,12.49,FALSE
+"Enrekang, Kab.",2019,12.33,FALSE
+"Enrekang, Kab.",2020,12.17,FALSE
+"Enrekang, Kab.",2021,12.01,TRUE
+"Enrekang, Kab.",2022,11.85,TRUE
+"Enrekang, Kab.",2023,11.69,TRUE
+"Enrekang, Kab.",2024,11.53,TRUE
+"Fakfak, Kab.",2015,27.51,FALSE
+"Fakfak, Kab.",2016,26.66,FALSE
+"Fakfak, Kab.",2017,25.96,FALSE
+"Fakfak, Kab.",2018,24.31,FALSE
+"Fakfak, Kab.",2019,23.25,FALSE
+"Fakfak, Kab.",2020,22.27,FALSE
+"Fakfak, Kab.",2021,21.25,TRUE
+"Fakfak, Kab.",2022,20.23,TRUE
+"Fakfak, Kab.",2023,19.21,TRUE
+"Fakfak, Kab.",2024,18.19,TRUE
+"Flores Timur, Kab.",2015,9.66,FALSE
+"Flores Timur, Kab.",2016,10.31,FALSE
+"Flores Timur, Kab.",2017,10.75,FALSE
+"Flores Timur, Kab.",2018,11.05,FALSE
+"Flores Timur, Kab.",2019,10.9,FALSE
+"Flores Timur, Kab.",2020,10.84,FALSE
+"Flores Timur, Kab.",2021,10.735,TRUE
+"Flores Timur, Kab.",2022,10.63,TRUE
+"Flores Timur, Kab.",2023,10.525,TRUE
+"Flores Timur, Kab.",2024,10.42,TRUE
+"Garut, Kab.",2015,12.81,FALSE
+"Garut, Kab.",2016,11.64,FALSE
+"Garut, Kab.",2017,11.27,FALSE
+"Garut, Kab.",2018,9.27,FALSE
+"Garut, Kab.",2019,8.98,FALSE
+"Garut, Kab.",2020,9.98,FALSE
+"Garut, Kab.",2021,10.335,TRUE
+"Garut, Kab.",2022,10.69,TRUE
+"Garut, Kab.",2023,11.045,TRUE
+"Garut, Kab.",2024,11.4,TRUE
+"Gayo Lues, Kab.",2015,21.95,FALSE
+"Gayo Lues, Kab.",2016,21.86,FALSE
+"Gayo Lues, Kab.",2017,21.97,FALSE
+"Gayo Lues, Kab.",2018,20.7,FALSE
+"Gayo Lues, Kab.",2019,19.87,FALSE
+"Gayo Lues, Kab.",2020,19.32,FALSE
+"Gayo Lues, Kab.",2021,18.63,TRUE
+"Gayo Lues, Kab.",2022,17.94,TRUE
+"Gayo Lues, Kab.",2023,17.25,TRUE
+"Gayo Lues, Kab.",2024,16.56,TRUE
+"Gianyar, Kab.",2015,4.61,FALSE
+"Gianyar, Kab.",2016,4.44,FALSE
+"Gianyar, Kab.",2017,4.46,FALSE
+"Gianyar, Kab.",2018,4.19,FALSE
+"Gianyar, Kab.",2019,3.88,FALSE
+"Gianyar, Kab.",2020,4.08,FALSE
+"Gianyar, Kab.",2021,4.025,TRUE
+"Gianyar, Kab.",2022,3.97,TRUE
+"Gianyar, Kab.",2023,3.915,TRUE
+"Gianyar, Kab.",2024,3.86,TRUE
+"Gorontalo Utara, Kab.",2015,18.93,FALSE
+"Gorontalo Utara, Kab.",2016,18.51,FALSE
+"Gorontalo Utara, Kab.",2017,19.23,FALSE
+"Gorontalo Utara, Kab.",2018,18.54,FALSE
+"Gorontalo Utara, Kab.",2019,16.95,FALSE
+"Gorontalo Utara, Kab.",2020,16.88,FALSE
+"Gorontalo Utara, Kab.",2021,16.05,TRUE
+"Gorontalo Utara, Kab.",2022,15.22,TRUE
+"Gorontalo Utara, Kab.",2023,14.39,TRUE
+"Gorontalo Utara, Kab.",2024,13.56,TRUE
+"Gorontalo, Kab.",2015,21.8,FALSE
+"Gorontalo, Kab.",2016,21.03,FALSE
+"Gorontalo, Kab.",2017,20.55,FALSE
+"Gorontalo, Kab.",2018,19.84,FALSE
+"Gorontalo, Kab.",2019,15.52,FALSE
+"Gorontalo, Kab.",2020,15.22,FALSE
+"Gorontalo, Kab.",2021,12.91,TRUE
+"Gorontalo, Kab.",2022,10.6,TRUE
+"Gorontalo, Kab.",2023,8.29,TRUE
+"Gorontalo, Kab.",2024,5.98,TRUE
+"Gorontalo, Kota",2015,6.05,FALSE
+"Gorontalo, Kota",2016,6.05,FALSE
+"Gorontalo, Kota",2017,5.7,FALSE
+"Gorontalo, Kota",2018,5.57,FALSE
+"Gorontalo, Kota",2019,5.45,FALSE
+"Gorontalo, Kota",2020,5.59,FALSE
+"Gorontalo, Kota",2021,5.6,TRUE
+"Gorontalo, Kota",2022,5.61,TRUE
+"Gorontalo, Kota",2023,5.62,TRUE
+"Gorontalo, Kota",2024,5.63,TRUE
+"Gowa, Kab.",2015,8.27,FALSE
+"Gowa, Kab.",2016,8.4,FALSE
+"Gowa, Kab.",2017,8.42,FALSE
+"Gowa, Kab.",2018,7.83,FALSE
+"Gowa, Kab.",2019,7.53,FALSE
+"Gowa, Kab.",2020,7.38,FALSE
+"Gowa, Kab.",2021,7.155,TRUE
+"Gowa, Kab.",2022,6.93,TRUE
+"Gowa, Kab.",2023,6.705,TRUE
+"Gowa, Kab.",2024,6.48,TRUE
+"Gresik, Kab.",2015,13.63,FALSE
+"Gresik, Kab.",2016,13.19,FALSE
+"Gresik, Kab.",2017,12.8,FALSE
+"Gresik, Kab.",2018,11.89,FALSE
+"Gresik, Kab.",2019,11.35,FALSE
+"Gresik, Kab.",2020,12.4,FALSE
+"Gresik, Kab.",2021,12.655,TRUE
+"Gresik, Kab.",2022,12.91,TRUE
+"Gresik, Kab.",2023,13.165,TRUE
+"Gresik, Kab.",2024,13.42,TRUE
+"Grobogan, Kab.",2015,13.68,FALSE
+"Grobogan, Kab.",2016,13.57,FALSE
+"Grobogan, Kab.",2017,13.27,FALSE
+"Grobogan, Kab.",2018,12.31,FALSE
+"Grobogan, Kab.",2019,11.77,FALSE
+"Grobogan, Kab.",2020,12.46,FALSE
+"Grobogan, Kab.",2021,12.535,TRUE
+"Grobogan, Kab.",2022,12.61,TRUE
+"Grobogan, Kab.",2023,12.685,TRUE
+"Grobogan, Kab.",2024,12.76,TRUE
+"Gunung Kidul, Kab.",2015,21.73,FALSE
+"Gunung Kidul, Kab.",2016,19.34,FALSE
+"Gunung Kidul, Kab.",2017,18.65,FALSE
+"Gunung Kidul, Kab.",2018,17.12,FALSE
+"Gunung Kidul, Kab.",2019,16.61,FALSE
+"Gunung Kidul, Kab.",2020,17.07,FALSE
+"Gunung Kidul, Kab.",2021,17.045,TRUE
+"Gunung Kidul, Kab.",2022,17.02,TRUE
+"Gunung Kidul, Kab.",2023,16.995,TRUE
+"Gunung Kidul, Kab.",2024,16.97,TRUE
+"Gunung Mas, Kab.",2015,6.17,FALSE
+"Gunung Mas, Kab.",2016,5.85,FALSE
+"Gunung Mas, Kab.",2017,5.83,FALSE
+"Gunung Mas, Kab.",2018,5.1,FALSE
+"Gunung Mas, Kab.",2019,4.91,FALSE
+"Gunung Mas, Kab.",2020,4.75,FALSE
+"Gunung Mas, Kab.",2021,4.575,TRUE
+"Gunung Mas, Kab.",2022,4.4,TRUE
+"Gunung Mas, Kab.",2023,4.225,TRUE
+"Gunung Mas, Kab.",2024,4.05,TRUE
+"Gunung Sitoli, Kota",2015,25.42,FALSE
+"Gunung Sitoli, Kota",2016,23.43,FALSE
+"Gunung Sitoli, Kota",2017,21.66,FALSE
+"Gunung Sitoli, Kota",2018,18.44,FALSE
+"Gunung Sitoli, Kota",2019,16.23,FALSE
+"Gunung Sitoli, Kota",2020,16.41,FALSE
+"Gunung Sitoli, Kota",2021,15.395,TRUE
+"Gunung Sitoli, Kota",2022,14.38,TRUE
+"Gunung Sitoli, Kota",2023,13.365,TRUE
+"Gunung Sitoli, Kota",2024,12.35,TRUE
+"Halmahera Barat, Kab.",2015,9.69,FALSE
+"Halmahera Barat, Kab.",2016,8.77,FALSE
+"Halmahera Barat, Kab.",2017,8.74,FALSE
+"Halmahera Barat, Kab.",2018,8.74,FALSE
+"Halmahera Barat, Kab.",2019,8.59,FALSE
+"Halmahera Barat, Kab.",2020,8.82,FALSE
+"Halmahera Barat, Kab.",2021,8.86,TRUE
+"Halmahera Barat, Kab.",2022,8.9,TRUE
+"Halmahera Barat, Kab.",2023,8.94,TRUE
+"Halmahera Barat, Kab.",2024,8.98,TRUE
+"Halmahera Selatan, Kab.",2015,4.61,FALSE
+"Halmahera Selatan, Kab.",2016,4.11,FALSE
+"Halmahera Selatan, Kab.",2017,4.1,FALSE
+"Halmahera Selatan, Kab.",2018,4.8,FALSE
+"Halmahera Selatan, Kab.",2019,5.03,FALSE
+"Halmahera Selatan, Kab.",2020,5.21,FALSE
+"Halmahera Selatan, Kab.",2021,5.415,TRUE
+"Halmahera Selatan, Kab.",2022,5.62,TRUE
+"Halmahera Selatan, Kab.",2023,5.825,TRUE
+"Halmahera Selatan, Kab.",2024,6.03,TRUE
+"Halmahera Tengah, Kab.",2015,15.23,FALSE
+"Halmahera Tengah, Kab.",2016,14.03,FALSE
+"Halmahera Tengah, Kab.",2017,14.15,FALSE
+"Halmahera Tengah, Kab.",2018,13.94,FALSE
+"Halmahera Tengah, Kab.",2019,14.12,FALSE
+"Halmahera Tengah, Kab.",2020,13.56,FALSE
+"Halmahera Tengah, Kab.",2021,13.37,TRUE
+"Halmahera Tengah, Kab.",2022,13.18,TRUE
+"Halmahera Tengah, Kab.",2023,12.99,TRUE
+"Halmahera Tengah, Kab.",2024,12.8,TRUE
+"Halmahera Timur, Kab.",2015,15.33,FALSE
+"Halmahera Timur, Kab.",2016,15.48,FALSE
+"Halmahera Timur, Kab.",2017,15.25,FALSE
+"Halmahera Timur, Kab.",2018,15.02,FALSE
+"Halmahera Timur, Kab.",2019,15.39,FALSE
+"Halmahera Timur, Kab.",2020,15.45,FALSE
+"Halmahera Timur, Kab.",2021,15.665,TRUE
+"Halmahera Timur, Kab.",2022,15.88,TRUE
+"Halmahera Timur, Kab.",2023,16.095,TRUE
+"Halmahera Timur, Kab.",2024,16.31,TRUE
+"Halmahera Utara, Kab.",2015,4.99,FALSE
+"Halmahera Utara, Kab.",2016,4.19,FALSE
+"Halmahera Utara, Kab.",2017,4.22,FALSE
+"Halmahera Utara, Kab.",2018,4.51,FALSE
+"Halmahera Utara, Kab.",2019,4.55,FALSE
+"Halmahera Utara, Kab.",2020,4.45,FALSE
+"Halmahera Utara, Kab.",2021,4.42,TRUE
+"Halmahera Utara, Kab.",2022,4.39,TRUE
+"Halmahera Utara, Kab.",2023,4.36,TRUE
+"Halmahera Utara, Kab.",2024,4.33,TRUE
+"Hulu Sungai Selatan, Kab.",2015,6.45,FALSE
+"Hulu Sungai Selatan, Kab.",2016,6.29,FALSE
+"Hulu Sungai Selatan, Kab.",2017,5.8,FALSE
+"Hulu Sungai Selatan, Kab.",2018,5.21,FALSE
+"Hulu Sungai Selatan, Kab.",2019,5.33,FALSE
+"Hulu Sungai Selatan, Kab.",2020,5.17,FALSE
+"Hulu Sungai Selatan, Kab.",2021,5.15,TRUE
+"Hulu Sungai Selatan, Kab.",2022,5.13,TRUE
+"Hulu Sungai Selatan, Kab.",2023,5.11,TRUE
+"Hulu Sungai Selatan, Kab.",2024,5.09,TRUE
+"Hulu Sungai Tengah, Kab.",2015,5.81,FALSE
+"Hulu Sungai Tengah, Kab.",2016,6.18,FALSE
+"Hulu Sungai Tengah, Kab.",2017,6.09,FALSE
+"Hulu Sungai Tengah, Kab.",2018,6.01,FALSE
+"Hulu Sungai Tengah, Kab.",2019,5.93,FALSE
+"Hulu Sungai Tengah, Kab.",2020,5.64,FALSE
+"Hulu Sungai Tengah, Kab.",2021,5.455,TRUE
+"Hulu Sungai Tengah, Kab.",2022,5.27,TRUE
+"Hulu Sungai Tengah, Kab.",2023,5.085,TRUE
+"Hulu Sungai Tengah, Kab.",2024,4.9,TRUE
+"Hulu Sungai Utara, Kab.",2015,7.07,FALSE
+"Hulu Sungai Utara, Kab.",2016,6.76,FALSE
+"Hulu Sungai Utara, Kab.",2017,6.65,FALSE
+"Hulu Sungai Utara, Kab.",2018,6.38,FALSE
+"Hulu Sungai Utara, Kab.",2019,6.5,FALSE
+"Hulu Sungai Utara, Kab.",2020,6.14,FALSE
+"Hulu Sungai Utara, Kab.",2021,6.02,TRUE
+"Hulu Sungai Utara, Kab.",2022,5.9,TRUE
+"Hulu Sungai Utara, Kab.",2023,5.78,TRUE
+"Hulu Sungai Utara, Kab.",2024,5.66,TRUE
+"Humbang Hasundutan, Kab.",2015,9.85,FALSE
+"Humbang Hasundutan, Kab.",2016,9.78,FALSE
+"Humbang Hasundutan, Kab.",2017,9.85,FALSE
+"Humbang Hasundutan, Kab.",2018,9,FALSE
+"Humbang Hasundutan, Kab.",2019,8.75,FALSE
+"Humbang Hasundutan, Kab.",2020,9.36,FALSE
+"Humbang Hasundutan, Kab.",2021,9.54,TRUE
+"Humbang Hasundutan, Kab.",2022,9.72,TRUE
+"Humbang Hasundutan, Kab.",2023,9.9,TRUE
+"Humbang Hasundutan, Kab.",2024,10.08,TRUE
+"Indragiri Hilir, Kab.",2015,8.11,FALSE
+"Indragiri Hilir, Kab.",2016,7.99,FALSE
+"Indragiri Hilir, Kab.",2017,7.7,FALSE
+"Indragiri Hilir, Kab.",2018,7.05,FALSE
+"Indragiri Hilir, Kab.",2019,6.54,FALSE
+"Indragiri Hilir, Kab.",2020,5.93,FALSE
+"Indragiri Hilir, Kab.",2021,5.37,TRUE
+"Indragiri Hilir, Kab.",2022,4.81,TRUE
+"Indragiri Hilir, Kab.",2023,4.25,TRUE
+"Indragiri Hilir, Kab.",2024,3.69,TRUE
+"Indragiri Hulu, Kab.",2015,7.76,FALSE
+"Indragiri Hulu, Kab.",2016,7.15,FALSE
+"Indragiri Hulu, Kab.",2017,6.94,FALSE
+"Indragiri Hulu, Kab.",2018,6.3,FALSE
+"Indragiri Hulu, Kab.",2019,6.06,FALSE
+"Indragiri Hulu, Kab.",2020,5.96,FALSE
+"Indragiri Hulu, Kab.",2021,5.79,TRUE
+"Indragiri Hulu, Kab.",2022,5.62,TRUE
+"Indragiri Hulu, Kab.",2023,5.45,TRUE
+"Indragiri Hulu, Kab.",2024,5.28,TRUE
+"Indramayu, Kab.",2015,14.98,FALSE
+"Indramayu, Kab.",2016,13.95,FALSE
+"Indramayu, Kab.",2017,13.67,FALSE
+"Indramayu, Kab.",2018,11.89,FALSE
+"Indramayu, Kab.",2019,11.11,FALSE
+"Indramayu, Kab.",2020,12.7,FALSE
+"Indramayu, Kab.",2021,13.105,TRUE
+"Indramayu, Kab.",2022,13.51,TRUE
+"Indramayu, Kab.",2023,13.915,TRUE
+"Indramayu, Kab.",2024,14.32,TRUE
+"Intan Jaya, Kab.",2015,41.34,FALSE
+"Intan Jaya, Kab.",2016,43.73,FALSE
+"Intan Jaya, Kab.",2017,42.23,FALSE
+"Intan Jaya, Kab.",2018,42.71,FALSE
+"Intan Jaya, Kab.",2019,42.92,FALSE
+"Intan Jaya, Kab.",2020,40.71,FALSE
+"Intan Jaya, Kab.",2021,39.71,TRUE
+"Intan Jaya, Kab.",2022,38.71,TRUE
+"Intan Jaya, Kab.",2023,37.71,TRUE
+"Intan Jaya, Kab.",2024,36.71,TRUE
+"Jakarta Barat, Kota",2015,3.64,FALSE
+"Jakarta Barat, Kota",2016,3.38,FALSE
+"Jakarta Barat, Kota",2017,3.45,FALSE
+"Jakarta Barat, Kota",2018,3.39,FALSE
+"Jakarta Barat, Kota",2019,3.25,FALSE
+"Jakarta Barat, Kota",2020,4.25,FALSE
+"Jakarta Barat, Kota",2021,4.68,TRUE
+"Jakarta Barat, Kota",2022,5.11,TRUE
+"Jakarta Barat, Kota",2023,5.54,TRUE
+"Jakarta Barat, Kota",2024,5.97,TRUE
+"Jakarta Pusat, Kota",2015,4.16,FALSE
+"Jakarta Pusat, Kota",2016,3.91,FALSE
+"Jakarta Pusat, Kota",2017,3.78,FALSE
+"Jakarta Pusat, Kota",2018,3.59,FALSE
+"Jakarta Pusat, Kota",2019,3.68,FALSE
+"Jakarta Pusat, Kota",2020,4.51,FALSE
+"Jakarta Pusat, Kota",2021,4.97,TRUE
+"Jakarta Pusat, Kota",2022,5.43,TRUE
+"Jakarta Pusat, Kota",2023,5.89,TRUE
+"Jakarta Pusat, Kota",2024,6.35,TRUE
+"Jakarta Selatan, Kota",2015,3.41,FALSE
+"Jakarta Selatan, Kota",2016,3.27,FALSE
+"Jakarta Selatan, Kota",2017,3.14,FALSE
+"Jakarta Selatan, Kota",2018,2.83,FALSE
+"Jakarta Selatan, Kota",2019,2.73,FALSE
+"Jakarta Selatan, Kota",2020,3.43,FALSE
+"Jakarta Selatan, Kota",2021,3.73,TRUE
+"Jakarta Selatan, Kota",2022,4.03,TRUE
+"Jakarta Selatan, Kota",2023,4.33,TRUE
+"Jakarta Selatan, Kota",2024,4.63,TRUE
+"Jakarta Timur, Kota",2015,3.24,FALSE
+"Jakarta Timur, Kota",2016,3.19,FALSE
+"Jakarta Timur, Kota",2017,3.31,FALSE
+"Jakarta Timur, Kota",2018,3.14,FALSE
+"Jakarta Timur, Kota",2019,3.12,FALSE
+"Jakarta Timur, Kota",2020,4.16,FALSE
+"Jakarta Timur, Kota",2021,4.67,TRUE
+"Jakarta Timur, Kota",2022,5.18,TRUE
+"Jakarta Timur, Kota",2023,5.69,TRUE
+"Jakarta Timur, Kota",2024,6.2,TRUE
+"Jakarta Utara, Kota",2015,5.91,FALSE
+"Jakarta Utara, Kota",2016,5.57,FALSE
+"Jakarta Utara, Kota",2017,5.59,FALSE
+"Jakarta Utara, Kota",2018,5.35,FALSE
+"Jakarta Utara, Kota",2019,5.04,FALSE
+"Jakarta Utara, Kota",2020,6.78,FALSE
+"Jakarta Utara, Kota",2021,7.495,TRUE
+"Jakarta Utara, Kota",2022,8.21,TRUE
+"Jakarta Utara, Kota",2023,8.925,TRUE
+"Jakarta Utara, Kota",2024,9.64,TRUE
+"Jambi, Kota",2015,9.67,FALSE
+"Jambi, Kota",2016,8.87,FALSE
+"Jambi, Kota",2017,8.84,FALSE
+"Jambi, Kota",2018,8.49,FALSE
+"Jambi, Kota",2019,8.12,FALSE
+"Jambi, Kota",2020,8.27,FALSE
+"Jambi, Kota",2021,8.16,TRUE
+"Jambi, Kota",2022,8.05,TRUE
+"Jambi, Kota",2023,7.94,TRUE
+"Jambi, Kota",2024,7.83,TRUE
+"Jayapura, Kab.",2015,14.69,FALSE
+"Jayapura, Kab.",2016,13.49,FALSE
+"Jayapura, Kab.",2017,13.01,FALSE
+"Jayapura, Kab.",2018,13.44,FALSE
+"Jayapura, Kab.",2019,13.13,FALSE
+"Jayapura, Kab.",2020,12.44,FALSE
+"Jayapura, Kab.",2021,11.94,TRUE
+"Jayapura, Kab.",2022,11.44,TRUE
+"Jayapura, Kab.",2023,10.94,TRUE
+"Jayapura, Kab.",2024,10.44,TRUE
+"Jayapura, Kota",2015,12.22,FALSE
+"Jayapura, Kota",2016,12.06,FALSE
+"Jayapura, Kota",2017,11.46,FALSE
+"Jayapura, Kota",2018,11.37,FALSE
+"Jayapura, Kota",2019,11.49,FALSE
+"Jayapura, Kota",2020,11.16,FALSE
+"Jayapura, Kota",2021,11.055,TRUE
+"Jayapura, Kota",2022,10.95,TRUE
+"Jayapura, Kota",2023,10.845,TRUE
+"Jayapura, Kota",2024,10.74,TRUE
+"Jayawijaya, Kab.",2015,39.48,FALSE
+"Jayawijaya, Kab.",2016,39.66,FALSE
+"Jayawijaya, Kab.",2017,38.62,FALSE
+"Jayawijaya, Kab.",2018,38.66,FALSE
+"Jayawijaya, Kab.",2019,38.33,FALSE
+"Jayawijaya, Kab.",2020,37.22,FALSE
+"Jayawijaya, Kab.",2021,36.5,TRUE
+"Jayawijaya, Kab.",2022,35.78,TRUE
+"Jayawijaya, Kab.",2023,35.06,TRUE
+"Jayawijaya, Kab.",2024,34.34,TRUE
+"Jember, Kab.",2015,11.22,FALSE
+"Jember, Kab.",2016,10.97,FALSE
+"Jember, Kab.",2017,11,FALSE
+"Jember, Kab.",2018,9.98,FALSE
+"Jember, Kab.",2019,9.25,FALSE
+"Jember, Kab.",2020,10.09,FALSE
+"Jember, Kab.",2021,10.145,TRUE
+"Jember, Kab.",2022,10.2,TRUE
+"Jember, Kab.",2023,10.255,TRUE
+"Jember, Kab.",2024,10.31,TRUE
+"Jembrana, Kab.",2015,5.84,FALSE
+"Jembrana, Kab.",2016,5.33,FALSE
+"Jembrana, Kab.",2017,5.38,FALSE
+"Jembrana, Kab.",2018,5.2,FALSE
+"Jembrana, Kab.",2019,4.88,FALSE
+"Jembrana, Kab.",2020,4.51,FALSE
+"Jembrana, Kab.",2021,4.165,TRUE
+"Jembrana, Kab.",2022,3.82,TRUE
+"Jembrana, Kab.",2023,3.475,TRUE
+"Jembrana, Kab.",2024,3.13,TRUE
+"Jeneponto, Kab.",2015,15.18,FALSE
+"Jeneponto, Kab.",2016,15.49,FALSE
+"Jeneponto, Kab.",2017,15.4,FALSE
+"Jeneponto, Kab.",2018,15.48,FALSE
+"Jeneponto, Kab.",2019,14.88,FALSE
+"Jeneponto, Kab.",2020,14.58,FALSE
+"Jeneponto, Kab.",2021,14.13,TRUE
+"Jeneponto, Kab.",2022,13.68,TRUE
+"Jeneponto, Kab.",2023,13.23,TRUE
+"Jeneponto, Kab.",2024,12.78,TRUE
+"Jepara, Kab.",2015,8.5,FALSE
+"Jepara, Kab.",2016,8.35,FALSE
+"Jepara, Kab.",2017,8.12,FALSE
+"Jepara, Kab.",2018,7,FALSE
+"Jepara, Kab.",2019,6.66,FALSE
+"Jepara, Kab.",2020,7.17,FALSE
+"Jepara, Kab.",2021,7.255,TRUE
+"Jepara, Kab.",2022,7.34,TRUE
+"Jepara, Kab.",2023,7.425,TRUE
+"Jepara, Kab.",2024,7.51,TRUE
+"Jombang, Kab.",2015,10.79,FALSE
+"Jombang, Kab.",2016,10.7,FALSE
+"Jombang, Kab.",2017,10.48,FALSE
+"Jombang, Kab.",2018,9.56,FALSE
+"Jombang, Kab.",2019,9.22,FALSE
+"Jombang, Kab.",2020,9.94,FALSE
+"Jombang, Kab.",2021,10.13,TRUE
+"Jombang, Kab.",2022,10.32,TRUE
+"Jombang, Kab.",2023,10.51,TRUE
+"Jombang, Kab.",2024,10.7,TRUE
+"Kaimana, Kab.",2015,17.79,FALSE
+"Kaimana, Kab.",2016,17.44,FALSE
+"Kaimana, Kab.",2017,17.22,FALSE
+"Kaimana, Kab.",2018,16.65,FALSE
+"Kaimana, Kab.",2019,16.11,FALSE
+"Kaimana, Kab.",2020,15.5,FALSE
+"Kaimana, Kab.",2021,14.925,TRUE
+"Kaimana, Kab.",2022,14.35,TRUE
+"Kaimana, Kab.",2023,13.775,TRUE
+"Kaimana, Kab.",2024,13.2,TRUE
+"Kampar, Kab.",2015,9.17,FALSE
+"Kampar, Kab.",2016,8.38,FALSE
+"Kampar, Kab.",2017,8.02,FALSE
+"Kampar, Kab.",2018,8.18,FALSE
+"Kampar, Kab.",2019,7.71,FALSE
+"Kampar, Kab.",2020,7.38,FALSE
+"Kampar, Kab.",2021,6.98,TRUE
+"Kampar, Kab.",2022,6.58,TRUE
+"Kampar, Kab.",2023,6.18,TRUE
+"Kampar, Kab.",2024,5.78,TRUE
+"Kapuas Hulu, Kab.",2015,9.66,FALSE
+"Kapuas Hulu, Kab.",2016,9.82,FALSE
+"Kapuas Hulu, Kab.",2017,9.45,FALSE
+"Kapuas Hulu, Kab.",2018,9.6,FALSE
+"Kapuas Hulu, Kab.",2019,9.62,FALSE
+"Kapuas Hulu, Kab.",2020,8.99,FALSE
+"Kapuas Hulu, Kab.",2021,8.685,TRUE
+"Kapuas Hulu, Kab.",2022,8.38,TRUE
+"Kapuas Hulu, Kab.",2023,8.075,TRUE
+"Kapuas Hulu, Kab.",2024,7.77,TRUE
+"Kapuas, Kab.",2015,6.03,FALSE
+"Kapuas, Kab.",2016,5.7,FALSE
+"Kapuas, Kab.",2017,5.32,FALSE
+"Kapuas, Kab.",2018,5.2,FALSE
+"Kapuas, Kab.",2019,5.09,FALSE
+"Kapuas, Kab.",2020,5.04,FALSE
+"Kapuas, Kab.",2021,4.96,TRUE
+"Kapuas, Kab.",2022,4.88,TRUE
+"Kapuas, Kab.",2023,4.8,TRUE
+"Kapuas, Kab.",2024,4.72,TRUE
+"Karanganyar, Kab.",2015,12.46,FALSE
+"Karanganyar, Kab.",2016,12.49,FALSE
+"Karanganyar, Kab.",2017,12.28,FALSE
+"Karanganyar, Kab.",2018,10.01,FALSE
+"Karanganyar, Kab.",2019,9.55,FALSE
+"Karanganyar, Kab.",2020,10.28,FALSE
+"Karanganyar, Kab.",2021,10.415,TRUE
+"Karanganyar, Kab.",2022,10.55,TRUE
+"Karanganyar, Kab.",2023,10.685,TRUE
+"Karanganyar, Kab.",2024,10.82,TRUE
+"Karangasem, Kab.",2015,7.44,FALSE
+"Karangasem, Kab.",2016,6.61,FALSE
+"Karangasem, Kab.",2017,6.55,FALSE
+"Karangasem, Kab.",2018,6.28,FALSE
+"Karangasem, Kab.",2019,6.25,FALSE
+"Karangasem, Kab.",2020,5.91,FALSE
+"Karangasem, Kab.",2021,5.725,TRUE
+"Karangasem, Kab.",2022,5.54,TRUE
+"Karangasem, Kab.",2023,5.355,TRUE
+"Karangasem, Kab.",2024,5.17,TRUE
+"Karawang, Kab.",2015,10.37,FALSE
+"Karawang, Kab.",2016,10.07,FALSE
+"Karawang, Kab.",2017,10.25,FALSE
+"Karawang, Kab.",2018,8.06,FALSE
+"Karawang, Kab.",2019,7.39,FALSE
+"Karawang, Kab.",2020,8.26,FALSE
+"Karawang, Kab.",2021,8.36,TRUE
+"Karawang, Kab.",2022,8.46,TRUE
+"Karawang, Kab.",2023,8.56,TRUE
+"Karawang, Kab.",2024,8.66,TRUE
+"Karimun, Kab.",2015,6.6,FALSE
+"Karimun, Kab.",2016,6.77,FALSE
+"Karimun, Kab.",2017,7.41,FALSE
+"Karimun, Kab.",2018,6.9,FALSE
+"Karimun, Kab.",2019,6.61,FALSE
+"Karimun, Kab.",2020,6.83,FALSE
+"Karimun, Kab.",2021,6.795,TRUE
+"Karimun, Kab.",2022,6.76,TRUE
+"Karimun, Kab.",2023,6.725,TRUE
+"Karimun, Kab.",2024,6.69,TRUE
+"Karo, Kab.",2015,9.68,FALSE
+"Karo, Kab.",2016,9.81,FALSE
+"Karo, Kab.",2017,9.97,FALSE
+"Karo, Kab.",2018,8.67,FALSE
+"Karo, Kab.",2019,8.23,FALSE
+"Karo, Kab.",2020,8.7,FALSE
+"Karo, Kab.",2021,8.715,TRUE
+"Karo, Kab.",2022,8.73,TRUE
+"Karo, Kab.",2023,8.745,TRUE
+"Karo, Kab.",2024,8.76,TRUE
+"Katingan, Kab.",2015,6.53,FALSE
+"Katingan, Kab.",2016,6.23,FALSE
+"Katingan, Kab.",2017,5.78,FALSE
+"Katingan, Kab.",2018,5.22,FALSE
+"Katingan, Kab.",2019,5.02,FALSE
+"Katingan, Kab.",2020,4.79,FALSE
+"Katingan, Kab.",2021,4.575,TRUE
+"Katingan, Kab.",2022,4.36,TRUE
+"Katingan, Kab.",2023,4.145,TRUE
+"Katingan, Kab.",2024,3.93,TRUE
+"Kaur, Kab.",2015,22.87,FALSE
+"Kaur, Kab.",2016,22.36,FALSE
+"Kaur, Kab.",2017,21.54,FALSE
+"Kaur, Kab.",2018,19.4,FALSE
+"Kaur, Kab.",2019,18.89,FALSE
+"Kaur, Kab.",2020,18.47,FALSE
+"Kaur, Kab.",2021,18.005,TRUE
+"Kaur, Kab.",2022,17.54,TRUE
+"Kaur, Kab.",2023,17.075,TRUE
+"Kaur, Kab.",2024,16.61,TRUE
+"Kayong Utara, Kab.",2015,9.84,FALSE
+"Kayong Utara, Kab.",2016,10.19,FALSE
+"Kayong Utara, Kab.",2017,9.89,FALSE
+"Kayong Utara, Kab.",2018,10.08,FALSE
+"Kayong Utara, Kab.",2019,9.98,FALSE
+"Kayong Utara, Kab.",2020,9.56,FALSE
+"Kayong Utara, Kab.",2021,9.3,TRUE
+"Kayong Utara, Kab.",2022,9.04,TRUE
+"Kayong Utara, Kab.",2023,8.78,TRUE
+"Kayong Utara, Kab.",2024,8.52,TRUE
+"Kebumen, Kab.",2015,20.44,FALSE
+"Kebumen, Kab.",2016,19.86,FALSE
+"Kebumen, Kab.",2017,19.6,FALSE
+"Kebumen, Kab.",2018,17.47,FALSE
+"Kebumen, Kab.",2019,16.82,FALSE
+"Kebumen, Kab.",2020,17.59,FALSE
+"Kebumen, Kab.",2021,17.65,TRUE
+"Kebumen, Kab.",2022,17.71,TRUE
+"Kebumen, Kab.",2023,17.77,TRUE
+"Kebumen, Kab.",2024,17.83,TRUE
+"Kediri, Kab.",2015,12.91,FALSE
+"Kediri, Kab.",2016,12.72,FALSE
+"Kediri, Kab.",2017,12.25,FALSE
+"Kediri, Kab.",2018,11.31,FALSE
+"Kediri, Kab.",2019,10.42,FALSE
+"Kediri, Kab.",2020,11.4,FALSE
+"Kediri, Kab.",2021,11.445,TRUE
+"Kediri, Kab.",2022,11.49,TRUE
+"Kediri, Kab.",2023,11.535,TRUE
+"Kediri, Kab.",2024,11.58,TRUE
+"Kediri, Kota",2015,8.51,FALSE
+"Kediri, Kota",2016,8.4,FALSE
+"Kediri, Kota",2017,8.49,FALSE
+"Kediri, Kota",2018,7.68,FALSE
+"Kediri, Kota",2019,7.16,FALSE
+"Kediri, Kota",2020,7.69,FALSE
+"Kediri, Kota",2021,7.695,TRUE
+"Kediri, Kota",2022,7.7,TRUE
+"Kediri, Kota",2023,7.705,TRUE
+"Kediri, Kota",2024,7.71,TRUE
+"Keerom, Kab.",2015,15.83,FALSE
+"Keerom, Kab.",2016,17.15,FALSE
+"Keerom, Kab.",2017,16.69,FALSE
+"Keerom, Kab.",2018,16.9,FALSE
+"Keerom, Kab.",2019,16.83,FALSE
+"Keerom, Kab.",2020,16.32,FALSE
+"Keerom, Kab.",2021,16.03,TRUE
+"Keerom, Kab.",2022,15.74,TRUE
+"Keerom, Kab.",2023,15.45,TRUE
+"Keerom, Kab.",2024,15.16,TRUE
+"Kendal, Kab.",2015,11.62,FALSE
+"Kendal, Kab.",2016,11.37,FALSE
+"Kendal, Kab.",2017,11.1,FALSE
+"Kendal, Kab.",2018,9.84,FALSE
+"Kendal, Kab.",2019,9.41,FALSE
+"Kendal, Kab.",2020,9.99,FALSE
+"Kendal, Kab.",2021,10.065,TRUE
+"Kendal, Kab.",2022,10.14,TRUE
+"Kendal, Kab.",2023,10.215,TRUE
+"Kendal, Kab.",2024,10.29,TRUE
+"Kendari City",2015,5.59,FALSE
+"Kendari City",2016,5.51,FALSE
+"Kendari City",2017,5.01,FALSE
+"Kendari City",2018,4.69,FALSE
+"Kendari City",2019,4.44,FALSE
+"Kendari City",2020,4.34,FALSE
+"Kendari City",2021,4.165,TRUE
+"Kendari City",2022,3.99,TRUE
+"Kendari City",2023,3.815,TRUE
+"Kendari City",2024,3.64,TRUE
+"Kep. Siau Tagulandang Biaro, Kab.",2015,10.93,FALSE
+"Kep. Siau Tagulandang Biaro, Kab.",2016,10.58,FALSE
+"Kep. Siau Tagulandang Biaro, Kab.",2017,10.33,FALSE
+"Kep. Siau Tagulandang Biaro, Kab.",2018,9.87,FALSE
+"Kep. Siau Tagulandang Biaro, Kab.",2019,9.56,FALSE
+"Kep. Siau Tagulandang Biaro, Kab.",2020,8.94,FALSE
+"Kep. Siau Tagulandang Biaro, Kab.",2021,8.475,TRUE
+"Kep. Siau Tagulandang Biaro, Kab.",2022,8.01,TRUE
+"Kep. Siau Tagulandang Biaro, Kab.",2023,7.545,TRUE
+"Kep. Siau Tagulandang Biaro, Kab.",2024,7.08,TRUE
+"Kepahiang, Kab.",2015,16.83,FALSE
+"Kepahiang, Kab.",2016,16.31,FALSE
+"Kepahiang, Kab.",2017,15.95,FALSE
+"Kepahiang, Kab.",2018,14.42,FALSE
+"Kepahiang, Kab.",2019,14.74,FALSE
+"Kepahiang, Kab.",2020,14.69,FALSE
+"Kepahiang, Kab.",2021,14.825,TRUE
+"Kepahiang, Kab.",2022,14.96,TRUE
+"Kepahiang, Kab.",2023,15.095,TRUE
+"Kepahiang, Kab.",2024,15.23,TRUE
+"Kepulauan Anambas, Kab.",2015,6.58,FALSE
+"Kepulauan Anambas, Kab.",2016,6.73,FALSE
+"Kepulauan Anambas, Kab.",2017,6.87,FALSE
+"Kepulauan Anambas, Kab.",2018,6.93,FALSE
+"Kepulauan Anambas, Kab.",2019,6.44,FALSE
+"Kepulauan Anambas, Kab.",2020,6.56,FALSE
+"Kepulauan Anambas, Kab.",2021,6.375,TRUE
+"Kepulauan Anambas, Kab.",2022,6.19,TRUE
+"Kepulauan Anambas, Kab.",2023,6.005,TRUE
+"Kepulauan Anambas, Kab.",2024,5.82,TRUE
+"Kepulauan Aru, Kab.",2015,28.64,FALSE
+"Kepulauan Aru, Kab.",2016,28.71,FALSE
+"Kepulauan Aru, Kab.",2017,27.13,FALSE
+"Kepulauan Aru, Kab.",2018,27.12,FALSE
+"Kepulauan Aru, Kab.",2019,26.73,FALSE
+"Kepulauan Aru, Kab.",2020,26.26,FALSE
+"Kepulauan Aru, Kab.",2021,25.83,TRUE
+"Kepulauan Aru, Kab.",2022,25.4,TRUE
+"Kepulauan Aru, Kab.",2023,24.97,TRUE
+"Kepulauan Aru, Kab.",2024,24.54,TRUE
+"Kepulauan Mentawai, Kab.",2015,15.52,FALSE
+"Kepulauan Mentawai, Kab.",2016,15.12,FALSE
+"Kepulauan Mentawai, Kab.",2017,14.67,FALSE
+"Kepulauan Mentawai, Kab.",2018,14.44,FALSE
+"Kepulauan Mentawai, Kab.",2019,14.43,FALSE
+"Kepulauan Mentawai, Kab.",2020,14.35,FALSE
+"Kepulauan Mentawai, Kab.",2021,14.305,TRUE
+"Kepulauan Mentawai, Kab.",2022,14.26,TRUE
+"Kepulauan Mentawai, Kab.",2023,14.215,TRUE
+"Kepulauan Mentawai, Kab.",2024,14.17,TRUE
+"Kepulauan Meranti, Kab.",2015,34.08,FALSE
+"Kepulauan Meranti, Kab.",2016,30.89,FALSE
+"Kepulauan Meranti, Kab.",2017,28.99,FALSE
+"Kepulauan Meranti, Kab.",2018,27.79,FALSE
+"Kepulauan Meranti, Kab.",2019,26.93,FALSE
+"Kepulauan Meranti, Kab.",2020,25.28,FALSE
+"Kepulauan Meranti, Kab.",2021,24.025,TRUE
+"Kepulauan Meranti, Kab.",2022,22.77,TRUE
+"Kepulauan Meranti, Kab.",2023,21.515,TRUE
+"Kepulauan Meranti, Kab.",2024,20.26,TRUE
+"Kepulauan Sangihe, Kab.",2015,12.27,FALSE
+"Kepulauan Sangihe, Kab.",2016,12.28,FALSE
+"Kepulauan Sangihe, Kab.",2017,11.8,FALSE
+"Kepulauan Sangihe, Kab.",2018,11.82,FALSE
+"Kepulauan Sangihe, Kab.",2019,11.15,FALSE
+"Kepulauan Sangihe, Kab.",2020,11.14,FALSE
+"Kepulauan Sangihe, Kab.",2021,10.8,TRUE
+"Kepulauan Sangihe, Kab.",2022,10.46,TRUE
+"Kepulauan Sangihe, Kab.",2023,10.12,TRUE
+"Kepulauan Sangihe, Kab.",2024,9.78,TRUE
+"Kepulauan Selayar, Kab.",2015,12.94,FALSE
+"Kepulauan Selayar, Kab.",2016,13.11,FALSE
+"Kepulauan Selayar, Kab.",2017,13.28,FALSE
+"Kepulauan Selayar, Kab.",2018,13.13,FALSE
+"Kepulauan Selayar, Kab.",2019,12.83,FALSE
+"Kepulauan Selayar, Kab.",2020,12.48,FALSE
+"Kepulauan Selayar, Kab.",2021,12.155,TRUE
+"Kepulauan Selayar, Kab.",2022,11.83,TRUE
+"Kepulauan Selayar, Kab.",2023,11.505,TRUE
+"Kepulauan Selayar, Kab.",2024,11.18,TRUE
+"Kepulauan Sula, Kab.",2015,8.85,FALSE
+"Kepulauan Sula, Kab.",2016,8.63,FALSE
+"Kepulauan Sula, Kab.",2017,8.59,FALSE
+"Kepulauan Sula, Kab.",2018,8.89,FALSE
+"Kepulauan Sula, Kab.",2019,8.98,FALSE
+"Kepulauan Sula, Kab.",2020,8.35,FALSE
+"Kepulauan Sula, Kab.",2021,8.08,TRUE
+"Kepulauan Sula, Kab.",2022,7.81,TRUE
+"Kepulauan Sula, Kab.",2023,7.54,TRUE
+"Kepulauan Sula, Kab.",2024,7.27,TRUE
+"Kepulauan Talaud, Kab.",2015,10.09,FALSE
+"Kepulauan Talaud, Kab.",2016,10.29,FALSE
+"Kepulauan Talaud, Kab.",2017,9.77,FALSE
+"Kepulauan Talaud, Kab.",2018,9.5,FALSE
+"Kepulauan Talaud, Kab.",2019,9.86,FALSE
+"Kepulauan Talaud, Kab.",2020,9.49,FALSE
+"Kepulauan Talaud, Kab.",2021,9.485,TRUE
+"Kepulauan Talaud, Kab.",2022,9.48,TRUE
+"Kepulauan Talaud, Kab.",2023,9.475,TRUE
+"Kepulauan Talaud, Kab.",2024,9.47,TRUE
+"Kepulauan Tidore, Kota",2015,5.38,FALSE
+"Kepulauan Tidore, Kota",2016,5.07,FALSE
+"Kepulauan Tidore, Kota",2017,5.45,FALSE
+"Kepulauan Tidore, Kota",2018,5.95,FALSE
+"Kepulauan Tidore, Kota",2019,6.1,FALSE
+"Kepulauan Tidore, Kota",2020,6.52,FALSE
+"Kepulauan Tidore, Kota",2021,6.805,TRUE
+"Kepulauan Tidore, Kota",2022,7.09,TRUE
+"Kepulauan Tidore, Kota",2023,7.375,TRUE
+"Kepulauan Tidore, Kota",2024,7.66,TRUE
+"Kepulauan Yapen, Kab.",2015,27.7,FALSE
+"Kepulauan Yapen, Kab.",2016,27.54,FALSE
+"Kepulauan Yapen, Kab.",2017,26.82,FALSE
+"Kepulauan Yapen, Kab.",2018,27.17,FALSE
+"Kepulauan Yapen, Kab.",2019,27.13,FALSE
+"Kepulauan Yapen, Kab.",2020,26.3,FALSE
+"Kepulauan Yapen, Kab.",2021,25.865,TRUE
+"Kepulauan Yapen, Kab.",2022,25.43,TRUE
+"Kepulauan Yapen, Kab.",2023,24.995,TRUE
+"Kepulauan Yapen, Kab.",2024,24.56,TRUE
+"Kerinci, Kab.",2015,8.16,FALSE
+"Kerinci, Kab.",2016,7.48,FALSE
+"Kerinci, Kab.",2017,7.45,FALSE
+"Kerinci, Kab.",2018,7.07,FALSE
+"Kerinci, Kab.",2019,7.13,FALSE
+"Kerinci, Kab.",2020,7.3,FALSE
+"Kerinci, Kab.",2021,7.415,TRUE
+"Kerinci, Kab.",2022,7.53,TRUE
+"Kerinci, Kab.",2023,7.645,TRUE
+"Kerinci, Kab.",2024,7.76,TRUE
+"Ketapang, Kab.",2015,11.72,FALSE
+"Ketapang, Kab.",2016,10.99,FALSE
+"Ketapang, Kab.",2017,11.02,FALSE
+"Ketapang, Kab.",2018,10.93,FALSE
+"Ketapang, Kab.",2019,10.54,FALSE
+"Ketapang, Kab.",2020,10.29,FALSE
+"Ketapang, Kab.",2021,9.97,TRUE
+"Ketapang, Kab.",2022,9.65,TRUE
+"Ketapang, Kab.",2023,9.33,TRUE
+"Ketapang, Kab.",2024,9.01,TRUE
+"Klaten, Kab.",2015,14.89,FALSE
+"Klaten, Kab.",2016,14.46,FALSE
+"Klaten, Kab.",2017,14.15,FALSE
+"Klaten, Kab.",2018,12.96,FALSE
+"Klaten, Kab.",2019,12.28,FALSE
+"Klaten, Kab.",2020,12.89,FALSE
+"Klaten, Kab.",2021,12.855,TRUE
+"Klaten, Kab.",2022,12.82,TRUE
+"Klaten, Kab.",2023,12.785,TRUE
+"Klaten, Kab.",2024,12.75,TRUE
+"Klungkung, Kab.",2015,6.91,FALSE
+"Klungkung, Kab.",2016,6.35,FALSE
+"Klungkung, Kab.",2017,6.29,FALSE
+"Klungkung, Kab.",2018,5.86,FALSE
+"Klungkung, Kab.",2019,5.4,FALSE
+"Klungkung, Kab.",2020,4.87,FALSE
+"Klungkung, Kab.",2021,4.375,TRUE
+"Klungkung, Kab.",2022,3.88,TRUE
+"Klungkung, Kab.",2023,3.385,TRUE
+"Klungkung, Kab.",2024,2.89,TRUE
+"Kolaka Timur, Kab.",2015,15.57,FALSE
+"Kolaka Timur, Kab.",2016,15.71,FALSE
+"Kolaka Timur, Kab.",2017,15.64,FALSE
+"Kolaka Timur, Kab.",2018,13.82,FALSE
+"Kolaka Timur, Kab.",2019,13.71,FALSE
+"Kolaka Timur, Kab.",2020,13.47,FALSE
+"Kolaka Timur, Kab.",2021,13.295,TRUE
+"Kolaka Timur, Kab.",2022,13.12,TRUE
+"Kolaka Timur, Kab.",2023,12.945,TRUE
+"Kolaka Timur, Kab.",2024,12.77,TRUE
+"Kolaka Utara, Kab.",2015,16.53,FALSE
+"Kolaka Utara, Kab.",2016,17.11,FALSE
+"Kolaka Utara, Kab.",2017,16.24,FALSE
+"Kolaka Utara, Kab.",2018,14.3,FALSE
+"Kolaka Utara, Kab.",2019,13.19,FALSE
+"Kolaka Utara, Kab.",2020,12.96,FALSE
+"Kolaka Utara, Kab.",2021,12.29,TRUE
+"Kolaka Utara, Kab.",2022,11.62,TRUE
+"Kolaka Utara, Kab.",2023,10.95,TRUE
+"Kolaka Utara, Kab.",2024,10.28,TRUE
+"Kolaka, Kab.",2015,14.68,FALSE
+"Kolaka, Kab.",2016,15.05,FALSE
+"Kolaka, Kab.",2017,13.78,FALSE
+"Kolaka, Kab.",2018,12.51,FALSE
+"Kolaka, Kab.",2019,11.92,FALSE
+"Kolaka, Kab.",2020,11.63,FALSE
+"Kolaka, Kab.",2021,11.19,TRUE
+"Kolaka, Kab.",2022,10.75,TRUE
+"Kolaka, Kab.",2023,10.31,TRUE
+"Kolaka, Kab.",2024,9.87,TRUE
+"Konawe Kepulauan, Kab.",2015,16.73,FALSE
+"Konawe Kepulauan, Kab.",2016,17.72,FALSE
+"Konawe Kepulauan, Kab.",2017,18.1,FALSE
+"Konawe Kepulauan, Kab.",2018,17.48,FALSE
+"Konawe Kepulauan, Kab.",2019,17.18,FALSE
+"Konawe Kepulauan, Kab.",2020,17.01,FALSE
+"Konawe Kepulauan, Kab.",2021,16.775,TRUE
+"Konawe Kepulauan, Kab.",2022,16.54,TRUE
+"Konawe Kepulauan, Kab.",2023,16.305,TRUE
+"Konawe Kepulauan, Kab.",2024,16.07,TRUE
+"Konawe Selatan, Kab.",2015,11.58,FALSE
+"Konawe Selatan, Kab.",2016,11.36,FALSE
+"Konawe Selatan, Kab.",2017,11.14,FALSE
+"Konawe Selatan, Kab.",2018,10.95,FALSE
+"Konawe Selatan, Kab.",2019,10.81,FALSE
+"Konawe Selatan, Kab.",2020,10.74,FALSE
+"Konawe Selatan, Kab.",2021,10.635,TRUE
+"Konawe Selatan, Kab.",2022,10.53,TRUE
+"Konawe Selatan, Kab.",2023,10.425,TRUE
+"Konawe Selatan, Kab.",2024,10.32,TRUE
+"Konawe Utara, Kab.",2015,9.97,FALSE
+"Konawe Utara, Kab.",2016,9.75,FALSE
+"Konawe Utara, Kab.",2017,13.93,FALSE
+"Konawe Utara, Kab.",2018,14.22,FALSE
+"Konawe Utara, Kab.",2019,13.66,FALSE
+"Konawe Utara, Kab.",2020,13.53,FALSE
+"Konawe Utara, Kab.",2021,13.185,TRUE
+"Konawe Utara, Kab.",2022,12.84,TRUE
+"Konawe Utara, Kab.",2023,12.495,TRUE
+"Konawe Utara, Kab.",2024,12.15,TRUE
+"Konawe, Kab.",2015,16.09,FALSE
+"Konawe, Kab.",2016,16.09,FALSE
+"Konawe, Kab.",2017,15.65,FALSE
+"Konawe, Kab.",2018,13.48,FALSE
+"Konawe, Kab.",2019,12.34,FALSE
+"Konawe, Kab.",2020,12.2,FALSE
+"Konawe, Kab.",2021,11.56,TRUE
+"Konawe, Kab.",2022,10.92,TRUE
+"Konawe, Kab.",2023,10.28,TRUE
+"Konawe, Kab.",2024,9.64,TRUE
+"Kota Baru, Kab.",2015,4.62,FALSE
+"Kota Baru, Kab.",2016,4.56,FALSE
+"Kota Baru, Kab.",2017,4.38,FALSE
+"Kota Baru, Kab.",2018,4.52,FALSE
+"Kota Baru, Kab.",2019,4.49,FALSE
+"Kota Baru, Kab.",2020,4.22,FALSE
+"Kota Baru, Kab.",2021,4.07,TRUE
+"Kota Baru, Kab.",2022,3.92,TRUE
+"Kota Baru, Kab.",2023,3.77,TRUE
+"Kota Baru, Kab.",2024,3.62,TRUE
+"Kotamobagu, Kota",2015,5.85,FALSE
+"Kotamobagu, Kota",2016,6.01,FALSE
+"Kotamobagu, Kota",2017,5.9,FALSE
+"Kotamobagu, Kota",2018,5.96,FALSE
+"Kotamobagu, Kota",2019,5.71,FALSE
+"Kotamobagu, Kota",2020,5.42,FALSE
+"Kotamobagu, Kota",2021,5.15,TRUE
+"Kotamobagu, Kota",2022,4.88,TRUE
+"Kotamobagu, Kota",2023,4.61,TRUE
+"Kotamobagu, Kota",2024,4.34,TRUE
+"Kotawaringin Barat, Kab.",2015,5.07,FALSE
+"Kotawaringin Barat, Kab.",2016,4.96,FALSE
+"Kotawaringin Barat, Kab.",2017,4.52,FALSE
+"Kotawaringin Barat, Kab.",2018,4.27,FALSE
+"Kotawaringin Barat, Kab.",2019,4.11,FALSE
+"Kotawaringin Barat, Kab.",2020,3.59,FALSE
+"Kotawaringin Barat, Kab.",2021,3.25,TRUE
+"Kotawaringin Barat, Kab.",2022,2.91,TRUE
+"Kotawaringin Barat, Kab.",2023,2.57,TRUE
+"Kotawaringin Barat, Kab.",2024,2.23,TRUE
+"Kotawaringin Timur, Kab.",2015,6.42,FALSE
+"Kotawaringin Timur, Kab.",2016,6.32,FALSE
+"Kotawaringin Timur, Kab.",2017,6.24,FALSE
+"Kotawaringin Timur, Kab.",2018,6.21,FALSE
+"Kotawaringin Timur, Kab.",2019,5.9,FALSE
+"Kotawaringin Timur, Kab.",2020,5.62,FALSE
+"Kotawaringin Timur, Kab.",2021,5.325,TRUE
+"Kotawaringin Timur, Kab.",2022,5.03,TRUE
+"Kotawaringin Timur, Kab.",2023,4.735,TRUE
+"Kotawaringin Timur, Kab.",2024,4.44,TRUE
+"Kuantan Singingi, Kab.",2015,10.8,FALSE
+"Kuantan Singingi, Kab.",2016,9.85,FALSE
+"Kuantan Singingi, Kab.",2017,9.97,FALSE
+"Kuantan Singingi, Kab.",2018,9.92,FALSE
+"Kuantan Singingi, Kab.",2019,9.56,FALSE
+"Kuantan Singingi, Kab.",2020,8.91,FALSE
+"Kuantan Singingi, Kab.",2021,8.405,TRUE
+"Kuantan Singingi, Kab.",2022,7.9,TRUE
+"Kuantan Singingi, Kab.",2023,7.395,TRUE
+"Kuantan Singingi, Kab.",2024,6.89,TRUE
+"Kubu Raya, Kab.",2015,5.22,FALSE
+"Kubu Raya, Kab.",2016,5.04,FALSE
+"Kubu Raya, Kab.",2017,5.26,FALSE
+"Kubu Raya, Kab.",2018,5.07,FALSE
+"Kubu Raya, Kab.",2019,4.74,FALSE
+"Kubu Raya, Kab.",2020,4.42,FALSE
+"Kubu Raya, Kab.",2021,4.095,TRUE
+"Kubu Raya, Kab.",2022,3.77,TRUE
+"Kubu Raya, Kab.",2023,3.445,TRUE
+"Kubu Raya, Kab.",2024,3.12,TRUE
+"Kudus, Kab.",2015,7.73,FALSE
+"Kudus, Kab.",2016,7.65,FALSE
+"Kudus, Kab.",2017,7.59,FALSE
+"Kudus, Kab.",2018,6.98,FALSE
+"Kudus, Kab.",2019,6.68,FALSE
+"Kudus, Kab.",2020,7.31,FALSE
+"Kudus, Kab.",2021,7.475,TRUE
+"Kudus, Kab.",2022,7.64,TRUE
+"Kudus, Kab.",2023,7.805,TRUE
+"Kudus, Kab.",2024,7.97,TRUE
+"Kulon Progo, Kab.",2015,21.4,FALSE
+"Kulon Progo, Kab.",2016,20.3,FALSE
+"Kulon Progo, Kab.",2017,20.03,FALSE
+"Kulon Progo, Kab.",2018,18.3,FALSE
+"Kulon Progo, Kab.",2019,17.39,FALSE
+"Kulon Progo, Kab.",2020,18.01,FALSE
+"Kulon Progo, Kab.",2021,17.865,TRUE
+"Kulon Progo, Kab.",2022,17.72,TRUE
+"Kulon Progo, Kab.",2023,17.575,TRUE
+"Kulon Progo, Kab.",2024,17.43,TRUE
+"Kuningan, Kab.",2015,13.97,FALSE
+"Kuningan, Kab.",2016,13.59,FALSE
+"Kuningan, Kab.",2017,13.27,FALSE
+"Kuningan, Kab.",2018,12.22,FALSE
+"Kuningan, Kab.",2019,11.41,FALSE
+"Kuningan, Kab.",2020,12.82,FALSE
+"Kuningan, Kab.",2021,13.12,TRUE
+"Kuningan, Kab.",2022,13.42,TRUE
+"Kuningan, Kab.",2023,13.72,TRUE
+"Kuningan, Kab.",2024,14.02,TRUE
+"Kupang, Kab.",2015,23.37,FALSE
+"Kupang, Kab.",2016,23.43,FALSE
+"Kupang, Kab.",2017,22.91,FALSE
+"Kupang, Kab.",2018,23.1,FALSE
+"Kupang, Kab.",2019,23.03,FALSE
+"Kupang, Kab.",2020,22.77,FALSE
+"Kupang, Kab.",2021,22.605,TRUE
+"Kupang, Kab.",2022,22.44,TRUE
+"Kupang, Kab.",2023,22.275,TRUE
+"Kupang, Kab.",2024,22.11,TRUE
+"Kupang, Kota",2015,10.21,FALSE
+"Kupang, Kota",2016,9.97,FALSE
+"Kupang, Kota",2017,9.81,FALSE
+"Kupang, Kota",2018,9.61,FALSE
+"Kupang, Kota",2019,9.22,FALSE
+"Kupang, Kota",2020,8.96,FALSE
+"Kupang, Kota",2021,8.635,TRUE
+"Kupang, Kota",2022,8.31,TRUE
+"Kupang, Kota",2023,7.985,TRUE
+"Kupang, Kota",2024,7.66,TRUE
+"Kutai Barat, Kab.",2015,8.33,FALSE
+"Kutai Barat, Kab.",2016,8.65,FALSE
+"Kutai Barat, Kab.",2017,8.72,FALSE
+"Kutai Barat, Kab.",2018,9.15,FALSE
+"Kutai Barat, Kab.",2019,9.09,FALSE
+"Kutai Barat, Kab.",2020,9.29,FALSE
+"Kutai Barat, Kab.",2021,9.36,TRUE
+"Kutai Barat, Kab.",2022,9.43,TRUE
+"Kutai Barat, Kab.",2023,9.5,TRUE
+"Kutai Barat, Kab.",2024,9.57,TRUE
+"Kutai Kartanegara, Kab.",2015,7.99,FALSE
+"Kutai Kartanegara, Kab.",2016,7.63,FALSE
+"Kutai Kartanegara, Kab.",2017,7.57,FALSE
+"Kutai Kartanegara, Kab.",2018,7.41,FALSE
+"Kutai Kartanegara, Kab.",2019,7.2,FALSE
+"Kutai Kartanegara, Kab.",2020,7.31,FALSE
+"Kutai Kartanegara, Kab.",2021,7.26,TRUE
+"Kutai Kartanegara, Kab.",2022,7.21,TRUE
+"Kutai Kartanegara, Kab.",2023,7.16,TRUE
+"Kutai Kartanegara, Kab.",2024,7.11,TRUE
+"Kutai Timur, Kab.",2015,9.31,FALSE
+"Kutai Timur, Kab.",2016,9.16,FALSE
+"Kutai Timur, Kab.",2017,9.29,FALSE
+"Kutai Timur, Kab.",2018,9.22,FALSE
+"Kutai Timur, Kab.",2019,9.48,FALSE
+"Kutai Timur, Kab.",2020,9.55,FALSE
+"Kutai Timur, Kab.",2021,9.715,TRUE
+"Kutai Timur, Kab.",2022,9.88,TRUE
+"Kutai Timur, Kab.",2023,10.045,TRUE
+"Kutai Timur, Kab.",2024,10.21,TRUE
+"Labuhan Batu Selatan, Kab.",2015,11.65,FALSE
+"Labuhan Batu Selatan, Kab.",2016,11.49,FALSE
+"Labuhan Batu Selatan, Kab.",2017,11.63,FALSE
+"Labuhan Batu Selatan, Kab.",2018,10,FALSE
+"Labuhan Batu Selatan, Kab.",2019,8.94,FALSE
+"Labuhan Batu Selatan, Kab.",2020,8.34,FALSE
+"Labuhan Batu Selatan, Kab.",2021,7.51,TRUE
+"Labuhan Batu Selatan, Kab.",2022,6.68,TRUE
+"Labuhan Batu Selatan, Kab.",2023,5.85,TRUE
+"Labuhan Batu Selatan, Kab.",2024,5.02,TRUE
+"Labuhan Batu Utara, Kab.",2015,11.31,FALSE
+"Labuhan Batu Utara, Kab.",2016,10.97,FALSE
+"Labuhan Batu Utara, Kab.",2017,11.28,FALSE
+"Labuhan Batu Utara, Kab.",2018,10.12,FALSE
+"Labuhan Batu Utara, Kab.",2019,9.57,FALSE
+"Labuhan Batu Utara, Kab.",2020,9.53,FALSE
+"Labuhan Batu Utara, Kab.",2021,9.235,TRUE
+"Labuhan Batu Utara, Kab.",2022,8.94,TRUE
+"Labuhan Batu Utara, Kab.",2023,8.645,TRUE
+"Labuhan Batu Utara, Kab.",2024,8.35,TRUE
+"Labuhan Batu, Kab.",2015,8.99,FALSE
+"Labuhan Batu, Kab.",2016,8.95,FALSE
+"Labuhan Batu, Kab.",2017,8.89,FALSE
+"Labuhan Batu, Kab.",2018,8.61,FALSE
+"Labuhan Batu, Kab.",2019,8.44,FALSE
+"Labuhan Batu, Kab.",2020,8.44,FALSE
+"Labuhan Batu, Kab.",2021,8.355,TRUE
+"Labuhan Batu, Kab.",2022,8.27,TRUE
+"Labuhan Batu, Kab.",2023,8.185,TRUE
+"Labuhan Batu, Kab.",2024,8.1,TRUE
+"Lahat, Kab.",2015,18.02,FALSE
+"Lahat, Kab.",2016,17.11,FALSE
+"Lahat, Kab.",2017,16.81,FALSE
+"Lahat, Kab.",2018,16.15,FALSE
+"Lahat, Kab.",2019,15.92,FALSE
+"Lahat, Kab.",2020,15.95,FALSE
+"Lahat, Kab.",2021,15.85,TRUE
+"Lahat, Kab.",2022,15.75,TRUE
+"Lahat, Kab.",2023,15.65,TRUE
+"Lahat, Kab.",2024,15.55,TRUE
+"Lamandau, Kab.",2015,3.95,FALSE
+"Lamandau, Kab.",2016,3.8,FALSE
+"Lamandau, Kab.",2017,3.52,FALSE
+"Lamandau, Kab.",2018,3.15,FALSE
+"Lamandau, Kab.",2019,3.01,FALSE
+"Lamandau, Kab.",2020,3.09,FALSE
+"Lamandau, Kab.",2021,3.06,TRUE
+"Lamandau, Kab.",2022,3.03,TRUE
+"Lamandau, Kab.",2023,3,TRUE
+"Lamandau, Kab.",2024,2.97,TRUE
+"Lamongan, Kab.",2015,15.38,FALSE
+"Lamongan, Kab.",2016,14.89,FALSE
+"Lamongan, Kab.",2017,14.42,FALSE
+"Lamongan, Kab.",2018,13.8,FALSE
+"Lamongan, Kab.",2019,13.21,FALSE
+"Lamongan, Kab.",2020,13.85,FALSE
+"Lamongan, Kab.",2021,13.875,TRUE
+"Lamongan, Kab.",2022,13.9,TRUE
+"Lamongan, Kab.",2023,13.925,TRUE
+"Lamongan, Kab.",2024,13.95,TRUE
+"Lampung Barat, Kab.",2015,14.18,FALSE
+"Lampung Barat, Kab.",2016,15.06,FALSE
+"Lampung Barat, Kab.",2017,14.32,FALSE
+"Lampung Barat, Kab.",2018,13.54,FALSE
+"Lampung Barat, Kab.",2019,12.92,FALSE
+"Lampung Barat, Kab.",2020,12.52,FALSE
+"Lampung Barat, Kab.",2021,12.01,TRUE
+"Lampung Barat, Kab.",2022,11.5,TRUE
+"Lampung Barat, Kab.",2023,10.99,TRUE
+"Lampung Barat, Kab.",2024,10.48,TRUE
+"Lampung Selatan, Kab.",2015,16.27,FALSE
+"Lampung Selatan, Kab.",2016,16.16,FALSE
+"Lampung Selatan, Kab.",2017,15.16,FALSE
+"Lampung Selatan, Kab.",2018,14.86,FALSE
+"Lampung Selatan, Kab.",2019,14.31,FALSE
+"Lampung Selatan, Kab.",2020,14.08,FALSE
+"Lampung Selatan, Kab.",2021,13.69,TRUE
+"Lampung Selatan, Kab.",2022,13.3,TRUE
+"Lampung Selatan, Kab.",2023,12.91,TRUE
+"Lampung Selatan, Kab.",2024,12.52,TRUE
+"Lampung Tengah, Kab.",2015,13.3,FALSE
+"Lampung Tengah, Kab.",2016,13.28,FALSE
+"Lampung Tengah, Kab.",2017,12.9,FALSE
+"Lampung Tengah, Kab.",2018,12.62,FALSE
+"Lampung Tengah, Kab.",2019,12.03,FALSE
+"Lampung Tengah, Kab.",2020,11.82,FALSE
+"Lampung Tengah, Kab.",2021,11.42,TRUE
+"Lampung Tengah, Kab.",2022,11.02,TRUE
+"Lampung Tengah, Kab.",2023,10.62,TRUE
+"Lampung Tengah, Kab.",2024,10.22,TRUE
+"Lampung Timur, Kab.",2015,16.91,FALSE
+"Lampung Timur, Kab.",2016,16.98,FALSE
+"Lampung Timur, Kab.",2017,16.35,FALSE
+"Lampung Timur, Kab.",2018,15.76,FALSE
+"Lampung Timur, Kab.",2019,15.24,FALSE
+"Lampung Timur, Kab.",2020,14.62,FALSE
+"Lampung Timur, Kab.",2021,14.05,TRUE
+"Lampung Timur, Kab.",2022,13.48,TRUE
+"Lampung Timur, Kab.",2023,12.91,TRUE
+"Lampung Timur, Kab.",2024,12.34,TRUE
+"Lampung Utara, Kab.",2015,23.2,FALSE
+"Lampung Utara, Kab.",2016,22.92,FALSE
+"Lampung Utara, Kab.",2017,21.55,FALSE
+"Lampung Utara, Kab.",2018,20.85,FALSE
+"Lampung Utara, Kab.",2019,19.9,FALSE
+"Lampung Utara, Kab.",2020,19.3,FALSE
+"Lampung Utara, Kab.",2021,18.525,TRUE
+"Lampung Utara, Kab.",2022,17.75,TRUE
+"Lampung Utara, Kab.",2023,16.975,TRUE
+"Lampung Utara, Kab.",2024,16.2,TRUE
+"Landak, Kab.",2015,13.51,FALSE
+"Landak, Kab.",2016,12.32,FALSE
+"Landak, Kab.",2017,12.23,FALSE
+"Landak, Kab.",2018,11.77,FALSE
+"Landak, Kab.",2019,11.47,FALSE
+"Landak, Kab.",2020,11.12,FALSE
+"Landak, Kab.",2021,10.795,TRUE
+"Landak, Kab.",2022,10.47,TRUE
+"Landak, Kab.",2023,10.145,TRUE
+"Landak, Kab.",2024,9.82,TRUE
+"Langkat, Kab.",2015,11.3,FALSE
+"Langkat, Kab.",2016,11.36,FALSE
+"Langkat, Kab.",2017,11.15,FALSE
+"Langkat, Kab.",2018,10.2,FALSE
+"Langkat, Kab.",2019,9.91,FALSE
+"Langkat, Kab.",2020,9.73,FALSE
+"Langkat, Kab.",2021,9.495,TRUE
+"Langkat, Kab.",2022,9.26,TRUE
+"Langkat, Kab.",2023,9.025,TRUE
+"Langkat, Kab.",2024,8.79,TRUE
+"Langsa, Kota",2015,11.62,FALSE
+"Langsa, Kota",2016,11.09,FALSE
+"Langsa, Kota",2017,11.24,FALSE
+"Langsa, Kota",2018,10.79,FALSE
+"Langsa, Kota",2019,10.57,FALSE
+"Langsa, Kota",2020,10.44,FALSE
+"Langsa, Kota",2021,10.265,TRUE
+"Langsa, Kota",2022,10.09,TRUE
+"Langsa, Kota",2023,9.915,TRUE
+"Langsa, Kota",2024,9.74,TRUE
+"Lanny Jaya, Kab.",2015,41.97,FALSE
+"Lanny Jaya, Kab.",2016,41.68,FALSE
+"Lanny Jaya, Kab.",2017,39.6,FALSE
+"Lanny Jaya, Kab.",2018,40.06,FALSE
+"Lanny Jaya, Kab.",2019,39.52,FALSE
+"Lanny Jaya, Kab.",2020,38.13,FALSE
+"Lanny Jaya, Kab.",2021,37.165,TRUE
+"Lanny Jaya, Kab.",2022,36.2,TRUE
+"Lanny Jaya, Kab.",2023,35.235,TRUE
+"Lanny Jaya, Kab.",2024,34.27,TRUE
+"Lebak, Kab.",2015,9.97,FALSE
+"Lebak, Kab.",2016,8.71,FALSE
+"Lebak, Kab.",2017,8.64,FALSE
+"Lebak, Kab.",2018,8.41,FALSE
+"Lebak, Kab.",2019,8.3,FALSE
+"Lebak, Kab.",2020,9.24,FALSE
+"Lebak, Kab.",2021,9.655,TRUE
+"Lebak, Kab.",2022,10.07,TRUE
+"Lebak, Kab.",2023,10.485,TRUE
+"Lebak, Kab.",2024,10.9,TRUE
+"Lebong, Kab.",2015,12.32,FALSE
+"Lebong, Kab.",2016,12.26,FALSE
+"Lebong, Kab.",2017,11.83,FALSE
+"Lebong, Kab.",2018,11.59,FALSE
+"Lebong, Kab.",2019,11.77,FALSE
+"Lebong, Kab.",2020,11.85,FALSE
+"Lebong, Kab.",2021,11.98,TRUE
+"Lebong, Kab.",2022,12.11,TRUE
+"Lebong, Kab.",2023,12.24,TRUE
+"Lebong, Kab.",2024,12.37,TRUE
+"Lembata, Kab.",2015,27.13,FALSE
+"Lembata, Kab.",2016,26.26,FALSE
+"Lembata, Kab.",2017,26.48,FALSE
+"Lembata, Kab.",2018,26.45,FALSE
+"Lembata, Kab.",2019,26.3,FALSE
+"Lembata, Kab.",2020,26.14,FALSE
+"Lembata, Kab.",2021,25.985,TRUE
+"Lembata, Kab.",2022,25.83,TRUE
+"Lembata, Kab.",2023,25.675,TRUE
+"Lembata, Kab.",2024,25.52,TRUE
+"Lhokseumawe, Kota",2015,12.16,FALSE
+"Lhokseumawe, Kota",2016,11.98,FALSE
+"Lhokseumawe, Kota",2017,12.32,FALSE
+"Lhokseumawe, Kota",2018,11.81,FALSE
+"Lhokseumawe, Kota",2019,11.18,FALSE
+"Lhokseumawe, Kota",2020,10.8,FALSE
+"Lhokseumawe, Kota",2021,10.295,TRUE
+"Lhokseumawe, Kota",2022,9.79,TRUE
+"Lhokseumawe, Kota",2023,9.285,TRUE
+"Lhokseumawe, Kota",2024,8.78,TRUE
+"Limapuluh Kota, Kab",2015,7.65,FALSE
+"Limapuluh Kota, Kab",2016,7.59,FALSE
+"Limapuluh Kota, Kab",2017,7.15,FALSE
+"Limapuluh Kota, Kab",2018,6.99,FALSE
+"Limapuluh Kota, Kab",2019,6.97,FALSE
+"Limapuluh Kota, Kab",2020,6.86,FALSE
+"Limapuluh Kota, Kab",2021,6.795,TRUE
+"Limapuluh Kota, Kab",2022,6.73,TRUE
+"Limapuluh Kota, Kab",2023,6.665,TRUE
+"Limapuluh Kota, Kab",2024,6.6,TRUE
+"Lingga, Kab.",2015,14.95,FALSE
+"Lingga, Kab.",2016,14.36,FALSE
+"Lingga, Kab.",2017,13.84,FALSE
+"Lingga, Kab.",2018,13.55,FALSE
+"Lingga, Kab.",2019,12.88,FALSE
+"Lingga, Kab.",2020,13.85,FALSE
+"Lingga, Kab.",2021,14,TRUE
+"Lingga, Kab.",2022,14.15,TRUE
+"Lingga, Kab.",2023,14.3,TRUE
+"Lingga, Kab.",2024,14.45,TRUE
+"Lombok Barat, Kab.",2015,17.38,FALSE
+"Lombok Barat, Kab.",2016,16.73,FALSE
+"Lombok Barat, Kab.",2017,16.46,FALSE
+"Lombok Barat, Kab.",2018,15.2,FALSE
+"Lombok Barat, Kab.",2019,15.17,FALSE
+"Lombok Barat, Kab.",2020,14.28,FALSE
+"Lombok Barat, Kab.",2021,13.82,TRUE
+"Lombok Barat, Kab.",2022,13.36,TRUE
+"Lombok Barat, Kab.",2023,12.9,TRUE
+"Lombok Barat, Kab.",2024,12.44,TRUE
+"Lombok Tengah, Kab.",2015,16.26,FALSE
+"Lombok Tengah, Kab.",2016,15.8,FALSE
+"Lombok Tengah, Kab.",2017,15.31,FALSE
+"Lombok Tengah, Kab.",2018,13.87,FALSE
+"Lombok Tengah, Kab.",2019,13.63,FALSE
+"Lombok Tengah, Kab.",2020,13.44,FALSE
+"Lombok Tengah, Kab.",2021,13.225,TRUE
+"Lombok Tengah, Kab.",2022,13.01,TRUE
+"Lombok Tengah, Kab.",2023,12.795,TRUE
+"Lombok Tengah, Kab.",2024,12.58,TRUE
+"Lombok Timur, Kab.",2015,19.14,FALSE
+"Lombok Timur, Kab.",2016,18.46,FALSE
+"Lombok Timur, Kab.",2017,18.28,FALSE
+"Lombok Timur, Kab.",2018,16.55,FALSE
+"Lombok Timur, Kab.",2019,16.15,FALSE
+"Lombok Timur, Kab.",2020,15.24,FALSE
+"Lombok Timur, Kab.",2021,14.585,TRUE
+"Lombok Timur, Kab.",2022,13.93,TRUE
+"Lombok Timur, Kab.",2023,13.275,TRUE
+"Lombok Timur, Kab.",2024,12.62,TRUE
+"Lombok Utara, Kab.",2015,34.13,FALSE
+"Lombok Utara, Kab.",2016,33.21,FALSE
+"Lombok Utara, Kab.",2017,32.06,FALSE
+"Lombok Utara, Kab.",2018,28.83,FALSE
+"Lombok Utara, Kab.",2019,29.03,FALSE
+"Lombok Utara, Kab.",2020,26.99,FALSE
+"Lombok Utara, Kab.",2021,26.07,TRUE
+"Lombok Utara, Kab.",2022,25.15,TRUE
+"Lombok Utara, Kab.",2023,24.23,TRUE
+"Lombok Utara, Kab.",2024,23.31,TRUE
+"Lubuklinggau, Kota",2015,15.16,FALSE
+"Lubuklinggau, Kota",2016,13.99,FALSE
+"Lubuklinggau, Kota",2017,13.12,FALSE
+"Lubuklinggau, Kota",2018,13.02,FALSE
+"Lubuklinggau, Kota",2019,12.95,FALSE
+"Lubuklinggau, Kota",2020,12.71,FALSE
+"Lubuklinggau, Kota",2021,12.555,TRUE
+"Lubuklinggau, Kota",2022,12.4,TRUE
+"Lubuklinggau, Kota",2023,12.245,TRUE
+"Lubuklinggau, Kota",2024,12.09,TRUE
+"Lumajang, Kab.",2015,11.52,FALSE
+"Lumajang, Kab.",2016,11.22,FALSE
+"Lumajang, Kab.",2017,10.87,FALSE
+"Lumajang, Kab.",2018,9.98,FALSE
+"Lumajang, Kab.",2019,9.49,FALSE
+"Lumajang, Kab.",2020,9.83,FALSE
+"Lumajang, Kab.",2021,9.755,TRUE
+"Lumajang, Kab.",2022,9.68,TRUE
+"Lumajang, Kab.",2023,9.605,TRUE
+"Lumajang, Kab.",2024,9.53,TRUE
+"Luwu Timur, Kab.",2015,7.18,FALSE
+"Luwu Timur, Kab.",2016,7.52,FALSE
+"Luwu Timur, Kab.",2017,7.66,FALSE
+"Luwu Timur, Kab.",2018,7.23,FALSE
+"Luwu Timur, Kab.",2019,6.98,FALSE
+"Luwu Timur, Kab.",2020,6.85,FALSE
+"Luwu Timur, Kab.",2021,6.66,TRUE
+"Luwu Timur, Kab.",2022,6.47,TRUE
+"Luwu Timur, Kab.",2023,6.28,TRUE
+"Luwu Timur, Kab.",2024,6.09,TRUE
+"Luwu Utara, Kab.",2015,13.87,FALSE
+"Luwu Utara, Kab.",2016,14.36,FALSE
+"Luwu Utara, Kab.",2017,14.33,FALSE
+"Luwu Utara, Kab.",2018,13.69,FALSE
+"Luwu Utara, Kab.",2019,13.6,FALSE
+"Luwu Utara, Kab.",2020,13.41,FALSE
+"Luwu Utara, Kab.",2021,13.27,TRUE
+"Luwu Utara, Kab.",2022,13.13,TRUE
+"Luwu Utara, Kab.",2023,12.99,TRUE
+"Luwu Utara, Kab.",2024,12.85,TRUE
+"Luwu, Kab.",2015,13.89,FALSE
+"Luwu, Kab.",2016,14.35,FALSE
+"Luwu, Kab.",2017,14.01,FALSE
+"Luwu, Kab.",2018,13.36,FALSE
+"Luwu, Kab.",2019,12.78,FALSE
+"Luwu, Kab.",2020,12.65,FALSE
+"Luwu, Kab.",2021,12.295,TRUE
+"Luwu, Kab.",2022,11.94,TRUE
+"Luwu, Kab.",2023,11.585,TRUE
+"Luwu, Kab.",2024,11.23,TRUE
+"Madiun, Kab.",2015,12.54,FALSE
+"Madiun, Kab.",2016,12.69,FALSE
+"Madiun, Kab.",2017,12.28,FALSE
+"Madiun, Kab.",2018,11.42,FALSE
+"Madiun, Kab.",2019,10.54,FALSE
+"Madiun, Kab.",2020,11.46,FALSE
+"Madiun, Kab.",2021,11.48,TRUE
+"Madiun, Kab.",2022,11.5,TRUE
+"Madiun, Kab.",2023,11.52,TRUE
+"Madiun, Kab.",2024,11.54,TRUE
+"Madiun, Kota",2015,4.89,FALSE
+"Madiun, Kota",2016,5.16,FALSE
+"Madiun, Kota",2017,4.94,FALSE
+"Madiun, Kota",2018,4.49,FALSE
+"Madiun, Kota",2019,4.35,FALSE
+"Madiun, Kota",2020,4.98,FALSE
+"Madiun, Kota",2021,5.225,TRUE
+"Madiun, Kota",2022,5.47,TRUE
+"Madiun, Kota",2023,5.715,TRUE
+"Madiun, Kota",2024,5.96,TRUE
+"Magelang, Kab.",2015,13.07,FALSE
+"Magelang, Kab.",2016,12.67,FALSE
+"Magelang, Kab.",2017,12.42,FALSE
+"Magelang, Kab.",2018,11.23,FALSE
+"Magelang, Kab.",2019,10.67,FALSE
+"Magelang, Kab.",2020,11.27,FALSE
+"Magelang, Kab.",2021,11.29,TRUE
+"Magelang, Kab.",2022,11.31,TRUE
+"Magelang, Kab.",2023,11.33,TRUE
+"Magelang, Kab.",2024,11.35,TRUE
+"Magelang, Kota",2015,9.05,FALSE
+"Magelang, Kota",2016,8.79,FALSE
+"Magelang, Kota",2017,8.75,FALSE
+"Magelang, Kota",2018,7.87,FALSE
+"Magelang, Kota",2019,7.46,FALSE
+"Magelang, Kota",2020,7.58,FALSE
+"Magelang, Kota",2021,7.435,TRUE
+"Magelang, Kota",2022,7.29,TRUE
+"Magelang, Kota",2023,7.145,TRUE
+"Magelang, Kota",2024,7,TRUE
+"Magetan, Kab.",2015,11.35,FALSE
+"Magetan, Kab.",2016,11.03,FALSE
+"Magetan, Kab.",2017,10.48,FALSE
+"Magetan, Kab.",2018,10.31,FALSE
+"Magetan, Kab.",2019,9.61,FALSE
+"Magetan, Kab.",2020,10.35,FALSE
+"Magetan, Kab.",2021,10.37,TRUE
+"Magetan, Kab.",2022,10.39,TRUE
+"Magetan, Kab.",2023,10.41,TRUE
+"Magetan, Kab.",2024,10.43,TRUE
+"Mahakam Hulu, Kab.",2015,10.5,FALSE
+"Mahakam Hulu, Kab.",2016,10.65,FALSE
+"Mahakam Hulu, Kab.",2017,11.29,FALSE
+"Mahakam Hulu, Kab.",2018,11.62,FALSE
+"Mahakam Hulu, Kab.",2019,11.25,FALSE
+"Mahakam Hulu, Kab.",2020,11.44,FALSE
+"Mahakam Hulu, Kab.",2021,11.35,TRUE
+"Mahakam Hulu, Kab.",2022,11.26,TRUE
+"Mahakam Hulu, Kab.",2023,11.17,TRUE
+"Mahakam Hulu, Kab.",2024,11.08,TRUE
+"Majalengka, Kab.",2015,14.19,FALSE
+"Majalengka, Kab.",2016,12.85,FALSE
+"Majalengka, Kab.",2017,12.6,FALSE
+"Majalengka, Kab.",2018,10.79,FALSE
+"Majalengka, Kab.",2019,10.06,FALSE
+"Majalengka, Kab.",2020,11.43,FALSE
+"Majalengka, Kab.",2021,11.75,TRUE
+"Majalengka, Kab.",2022,12.07,TRUE
+"Majalengka, Kab.",2023,12.39,TRUE
+"Majalengka, Kab.",2024,12.71,TRUE
+"Majene, Kab.",2015,15.57,FALSE
+"Majene, Kab.",2016,14.89,FALSE
+"Majene, Kab.",2017,13.94,FALSE
+"Majene, Kab.",2018,13.79,FALSE
+"Majene, Kab.",2019,13.72,FALSE
+"Majene, Kab.",2020,13.73,FALSE
+"Majene, Kab.",2021,13.7,TRUE
+"Majene, Kab.",2022,13.67,TRUE
+"Majene, Kab.",2023,13.64,TRUE
+"Majene, Kab.",2024,13.61,TRUE
+"Makassar, Kota",2015,4.38,FALSE
+"Makassar, Kota",2016,4.56,FALSE
+"Makassar, Kota",2017,4.59,FALSE
+"Makassar, Kota",2018,4.41,FALSE
+"Makassar, Kota",2019,4.28,FALSE
+"Makassar, Kota",2020,4.54,FALSE
+"Makassar, Kota",2021,4.605,TRUE
+"Makassar, Kota",2022,4.67,TRUE
+"Makassar, Kota",2023,4.735,TRUE
+"Makassar, Kota",2024,4.8,TRUE
+"Malaka, Kab.",2015,17.28,FALSE
+"Malaka, Kab.",2016,16.66,FALSE
+"Malaka, Kab.",2017,16.52,FALSE
+"Malaka, Kab.",2018,16.34,FALSE
+"Malaka, Kab.",2019,16.12,FALSE
+"Malaka, Kab.",2020,16.04,FALSE
+"Malaka, Kab.",2021,15.89,TRUE
+"Malaka, Kab.",2022,15.74,TRUE
+"Malaka, Kab.",2023,15.59,TRUE
+"Malaka, Kab.",2024,15.44,TRUE
+"Malang, Kab.",2015,11.53,FALSE
+"Malang, Kab.",2016,11.49,FALSE
+"Malang, Kab.",2017,11.04,FALSE
+"Malang, Kab.",2018,10.37,FALSE
+"Malang, Kab.",2019,9.47,FALSE
+"Malang, Kab.",2020,10.15,FALSE
+"Malang, Kab.",2021,10.04,TRUE
+"Malang, Kab.",2022,9.93,TRUE
+"Malang, Kab.",2023,9.82,TRUE
+"Malang, Kab.",2024,9.71,TRUE
+"Malang, Kota",2015,4.6,FALSE
+"Malang, Kota",2016,4.33,FALSE
+"Malang, Kota",2017,4.17,FALSE
+"Malang, Kota",2018,4.1,FALSE
+"Malang, Kota",2019,4.07,FALSE
+"Malang, Kota",2020,4.44,FALSE
+"Malang, Kota",2021,4.61,TRUE
+"Malang, Kota",2022,4.78,TRUE
+"Malang, Kota",2023,4.95,TRUE
+"Malang, Kota",2024,5.12,TRUE
+"Malinau, Kab.",2015,7.26,FALSE
+"Malinau, Kab.",2016,7.15,FALSE
+"Malinau, Kab.",2017,8.06,FALSE
+"Malinau, Kab.",2018,7.68,FALSE
+"Malinau, Kab.",2019,6.96,FALSE
+"Malinau, Kab.",2020,6.63,FALSE
+"Malinau, Kab.",2021,6.105,TRUE
+"Malinau, Kab.",2022,5.58,TRUE
+"Malinau, Kab.",2023,5.055,TRUE
+"Malinau, Kab.",2024,4.53,TRUE
+"Maluku Barat Daya, Kab.",2015,31.58,FALSE
+"Maluku Barat Daya, Kab.",2016,31.01,FALSE
+"Maluku Barat Daya, Kab.",2017,30.18,FALSE
+"Maluku Barat Daya, Kab.",2018,30.2,FALSE
+"Maluku Barat Daya, Kab.",2019,29.43,FALSE
+"Maluku Barat Daya, Kab.",2020,29.15,FALSE
+"Maluku Barat Daya, Kab.",2021,28.625,TRUE
+"Maluku Barat Daya, Kab.",2022,28.1,TRUE
+"Maluku Barat Daya, Kab.",2023,27.575,TRUE
+"Maluku Barat Daya, Kab.",2024,27.05,TRUE
+"Maluku Tengah, Kab.",2015,22.1,FALSE
+"Maluku Tengah, Kab.",2016,21.68,FALSE
+"Maluku Tengah, Kab.",2017,21.2,FALSE
+"Maluku Tengah, Kab.",2018,20.11,FALSE
+"Maluku Tengah, Kab.",2019,20.04,FALSE
+"Maluku Tengah, Kab.",2020,19.83,FALSE
+"Maluku Tengah, Kab.",2021,19.69,TRUE
+"Maluku Tengah, Kab.",2022,19.55,TRUE
+"Maluku Tengah, Kab.",2023,19.41,TRUE
+"Maluku Tengah, Kab.",2024,19.27,TRUE
+"Maluku Tenggara Barat, Kab.",2015,29.17,FALSE
+"Maluku Tenggara Barat, Kab.",2016,28.31,FALSE
+"Maluku Tenggara Barat, Kab.",2017,27.47,FALSE
+"Maluku Tenggara Barat, Kab.",2018,28.08,FALSE
+"Maluku Tenggara Barat, Kab.",2019,27.25,FALSE
+"Maluku Tenggara Barat, Kab.",2020,27.11,FALSE
+"Maluku Tenggara Barat, Kab.",2021,26.625,TRUE
+"Maluku Tenggara Barat, Kab.",2022,26.14,TRUE
+"Maluku Tenggara Barat, Kab.",2023,25.655,TRUE
+"Maluku Tenggara Barat, Kab.",2024,25.17,TRUE
+"Maluku Tenggara, Kab.",2015,25.23,FALSE
+"Maluku Tenggara, Kab.",2016,24.81,FALSE
+"Maluku Tenggara, Kab.",2017,23.87,FALSE
+"Maluku Tenggara, Kab.",2018,23.27,FALSE
+"Maluku Tenggara, Kab.",2019,22.75,FALSE
+"Maluku Tenggara, Kab.",2020,22.57,FALSE
+"Maluku Tenggara, Kab.",2021,22.22,TRUE
+"Maluku Tenggara, Kab.",2022,21.87,TRUE
+"Maluku Tenggara, Kab.",2023,21.52,TRUE
+"Maluku Tenggara, Kab.",2024,21.17,TRUE
+"Mamasa, Kab.",2015,14.71,FALSE
+"Mamasa, Kab.",2016,13.9,FALSE
+"Mamasa, Kab.",2017,13.51,FALSE
+"Mamasa, Kab.",2018,13.38,FALSE
+"Mamasa, Kab.",2019,13.42,FALSE
+"Mamasa, Kab.",2020,13.38,FALSE
+"Mamasa, Kab.",2021,13.38,TRUE
+"Mamasa, Kab.",2022,13.38,TRUE
+"Mamasa, Kab.",2023,13.38,TRUE
+"Mamasa, Kab.",2024,13.38,TRUE
+"Mamberamo Raya, Kab.",2015,29.71,FALSE
+"Mamberamo Raya, Kab.",2016,29.52,FALSE
+"Mamberamo Raya, Kab.",2017,29.88,FALSE
+"Mamberamo Raya, Kab.",2018,30.1,FALSE
+"Mamberamo Raya, Kab.",2019,29.13,FALSE
+"Mamberamo Raya, Kab.",2020,28.38,FALSE
+"Mamberamo Raya, Kab.",2021,27.52,TRUE
+"Mamberamo Raya, Kab.",2022,26.66,TRUE
+"Mamberamo Raya, Kab.",2023,25.8,TRUE
+"Mamberamo Raya, Kab.",2024,24.94,TRUE
+"Mamberamo Tengah, Kab.",2015,35.54,FALSE
+"Mamberamo Tengah, Kab.",2016,38.36,FALSE
+"Mamberamo Tengah, Kab.",2017,36.38,FALSE
+"Mamberamo Tengah, Kab.",2018,37.02,FALSE
+"Mamberamo Tengah, Kab.",2019,36.93,FALSE
+"Mamberamo Tengah, Kab.",2020,36.41,FALSE
+"Mamberamo Tengah, Kab.",2021,36.105,TRUE
+"Mamberamo Tengah, Kab.",2022,35.8,TRUE
+"Mamberamo Tengah, Kab.",2023,35.495,TRUE
+"Mamberamo Tengah, Kab.",2024,35.19,TRUE
+"Mamuju Tengah, Kab.",2015,6.86,FALSE
+"Mamuju Tengah, Kab.",2016,6.83,FALSE
+"Mamuju Tengah, Kab.",2017,6.95,FALSE
+"Mamuju Tengah, Kab.",2018,7.14,FALSE
+"Mamuju Tengah, Kab.",2019,6.87,FALSE
+"Mamuju Tengah, Kab.",2020,6.79,FALSE
+"Mamuju Tengah, Kab.",2021,6.615,TRUE
+"Mamuju Tengah, Kab.",2022,6.44,TRUE
+"Mamuju Tengah, Kab.",2023,6.265,TRUE
+"Mamuju Tengah, Kab.",2024,6.09,TRUE
+"Mamuju Utara, Kab.",2015,4.99,FALSE
+"Mamuju Utara, Kab.",2016,4.82,FALSE
+"Mamuju Utara, Kab.",2017,4.84,FALSE
+"Mamuju Utara, Kab.",2018,4.53,FALSE
+"Mamuju Utara, Kab.",2019,4.28,FALSE
+"Mamuju Utara, Kab.",2020,4.48,FALSE
+"Mamuju Utara, Kab.",2021,4.455,TRUE
+"Mamuju Utara, Kab.",2022,4.43,TRUE
+"Mamuju Utara, Kab.",2023,4.405,TRUE
+"Mamuju Utara, Kab.",2024,4.38,TRUE
+"Mamuju, Kab.",2015,6.7,FALSE
+"Mamuju, Kab.",2016,6.48,FALSE
+"Mamuju, Kab.",2017,6.88,FALSE
+"Mamuju, Kab.",2018,7.18,FALSE
+"Mamuju, Kab.",2019,7.06,FALSE
+"Mamuju, Kab.",2020,6.92,FALSE
+"Mamuju, Kab.",2021,6.79,TRUE
+"Mamuju, Kab.",2022,6.66,TRUE
+"Mamuju, Kab.",2023,6.53,TRUE
+"Mamuju, Kab.",2024,6.4,TRUE
+"Manado, Kota",2015,5.63,FALSE
+"Manado, Kota",2016,5.24,FALSE
+"Manado, Kota",2017,5.46,FALSE
+"Manado, Kota",2018,5.38,FALSE
+"Manado, Kota",2019,5.51,FALSE
+"Manado, Kota",2020,5.86,FALSE
+"Manado, Kota",2021,6.1,TRUE
+"Manado, Kota",2022,6.34,TRUE
+"Manado, Kota",2023,6.58,TRUE
+"Manado, Kota",2024,6.82,TRUE
+"Mandailing Natal, Kab",2015,11.13,FALSE
+"Mandailing Natal, Kab",2016,10.98,FALSE
+"Mandailing Natal, Kab",2017,11.02,FALSE
+"Mandailing Natal, Kab",2018,9.58,FALSE
+"Mandailing Natal, Kab",2019,9.11,FALSE
+"Mandailing Natal, Kab",2020,9.18,FALSE
+"Mandailing Natal, Kab",2021,8.98,TRUE
+"Mandailing Natal, Kab",2022,8.78,TRUE
+"Mandailing Natal, Kab",2023,8.58,TRUE
+"Mandailing Natal, Kab",2024,8.38,TRUE
+"Manggarai Barat, Kab.",2015,20.12,FALSE
+"Manggarai Barat, Kab.",2016,19.35,FALSE
+"Manggarai Barat, Kab.",2017,18.86,FALSE
+"Manggarai Barat, Kab.",2018,18.14,FALSE
+"Manggarai Barat, Kab.",2019,18.01,FALSE
+"Manggarai Barat, Kab.",2020,17.71,FALSE
+"Manggarai Barat, Kab.",2021,17.495,TRUE
+"Manggarai Barat, Kab.",2022,17.28,TRUE
+"Manggarai Barat, Kab.",2023,17.065,TRUE
+"Manggarai Barat, Kab.",2024,16.85,TRUE
+"Manggarai Timur, Kab.",2015,28.64,FALSE
+"Manggarai Timur, Kab.",2016,27.71,FALSE
+"Manggarai Timur, Kab.",2017,26.8,FALSE
+"Manggarai Timur, Kab.",2018,26.5,FALSE
+"Manggarai Timur, Kab.",2019,26.49,FALSE
+"Manggarai Timur, Kab.",2020,26.52,FALSE
+"Manggarai Timur, Kab.",2021,26.53,TRUE
+"Manggarai Timur, Kab.",2022,26.54,TRUE
+"Manggarai Timur, Kab.",2023,26.55,TRUE
+"Manggarai Timur, Kab.",2024,26.56,TRUE
+"Manggarai, Kab.",2015,23.18,FALSE
+"Manggarai, Kab.",2016,22.5,FALSE
+"Manggarai, Kab.",2017,21.91,FALSE
+"Manggarai, Kab.",2018,20.83,FALSE
+"Manggarai, Kab.",2019,20.55,FALSE
+"Manggarai, Kab.",2020,20.34,FALSE
+"Manggarai, Kab.",2021,20.095,TRUE
+"Manggarai, Kab.",2022,19.85,TRUE
+"Manggarai, Kab.",2023,19.605,TRUE
+"Manggarai, Kab.",2024,19.36,TRUE
+"Manokwari Selatan, Kab.",2015,34.33,FALSE
+"Manokwari Selatan, Kab.",2016,34.15,FALSE
+"Manokwari Selatan, Kab.",2017,34.02,FALSE
+"Manokwari Selatan, Kab.",2018,30.87,FALSE
+"Manokwari Selatan, Kab.",2019,29.94,FALSE
+"Manokwari Selatan, Kab.",2020,28.88,FALSE
+"Manokwari Selatan, Kab.",2021,27.885,TRUE
+"Manokwari Selatan, Kab.",2022,26.89,TRUE
+"Manokwari Selatan, Kab.",2023,25.895,TRUE
+"Manokwari Selatan, Kab.",2024,24.9,TRUE
+"Manokwari, Kab.",2015,25.28,FALSE
+"Manokwari, Kab.",2016,24.93,FALSE
+"Manokwari, Kab.",2017,24.32,FALSE
+"Manokwari, Kab.",2018,22.21,FALSE
+"Manokwari, Kab.",2019,21.06,FALSE
+"Manokwari, Kab.",2020,20.14,FALSE
+"Manokwari, Kab.",2021,19.105,TRUE
+"Manokwari, Kab.",2022,18.07,TRUE
+"Manokwari, Kab.",2023,17.035,TRUE
+"Manokwari, Kab.",2024,16,TRUE
+"Mappi, Kab.",2015,26.96,FALSE
+"Mappi, Kab.",2016,26.64,FALSE
+"Mappi, Kab.",2017,25.75,FALSE
+"Mappi, Kab.",2018,25.64,FALSE
+"Mappi, Kab.",2019,25.5,FALSE
+"Mappi, Kab.",2020,25.04,FALSE
+"Mappi, Kab.",2021,24.74,TRUE
+"Mappi, Kab.",2022,24.44,TRUE
+"Mappi, Kab.",2023,24.14,TRUE
+"Mappi, Kab.",2024,23.84,TRUE
+"Maros, Kab.",2015,11.85,FALSE
+"Maros, Kab.",2016,11.41,FALSE
+"Maros, Kab.",2017,11.14,FALSE
+"Maros, Kab.",2018,10.31,FALSE
+"Maros, Kab.",2019,9.89,FALSE
+"Maros, Kab.",2020,9.74,FALSE
+"Maros, Kab.",2021,9.455,TRUE
+"Maros, Kab.",2022,9.17,TRUE
+"Maros, Kab.",2023,8.885,TRUE
+"Maros, Kab.",2024,8.6,TRUE
+"Mataram, Kota",2015,10.45,FALSE
+"Mataram, Kota",2016,9.8,FALSE
+"Mataram, Kota",2017,9.55,FALSE
+"Mataram, Kota",2018,8.96,FALSE
+"Mataram, Kota",2019,8.92,FALSE
+"Mataram, Kota",2020,8.47,FALSE
+"Mataram, Kota",2021,8.225,TRUE
+"Mataram, Kota",2022,7.98,TRUE
+"Mataram, Kota",2023,7.735,TRUE
+"Mataram, Kota",2024,7.49,TRUE
+"Maybrat, Kab.",2015,35.31,FALSE
+"Maybrat, Kab.",2016,34.65,FALSE
+"Maybrat, Kab.",2017,34.87,FALSE
+"Maybrat, Kab.",2018,32.89,FALSE
+"Maybrat, Kab.",2019,32.2,FALSE
+"Maybrat, Kab.",2020,30.78,FALSE
+"Maybrat, Kab.",2021,29.725,TRUE
+"Maybrat, Kab.",2022,28.67,TRUE
+"Maybrat, Kab.",2023,27.615,TRUE
+"Maybrat, Kab.",2024,26.56,TRUE
+"Medan, Kota",2015,9.41,FALSE
+"Medan, Kota",2016,9.3,FALSE
+"Medan, Kota",2017,9.11,FALSE
+"Medan, Kota",2018,8.25,FALSE
+"Medan, Kota",2019,8.08,FALSE
+"Medan, Kota",2020,8.01,FALSE
+"Medan, Kota",2021,7.89,TRUE
+"Medan, Kota",2022,7.77,TRUE
+"Medan, Kota",2023,7.65,TRUE
+"Medan, Kota",2024,7.53,TRUE
+"Melawi, Kab.",2015,12.57,FALSE
+"Melawi, Kab.",2016,12.63,FALSE
+"Melawi, Kab.",2017,12.54,FALSE
+"Melawi, Kab.",2018,12.83,FALSE
+"Melawi, Kab.",2019,12.38,FALSE
+"Melawi, Kab.",2020,12.04,FALSE
+"Melawi, Kab.",2021,11.645,TRUE
+"Melawi, Kab.",2022,11.25,TRUE
+"Melawi, Kab.",2023,10.855,TRUE
+"Melawi, Kab.",2024,10.46,TRUE
+"Merangin, Kab.",2015,9.8,FALSE
+"Merangin, Kab.",2016,9.95,FALSE
+"Merangin, Kab.",2017,9.43,FALSE
+"Merangin, Kab.",2018,8.88,FALSE
+"Merangin, Kab.",2019,8.48,FALSE
+"Merangin, Kab.",2020,8.63,FALSE
+"Merangin, Kab.",2021,8.505,TRUE
+"Merangin, Kab.",2022,8.38,TRUE
+"Merangin, Kab.",2023,8.255,TRUE
+"Merangin, Kab.",2024,8.13,TRUE
+"Merauke, Kab.",2015,11.1,FALSE
+"Merauke, Kab.",2016,11.08,FALSE
+"Merauke, Kab.",2017,10.81,FALSE
+"Merauke, Kab.",2018,10.54,FALSE
+"Merauke, Kab.",2019,10.35,FALSE
+"Merauke, Kab.",2020,10.03,FALSE
+"Merauke, Kab.",2021,9.775,TRUE
+"Merauke, Kab.",2022,9.52,TRUE
+"Merauke, Kab.",2023,9.265,TRUE
+"Merauke, Kab.",2024,9.01,TRUE
+"Mesuji, Kab.",2015,8.2,FALSE
+"Mesuji, Kab.",2016,8,FALSE
+"Mesuji, Kab.",2017,7.66,FALSE
+"Mesuji, Kab.",2018,7.55,FALSE
+"Mesuji, Kab.",2019,7.47,FALSE
+"Mesuji, Kab.",2020,7.33,FALSE
+"Mesuji, Kab.",2021,7.22,TRUE
+"Mesuji, Kab.",2022,7.11,TRUE
+"Mesuji, Kab.",2023,7,TRUE
+"Mesuji, Kab.",2024,6.89,TRUE
+"Metro, Kota",2015,10.29,FALSE
+"Metro, Kota",2016,10.15,FALSE
+"Metro, Kota",2017,9.89,FALSE
+"Metro, Kota",2018,9.14,FALSE
+"Metro, Kota",2019,8.68,FALSE
+"Metro, Kota",2020,8.47,FALSE
+"Metro, Kota",2021,8.135,TRUE
+"Metro, Kota",2022,7.8,TRUE
+"Metro, Kota",2023,7.465,TRUE
+"Metro, Kota",2024,7.13,TRUE
+"Mimika, Kab.",2015,16.2,FALSE
+"Mimika, Kab.",2016,14.72,FALSE
+"Mimika, Kab.",2017,14.89,FALSE
+"Mimika, Kab.",2018,14.55,FALSE
+"Mimika, Kab.",2019,14.54,FALSE
+"Mimika, Kab.",2020,14.26,FALSE
+"Mimika, Kab.",2021,14.115,TRUE
+"Mimika, Kab.",2022,13.97,TRUE
+"Mimika, Kab.",2023,13.825,TRUE
+"Mimika, Kab.",2024,13.68,TRUE
+"Minahasa Selatan, Kab.",2015,10.22,FALSE
+"Minahasa Selatan, Kab.",2016,9.92,FALSE
+"Minahasa Selatan, Kab.",2017,9.78,FALSE
+"Minahasa Selatan, Kab.",2018,9.34,FALSE
+"Minahasa Selatan, Kab.",2019,9.26,FALSE
+"Minahasa Selatan, Kab.",2020,9.14,FALSE
+"Minahasa Selatan, Kab.",2021,9.04,TRUE
+"Minahasa Selatan, Kab.",2022,8.94,TRUE
+"Minahasa Selatan, Kab.",2023,8.84,TRUE
+"Minahasa Selatan, Kab.",2024,8.74,TRUE
+"Minahasa Tenggara, Kab.",2015,15.88,FALSE
+"Minahasa Tenggara, Kab.",2016,14.71,FALSE
+"Minahasa Tenggara, Kab.",2017,14.08,FALSE
+"Minahasa Tenggara, Kab.",2018,13.29,FALSE
+"Minahasa Tenggara, Kab.",2019,12.78,FALSE
+"Minahasa Tenggara, Kab.",2020,12.3,FALSE
+"Minahasa Tenggara, Kab.",2021,11.805,TRUE
+"Minahasa Tenggara, Kab.",2022,11.31,TRUE
+"Minahasa Tenggara, Kab.",2023,10.815,TRUE
+"Minahasa Tenggara, Kab.",2024,10.32,TRUE
+"Minahasa Utara, Kab.",2015,8.12,FALSE
+"Minahasa Utara, Kab.",2016,7.9,FALSE
+"Minahasa Utara, Kab.",2017,7.46,FALSE
+"Minahasa Utara, Kab.",2018,6.99,FALSE
+"Minahasa Utara, Kab.",2019,6.93,FALSE
+"Minahasa Utara, Kab.",2020,7,FALSE
+"Minahasa Utara, Kab.",2021,7.005,TRUE
+"Minahasa Utara, Kab.",2022,7.01,TRUE
+"Minahasa Utara, Kab.",2023,7.015,TRUE
+"Minahasa Utara, Kab.",2024,7.02,TRUE
+"Minahasa, Kab.",2015,8.8,FALSE
+"Minahasa, Kab.",2016,8.36,FALSE
+"Minahasa, Kab.",2017,7.9,FALSE
+"Minahasa, Kab.",2018,7.3,FALSE
+"Minahasa, Kab.",2019,7.18,FALSE
+"Minahasa, Kab.",2020,7.3,FALSE
+"Minahasa, Kab.",2021,7.3,TRUE
+"Minahasa, Kab.",2022,7.3,TRUE
+"Minahasa, Kab.",2023,7.3,TRUE
+"Minahasa, Kab.",2024,7.3,TRUE
+"Mojokerto, Kab.",2015,10.57,FALSE
+"Mojokerto, Kab.",2016,10.61,FALSE
+"Mojokerto, Kab.",2017,10.19,FALSE
+"Mojokerto, Kab.",2018,10.08,FALSE
+"Mojokerto, Kab.",2019,9.75,FALSE
+"Mojokerto, Kab.",2020,10.57,FALSE
+"Mojokerto, Kab.",2021,10.815,TRUE
+"Mojokerto, Kab.",2022,11.06,TRUE
+"Mojokerto, Kab.",2023,11.305,TRUE
+"Mojokerto, Kab.",2024,11.55,TRUE
+"Mojokerto, Kota",2015,6.16,FALSE
+"Mojokerto, Kota",2016,5.73,FALSE
+"Mojokerto, Kota",2017,5.73,FALSE
+"Mojokerto, Kota",2018,5.5,FALSE
+"Mojokerto, Kota",2019,5.15,FALSE
+"Mojokerto, Kota",2020,6.24,FALSE
+"Mojokerto, Kota",2021,6.61,TRUE
+"Mojokerto, Kota",2022,6.98,TRUE
+"Mojokerto, Kota",2023,7.35,TRUE
+"Mojokerto, Kota",2024,7.72,TRUE
+"Morowali Utara, Kab.",2015,16.91,FALSE
+"Morowali Utara, Kab.",2016,16.07,FALSE
+"Morowali Utara, Kab.",2017,15.73,FALSE
+"Morowali Utara, Kab.",2018,15.53,FALSE
+"Morowali Utara, Kab.",2019,15.08,FALSE
+"Morowali Utara, Kab.",2020,14.1,FALSE
+"Morowali Utara, Kab.",2021,13.385,TRUE
+"Morowali Utara, Kab.",2022,12.67,TRUE
+"Morowali Utara, Kab.",2023,11.955,TRUE
+"Morowali Utara, Kab.",2024,11.24,TRUE
+"Morowali, Kab.",2015,15.8,FALSE
+"Morowali, Kab.",2016,15.13,FALSE
+"Morowali, Kab.",2017,14.55,FALSE
+"Morowali, Kab.",2018,14.34,FALSE
+"Morowali, Kab.",2019,13.75,FALSE
+"Morowali, Kab.",2020,13.43,FALSE
+"Morowali, Kab.",2021,12.975,TRUE
+"Morowali, Kab.",2022,12.52,TRUE
+"Morowali, Kab.",2023,12.065,TRUE
+"Morowali, Kab.",2024,11.61,TRUE
+"Muara Enim, Kab.",2015,14.54,FALSE
+"Muara Enim, Kab.",2016,13.56,FALSE
+"Muara Enim, Kab.",2017,13.19,FALSE
+"Muara Enim, Kab.",2018,12.56,FALSE
+"Muara Enim, Kab.",2019,12.41,FALSE
+"Muara Enim, Kab.",2020,12.32,FALSE
+"Muara Enim, Kab.",2021,12.2,TRUE
+"Muara Enim, Kab.",2022,12.08,TRUE
+"Muara Enim, Kab.",2023,11.96,TRUE
+"Muara Enim, Kab.",2024,11.84,TRUE
+"Muaro Jambi, Kab.",2015,4.63,FALSE
+"Muaro Jambi, Kab.",2016,4.3,FALSE
+"Muaro Jambi, Kab.",2017,4.37,FALSE
+"Muaro Jambi, Kab.",2018,4.05,FALSE
+"Muaro Jambi, Kab.",2019,3.83,FALSE
+"Muaro Jambi, Kab.",2020,3.83,FALSE
+"Muaro Jambi, Kab.",2021,3.72,TRUE
+"Muaro Jambi, Kab.",2022,3.61,TRUE
+"Muaro Jambi, Kab.",2023,3.5,TRUE
+"Muaro Jambi, Kab.",2024,3.39,TRUE
+"Mukomuko, Kab.",2015,13.45,FALSE
+"Mukomuko, Kab.",2016,13.01,FALSE
+"Mukomuko, Kab.",2017,12.2,FALSE
+"Mukomuko, Kab.",2018,11.4,FALSE
+"Mukomuko, Kab.",2019,11.7,FALSE
+"Mukomuko, Kab.",2020,11.72,FALSE
+"Mukomuko, Kab.",2021,11.88,TRUE
+"Mukomuko, Kab.",2022,12.04,TRUE
+"Mukomuko, Kab.",2023,12.2,TRUE
+"Mukomuko, Kab.",2024,12.36,TRUE
+"Muna Barat, Kab.",2016,15.77,FALSE
+"Muna Barat, Kab.",2017,16.24,FALSE
+"Muna Barat, Kab.",2018,14.17,FALSE
+"Muna Barat, Kab.",2019,13.84,FALSE
+"Muna Barat, Kab.",2020,13.3,FALSE
+"Muna Barat, Kab.",2021,12.865,TRUE
+"Muna Barat, Kab.",2022,12.43,TRUE
+"Muna Barat, Kab.",2023,11.995,TRUE
+"Muna Barat, Kab.",2024,11.56,TRUE
+"Muna, Kab.",2015,15.45,FALSE
+"Muna, Kab.",2016,15.22,FALSE
+"Muna, Kab.",2017,14.85,FALSE
+"Muna, Kab.",2018,13.19,FALSE
+"Muna, Kab.",2019,12.85,FALSE
+"Muna, Kab.",2020,12.83,FALSE
+"Muna, Kab.",2021,12.65,TRUE
+"Muna, Kab.",2022,12.47,TRUE
+"Muna, Kab.",2023,12.29,TRUE
+"Muna, Kab.",2024,12.11,TRUE
+"Murung Raya, Kab.",2015,6.57,FALSE
+"Murung Raya, Kab.",2016,6.32,FALSE
+"Murung Raya, Kab.",2017,5.88,FALSE
+"Murung Raya, Kab.",2018,6.28,FALSE
+"Murung Raya, Kab.",2019,6,FALSE
+"Murung Raya, Kab.",2020,5.85,FALSE
+"Murung Raya, Kab.",2021,5.635,TRUE
+"Murung Raya, Kab.",2022,5.42,TRUE
+"Murung Raya, Kab.",2023,5.205,TRUE
+"Murung Raya, Kab.",2024,4.99,TRUE
+"Musi Banyuasin, Kab.",2015,18.35,FALSE
+"Musi Banyuasin, Kab.",2016,17.27,FALSE
+"Musi Banyuasin, Kab.",2017,16.75,FALSE
+"Musi Banyuasin, Kab.",2018,16.52,FALSE
+"Musi Banyuasin, Kab.",2019,16.41,FALSE
+"Musi Banyuasin, Kab.",2020,16.13,FALSE
+"Musi Banyuasin, Kab.",2021,15.935,TRUE
+"Musi Banyuasin, Kab.",2022,15.74,TRUE
+"Musi Banyuasin, Kab.",2023,15.545,TRUE
+"Musi Banyuasin, Kab.",2024,15.35,TRUE
+"Musi Rawas Utara, Kab.",2015,19.73,FALSE
+"Musi Rawas Utara, Kab.",2016,20,FALSE
+"Musi Rawas Utara, Kab.",2017,19.49,FALSE
+"Musi Rawas Utara, Kab.",2018,19.12,FALSE
+"Musi Rawas Utara, Kab.",2019,19.12,FALSE
+"Musi Rawas Utara, Kab.",2020,19.47,FALSE
+"Musi Rawas Utara, Kab.",2021,19.645,TRUE
+"Musi Rawas Utara, Kab.",2022,19.82,TRUE
+"Musi Rawas Utara, Kab.",2023,19.995,TRUE
+"Musi Rawas Utara, Kab.",2024,20.17,TRUE
+"Musi Rawas, Kab.",2015,15.13,FALSE
+"Musi Rawas, Kab.",2016,14.3,FALSE
+"Musi Rawas, Kab.",2017,14.24,FALSE
+"Musi Rawas, Kab.",2018,13.76,FALSE
+"Musi Rawas, Kab.",2019,13.37,FALSE
+"Musi Rawas, Kab.",2020,13.5,FALSE
+"Musi Rawas, Kab.",2021,13.37,TRUE
+"Musi Rawas, Kab.",2022,13.24,TRUE
+"Musi Rawas, Kab.",2023,13.11,TRUE
+"Musi Rawas, Kab.",2024,12.98,TRUE
+"Nabire, Kab.",2015,24.37,FALSE
+"Nabire, Kab.",2016,26.03,FALSE
+"Nabire, Kab.",2017,25.38,FALSE
+"Nabire, Kab.",2018,25.17,FALSE
+"Nabire, Kab.",2019,24.81,FALSE
+"Nabire, Kab.",2020,24.15,FALSE
+"Nabire, Kab.",2021,23.64,TRUE
+"Nabire, Kab.",2022,23.13,TRUE
+"Nabire, Kab.",2023,22.62,TRUE
+"Nabire, Kab.",2024,22.11,TRUE
+"Nagan Raya, Kab.",2015,20.13,FALSE
+"Nagan Raya, Kab.",2016,19.25,FALSE
+"Nagan Raya, Kab.",2017,19.34,FALSE
+"Nagan Raya, Kab.",2018,18.97,FALSE
+"Nagan Raya, Kab.",2019,17.97,FALSE
+"Nagan Raya, Kab.",2020,17.7,FALSE
+"Nagan Raya, Kab.",2021,17.065,TRUE
+"Nagan Raya, Kab.",2022,16.43,TRUE
+"Nagan Raya, Kab.",2023,15.795,TRUE
+"Nagan Raya, Kab.",2024,15.16,TRUE
+"Nagekeo, Kab.",2015,14.38,FALSE
+"Nagekeo, Kab.",2016,13.61,FALSE
+"Nagekeo, Kab.",2017,13.48,FALSE
+"Nagekeo, Kab.",2018,12.98,FALSE
+"Nagekeo, Kab.",2019,12.85,FALSE
+"Nagekeo, Kab.",2020,12.61,FALSE
+"Nagekeo, Kab.",2021,12.425,TRUE
+"Nagekeo, Kab.",2022,12.24,TRUE
+"Nagekeo, Kab.",2023,12.055,TRUE
+"Nagekeo, Kab.",2024,11.87,TRUE
+"Natuna, Kab.",2015,4.34,FALSE
+"Natuna, Kab.",2016,4.33,FALSE
+"Natuna, Kab.",2017,4.64,FALSE
+"Natuna, Kab.",2018,4.68,FALSE
+"Natuna, Kab.",2019,4.42,FALSE
+"Natuna, Kab.",2020,4.43,FALSE
+"Natuna, Kab.",2021,4.305,TRUE
+"Natuna, Kab.",2022,4.18,TRUE
+"Natuna, Kab.",2023,4.055,TRUE
+"Natuna, Kab.",2024,3.93,TRUE
+"Nduga, Kab.",2016,38.47,FALSE
+"Nduga, Kab.",2017,37.29,FALSE
+"Nduga, Kab.",2018,38.13,FALSE
+"Nduga, Kab.",2019,38.24,FALSE
+"Nduga, Kab.",2020,36.72,FALSE
+"Nduga, Kab.",2021,36.015,TRUE
+"Nduga, Kab.",2022,35.31,TRUE
+"Nduga, Kab.",2023,34.605,TRUE
+"Nduga, Kab.",2024,33.9,TRUE
+"Ngada, Kab.",2015,12.81,FALSE
+"Ngada, Kab.",2016,12.69,FALSE
+"Ngada, Kab.",2017,12.77,FALSE
+"Ngada, Kab.",2018,12.94,FALSE
+"Ngada, Kab.",2019,12.48,FALSE
+"Ngada, Kab.",2020,12.51,FALSE
+"Ngada, Kab.",2021,12.295,TRUE
+"Ngada, Kab.",2022,12.08,TRUE
+"Ngada, Kab.",2023,11.865,TRUE
+"Ngada, Kab.",2024,11.65,TRUE
+"Nganjuk, Kab.",2015,12.69,FALSE
+"Nganjuk, Kab.",2016,12.25,FALSE
+"Nganjuk, Kab.",2017,11.98,FALSE
+"Nganjuk, Kab.",2018,12.11,FALSE
+"Nganjuk, Kab.",2019,11.24,FALSE
+"Nganjuk, Kab.",2020,11.62,FALSE
+"Nganjuk, Kab.",2021,11.375,TRUE
+"Nganjuk, Kab.",2022,11.13,TRUE
+"Nganjuk, Kab.",2023,10.885,TRUE
+"Nganjuk, Kab.",2024,10.64,TRUE
+"Ngawi, Kab.",2015,15.61,FALSE
+"Ngawi, Kab.",2016,15.27,FALSE
+"Ngawi, Kab.",2017,14.91,FALSE
+"Ngawi, Kab.",2018,14.83,FALSE
+"Ngawi, Kab.",2019,14.39,FALSE
+"Ngawi, Kab.",2020,15.44,FALSE
+"Ngawi, Kab.",2021,15.745,TRUE
+"Ngawi, Kab.",2022,16.05,TRUE
+"Ngawi, Kab.",2023,16.355,TRUE
+"Ngawi, Kab.",2024,16.66,TRUE
+"Nias Barat, Kab.",2015,29.96,FALSE
+"Nias Barat, Kab.",2016,28.36,FALSE
+"Nias Barat, Kab.",2017,27.23,FALSE
+"Nias Barat, Kab.",2018,26.72,FALSE
+"Nias Barat, Kab.",2019,25.51,FALSE
+"Nias Barat, Kab.",2020,25.69,FALSE
+"Nias Barat, Kab.",2021,25.175,TRUE
+"Nias Barat, Kab.",2022,24.66,TRUE
+"Nias Barat, Kab.",2023,24.145,TRUE
+"Nias Barat, Kab.",2024,23.63,TRUE
+"Nias Selatan, Kab.",2015,19.05,FALSE
+"Nias Selatan, Kab.",2016,18.6,FALSE
+"Nias Selatan, Kab.",2017,18.48,FALSE
+"Nias Selatan, Kab.",2018,16.65,FALSE
+"Nias Selatan, Kab.",2019,16.45,FALSE
+"Nias Selatan, Kab.",2020,16.74,FALSE
+"Nias Selatan, Kab.",2021,16.785,TRUE
+"Nias Selatan, Kab.",2022,16.83,TRUE
+"Nias Selatan, Kab.",2023,16.875,TRUE
+"Nias Selatan, Kab.",2024,16.92,TRUE
+"Nias Utara, Kab.",2015,32.62,FALSE
+"Nias Utara, Kab.",2016,30.92,FALSE
+"Nias Utara, Kab.",2017,29.06,FALSE
+"Nias Utara, Kab.",2018,26.56,FALSE
+"Nias Utara, Kab.",2019,24.99,FALSE
+"Nias Utara, Kab.",2020,25.07,FALSE
+"Nias Utara, Kab.",2021,24.325,TRUE
+"Nias Utara, Kab.",2022,23.58,TRUE
+"Nias Utara, Kab.",2023,22.835,TRUE
+"Nias Utara, Kab.",2024,22.09,TRUE
+"Nias, Kab.",2015,18.05,FALSE
+"Nias, Kab.",2016,17.64,FALSE
+"Nias, Kab.",2017,18.11,FALSE
+"Nias, Kab.",2018,16.37,FALSE
+"Nias, Kab.",2019,15.94,FALSE
+"Nias, Kab.",2020,16.6,FALSE
+"Nias, Kab.",2021,16.715,TRUE
+"Nias, Kab.",2022,16.83,TRUE
+"Nias, Kab.",2023,16.945,TRUE
+"Nias, Kab.",2024,17.06,TRUE
+"Nunukan, Kab.",2015,5.61,FALSE
+"Nunukan, Kab.",2016,5.25,FALSE
+"Nunukan, Kab.",2017,6.22,FALSE
+"Nunukan, Kab.",2018,6.71,FALSE
+"Nunukan, Kab.",2019,6.11,FALSE
+"Nunukan, Kab.",2020,6.36,FALSE
+"Nunukan, Kab.",2021,6.185,TRUE
+"Nunukan, Kab.",2022,6.01,TRUE
+"Nunukan, Kab.",2023,5.835,TRUE
+"Nunukan, Kab.",2024,5.66,TRUE
+"Ogan Ilir, Kab.",2015,14.43,FALSE
+"Ogan Ilir, Kab.",2016,13.8,FALSE
+"Ogan Ilir, Kab.",2017,13.58,FALSE
+"Ogan Ilir, Kab.",2018,13.19,FALSE
+"Ogan Ilir, Kab.",2019,13.31,FALSE
+"Ogan Ilir, Kab.",2020,13.36,FALSE
+"Ogan Ilir, Kab.",2021,13.445,TRUE
+"Ogan Ilir, Kab.",2022,13.53,TRUE
+"Ogan Ilir, Kab.",2023,13.615,TRUE
+"Ogan Ilir, Kab.",2024,13.7,TRUE
+"Ogan Komering Ilir, Kab.",2015,17.08,FALSE
+"Ogan Komering Ilir, Kab.",2016,16.03,FALSE
+"Ogan Komering Ilir, Kab.",2017,15.75,FALSE
+"Ogan Komering Ilir, Kab.",2018,15.28,FALSE
+"Ogan Komering Ilir, Kab.",2019,15.01,FALSE
+"Ogan Komering Ilir, Kab.",2020,14.73,FALSE
+"Ogan Komering Ilir, Kab.",2021,14.455,TRUE
+"Ogan Komering Ilir, Kab.",2022,14.18,TRUE
+"Ogan Komering Ilir, Kab.",2023,13.905,TRUE
+"Ogan Komering Ilir, Kab.",2024,13.63,TRUE
+"Ogan Komering Ulu Selatan, Kab.",2015,11.58,FALSE
+"Ogan Komering Ulu Selatan, Kab.",2016,10.95,FALSE
+"Ogan Komering Ulu Selatan, Kab.",2017,10.98,FALSE
+"Ogan Komering Ulu Selatan, Kab.",2018,10.64,FALSE
+"Ogan Komering Ulu Selatan, Kab.",2019,10.53,FALSE
+"Ogan Komering Ulu Selatan, Kab.",2020,10.85,FALSE
+"Ogan Komering Ulu Selatan, Kab.",2021,10.955,TRUE
+"Ogan Komering Ulu Selatan, Kab.",2022,11.06,TRUE
+"Ogan Komering Ulu Selatan, Kab.",2023,11.165,TRUE
+"Ogan Komering Ulu Selatan, Kab.",2024,11.27,TRUE
+"Ogan Komering Ulu Timur, Kab.",2015,11.24,FALSE
+"Ogan Komering Ulu Timur, Kab.",2016,11.29,FALSE
+"Ogan Komering Ulu Timur, Kab.",2017,11,FALSE
+"Ogan Komering Ulu Timur, Kab.",2018,10.57,FALSE
+"Ogan Komering Ulu Timur, Kab.",2019,10.43,FALSE
+"Ogan Komering Ulu Timur, Kab.",2020,10.43,FALSE
+"Ogan Komering Ulu Timur, Kab.",2021,10.36,TRUE
+"Ogan Komering Ulu Timur, Kab.",2022,10.29,TRUE
+"Ogan Komering Ulu Timur, Kab.",2023,10.22,TRUE
+"Ogan Komering Ulu Timur, Kab.",2024,10.15,TRUE
+"Ogan Komering Ulu, Kab.",2015,13.22,FALSE
+"Ogan Komering Ulu, Kab.",2016,13.29,FALSE
+"Ogan Komering Ulu, Kab.",2017,12.95,FALSE
+"Ogan Komering Ulu, Kab.",2018,12.61,FALSE
+"Ogan Komering Ulu, Kab.",2019,12.77,FALSE
+"Ogan Komering Ulu, Kab.",2020,12.75,FALSE
+"Ogan Komering Ulu, Kab.",2021,12.82,TRUE
+"Ogan Komering Ulu, Kab.",2022,12.89,TRUE
+"Ogan Komering Ulu, Kab.",2023,12.96,TRUE
+"Ogan Komering Ulu, Kab.",2024,13.03,TRUE
+"Pacitan, Kab.",2015,16.68,FALSE
+"Pacitan, Kab.",2016,15.49,FALSE
+"Pacitan, Kab.",2017,15.42,FALSE
+"Pacitan, Kab.",2018,14.19,FALSE
+"Pacitan, Kab.",2019,13.67,FALSE
+"Pacitan, Kab.",2020,14.54,FALSE
+"Pacitan, Kab.",2021,14.715,TRUE
+"Pacitan, Kab.",2022,14.89,TRUE
+"Pacitan, Kab.",2023,15.065,TRUE
+"Pacitan, Kab.",2024,15.24,TRUE
+"Padang Lawas Utara, Kab.",2015,10.97,FALSE
+"Padang Lawas Utara, Kab.",2016,10.87,FALSE
+"Padang Lawas Utara, Kab.",2017,10.7,FALSE
+"Padang Lawas Utara, Kab.",2018,10.06,FALSE
+"Padang Lawas Utara, Kab.",2019,9.6,FALSE
+"Padang Lawas Utara, Kab.",2020,9.7,FALSE
+"Padang Lawas Utara, Kab.",2021,9.52,TRUE
+"Padang Lawas Utara, Kab.",2022,9.34,TRUE
+"Padang Lawas Utara, Kab.",2023,9.16,TRUE
+"Padang Lawas Utara, Kab.",2024,8.98,TRUE
+"Padang Lawas, Kab.",2015,8.73,FALSE
+"Padang Lawas, Kab.",2016,8.69,FALSE
+"Padang Lawas, Kab.",2017,9.1,FALSE
+"Padang Lawas, Kab.",2018,8.41,FALSE
+"Padang Lawas, Kab.",2019,8.28,FALSE
+"Padang Lawas, Kab.",2020,8.37,FALSE
+"Padang Lawas, Kab.",2021,8.35,TRUE
+"Padang Lawas, Kab.",2022,8.33,TRUE
+"Padang Lawas, Kab.",2023,8.31,TRUE
+"Padang Lawas, Kab.",2024,8.29,TRUE
+"Padang Panjang, Kota",2015,6.74,FALSE
+"Padang Panjang, Kota",2016,6.75,FALSE
+"Padang Panjang, Kota",2017,6.17,FALSE
+"Padang Panjang, Kota",2018,5.88,FALSE
+"Padang Panjang, Kota",2019,5.6,FALSE
+"Padang Panjang, Kota",2020,5.24,FALSE
+"Padang Panjang, Kota",2021,4.92,TRUE
+"Padang Panjang, Kota",2022,4.6,TRUE
+"Padang Panjang, Kota",2023,4.28,TRUE
+"Padang Panjang, Kota",2024,3.96,TRUE
+"Padang Pariaman, Kab.",2015,8.86,FALSE
+"Padang Pariaman, Kab.",2016,8.91,FALSE
+"Padang Pariaman, Kab.",2017,8.46,FALSE
+"Padang Pariaman, Kab.",2018,8.04,FALSE
+"Padang Pariaman, Kab.",2019,7.1,FALSE
+"Padang Pariaman, Kab.",2020,6.95,FALSE
+"Padang Pariaman, Kab.",2021,6.405,TRUE
+"Padang Pariaman, Kab.",2022,5.86,TRUE
+"Padang Pariaman, Kab.",2023,5.315,TRUE
+"Padang Pariaman, Kab.",2024,4.77,TRUE
+"Padang Sidempuan, Kota",2015,8.77,FALSE
+"Padang Sidempuan, Kota",2016,8.32,FALSE
+"Padang Sidempuan, Kota",2017,8.25,FALSE
+"Padang Sidempuan, Kota",2018,7.69,FALSE
+"Padang Sidempuan, Kota",2019,7.26,FALSE
+"Padang Sidempuan, Kota",2020,7.4,FALSE
+"Padang Sidempuan, Kota",2021,7.255,TRUE
+"Padang Sidempuan, Kota",2022,7.11,TRUE
+"Padang Sidempuan, Kota",2023,6.965,TRUE
+"Padang Sidempuan, Kota",2024,6.82,TRUE
+"Padang, Kota",2015,4.93,FALSE
+"Padang, Kota",2016,4.68,FALSE
+"Padang, Kota",2017,4.74,FALSE
+"Padang, Kota",2018,4.7,FALSE
+"Padang, Kota",2019,4.48,FALSE
+"Padang, Kota",2020,4.4,FALSE
+"Padang, Kota",2021,4.25,TRUE
+"Padang, Kota",2022,4.1,TRUE
+"Padang, Kota",2023,3.95,TRUE
+"Padang, Kota",2024,3.8,TRUE
+"Pagar Alam, Kota",2015,9.64,FALSE
+"Pagar Alam, Kota",2016,9.19,FALSE
+"Pagar Alam, Kota",2017,8.89,FALSE
+"Pagar Alam, Kota",2018,8.77,FALSE
+"Pagar Alam, Kota",2019,8.9,FALSE
+"Pagar Alam, Kota",2020,9.07,FALSE
+"Pagar Alam, Kota",2021,9.22,TRUE
+"Pagar Alam, Kota",2022,9.37,TRUE
+"Pagar Alam, Kota",2023,9.52,TRUE
+"Pagar Alam, Kota",2024,9.67,TRUE
+"Pakpak Bharat, Kab.",2015,11.26,FALSE
+"Pakpak Bharat, Kab.",2016,10.72,FALSE
+"Pakpak Bharat, Kab.",2017,10.53,FALSE
+"Pakpak Bharat, Kab.",2018,9.74,FALSE
+"Pakpak Bharat, Kab.",2019,9.27,FALSE
+"Pakpak Bharat, Kab.",2020,9.28,FALSE
+"Pakpak Bharat, Kab.",2021,9.05,TRUE
+"Pakpak Bharat, Kab.",2022,8.82,TRUE
+"Pakpak Bharat, Kab.",2023,8.59,TRUE
+"Pakpak Bharat, Kab.",2024,8.36,TRUE
+"Palangkaraya, Kota",2015,3.91,FALSE
+"Palangkaraya, Kota",2016,3.75,FALSE
+"Palangkaraya, Kota",2017,3.62,FALSE
+"Palangkaraya, Kota",2018,3.47,FALSE
+"Palangkaraya, Kota",2019,3.35,FALSE
+"Palangkaraya, Kota",2020,3.44,FALSE
+"Palangkaraya, Kota",2021,3.425,TRUE
+"Palangkaraya, Kota",2022,3.41,TRUE
+"Palangkaraya, Kota",2023,3.395,TRUE
+"Palangkaraya, Kota",2024,3.38,TRUE
+"Palembang, Kota",2015,12.85,FALSE
+"Palembang, Kota",2016,12.04,FALSE
+"Palembang, Kota",2017,11.4,FALSE
+"Palembang, Kota",2018,10.95,FALSE
+"Palembang, Kota",2019,10.9,FALSE
+"Palembang, Kota",2020,10.89,FALSE
+"Palembang, Kota",2021,10.86,TRUE
+"Palembang, Kota",2022,10.83,TRUE
+"Palembang, Kota",2023,10.8,TRUE
+"Palembang, Kota",2024,10.77,TRUE
+"Palopo, Kota",2015,8.58,FALSE
+"Palopo, Kota",2016,8.74,FALSE
+"Palopo, Kota",2017,8.78,FALSE
+"Palopo, Kota",2018,7.94,FALSE
+"Palopo, Kota",2019,7.82,FALSE
+"Palopo, Kota",2020,7.85,FALSE
+"Palopo, Kota",2021,7.805,TRUE
+"Palopo, Kota",2022,7.76,TRUE
+"Palopo, Kota",2023,7.715,TRUE
+"Palopo, Kota",2024,7.67,TRUE
+"Palu, Kota",2015,7.42,FALSE
+"Palu, Kota",2016,7.06,FALSE
+"Palu, Kota",2017,6.74,FALSE
+"Palu, Kota",2018,6.58,FALSE
+"Palu, Kota",2019,6.83,FALSE
+"Palu, Kota",2020,6.8,FALSE
+"Palu, Kota",2021,6.91,TRUE
+"Palu, Kota",2022,7.02,TRUE
+"Palu, Kota",2023,7.13,TRUE
+"Palu, Kota",2024,7.24,TRUE
+"Pamekasan, Kab.",2015,17.41,FALSE
+"Pamekasan, Kab.",2016,16.7,FALSE
+"Pamekasan, Kab.",2017,16,FALSE
+"Pamekasan, Kab.",2018,14.47,FALSE
+"Pamekasan, Kab.",2019,13.95,FALSE
+"Pamekasan, Kab.",2020,14.6,FALSE
+"Pamekasan, Kab.",2021,14.665,TRUE
+"Pamekasan, Kab.",2022,14.73,TRUE
+"Pamekasan, Kab.",2023,14.795,TRUE
+"Pamekasan, Kab.",2024,14.86,TRUE
+"Pandeglang, Kab.",2015,10.43,FALSE
+"Pandeglang, Kab.",2016,9.67,FALSE
+"Pandeglang, Kab.",2017,9.74,FALSE
+"Pandeglang, Kab.",2018,9.61,FALSE
+"Pandeglang, Kab.",2019,9.42,FALSE
+"Pandeglang, Kab.",2020,9.92,FALSE
+"Pandeglang, Kab.",2021,10.075,TRUE
+"Pandeglang, Kab.",2022,10.23,TRUE
+"Pandeglang, Kab.",2023,10.385,TRUE
+"Pandeglang, Kab.",2024,10.54,TRUE
+"Pangandaran, Kab.",2015,10.76,FALSE
+"Pangandaran, Kab.",2016,10.23,FALSE
+"Pangandaran, Kab.",2017,10,FALSE
+"Pangandaran, Kab.",2018,8.12,FALSE
+"Pangandaran, Kab.",2019,7.71,FALSE
+"Pangandaran, Kab.",2020,8.99,FALSE
+"Pangandaran, Kab.",2021,9.425,TRUE
+"Pangandaran, Kab.",2022,9.86,TRUE
+"Pangandaran, Kab.",2023,10.295,TRUE
+"Pangandaran, Kab.",2024,10.73,TRUE
+"Pangkajene Kepulauan, Kab.",2015,16.7,FALSE
+"Pangkajene Kepulauan, Kab.",2016,16.22,FALSE
+"Pangkajene Kepulauan, Kab.",2017,16.22,FALSE
+"Pangkajene Kepulauan, Kab.",2018,15.1,FALSE
+"Pangkajene Kepulauan, Kab.",2019,14.06,FALSE
+"Pangkajene Kepulauan, Kab.",2020,13.96,FALSE
+"Pangkajene Kepulauan, Kab.",2021,13.39,TRUE
+"Pangkajene Kepulauan, Kab.",2022,12.82,TRUE
+"Pangkajene Kepulauan, Kab.",2023,12.25,TRUE
+"Pangkajene Kepulauan, Kab.",2024,11.68,TRUE
+"Pangkal Pinang, Kota",2015,4.97,FALSE
+"Pangkal Pinang, Kota",2016,5.02,FALSE
+"Pangkal Pinang, Kota",2017,4.8,FALSE
+"Pangkal Pinang, Kota",2018,4.95,FALSE
+"Pangkal Pinang, Kota",2019,4.25,FALSE
+"Pangkal Pinang, Kota",2020,4.36,FALSE
+"Pangkal Pinang, Kota",2021,4.065,TRUE
+"Pangkal Pinang, Kota",2022,3.77,TRUE
+"Pangkal Pinang, Kota",2023,3.475,TRUE
+"Pangkal Pinang, Kota",2024,3.18,TRUE
+"Paniai, Kab.",2015,37.43,FALSE
+"Paniai, Kab.",2016,39.13,FALSE
+"Paniai, Kab.",2017,37.4,FALSE
+"Paniai, Kab.",2018,37.35,FALSE
+"Paniai, Kab.",2019,37.16,FALSE
+"Paniai, Kab.",2020,36.71,FALSE
+"Paniai, Kab.",2021,36.39,TRUE
+"Paniai, Kab.",2022,36.07,TRUE
+"Paniai, Kab.",2023,35.75,TRUE
+"Paniai, Kab.",2024,35.43,TRUE
+"Parepare, Kota",2015,6.08,FALSE
+"Parepare, Kota",2016,5.73,FALSE
+"Parepare, Kota",2017,5.7,FALSE
+"Parepare, Kota",2018,5.59,FALSE
+"Parepare, Kota",2019,5.26,FALSE
+"Parepare, Kota",2020,5.44,FALSE
+"Parepare, Kota",2021,5.365,TRUE
+"Parepare, Kota",2022,5.29,TRUE
+"Parepare, Kota",2023,5.215,TRUE
+"Parepare, Kota",2024,5.14,TRUE
+"Pariaman, Kota",2015,5.42,FALSE
+"Pariaman, Kota",2016,5.23,FALSE
+"Pariaman, Kota",2017,5.2,FALSE
+"Pariaman, Kota",2018,5.03,FALSE
+"Pariaman, Kota",2019,4.76,FALSE
+"Pariaman, Kota",2020,4.1,FALSE
+"Pariaman, Kota",2021,3.635,TRUE
+"Pariaman, Kota",2022,3.17,TRUE
+"Pariaman, Kota",2023,2.705,TRUE
+"Pariaman, Kota",2024,2.24,TRUE
+"Parigi Moutong, Kab.",2015,18.05,FALSE
+"Parigi Moutong, Kab.",2016,17.8,FALSE
+"Parigi Moutong, Kab.",2017,17.55,FALSE
+"Parigi Moutong, Kab.",2018,17.41,FALSE
+"Parigi Moutong, Kab.",2019,16.64,FALSE
+"Parigi Moutong, Kab.",2020,15.85,FALSE
+"Parigi Moutong, Kab.",2021,15.07,TRUE
+"Parigi Moutong, Kab.",2022,14.29,TRUE
+"Parigi Moutong, Kab.",2023,13.51,TRUE
+"Parigi Moutong, Kab.",2024,12.73,TRUE
+"Pasaman Barat, Kab.",2015,7.93,FALSE
+"Pasaman Barat, Kab.",2016,7.4,FALSE
+"Pasaman Barat, Kab.",2017,7.26,FALSE
+"Pasaman Barat, Kab.",2018,7.34,FALSE
+"Pasaman Barat, Kab.",2019,7.14,FALSE
+"Pasaman Barat, Kab.",2020,7.04,FALSE
+"Pasaman Barat, Kab.",2021,6.89,TRUE
+"Pasaman Barat, Kab.",2022,6.74,TRUE
+"Pasaman Barat, Kab.",2023,6.59,TRUE
+"Pasaman Barat, Kab.",2024,6.44,TRUE
+"Pasaman, Kab",2015,8.14,FALSE
+"Pasaman, Kab",2016,7.65,FALSE
+"Pasaman, Kab",2017,7.41,FALSE
+"Pasaman, Kab",2018,7.31,FALSE
+"Pasaman, Kab",2019,7.21,FALSE
+"Pasaman, Kab",2020,7.16,FALSE
+"Pasaman, Kab",2021,7.085,TRUE
+"Pasaman, Kab",2022,7.01,TRUE
+"Pasaman, Kab",2023,6.935,TRUE
+"Pasaman, Kab",2024,6.86,TRUE
+"Pasir, Kab.",2015,8.76,FALSE
+"Pasir, Kab.",2016,8.68,FALSE
+"Pasir, Kab.",2017,9.28,FALSE
+"Pasir, Kab.",2018,9.03,FALSE
+"Pasir, Kab.",2019,8.95,FALSE
+"Pasir, Kab.",2020,9.23,FALSE
+"Pasir, Kab.",2021,9.33,TRUE
+"Pasir, Kab.",2022,9.43,TRUE
+"Pasir, Kab.",2023,9.53,TRUE
+"Pasir, Kab.",2024,9.63,TRUE
+"Pasuruan, Kab.",2015,10.72,FALSE
+"Pasuruan, Kab.",2016,10.57,FALSE
+"Pasuruan, Kab.",2017,10.34,FALSE
+"Pasuruan, Kab.",2018,9.45,FALSE
+"Pasuruan, Kab.",2019,8.68,FALSE
+"Pasuruan, Kab.",2020,9.26,FALSE
+"Pasuruan, Kab.",2021,9.165,TRUE
+"Pasuruan, Kab.",2022,9.07,TRUE
+"Pasuruan, Kab.",2023,8.975,TRUE
+"Pasuruan, Kab.",2024,8.88,TRUE
+"Pasuruan, Kota",2015,7.47,FALSE
+"Pasuruan, Kota",2016,7.62,FALSE
+"Pasuruan, Kota",2017,7.53,FALSE
+"Pasuruan, Kota",2018,6.77,FALSE
+"Pasuruan, Kota",2019,6.46,FALSE
+"Pasuruan, Kota",2020,6.66,FALSE
+"Pasuruan, Kota",2021,6.605,TRUE
+"Pasuruan, Kota",2022,6.55,TRUE
+"Pasuruan, Kota",2023,6.495,TRUE
+"Pasuruan, Kota",2024,6.44,TRUE
+"Pati, Kab.",2015,11.95,FALSE
+"Pati, Kab.",2016,11.65,FALSE
+"Pati, Kab.",2017,11.38,FALSE
+"Pati, Kab.",2018,9.9,FALSE
+"Pati, Kab.",2019,9.46,FALSE
+"Pati, Kab.",2020,10.08,FALSE
+"Pati, Kab.",2021,10.17,TRUE
+"Pati, Kab.",2022,10.26,TRUE
+"Pati, Kab.",2023,10.35,TRUE
+"Pati, Kab.",2024,10.44,TRUE
+"Payakumbuh, Kota",2015,6.67,FALSE
+"Payakumbuh, Kota",2016,6.46,FALSE
+"Payakumbuh, Kota",2017,5.88,FALSE
+"Payakumbuh, Kota",2018,5.77,FALSE
+"Payakumbuh, Kota",2019,5.68,FALSE
+"Payakumbuh, Kota",2020,5.65,FALSE
+"Payakumbuh, Kota",2021,5.59,TRUE
+"Payakumbuh, Kota",2022,5.53,TRUE
+"Payakumbuh, Kota",2023,5.47,TRUE
+"Payakumbuh, Kota",2024,5.41,TRUE
+"Pegunungan Arfak, Kab.",2015,38.53,FALSE
+"Pegunungan Arfak, Kab.",2016,39.46,FALSE
+"Pegunungan Arfak, Kab.",2017,39.23,FALSE
+"Pegunungan Arfak, Kab.",2018,35.72,FALSE
+"Pegunungan Arfak, Kab.",2019,34.83,FALSE
+"Pegunungan Arfak, Kab.",2020,33.81,FALSE
+"Pegunungan Arfak, Kab.",2021,32.855,TRUE
+"Pegunungan Arfak, Kab.",2022,31.9,TRUE
+"Pegunungan Arfak, Kab.",2023,30.945,TRUE
+"Pegunungan Arfak, Kab.",2024,29.99,TRUE
+"Pegunungan Bintang, Kab.",2015,31.55,FALSE
+"Pegunungan Bintang, Kab.",2016,31.52,FALSE
+"Pegunungan Bintang, Kab.",2017,30.6,FALSE
+"Pegunungan Bintang, Kab.",2018,30.75,FALSE
+"Pegunungan Bintang, Kab.",2019,30.51,FALSE
+"Pegunungan Bintang, Kab.",2020,30.15,FALSE
+"Pegunungan Bintang, Kab.",2021,29.85,TRUE
+"Pegunungan Bintang, Kab.",2022,29.55,TRUE
+"Pegunungan Bintang, Kab.",2023,29.25,TRUE
+"Pegunungan Bintang, Kab.",2024,28.95,TRUE
+"Pekalongan, Kab.",2015,12.84,FALSE
+"Pekalongan, Kab.",2016,12.9,FALSE
+"Pekalongan, Kab.",2017,12.61,FALSE
+"Pekalongan, Kab.",2018,10.06,FALSE
+"Pekalongan, Kab.",2019,9.71,FALSE
+"Pekalongan, Kab.",2020,10.19,FALSE
+"Pekalongan, Kab.",2021,10.255,TRUE
+"Pekalongan, Kab.",2022,10.32,TRUE
+"Pekalongan, Kab.",2023,10.385,TRUE
+"Pekalongan, Kab.",2024,10.45,TRUE
+"Pekalongan, Kota",2015,8.09,FALSE
+"Pekalongan, Kota",2016,7.92,FALSE
+"Pekalongan, Kota",2017,7.47,FALSE
+"Pekalongan, Kota",2018,6.75,FALSE
+"Pekalongan, Kota",2019,6.6,FALSE
+"Pekalongan, Kota",2020,7.17,FALSE
+"Pekalongan, Kota",2021,7.38,TRUE
+"Pekalongan, Kota",2022,7.59,TRUE
+"Pekalongan, Kota",2023,7.8,TRUE
+"Pekalongan, Kota",2024,8.01,TRUE
+"Pekanbaru, Kota",2015,3.27,FALSE
+"Pekanbaru, Kota",2016,3.07,FALSE
+"Pekanbaru, Kota",2017,3.05,FALSE
+"Pekanbaru, Kota",2018,2.85,FALSE
+"Pekanbaru, Kota",2019,2.52,FALSE
+"Pekanbaru, Kota",2020,2.62,FALSE
+"Pekanbaru, Kota",2021,2.505,TRUE
+"Pekanbaru, Kota",2022,2.39,TRUE
+"Pekanbaru, Kota",2023,2.275,TRUE
+"Pekanbaru, Kota",2024,2.16,TRUE
+"Pelalawan, Kab.",2015,12.09,FALSE
+"Pelalawan, Kab.",2016,11,FALSE
+"Pelalawan, Kab.",2017,10.25,FALSE
+"Pelalawan, Kab.",2018,9.73,FALSE
+"Pelalawan, Kab.",2019,9.62,FALSE
+"Pelalawan, Kab.",2020,9.16,FALSE
+"Pelalawan, Kab.",2021,8.875,TRUE
+"Pelalawan, Kab.",2022,8.59,TRUE
+"Pelalawan, Kab.",2023,8.305,TRUE
+"Pelalawan, Kab.",2024,8.02,TRUE
+"Pemalang, Kab.",2015,18.3,FALSE
+"Pemalang, Kab.",2016,17.58,FALSE
+"Pemalang, Kab.",2017,17.37,FALSE
+"Pemalang, Kab.",2018,16.04,FALSE
+"Pemalang, Kab.",2019,15.41,FALSE
+"Pemalang, Kab.",2020,16.02,FALSE
+"Pemalang, Kab.",2021,16.01,TRUE
+"Pemalang, Kab.",2022,16,TRUE
+"Pemalang, Kab.",2023,15.99,TRUE
+"Pemalang, Kab.",2024,15.98,TRUE
+"Pematang Siantar, Kota",2015,10.47,FALSE
+"Pematang Siantar, Kota",2016,9.99,FALSE
+"Pematang Siantar, Kota",2017,10.1,FALSE
+"Pematang Siantar, Kota",2018,8.7,FALSE
+"Pematang Siantar, Kota",2019,8.63,FALSE
+"Pematang Siantar, Kota",2020,8.27,FALSE
+"Pematang Siantar, Kota",2021,8.055,TRUE
+"Pematang Siantar, Kota",2022,7.84,TRUE
+"Pematang Siantar, Kota",2023,7.625,TRUE
+"Pematang Siantar, Kota",2024,7.41,TRUE
+"Penajam Paser Utara, Kab.",2015,7.92,FALSE
+"Penajam Paser Utara, Kab.",2016,7.49,FALSE
+"Penajam Paser Utara, Kab.",2017,7.63,FALSE
+"Penajam Paser Utara, Kab.",2018,7.4,FALSE
+"Penajam Paser Utara, Kab.",2019,7.18,FALSE
+"Penajam Paser Utara, Kab.",2020,7.36,FALSE
+"Penajam Paser Utara, Kab.",2021,7.34,TRUE
+"Penajam Paser Utara, Kab.",2022,7.32,TRUE
+"Penajam Paser Utara, Kab.",2023,7.3,TRUE
+"Penajam Paser Utara, Kab.",2024,7.28,TRUE
+"Penukal Abab Lematang Ilir, Kab.",2015,14.88,FALSE
+"Penukal Abab Lematang Ilir, Kab.",2016,14.26,FALSE
+"Penukal Abab Lematang Ilir, Kab.",2017,14.53,FALSE
+"Penukal Abab Lematang Ilir, Kab.",2018,13.81,FALSE
+"Penukal Abab Lematang Ilir, Kab.",2019,13.47,FALSE
+"Penukal Abab Lematang Ilir, Kab.",2020,12.62,FALSE
+"Penukal Abab Lematang Ilir, Kab.",2021,12.025,TRUE
+"Penukal Abab Lematang Ilir, Kab.",2022,11.43,TRUE
+"Penukal Abab Lematang Ilir, Kab.",2023,10.835,TRUE
+"Penukal Abab Lematang Ilir, Kab.",2024,10.24,TRUE
+"Pesawaran, Kab.",2015,17.61,FALSE
+"Pesawaran, Kab.",2016,17.31,FALSE
+"Pesawaran, Kab.",2017,16.48,FALSE
+"Pesawaran, Kab.",2018,15.97,FALSE
+"Pesawaran, Kab.",2019,15.19,FALSE
+"Pesawaran, Kab.",2020,14.76,FALSE
+"Pesawaran, Kab.",2021,14.155,TRUE
+"Pesawaran, Kab.",2022,13.55,TRUE
+"Pesawaran, Kab.",2023,12.945,TRUE
+"Pesawaran, Kab.",2024,12.34,TRUE
+"Pesisir Barat, Kab.",2015,15.81,FALSE
+"Pesisir Barat, Kab.",2016,15.91,FALSE
+"Pesisir Barat, Kab.",2017,15.61,FALSE
+"Pesisir Barat, Kab.",2018,14.98,FALSE
+"Pesisir Barat, Kab.",2019,14.48,FALSE
+"Pesisir Barat, Kab.",2020,14.29,FALSE
+"Pesisir Barat, Kab.",2021,13.945,TRUE
+"Pesisir Barat, Kab.",2022,13.6,TRUE
+"Pesisir Barat, Kab.",2023,13.255,TRUE
+"Pesisir Barat, Kab.",2024,12.91,TRUE
+"Pesisir Selatan, Kab.",2015,8.46,FALSE
+"Pesisir Selatan, Kab.",2016,7.92,FALSE
+"Pesisir Selatan, Kab.",2017,7.79,FALSE
+"Pesisir Selatan, Kab.",2018,7.59,FALSE
+"Pesisir Selatan, Kab.",2019,7.88,FALSE
+"Pesisir Selatan, Kab.",2020,7.61,FALSE
+"Pesisir Selatan, Kab.",2021,7.62,TRUE
+"Pesisir Selatan, Kab.",2022,7.63,TRUE
+"Pesisir Selatan, Kab.",2023,7.64,TRUE
+"Pesisir Selatan, Kab.",2024,7.65,TRUE
+"Pidie Jaya, Kab.",2015,21.4,FALSE
+"Pidie Jaya, Kab.",2016,21.18,FALSE
+"Pidie Jaya, Kab.",2017,21.82,FALSE
+"Pidie Jaya, Kab.",2018,20.17,FALSE
+"Pidie Jaya, Kab.",2019,19.31,FALSE
+"Pidie Jaya, Kab.",2020,19.19,FALSE
+"Pidie Jaya, Kab.",2021,18.7,TRUE
+"Pidie Jaya, Kab.",2022,18.21,TRUE
+"Pidie Jaya, Kab.",2023,17.72,TRUE
+"Pidie Jaya, Kab.",2024,17.23,TRUE
+"Pidie, Kab.",2015,21.18,FALSE
+"Pidie, Kab.",2016,21.25,FALSE
+"Pidie, Kab.",2017,21.43,FALSE
+"Pidie, Kab.",2018,20.47,FALSE
+"Pidie, Kab.",2019,19.46,FALSE
+"Pidie, Kab.",2020,19.23,FALSE
+"Pidie, Kab.",2021,18.61,TRUE
+"Pidie, Kab.",2022,17.99,TRUE
+"Pidie, Kab.",2023,17.37,TRUE
+"Pidie, Kab.",2024,16.75,TRUE
+"Pinrang, Kab.",2015,8.34,FALSE
+"Pinrang, Kab.",2016,8.48,FALSE
+"Pinrang, Kab.",2017,8.46,FALSE
+"Pinrang, Kab.",2018,8.81,FALSE
+"Pinrang, Kab.",2019,8.46,FALSE
+"Pinrang, Kab.",2020,8.86,FALSE
+"Pinrang, Kab.",2021,8.885,TRUE
+"Pinrang, Kab.",2022,8.91,TRUE
+"Pinrang, Kab.",2023,8.935,TRUE
+"Pinrang, Kab.",2024,8.96,TRUE
+"Pohuwato, Kab.",2015,22.43,FALSE
+"Pohuwato, Kab.",2016,21.17,FALSE
+"Pohuwato, Kab.",2017,21.27,FALSE
+"Pohuwato, Kab.",2018,19.4,FALSE
+"Pohuwato, Kab.",2019,18.16,FALSE
+"Pohuwato, Kab.",2020,17.62,FALSE
+"Pohuwato, Kab.",2021,16.73,TRUE
+"Pohuwato, Kab.",2022,15.84,TRUE
+"Pohuwato, Kab.",2023,14.95,TRUE
+"Pohuwato, Kab.",2024,14.06,TRUE
+"Polewali Mandar, Kab.",2015,18.22,FALSE
+"Polewali Mandar, Kab.",2016,17.06,FALSE
+"Polewali Mandar, Kab.",2017,16.05,FALSE
+"Polewali Mandar, Kab.",2018,15.97,FALSE
+"Polewali Mandar, Kab.",2019,15.6,FALSE
+"Polewali Mandar, Kab.",2020,15.26,FALSE
+"Polewali Mandar, Kab.",2021,14.905,TRUE
+"Polewali Mandar, Kab.",2022,14.55,TRUE
+"Polewali Mandar, Kab.",2023,14.195,TRUE
+"Polewali Mandar, Kab.",2024,13.84,TRUE
+"Ponorogo, Kab.",2015,11.91,FALSE
+"Ponorogo, Kab.",2016,11.75,FALSE
+"Ponorogo, Kab.",2017,11.39,FALSE
+"Ponorogo, Kab.",2018,10.36,FALSE
+"Ponorogo, Kab.",2019,9.64,FALSE
+"Ponorogo, Kab.",2020,9.95,FALSE
+"Ponorogo, Kab.",2021,9.745,TRUE
+"Ponorogo, Kab.",2022,9.54,TRUE
+"Ponorogo, Kab.",2023,9.335,TRUE
+"Ponorogo, Kab.",2024,9.13,TRUE
+"Pontianak, Kab.",2015,5.52,FALSE
+"Pontianak, Kab.",2016,5.75,FALSE
+"Pontianak, Kab.",2017,5.94,FALSE
+"Pontianak, Kab.",2018,5.61,FALSE
+"Pontianak, Kab.",2019,5.32,FALSE
+"Pontianak, Kab.",2020,4.95,FALSE
+"Pontianak, Kab.",2021,4.62,TRUE
+"Pontianak, Kab.",2022,4.29,TRUE
+"Pontianak, Kab.",2023,3.96,TRUE
+"Pontianak, Kab.",2024,3.63,TRUE
+"Pontianak, Kota",2015,5.22,FALSE
+"Pontianak, Kota",2016,5.55,FALSE
+"Pontianak, Kota",2017,5.31,FALSE
+"Pontianak, Kota",2018,5,FALSE
+"Pontianak, Kota",2019,4.88,FALSE
+"Pontianak, Kota",2020,4.7,FALSE
+"Pontianak, Kota",2021,4.55,TRUE
+"Pontianak, Kota",2022,4.4,TRUE
+"Pontianak, Kota",2023,4.25,TRUE
+"Pontianak, Kota",2024,4.1,TRUE
+"Poso, Kab.",2015,18.16,FALSE
+"Poso, Kab.",2016,17.71,FALSE
+"Poso, Kab.",2017,17.16,FALSE
+"Poso, Kab.",2018,16.71,FALSE
+"Poso, Kab.",2019,15.65,FALSE
+"Poso, Kab.",2020,15.45,FALSE
+"Poso, Kab.",2021,14.82,TRUE
+"Poso, Kab.",2022,14.19,TRUE
+"Poso, Kab.",2023,13.56,TRUE
+"Poso, Kab.",2024,12.93,TRUE
+"Prabumulih, Kota",2015,12.12,FALSE
+"Prabumulih, Kota",2016,11.44,FALSE
+"Prabumulih, Kota",2017,11.42,FALSE
+"Prabumulih, Kota",2018,11.39,FALSE
+"Prabumulih, Kota",2019,11.61,FALSE
+"Prabumulih, Kota",2020,11.59,FALSE
+"Prabumulih, Kota",2021,11.69,TRUE
+"Prabumulih, Kota",2022,11.79,TRUE
+"Prabumulih, Kota",2023,11.89,TRUE
+"Prabumulih, Kota",2024,11.99,TRUE
+"Pringsewu, Kab.",2015,11.8,FALSE
+"Pringsewu, Kab.",2016,11.73,FALSE
+"Pringsewu, Kab.",2017,11.3,FALSE
+"Pringsewu, Kab.",2018,10.5,FALSE
+"Pringsewu, Kab.",2019,10.15,FALSE
+"Pringsewu, Kab.",2020,9.97,FALSE
+"Pringsewu, Kab.",2021,9.705,TRUE
+"Pringsewu, Kab.",2022,9.44,TRUE
+"Pringsewu, Kab.",2023,9.175,TRUE
+"Pringsewu, Kab.",2024,8.91,TRUE
+"Probolinggo, Kab.",2015,20.82,FALSE
+"Probolinggo, Kab.",2016,20.98,FALSE
+"Probolinggo, Kab.",2017,20.52,FALSE
+"Probolinggo, Kab.",2018,18.71,FALSE
+"Probolinggo, Kab.",2019,17.76,FALSE
+"Probolinggo, Kab.",2020,18.61,FALSE
+"Probolinggo, Kab.",2021,18.56,TRUE
+"Probolinggo, Kab.",2022,18.51,TRUE
+"Probolinggo, Kab.",2023,18.46,TRUE
+"Probolinggo, Kab.",2024,18.41,TRUE
+"Probolinggo, Kota",2015,8.17,FALSE
+"Probolinggo, Kota",2016,7.97,FALSE
+"Probolinggo, Kota",2017,7.84,FALSE
+"Probolinggo, Kota",2018,7.2,FALSE
+"Probolinggo, Kota",2019,6.91,FALSE
+"Probolinggo, Kota",2020,7.43,FALSE
+"Probolinggo, Kota",2021,7.545,TRUE
+"Probolinggo, Kota",2022,7.66,TRUE
+"Probolinggo, Kota",2023,7.775,TRUE
+"Probolinggo, Kota",2024,7.89,TRUE
+"Pulang Pisau, Kab.",2015,5.65,FALSE
+"Pulang Pisau, Kab.",2016,5.49,FALSE
+"Pulang Pisau, Kab.",2017,5.19,FALSE
+"Pulang Pisau, Kab.",2018,4.51,FALSE
+"Pulang Pisau, Kab.",2019,4.24,FALSE
+"Pulang Pisau, Kab.",2020,4.09,FALSE
+"Pulang Pisau, Kab.",2021,3.88,TRUE
+"Pulang Pisau, Kab.",2022,3.67,TRUE
+"Pulang Pisau, Kab.",2023,3.46,TRUE
+"Pulang Pisau, Kab.",2024,3.25,TRUE
+"Pulau Morotai, Kab.",2015,8.39,FALSE
+"Pulau Morotai, Kab.",2016,7.08,FALSE
+"Pulau Morotai, Kab.",2017,7.07,FALSE
+"Pulau Morotai, Kab.",2018,7.16,FALSE
+"Pulau Morotai, Kab.",2019,7.27,FALSE
+"Pulau Morotai, Kab.",2020,6.46,FALSE
+"Pulau Morotai, Kab.",2021,6.11,TRUE
+"Pulau Morotai, Kab.",2022,5.76,TRUE
+"Pulau Morotai, Kab.",2023,5.41,TRUE
+"Pulau Morotai, Kab.",2024,5.06,TRUE
+"Pulau Taliabu, Kab.",2015,7.04,FALSE
+"Pulau Taliabu, Kab.",2016,7.29,FALSE
+"Pulau Taliabu, Kab.",2017,7.17,FALSE
+"Pulau Taliabu, Kab.",2018,7.35,FALSE
+"Pulau Taliabu, Kab.",2019,7.53,FALSE
+"Pulau Taliabu, Kab.",2020,7.3,FALSE
+"Pulau Taliabu, Kab.",2021,7.275,TRUE
+"Pulau Taliabu, Kab.",2022,7.25,TRUE
+"Pulau Taliabu, Kab.",2023,7.225,TRUE
+"Pulau Taliabu, Kab.",2024,7.2,TRUE
+"Puncak Jaya, Kab.",2015,37.45,FALSE
+"Puncak Jaya, Kab.",2016,37.31,FALSE
+"Puncak Jaya, Kab.",2017,36.01,FALSE
+"Puncak Jaya, Kab.",2018,36.27,FALSE
+"Puncak Jaya, Kab.",2019,35.71,FALSE
+"Puncak Jaya, Kab.",2020,34.74,FALSE
+"Puncak Jaya, Kab.",2021,33.975,TRUE
+"Puncak Jaya, Kab.",2022,33.21,TRUE
+"Puncak Jaya, Kab.",2023,32.445,TRUE
+"Puncak Jaya, Kab.",2024,31.68,TRUE
+"Puncak, Kab.",2015,38.74,FALSE
+"Puncak, Kab.",2016,38.58,FALSE
+"Puncak, Kab.",2017,37.46,FALSE
+"Puncak, Kab.",2018,38.15,FALSE
+"Puncak, Kab.",2019,38.24,FALSE
+"Puncak, Kab.",2020,36.96,FALSE
+"Puncak, Kab.",2021,36.365,TRUE
+"Puncak, Kab.",2022,35.77,TRUE
+"Puncak, Kab.",2023,35.175,TRUE
+"Puncak, Kab.",2024,34.58,TRUE
+"Purbalingga, Kab.",2015,19.7,FALSE
+"Purbalingga, Kab.",2016,18.98,FALSE
+"Purbalingga, Kab.",2017,18.8,FALSE
+"Purbalingga, Kab.",2018,15.62,FALSE
+"Purbalingga, Kab.",2019,15.03,FALSE
+"Purbalingga, Kab.",2020,15.9,FALSE
+"Purbalingga, Kab.",2021,16.04,TRUE
+"Purbalingga, Kab.",2022,16.18,TRUE
+"Purbalingga, Kab.",2023,16.32,TRUE
+"Purbalingga, Kab.",2024,16.46,TRUE
+"Purwakarta, Kab.",2015,9.14,FALSE
+"Purwakarta, Kab.",2016,8.98,FALSE
+"Purwakarta, Kab.",2017,9.06,FALSE
+"Purwakarta, Kab.",2018,7.99,FALSE
+"Purwakarta, Kab.",2019,7.48,FALSE
+"Purwakarta, Kab.",2020,8.27,FALSE
+"Purwakarta, Kab.",2021,8.41,TRUE
+"Purwakarta, Kab.",2022,8.55,TRUE
+"Purwakarta, Kab.",2023,8.69,TRUE
+"Purwakarta, Kab.",2024,8.83,TRUE
+"Purworejo, Kab.",2015,14.27,FALSE
+"Purworejo, Kab.",2016,13.91,FALSE
+"Purworejo, Kab.",2017,13.81,FALSE
+"Purworejo, Kab.",2018,11.67,FALSE
+"Purworejo, Kab.",2019,11.45,FALSE
+"Purworejo, Kab.",2020,11.78,FALSE
+"Purworejo, Kab.",2021,11.835,TRUE
+"Purworejo, Kab.",2022,11.89,TRUE
+"Purworejo, Kab.",2023,11.945,TRUE
+"Purworejo, Kab.",2024,12,TRUE
+"Raja Ampat, Kab.",2015,20.94,FALSE
+"Raja Ampat, Kab.",2016,20.5,FALSE
+"Raja Ampat, Kab.",2017,20,FALSE
+"Raja Ampat, Kab.",2018,17.8,FALSE
+"Raja Ampat, Kab.",2019,17.16,FALSE
+"Raja Ampat, Kab.",2020,17.01,FALSE
+"Raja Ampat, Kab.",2021,16.615,TRUE
+"Raja Ampat, Kab.",2022,16.22,TRUE
+"Raja Ampat, Kab.",2023,15.825,TRUE
+"Raja Ampat, Kab.",2024,15.43,TRUE
+"Rejang Lebong, Kab.",2015,18.03,FALSE
+"Rejang Lebong, Kab.",2016,17.81,FALSE
+"Rejang Lebong, Kab.",2017,16.97,FALSE
+"Rejang Lebong, Kab.",2018,16.23,FALSE
+"Rejang Lebong, Kab.",2019,15.95,FALSE
+"Rejang Lebong, Kab.",2020,15.85,FALSE
+"Rejang Lebong, Kab.",2021,15.66,TRUE
+"Rejang Lebong, Kab.",2022,15.47,TRUE
+"Rejang Lebong, Kab.",2023,15.28,TRUE
+"Rejang Lebong, Kab.",2024,15.09,TRUE
+"Rembang, Kab.",2015,19.28,FALSE
+"Rembang, Kab.",2016,18.54,FALSE
+"Rembang, Kab.",2017,18.35,FALSE
+"Rembang, Kab.",2018,15.41,FALSE
+"Rembang, Kab.",2019,14.95,FALSE
+"Rembang, Kab.",2020,15.6,FALSE
+"Rembang, Kab.",2021,15.695,TRUE
+"Rembang, Kab.",2022,15.79,TRUE
+"Rembang, Kab.",2023,15.885,TRUE
+"Rembang, Kab.",2024,15.98,TRUE
+"Rokan Hilir, Kab.",2015,7.67,FALSE
+"Rokan Hilir, Kab.",2016,7.97,FALSE
+"Rokan Hilir, Kab.",2017,7.88,FALSE
+"Rokan Hilir, Kab.",2018,7.06,FALSE
+"Rokan Hilir, Kab.",2019,7.01,FALSE
+"Rokan Hilir, Kab.",2020,6.72,FALSE
+"Rokan Hilir, Kab.",2021,6.55,TRUE
+"Rokan Hilir, Kab.",2022,6.38,TRUE
+"Rokan Hilir, Kab.",2023,6.21,TRUE
+"Rokan Hilir, Kab.",2024,6.04,TRUE
+"Rokan Hulu, Kab.",2015,11.05,FALSE
+"Rokan Hulu, Kab.",2016,11.05,FALSE
+"Rokan Hulu, Kab.",2017,10.91,FALSE
+"Rokan Hulu, Kab.",2018,10.95,FALSE
+"Rokan Hulu, Kab.",2019,10.53,FALSE
+"Rokan Hulu, Kab.",2020,10.31,FALSE
+"Rokan Hulu, Kab.",2021,9.99,TRUE
+"Rokan Hulu, Kab.",2022,9.67,TRUE
+"Rokan Hulu, Kab.",2023,9.35,TRUE
+"Rokan Hulu, Kab.",2024,9.03,TRUE
+"Rote Ndao, Kab.",2015,30.49,FALSE
+"Rote Ndao, Kab.",2016,29.6,FALSE
+"Rote Ndao, Kab.",2017,28.81,FALSE
+"Rote Ndao, Kab.",2018,28.08,FALSE
+"Rote Ndao, Kab.",2019,27.95,FALSE
+"Rote Ndao, Kab.",2020,27.54,FALSE
+"Rote Ndao, Kab.",2021,27.27,TRUE
+"Rote Ndao, Kab.",2022,27,TRUE
+"Rote Ndao, Kab.",2023,26.73,TRUE
+"Rote Ndao, Kab.",2024,26.46,TRUE
+"Sabang, Kota",2015,17.69,FALSE
+"Sabang, Kota",2016,17.33,FALSE
+"Sabang, Kota",2017,17.66,FALSE
+"Sabang, Kota",2018,16.31,FALSE
+"Sabang, Kota",2019,15.6,FALSE
+"Sabang, Kota",2020,14.94,FALSE
+"Sabang, Kota",2021,14.255,TRUE
+"Sabang, Kota",2022,13.57,TRUE
+"Sabang, Kota",2023,12.885,TRUE
+"Sabang, Kota",2024,12.2,TRUE
+"Sabu Raijua, Kab.",2015,33.17,FALSE
+"Sabu Raijua, Kab.",2016,32.44,FALSE
+"Sabu Raijua, Kab.",2017,31.07,FALSE
+"Sabu Raijua, Kab.",2018,30.83,FALSE
+"Sabu Raijua, Kab.",2019,30.52,FALSE
+"Sabu Raijua, Kab.",2020,30.18,FALSE
+"Sabu Raijua, Kab.",2021,29.855,TRUE
+"Sabu Raijua, Kab.",2022,29.53,TRUE
+"Sabu Raijua, Kab.",2023,29.205,TRUE
+"Sabu Raijua, Kab.",2024,28.88,TRUE
+"Salatiga, Kota",2015,5.8,FALSE
+"Salatiga, Kota",2016,5.24,FALSE
+"Salatiga, Kota",2017,5.07,FALSE
+"Salatiga, Kota",2018,4.84,FALSE
+"Salatiga, Kota",2019,4.76,FALSE
+"Salatiga, Kota",2020,4.94,FALSE
+"Salatiga, Kota",2021,4.99,TRUE
+"Salatiga, Kota",2022,5.04,TRUE
+"Salatiga, Kota",2023,5.09,TRUE
+"Salatiga, Kota",2024,5.14,TRUE
+"Samarinda, Kota",2015,4.82,FALSE
+"Samarinda, Kota",2016,4.72,FALSE
+"Samarinda, Kota",2017,4.77,FALSE
+"Samarinda, Kota",2018,4.59,FALSE
+"Samarinda, Kota",2019,4.59,FALSE
+"Samarinda, Kota",2020,4.76,FALSE
+"Samarinda, Kota",2021,4.845,TRUE
+"Samarinda, Kota",2022,4.93,TRUE
+"Samarinda, Kota",2023,5.015,TRUE
+"Samarinda, Kota",2024,5.1,TRUE
+"Sambas, Kab.",2015,9.42,FALSE
+"Sambas, Kab.",2016,8.54,FALSE
+"Sambas, Kab.",2017,8.59,FALSE
+"Sambas, Kab.",2018,8.55,FALSE
+"Sambas, Kab.",2019,8.19,FALSE
+"Sambas, Kab.",2020,7.7,FALSE
+"Sambas, Kab.",2021,7.275,TRUE
+"Sambas, Kab.",2022,6.85,TRUE
+"Sambas, Kab.",2023,6.425,TRUE
+"Sambas, Kab.",2024,6,TRUE
+"Samosir, Kab.",2015,14.11,FALSE
+"Samosir, Kab.",2016,14.4,FALSE
+"Samosir, Kab.",2017,14.72,FALSE
+"Samosir, Kab.",2018,13.38,FALSE
+"Samosir, Kab.",2019,12.52,FALSE
+"Samosir, Kab.",2020,12.48,FALSE
+"Samosir, Kab.",2021,12.03,TRUE
+"Samosir, Kab.",2022,11.58,TRUE
+"Samosir, Kab.",2023,11.13,TRUE
+"Samosir, Kab.",2024,10.68,TRUE
+"Sampang, Kab.",2015,25.69,FALSE
+"Sampang, Kab.",2016,24.11,FALSE
+"Sampang, Kab.",2017,23.56,FALSE
+"Sampang, Kab.",2018,21.21,FALSE
+"Sampang, Kab.",2019,20.71,FALSE
+"Sampang, Kab.",2020,22.78,FALSE
+"Sampang, Kab.",2021,23.565,TRUE
+"Sampang, Kab.",2022,24.35,TRUE
+"Sampang, Kab.",2023,25.135,TRUE
+"Sampang, Kab.",2024,25.92,TRUE
+"Sanggau, Kab.",2015,4.57,FALSE
+"Sanggau, Kab.",2016,4.51,FALSE
+"Sanggau, Kab.",2017,4.52,FALSE
+"Sanggau, Kab.",2018,4.67,FALSE
+"Sanggau, Kab.",2019,4.57,FALSE
+"Sanggau, Kab.",2020,4.46,FALSE
+"Sanggau, Kab.",2021,4.355,TRUE
+"Sanggau, Kab.",2022,4.25,TRUE
+"Sanggau, Kab.",2023,4.145,TRUE
+"Sanggau, Kab.",2024,4.04,TRUE
+"Sarmi, Kab.",2015,13.85,FALSE
+"Sarmi, Kab.",2016,13.74,FALSE
+"Sarmi, Kab.",2017,13.75,FALSE
+"Sarmi, Kab.",2018,14.51,FALSE
+"Sarmi, Kab.",2019,14.41,FALSE
+"Sarmi, Kab.",2020,13.87,FALSE
+"Sarmi, Kab.",2021,13.55,TRUE
+"Sarmi, Kab.",2022,13.23,TRUE
+"Sarmi, Kab.",2023,12.91,TRUE
+"Sarmi, Kab.",2024,12.59,TRUE
+"Sarolangun, Kab.",2015,10.29,FALSE
+"Sarolangun, Kab.",2016,9.33,FALSE
+"Sarolangun, Kab.",2017,8.87,FALSE
+"Sarolangun, Kab.",2018,8.73,FALSE
+"Sarolangun, Kab.",2019,8.45,FALSE
+"Sarolangun, Kab.",2020,8.42,FALSE
+"Sarolangun, Kab.",2021,8.265,TRUE
+"Sarolangun, Kab.",2022,8.11,TRUE
+"Sarolangun, Kab.",2023,7.955,TRUE
+"Sarolangun, Kab.",2024,7.8,TRUE
+"Sawahlunto, Kota",2015,2.22,FALSE
+"Sawahlunto, Kota",2016,2.21,FALSE
+"Sawahlunto, Kota",2017,2.01,FALSE
+"Sawahlunto, Kota",2018,2.39,FALSE
+"Sawahlunto, Kota",2019,2.17,FALSE
+"Sawahlunto, Kota",2020,2.16,FALSE
+"Sawahlunto, Kota",2021,2.045,TRUE
+"Sawahlunto, Kota",2022,1.93,TRUE
+"Sawahlunto, Kota",2023,1.815,TRUE
+"Sawahlunto, Kota",2024,1.7,TRUE
+"Sekadau, Kab.",2015,6.5,FALSE
+"Sekadau, Kab.",2016,6.14,FALSE
+"Sekadau, Kab.",2017,6.46,FALSE
+"Sekadau, Kab.",2018,6.17,FALSE
+"Sekadau, Kab.",2019,6.11,FALSE
+"Sekadau, Kab.",2020,5.87,FALSE
+"Sekadau, Kab.",2021,5.72,TRUE
+"Sekadau, Kab.",2022,5.57,TRUE
+"Sekadau, Kab.",2023,5.42,TRUE
+"Sekadau, Kab.",2024,5.27,TRUE
+"Seluma, Kab.",2015,22.98,FALSE
+"Seluma, Kab.",2016,21.68,FALSE
+"Seluma, Kab.",2017,20.73,FALSE
+"Seluma, Kab.",2018,19.6,FALSE
+"Seluma, Kab.",2019,19.1,FALSE
+"Seluma, Kab.",2020,18.56,FALSE
+"Seluma, Kab.",2021,18.04,TRUE
+"Seluma, Kab.",2022,17.52,TRUE
+"Seluma, Kab.",2023,17,TRUE
+"Seluma, Kab.",2024,16.48,TRUE
+"Semarang, Kab.",2015,8.15,FALSE
+"Semarang, Kab.",2016,7.99,FALSE
+"Semarang, Kab.",2017,7.78,FALSE
+"Semarang, Kab.",2018,7.29,FALSE
+"Semarang, Kab.",2019,7.04,FALSE
+"Semarang, Kab.",2020,7.51,FALSE
+"Semarang, Kab.",2021,7.62,TRUE
+"Semarang, Kab.",2022,7.73,TRUE
+"Semarang, Kab.",2023,7.84,TRUE
+"Semarang, Kab.",2024,7.95,TRUE
+"Semarang, Kota",2015,4.97,FALSE
+"Semarang, Kota",2016,4.85,FALSE
+"Semarang, Kota",2017,4.62,FALSE
+"Semarang, Kota",2018,4.14,FALSE
+"Semarang, Kota",2019,3.98,FALSE
+"Semarang, Kota",2020,4.34,FALSE
+"Semarang, Kota",2021,4.44,TRUE
+"Semarang, Kota",2022,4.54,TRUE
+"Semarang, Kota",2023,4.64,TRUE
+"Semarang, Kota",2024,4.74,TRUE
+"Seram Bagian Barat, Kab.",2015,26.35,FALSE
+"Seram Bagian Barat, Kab.",2016,26.5,FALSE
+"Seram Bagian Barat, Kab.",2017,25.49,FALSE
+"Seram Bagian Barat, Kab.",2018,25.62,FALSE
+"Seram Bagian Barat, Kab.",2019,25.16,FALSE
+"Seram Bagian Barat, Kab.",2020,25.11,FALSE
+"Seram Bagian Barat, Kab.",2021,24.855,TRUE
+"Seram Bagian Barat, Kab.",2022,24.6,TRUE
+"Seram Bagian Barat, Kab.",2023,24.345,TRUE
+"Seram Bagian Barat, Kab.",2024,24.09,TRUE
+"Seram Bagian Timur, Kab.",2015,25.37,FALSE
+"Seram Bagian Timur, Kab.",2016,24.53,FALSE
+"Seram Bagian Timur, Kab.",2017,23.59,FALSE
+"Seram Bagian Timur, Kab.",2018,23.62,FALSE
+"Seram Bagian Timur, Kab.",2019,23.13,FALSE
+"Seram Bagian Timur, Kab.",2020,23.04,FALSE
+"Seram Bagian Timur, Kab.",2021,22.75,TRUE
+"Seram Bagian Timur, Kab.",2022,22.46,TRUE
+"Seram Bagian Timur, Kab.",2023,22.17,TRUE
+"Seram Bagian Timur, Kab.",2024,21.88,TRUE
+"Serang, Kab.",2015,5.09,FALSE
+"Serang, Kab.",2016,4.58,FALSE
+"Serang, Kab.",2017,4.63,FALSE
+"Serang, Kab.",2018,4.3,FALSE
+"Serang, Kab.",2019,4.08,FALSE
+"Serang, Kab.",2020,4.94,FALSE
+"Serang, Kab.",2021,5.26,TRUE
+"Serang, Kab.",2022,5.58,TRUE
+"Serang, Kab.",2023,5.9,TRUE
+"Serang, Kab.",2024,6.22,TRUE
+"Serang, Kota",2015,6.28,FALSE
+"Serang, Kota",2016,5.58,FALSE
+"Serang, Kota",2017,5.57,FALSE
+"Serang, Kota",2018,5.36,FALSE
+"Serang, Kota",2019,5.28,FALSE
+"Serang, Kota",2020,6.06,FALSE
+"Serang, Kota",2021,6.41,TRUE
+"Serang, Kota",2022,6.76,TRUE
+"Serang, Kota",2023,7.11,TRUE
+"Serang, Kota",2024,7.46,TRUE
+"Serdang Bedagai, Kab.",2015,9.59,FALSE
+"Serdang Bedagai, Kab.",2016,9.53,FALSE
+"Serdang Bedagai, Kab.",2017,9.3,FALSE
+"Serdang Bedagai, Kab.",2018,8.22,FALSE
+"Serdang Bedagai, Kab.",2019,7.9,FALSE
+"Serdang Bedagai, Kab.",2020,7.97,FALSE
+"Serdang Bedagai, Kab.",2021,7.845,TRUE
+"Serdang Bedagai, Kab.",2022,7.72,TRUE
+"Serdang Bedagai, Kab.",2023,7.595,TRUE
+"Serdang Bedagai, Kab.",2024,7.47,TRUE
+"Seruyan, Kab.",2015,8.5,FALSE
+"Seruyan, Kab.",2016,8.08,FALSE
+"Seruyan, Kab.",2017,7.46,FALSE
+"Seruyan, Kab.",2018,7.43,FALSE
+"Seruyan, Kab.",2019,7.19,FALSE
+"Seruyan, Kab.",2020,6.85,FALSE
+"Seruyan, Kab.",2021,6.56,TRUE
+"Seruyan, Kab.",2022,6.27,TRUE
+"Seruyan, Kab.",2023,5.98,TRUE
+"Seruyan, Kab.",2024,5.69,TRUE
+"Siak, Kab.",2015,5.67,FALSE
+"Siak, Kab.",2016,5.52,FALSE
+"Siak, Kab.",2017,5.8,FALSE
+"Siak, Kab.",2018,5.44,FALSE
+"Siak, Kab.",2019,5.03,FALSE
+"Siak, Kab.",2020,5.09,FALSE
+"Siak, Kab.",2021,4.915,TRUE
+"Siak, Kab.",2022,4.74,TRUE
+"Siak, Kab.",2023,4.565,TRUE
+"Siak, Kab.",2024,4.39,TRUE
+"Sibolga, Kota",2015,13.48,FALSE
+"Sibolga, Kota",2016,13.3,FALSE
+"Sibolga, Kota",2017,13.69,FALSE
+"Sibolga, Kota",2018,12.38,FALSE
+"Sibolga, Kota",2019,12.36,FALSE
+"Sibolga, Kota",2020,11.95,FALSE
+"Sibolga, Kota",2021,11.735,TRUE
+"Sibolga, Kota",2022,11.52,TRUE
+"Sibolga, Kota",2023,11.305,TRUE
+"Sibolga, Kota",2024,11.09,TRUE
+"Sidenreng Rappang, Kab.",2015,5.55,FALSE
+"Sidenreng Rappang, Kab.",2016,5.45,FALSE
+"Sidenreng Rappang, Kab.",2017,5.32,FALSE
+"Sidenreng Rappang, Kab.",2018,5.16,FALSE
+"Sidenreng Rappang, Kab.",2019,4.79,FALSE
+"Sidenreng Rappang, Kab.",2020,5.05,FALSE
+"Sidenreng Rappang, Kab.",2021,4.995,TRUE
+"Sidenreng Rappang, Kab.",2022,4.94,TRUE
+"Sidenreng Rappang, Kab.",2023,4.885,TRUE
+"Sidenreng Rappang, Kab.",2024,4.83,TRUE
+"Sidoarjo, Kab.",2015,6.44,FALSE
+"Sidoarjo, Kab.",2016,6.39,FALSE
+"Sidoarjo, Kab.",2017,6.23,FALSE
+"Sidoarjo, Kab.",2018,5.69,FALSE
+"Sidoarjo, Kab.",2019,5.32,FALSE
+"Sidoarjo, Kab.",2020,5.59,FALSE
+"Sidoarjo, Kab.",2021,5.54,TRUE
+"Sidoarjo, Kab.",2022,5.49,TRUE
+"Sidoarjo, Kab.",2023,5.44,TRUE
+"Sidoarjo, Kab.",2024,5.39,TRUE
+"Sigi, Kab.",2015,12.75,FALSE
+"Sigi, Kab.",2016,12.76,FALSE
+"Sigi, Kab.",2017,12.66,FALSE
+"Sigi, Kab.",2018,12.6,FALSE
+"Sigi, Kab.",2019,12.91,FALSE
+"Sigi, Kab.",2020,12.45,FALSE
+"Sigi, Kab.",2021,12.375,TRUE
+"Sigi, Kab.",2022,12.3,TRUE
+"Sigi, Kab.",2023,12.225,TRUE
+"Sigi, Kab.",2024,12.15,TRUE
+"Sijunjung, Kab.",2015,7.87,FALSE
+"Sijunjung, Kab.",2016,7.6,FALSE
+"Sijunjung, Kab.",2017,7.35,FALSE
+"Sijunjung, Kab.",2018,7.11,FALSE
+"Sijunjung, Kab.",2019,7.04,FALSE
+"Sijunjung, Kab.",2020,6.78,FALSE
+"Sijunjung, Kab.",2021,6.615,TRUE
+"Sijunjung, Kab.",2022,6.45,TRUE
+"Sijunjung, Kab.",2023,6.285,TRUE
+"Sijunjung, Kab.",2024,6.12,TRUE
+"Sikka, Kab.",2015,14.28,FALSE
+"Sikka, Kab.",2016,14.33,FALSE
+"Sikka, Kab.",2017,14.2,FALSE
+"Sikka, Kab.",2018,13.82,FALSE
+"Sikka, Kab.",2019,13.53,FALSE
+"Sikka, Kab.",2020,13.12,FALSE
+"Sikka, Kab.",2021,12.77,TRUE
+"Sikka, Kab.",2022,12.42,TRUE
+"Sikka, Kab.",2023,12.07,TRUE
+"Sikka, Kab.",2024,11.72,TRUE
+"Simalungun, Kab.",2015,10.96,FALSE
+"Simalungun, Kab.",2016,10.81,FALSE
+"Simalungun, Kab.",2017,10.65,FALSE
+"Simalungun, Kab.",2018,9.31,FALSE
+"Simalungun, Kab.",2019,8.81,FALSE
+"Simalungun, Kab.",2020,8.46,FALSE
+"Simalungun, Kab.",2021,8.035,TRUE
+"Simalungun, Kab.",2022,7.61,TRUE
+"Simalungun, Kab.",2023,7.185,TRUE
+"Simalungun, Kab.",2024,6.76,TRUE
+"Simeulue, Kab.",2015,20.43,FALSE
+"Simeulue, Kab.",2016,19.93,FALSE
+"Simeulue, Kab.",2017,20.2,FALSE
+"Simeulue, Kab.",2018,19.78,FALSE
+"Simeulue, Kab.",2019,18.99,FALSE
+"Simeulue, Kab.",2020,18.49,FALSE
+"Simeulue, Kab.",2021,17.845,TRUE
+"Simeulue, Kab.",2022,17.2,TRUE
+"Simeulue, Kab.",2023,16.555,TRUE
+"Simeulue, Kab.",2024,15.91,TRUE
+"Singkawang, Kota",2015,5.76,FALSE
+"Singkawang, Kota",2016,5.33,FALSE
+"Singkawang, Kota",2017,5.42,FALSE
+"Singkawang, Kota",2018,5.12,FALSE
+"Singkawang, Kota",2019,4.91,FALSE
+"Singkawang, Kota",2020,4.53,FALSE
+"Singkawang, Kota",2021,4.235,TRUE
+"Singkawang, Kota",2022,3.94,TRUE
+"Singkawang, Kota",2023,3.645,TRUE
+"Singkawang, Kota",2024,3.35,TRUE
+"Sinjai, Kab.",2015,9.26,FALSE
+"Sinjai, Kab.",2016,9.41,FALSE
+"Sinjai, Kab.",2017,9.24,FALSE
+"Sinjai, Kab.",2018,9.28,FALSE
+"Sinjai, Kab.",2019,9.14,FALSE
+"Sinjai, Kab.",2020,9,FALSE
+"Sinjai, Kab.",2021,8.86,TRUE
+"Sinjai, Kab.",2022,8.72,TRUE
+"Sinjai, Kab.",2023,8.58,TRUE
+"Sinjai, Kab.",2024,8.44,TRUE
+"Sintang, Kab.",2015,9.33,FALSE
+"Sintang, Kab.",2016,10.07,FALSE
+"Sintang, Kab.",2017,10.2,FALSE
+"Sintang, Kab.",2018,10.35,FALSE
+"Sintang, Kab.",2019,9.65,FALSE
+"Sintang, Kab.",2020,9.27,FALSE
+"Sintang, Kab.",2021,8.73,TRUE
+"Sintang, Kab.",2022,8.19,TRUE
+"Sintang, Kab.",2023,7.65,TRUE
+"Sintang, Kab.",2024,7.11,TRUE
+"Situbondo, Kab.",2015,13.63,FALSE
+"Situbondo, Kab.",2016,13.34,FALSE
+"Situbondo, Kab.",2017,13.05,FALSE
+"Situbondo, Kab.",2018,11.82,FALSE
+"Situbondo, Kab.",2019,11.2,FALSE
+"Situbondo, Kab.",2020,12.22,FALSE
+"Situbondo, Kab.",2021,12.42,TRUE
+"Situbondo, Kab.",2022,12.62,TRUE
+"Situbondo, Kab.",2023,12.82,TRUE
+"Situbondo, Kab.",2024,13.02,TRUE
+"Sleman, Kab.",2015,9.46,FALSE
+"Sleman, Kab.",2016,8.21,FALSE
+"Sleman, Kab.",2017,8.13,FALSE
+"Sleman, Kab.",2018,7.65,FALSE
+"Sleman, Kab.",2019,7.41,FALSE
+"Sleman, Kab.",2020,8.12,FALSE
+"Sleman, Kab.",2021,8.355,TRUE
+"Sleman, Kab.",2022,8.59,TRUE
+"Sleman, Kab.",2023,8.825,TRUE
+"Sleman, Kab.",2024,9.06,TRUE
+"Solok Selatan, Kab.",2015,7.52,FALSE
+"Solok Selatan, Kab.",2016,7.35,FALSE
+"Solok Selatan, Kab.",2017,7.21,FALSE
+"Solok Selatan, Kab.",2018,7.07,FALSE
+"Solok Selatan, Kab.",2019,7.33,FALSE
+"Solok Selatan, Kab.",2020,7.15,FALSE
+"Solok Selatan, Kab.",2021,7.19,TRUE
+"Solok Selatan, Kab.",2022,7.23,TRUE
+"Solok Selatan, Kab.",2023,7.27,TRUE
+"Solok Selatan, Kab.",2024,7.31,TRUE
+"Solok, Kab.",2015,10,FALSE
+"Solok, Kab.",2016,9.32,FALSE
+"Solok, Kab.",2017,9.06,FALSE
+"Solok, Kab.",2018,8.88,FALSE
+"Solok, Kab.",2019,7.98,FALSE
+"Solok, Kab.",2020,7.81,FALSE
+"Solok, Kab.",2021,7.275,TRUE
+"Solok, Kab.",2022,6.74,TRUE
+"Solok, Kab.",2023,6.205,TRUE
+"Solok, Kab.",2024,5.67,TRUE
+"Solok, Kota",2015,4.12,FALSE
+"Solok, Kota",2016,3.86,FALSE
+"Solok, Kota",2017,3.66,FALSE
+"Solok, Kota",2018,3.3,FALSE
+"Solok, Kota",2019,3.24,FALSE
+"Solok, Kota",2020,2.77,FALSE
+"Solok, Kota",2021,2.505,TRUE
+"Solok, Kota",2022,2.24,TRUE
+"Solok, Kota",2023,1.975,TRUE
+"Solok, Kota",2024,1.71,TRUE
+"Soppeng, Kab.",2015,8.36,FALSE
+"Soppeng, Kab.",2016,8.45,FALSE
+"Soppeng, Kab.",2017,8.29,FALSE
+"Soppeng, Kab.",2018,7.5,FALSE
+"Soppeng, Kab.",2019,7.25,FALSE
+"Soppeng, Kab.",2020,7.59,FALSE
+"Soppeng, Kab.",2021,7.635,TRUE
+"Soppeng, Kab.",2022,7.68,TRUE
+"Soppeng, Kab.",2023,7.725,TRUE
+"Soppeng, Kab.",2024,7.77,TRUE
+"Sorong Selatan, Kab.",2015,20.38,FALSE
+"Sorong Selatan, Kab.",2016,19.92,FALSE
+"Sorong Selatan, Kab.",2017,19.66,FALSE
+"Sorong Selatan, Kab.",2018,19.14,FALSE
+"Sorong Selatan, Kab.",2019,18.41,FALSE
+"Sorong Selatan, Kab.",2020,18.28,FALSE
+"Sorong Selatan, Kab.",2021,17.85,TRUE
+"Sorong Selatan, Kab.",2022,17.42,TRUE
+"Sorong Selatan, Kab.",2023,16.99,TRUE
+"Sorong Selatan, Kab.",2024,16.56,TRUE
+"Sorong, Kab.",2015,33.35,FALSE
+"Sorong, Kab.",2016,33.25,FALSE
+"Sorong, Kab.",2017,32.86,FALSE
+"Sorong, Kab.",2018,30.19,FALSE
+"Sorong, Kab.",2019,28.61,FALSE
+"Sorong, Kab.",2020,27.48,FALSE
+"Sorong, Kab.",2021,26.125,TRUE
+"Sorong, Kab.",2022,24.77,TRUE
+"Sorong, Kab.",2023,23.415,TRUE
+"Sorong, Kab.",2024,22.06,TRUE
+"Sorong, Kota",2015,17.56,FALSE
+"Sorong, Kota",2016,17.85,FALSE
+"Sorong, Kota",2017,17.78,FALSE
+"Sorong, Kota",2018,15.85,FALSE
+"Sorong, Kota",2019,15.45,FALSE
+"Sorong, Kota",2020,14.99,FALSE
+"Sorong, Kota",2021,14.56,TRUE
+"Sorong, Kota",2022,14.13,TRUE
+"Sorong, Kota",2023,13.7,TRUE
+"Sorong, Kota",2024,13.27,TRUE
+"Sragen, Kab.",2015,14.86,FALSE
+"Sragen, Kab.",2016,14.38,FALSE
+"Sragen, Kab.",2017,14.02,FALSE
+"Sragen, Kab.",2018,13.12,FALSE
+"Sragen, Kab.",2019,12.79,FALSE
+"Sragen, Kab.",2020,13.38,FALSE
+"Sragen, Kab.",2021,13.51,TRUE
+"Sragen, Kab.",2022,13.64,TRUE
+"Sragen, Kab.",2023,13.77,TRUE
+"Sragen, Kab.",2024,13.9,TRUE
+"Subang, Kab.",2015,12.27,FALSE
+"Subang, Kab.",2016,11.05,FALSE
+"Subang, Kab.",2017,10.77,FALSE
+"Subang, Kab.",2018,8.67,FALSE
+"Subang, Kab.",2019,8.12,FALSE
+"Subang, Kab.",2020,9.31,FALSE
+"Subang, Kab.",2021,9.63,TRUE
+"Subang, Kab.",2022,9.95,TRUE
+"Subang, Kab.",2023,10.27,TRUE
+"Subang, Kab.",2024,10.59,TRUE
+"Subulussalam, Kota",2015,20.39,FALSE
+"Subulussalam, Kota",2016,19.57,FALSE
+"Subulussalam, Kota",2017,19.71,FALSE
+"Subulussalam, Kota",2018,18.51,FALSE
+"Subulussalam, Kota",2019,17.95,FALSE
+"Subulussalam, Kota",2020,17.6,FALSE
+"Subulussalam, Kota",2021,17.145,TRUE
+"Subulussalam, Kota",2022,16.69,TRUE
+"Subulussalam, Kota",2023,16.235,TRUE
+"Subulussalam, Kota",2024,15.78,TRUE
+"Sukabumi, Kab.",2015,8.96,FALSE
+"Sukabumi, Kab.",2016,8.13,FALSE
+"Sukabumi, Kab.",2017,8.04,FALSE
+"Sukabumi, Kab.",2018,6.76,FALSE
+"Sukabumi, Kab.",2019,6.22,FALSE
+"Sukabumi, Kab.",2020,7.09,FALSE
+"Sukabumi, Kab.",2021,7.255,TRUE
+"Sukabumi, Kab.",2022,7.42,TRUE
+"Sukabumi, Kab.",2023,7.585,TRUE
+"Sukabumi, Kab.",2024,7.75,TRUE
+"Sukabumi, Kota",2015,8.79,FALSE
+"Sukabumi, Kota",2016,8.59,FALSE
+"Sukabumi, Kota",2017,8.48,FALSE
+"Sukabumi, Kota",2018,7.12,FALSE
+"Sukabumi, Kota",2019,6.67,FALSE
+"Sukabumi, Kota",2020,7.7,FALSE
+"Sukabumi, Kota",2021,7.99,TRUE
+"Sukabumi, Kota",2022,8.28,TRUE
+"Sukabumi, Kota",2023,8.57,TRUE
+"Sukabumi, Kota",2024,8.86,TRUE
+"Sukamara, Kab.",2015,4.32,FALSE
+"Sukamara, Kab.",2016,3.73,FALSE
+"Sukamara, Kab.",2017,3.36,FALSE
+"Sukamara, Kab.",2018,3.19,FALSE
+"Sukamara, Kab.",2019,3.16,FALSE
+"Sukamara, Kab.",2020,3.23,FALSE
+"Sukamara, Kab.",2021,3.25,TRUE
+"Sukamara, Kab.",2022,3.27,TRUE
+"Sukamara, Kab.",2023,3.29,TRUE
+"Sukamara, Kab.",2024,3.31,TRUE
+"Sukoharjo, Kab.",2015,9.26,FALSE
+"Sukoharjo, Kab.",2016,9.07,FALSE
+"Sukoharjo, Kab.",2017,8.75,FALSE
+"Sukoharjo, Kab.",2018,7.41,FALSE
+"Sukoharjo, Kab.",2019,7.14,FALSE
+"Sukoharjo, Kab.",2020,7.68,FALSE
+"Sukoharjo, Kab.",2021,7.815,TRUE
+"Sukoharjo, Kab.",2022,7.95,TRUE
+"Sukoharjo, Kab.",2023,8.085,TRUE
+"Sukoharjo, Kab.",2024,8.22,TRUE
+"Sumba Barat Daya, Kab.",2015,30.01,FALSE
+"Sumba Barat Daya, Kab.",2016,30.63,FALSE
+"Sumba Barat Daya, Kab.",2017,30.13,FALSE
+"Sumba Barat Daya, Kab.",2018,28.88,FALSE
+"Sumba Barat Daya, Kab.",2019,28.06,FALSE
+"Sumba Barat Daya, Kab.",2020,28,FALSE
+"Sumba Barat Daya, Kab.",2021,27.56,TRUE
+"Sumba Barat Daya, Kab.",2022,27.12,TRUE
+"Sumba Barat Daya, Kab.",2023,26.68,TRUE
+"Sumba Barat Daya, Kab.",2024,26.24,TRUE
+"Sumba Barat, Kab.",2015,30.56,FALSE
+"Sumba Barat, Kab.",2016,29.34,FALSE
+"Sumba Barat, Kab.",2017,29.28,FALSE
+"Sumba Barat, Kab.",2018,28.51,FALSE
+"Sumba Barat, Kab.",2019,28.29,FALSE
+"Sumba Barat, Kab.",2020,28.17,FALSE
+"Sumba Barat, Kab.",2021,28,TRUE
+"Sumba Barat, Kab.",2022,27.83,TRUE
+"Sumba Barat, Kab.",2023,27.66,TRUE
+"Sumba Barat, Kab.",2024,27.49,TRUE
+"Sumba Tengah, Kab.",2015,36.22,FALSE
+"Sumba Tengah, Kab.",2016,36.55,FALSE
+"Sumba Tengah, Kab.",2017,36.01,FALSE
+"Sumba Tengah, Kab.",2018,34.85,FALSE
+"Sumba Tengah, Kab.",2019,34.62,FALSE
+"Sumba Tengah, Kab.",2020,34.49,FALSE
+"Sumba Tengah, Kab.",2021,34.31,TRUE
+"Sumba Tengah, Kab.",2022,34.13,TRUE
+"Sumba Tengah, Kab.",2023,33.95,TRUE
+"Sumba Tengah, Kab.",2024,33.77,TRUE
+"Sumba Timur, Kab.",2015,31.74,FALSE
+"Sumba Timur, Kab.",2016,31.43,FALSE
+"Sumba Timur, Kab.",2017,31.03,FALSE
+"Sumba Timur, Kab.",2018,30.13,FALSE
+"Sumba Timur, Kab.",2019,30.02,FALSE
+"Sumba Timur, Kab.",2020,29.65,FALSE
+"Sumba Timur, Kab.",2021,29.41,TRUE
+"Sumba Timur, Kab.",2022,29.17,TRUE
+"Sumba Timur, Kab.",2023,28.93,TRUE
+"Sumba Timur, Kab.",2024,28.69,TRUE
+"Sumbawa Barat, Kab.",2015,16.97,FALSE
+"Sumbawa Barat, Kab.",2016,16.5,FALSE
+"Sumbawa Barat, Kab.",2017,15.96,FALSE
+"Sumbawa Barat, Kab.",2018,14.17,FALSE
+"Sumbawa Barat, Kab.",2019,13.85,FALSE
+"Sumbawa Barat, Kab.",2020,13.34,FALSE
+"Sumbawa Barat, Kab.",2021,12.925,TRUE
+"Sumbawa Barat, Kab.",2022,12.51,TRUE
+"Sumbawa Barat, Kab.",2023,12.095,TRUE
+"Sumbawa Barat, Kab.",2024,11.68,TRUE
+"Sumbawa, Kab.",2015,16.73,FALSE
+"Sumbawa, Kab.",2016,16.12,FALSE
+"Sumbawa, Kab.",2017,15.31,FALSE
+"Sumbawa, Kab.",2018,14.08,FALSE
+"Sumbawa, Kab.",2019,13.9,FALSE
+"Sumbawa, Kab.",2020,13.65,FALSE
+"Sumbawa, Kab.",2021,13.435,TRUE
+"Sumbawa, Kab.",2022,13.22,TRUE
+"Sumbawa, Kab.",2023,13.005,TRUE
+"Sumbawa, Kab.",2024,12.79,TRUE
+"Sumedang, Kab.",2015,11.36,FALSE
+"Sumedang, Kab.",2016,10.57,FALSE
+"Sumedang, Kab.",2017,10.53,FALSE
+"Sumedang, Kab.",2018,9.76,FALSE
+"Sumedang, Kab.",2019,9.05,FALSE
+"Sumedang, Kab.",2020,10.26,FALSE
+"Sumedang, Kab.",2021,10.51,TRUE
+"Sumedang, Kab.",2022,10.76,TRUE
+"Sumedang, Kab.",2023,11.01,TRUE
+"Sumedang, Kab.",2024,11.26,TRUE
+"Sumenep, Kab.",2015,20.2,FALSE
+"Sumenep, Kab.",2016,20.09,FALSE
+"Sumenep, Kab.",2017,19.62,FALSE
+"Sumenep, Kab.",2018,20.16,FALSE
+"Sumenep, Kab.",2019,19.48,FALSE
+"Sumenep, Kab.",2020,20.18,FALSE
+"Sumenep, Kab.",2021,20.19,TRUE
+"Sumenep, Kab.",2022,20.2,TRUE
+"Sumenep, Kab.",2023,20.21,TRUE
+"Sumenep, Kab.",2024,20.22,TRUE
+"Sungai Penuh, Kota",2015,3.43,FALSE
+"Sungai Penuh, Kota",2016,3.13,FALSE
+"Sungai Penuh, Kota",2017,2.78,FALSE
+"Sungai Penuh, Kota",2018,2.76,FALSE
+"Sungai Penuh, Kota",2019,2.81,FALSE
+"Sungai Penuh, Kota",2020,3.03,FALSE
+"Sungai Penuh, Kota",2021,3.165,TRUE
+"Sungai Penuh, Kota",2022,3.3,TRUE
+"Sungai Penuh, Kota",2023,3.435,TRUE
+"Sungai Penuh, Kota",2024,3.57,TRUE
+"Supiori, Kab.",2015,39.25,FALSE
+"Supiori, Kab.",2016,37.99,FALSE
+"Supiori, Kab.",2017,37.4,FALSE
+"Supiori, Kab.",2018,39.22,FALSE
+"Supiori, Kab.",2019,38.79,FALSE
+"Supiori, Kab.",2020,36.91,FALSE
+"Supiori, Kab.",2021,35.755,TRUE
+"Supiori, Kab.",2022,34.6,TRUE
+"Supiori, Kab.",2023,33.445,TRUE
+"Supiori, Kab.",2024,32.29,TRUE
+"Surabaya, Kota",2015,5.82,FALSE
+"Surabaya, Kota",2016,5.63,FALSE
+"Surabaya, Kota",2017,5.39,FALSE
+"Surabaya, Kota",2018,4.88,FALSE
+"Surabaya, Kota",2019,4.51,FALSE
+"Surabaya, Kota",2020,5.02,FALSE
+"Surabaya, Kota",2021,5.09,TRUE
+"Surabaya, Kota",2022,5.16,TRUE
+"Surabaya, Kota",2023,5.23,TRUE
+"Surabaya, Kota",2024,5.3,TRUE
+"Surakarta, Kota",2015,10.89,FALSE
+"Surakarta, Kota",2016,10.88,FALSE
+"Surakarta, Kota",2017,10.65,FALSE
+"Surakarta, Kota",2018,9.08,FALSE
+"Surakarta, Kota",2019,8.7,FALSE
+"Surakarta, Kota",2020,9.03,FALSE
+"Surakarta, Kota",2021,9.005,TRUE
+"Surakarta, Kota",2022,8.98,TRUE
+"Surakarta, Kota",2023,8.955,TRUE
+"Surakarta, Kota",2024,8.93,TRUE
+"Tabalong, Kab.",2015,6.59,FALSE
+"Tabalong, Kab.",2016,6.35,FALSE
+"Tabalong, Kab.",2017,6.09,FALSE
+"Tabalong, Kab.",2018,5.95,FALSE
+"Tabalong, Kab.",2019,6.01,FALSE
+"Tabalong, Kab.",2020,5.72,FALSE
+"Tabalong, Kab.",2021,5.605,TRUE
+"Tabalong, Kab.",2022,5.49,TRUE
+"Tabalong, Kab.",2023,5.375,TRUE
+"Tabalong, Kab.",2024,5.26,TRUE
+"Tabanan, Kab.",2015,5.52,FALSE
+"Tabanan, Kab.",2016,5,FALSE
+"Tabanan, Kab.",2017,4.92,FALSE
+"Tabanan, Kab.",2018,4.46,FALSE
+"Tabanan, Kab.",2019,4.21,FALSE
+"Tabanan, Kab.",2020,4.27,FALSE
+"Tabanan, Kab.",2021,4.175,TRUE
+"Tabanan, Kab.",2022,4.08,TRUE
+"Tabanan, Kab.",2023,3.985,TRUE
+"Tabanan, Kab.",2024,3.89,TRUE
+"Takalar, Kab.",2015,9.48,FALSE
+"Takalar, Kab.",2016,9.35,FALSE
+"Takalar, Kab.",2017,9.24,FALSE
+"Takalar, Kab.",2018,9,FALSE
+"Takalar, Kab.",2019,8.7,FALSE
+"Takalar, Kab.",2020,8.44,FALSE
+"Takalar, Kab.",2021,8.16,TRUE
+"Takalar, Kab.",2022,7.88,TRUE
+"Takalar, Kab.",2023,7.6,TRUE
+"Takalar, Kab.",2024,7.32,TRUE
+"Tambrauw, Kab",2015,38.11,FALSE
+"Tambrauw, Kab",2016,36.67,FALSE
+"Tambrauw, Kab",2017,35.99,FALSE
+"Tambrauw, Kab",2018,34.59,FALSE
+"Tambrauw, Kab",2019,33.66,FALSE
+"Tambrauw, Kab",2020,32.8,FALSE
+"Tambrauw, Kab",2021,31.905,TRUE
+"Tambrauw, Kab",2022,31.01,TRUE
+"Tambrauw, Kab",2023,30.115,TRUE
+"Tambrauw, Kab",2024,29.22,TRUE
+"Tana Tidung, Kab.",2015,6.35,FALSE
+"Tana Tidung, Kab.",2016,6.11,FALSE
+"Tana Tidung, Kab.",2017,6.63,FALSE
+"Tana Tidung, Kab.",2018,5.08,FALSE
+"Tana Tidung, Kab.",2019,4.72,FALSE
+"Tana Tidung, Kab.",2020,4.81,FALSE
+"Tana Tidung, Kab.",2021,4.675,TRUE
+"Tana Tidung, Kab.",2022,4.54,TRUE
+"Tana Tidung, Kab.",2023,4.405,TRUE
+"Tana Tidung, Kab.",2024,4.27,TRUE
+"Tana Toraja, Kab.",2015,12.46,FALSE
+"Tana Toraja, Kab.",2016,12.36,FALSE
+"Tana Toraja, Kab.",2017,12.62,FALSE
+"Tana Toraja, Kab.",2018,12.75,FALSE
+"Tana Toraja, Kab.",2019,12.35,FALSE
+"Tana Toraja, Kab.",2020,12.1,FALSE
+"Tana Toraja, Kab.",2021,11.775,TRUE
+"Tana Toraja, Kab.",2022,11.45,TRUE
+"Tana Toraja, Kab.",2023,11.125,TRUE
+"Tana Toraja, Kab.",2024,10.8,TRUE
+"Tanah Bumbu, Kab.",2015,5.55,FALSE
+"Tanah Bumbu, Kab.",2016,5.27,FALSE
+"Tanah Bumbu, Kab.",2017,4.99,FALSE
+"Tanah Bumbu, Kab.",2018,4.88,FALSE
+"Tanah Bumbu, Kab.",2019,4.85,FALSE
+"Tanah Bumbu, Kab.",2020,4.6,FALSE
+"Tanah Bumbu, Kab.",2021,4.46,TRUE
+"Tanah Bumbu, Kab.",2022,4.32,TRUE
+"Tanah Bumbu, Kab.",2023,4.18,TRUE
+"Tanah Bumbu, Kab.",2024,4.04,TRUE
+"Tanah Datar, Kab.",2015,5.82,FALSE
+"Tanah Datar, Kab.",2016,5.68,FALSE
+"Tanah Datar, Kab.",2017,5.56,FALSE
+"Tanah Datar, Kab.",2018,5.32,FALSE
+"Tanah Datar, Kab.",2019,4.66,FALSE
+"Tanah Datar, Kab.",2020,4.4,FALSE
+"Tanah Datar, Kab.",2021,3.94,TRUE
+"Tanah Datar, Kab.",2022,3.48,TRUE
+"Tanah Datar, Kab.",2023,3.02,TRUE
+"Tanah Datar, Kab.",2024,2.56,TRUE
+"Tanah Laut, Kab.",2015,4.58,FALSE
+"Tanah Laut, Kab.",2016,4.65,FALSE
+"Tanah Laut, Kab.",2017,4.6,FALSE
+"Tanah Laut, Kab.",2018,4.4,FALSE
+"Tanah Laut, Kab.",2019,4.51,FALSE
+"Tanah Laut, Kab.",2020,4.26,FALSE
+"Tanah Laut, Kab.",2021,4.19,TRUE
+"Tanah Laut, Kab.",2022,4.12,TRUE
+"Tanah Laut, Kab.",2023,4.05,TRUE
+"Tanah Laut, Kab.",2024,3.98,TRUE
+"Tangerang Selatan, Kota",2015,1.69,FALSE
+"Tangerang Selatan, Kota",2016,1.67,FALSE
+"Tangerang Selatan, Kota",2017,1.76,FALSE
+"Tangerang Selatan, Kota",2018,1.68,FALSE
+"Tangerang Selatan, Kota",2019,1.68,FALSE
+"Tangerang Selatan, Kota",2020,2.29,FALSE
+"Tangerang Selatan, Kota",2021,2.595,TRUE
+"Tangerang Selatan, Kota",2022,2.9,TRUE
+"Tangerang Selatan, Kota",2023,3.205,TRUE
+"Tangerang Selatan, Kota",2024,3.51,TRUE
+"Tangerang, Kab.",2015,5.71,FALSE
+"Tangerang, Kab.",2016,5.29,FALSE
+"Tangerang, Kab.",2017,5.39,FALSE
+"Tangerang, Kab.",2018,5.18,FALSE
+"Tangerang, Kab.",2019,5.14,FALSE
+"Tangerang, Kab.",2020,6.23,FALSE
+"Tangerang, Kab.",2021,6.755,TRUE
+"Tangerang, Kab.",2022,7.28,TRUE
+"Tangerang, Kab.",2023,7.805,TRUE
+"Tangerang, Kab.",2024,8.33,TRUE
+"Tangerang, Kota",2015,5.04,FALSE
+"Tangerang, Kota",2016,4.94,FALSE
+"Tangerang, Kota",2017,4.95,FALSE
+"Tangerang, Kota",2018,4.76,FALSE
+"Tangerang, Kota",2019,4.43,FALSE
+"Tangerang, Kota",2020,5.22,FALSE
+"Tangerang, Kota",2021,5.45,TRUE
+"Tangerang, Kota",2022,5.68,TRUE
+"Tangerang, Kota",2023,5.91,TRUE
+"Tangerang, Kota",2024,6.14,TRUE
+"Tanggamus, Kab.",2015,14.26,FALSE
+"Tanggamus, Kab.",2016,14.05,FALSE
+"Tanggamus, Kab.",2017,13.25,FALSE
+"Tanggamus, Kab.",2018,12.48,FALSE
+"Tanggamus, Kab.",2019,12.05,FALSE
+"Tanggamus, Kab.",2020,11.68,FALSE
+"Tanggamus, Kab.",2021,11.28,TRUE
+"Tanggamus, Kab.",2022,10.88,TRUE
+"Tanggamus, Kab.",2023,10.48,TRUE
+"Tanggamus, Kab.",2024,10.08,TRUE
+"Tanjung Balai, Kota",2015,15.08,FALSE
+"Tanjung Balai, Kota",2016,14.49,FALSE
+"Tanjung Balai, Kota",2017,14.46,FALSE
+"Tanjung Balai, Kota",2018,14.64,FALSE
+"Tanjung Balai, Kota",2019,14.04,FALSE
+"Tanjung Balai, Kota",2020,13.33,FALSE
+"Tanjung Balai, Kota",2021,12.675,TRUE
+"Tanjung Balai, Kota",2022,12.02,TRUE
+"Tanjung Balai, Kota",2023,11.365,TRUE
+"Tanjung Balai, Kota",2024,10.71,TRUE
+"Tanjung Jabung Barat, Kab.",2015,12.63,FALSE
+"Tanjung Jabung Barat, Kab.",2016,11.81,FALSE
+"Tanjung Jabung Barat, Kab.",2017,11.32,FALSE
+"Tanjung Jabung Barat, Kab.",2018,11.1,FALSE
+"Tanjung Jabung Barat, Kab.",2019,10.56,FALSE
+"Tanjung Jabung Barat, Kab.",2020,10.29,FALSE
+"Tanjung Jabung Barat, Kab.",2021,9.885,TRUE
+"Tanjung Jabung Barat, Kab.",2022,9.48,TRUE
+"Tanjung Jabung Barat, Kab.",2023,9.075,TRUE
+"Tanjung Jabung Barat, Kab.",2024,8.67,TRUE
+"Tanjung Jabung Timur, Kab.",2015,14.17,FALSE
+"Tanjung Jabung Timur, Kab.",2016,12.76,FALSE
+"Tanjung Jabung Timur, Kab.",2017,12.58,FALSE
+"Tanjung Jabung Timur, Kab.",2018,12.38,FALSE
+"Tanjung Jabung Timur, Kab.",2019,11.54,FALSE
+"Tanjung Jabung Timur, Kab.",2020,10.95,FALSE
+"Tanjung Jabung Timur, Kab.",2021,10.235,TRUE
+"Tanjung Jabung Timur, Kab.",2022,9.52,TRUE
+"Tanjung Jabung Timur, Kab.",2023,8.805,TRUE
+"Tanjung Jabung Timur, Kab.",2024,8.09,TRUE
+"Tanjung Pinang, Kota",2015,9.56,FALSE
+"Tanjung Pinang, Kota",2016,9.34,FALSE
+"Tanjung Pinang, Kota",2017,9.29,FALSE
+"Tanjung Pinang, Kota",2018,9.24,FALSE
+"Tanjung Pinang, Kota",2019,9.03,FALSE
+"Tanjung Pinang, Kota",2020,9.37,FALSE
+"Tanjung Pinang, Kota",2021,9.435,TRUE
+"Tanjung Pinang, Kota",2022,9.5,TRUE
+"Tanjung Pinang, Kota",2023,9.565,TRUE
+"Tanjung Pinang, Kota",2024,9.63,TRUE
+"Tapanuli Selatan, Kab.",2015,11.37,FALSE
+"Tapanuli Selatan, Kab.",2016,11.15,FALSE
+"Tapanuli Selatan, Kab.",2017,10.6,FALSE
+"Tapanuli Selatan, Kab.",2018,9.16,FALSE
+"Tapanuli Selatan, Kab.",2019,8.6,FALSE
+"Tapanuli Selatan, Kab.",2020,8.47,FALSE
+"Tapanuli Selatan, Kab.",2021,8.125,TRUE
+"Tapanuli Selatan, Kab.",2022,7.78,TRUE
+"Tapanuli Selatan, Kab.",2023,7.435,TRUE
+"Tapanuli Selatan, Kab.",2024,7.09,TRUE
+"Tapanuli Tengah, Kab.",2015,15,FALSE
+"Tapanuli Tengah, Kab.",2016,14.58,FALSE
+"Tapanuli Tengah, Kab.",2017,14.66,FALSE
+"Tapanuli Tengah, Kab.",2018,13.17,FALSE
+"Tapanuli Tengah, Kab.",2019,12.53,FALSE
+"Tapanuli Tengah, Kab.",2020,12.38,FALSE
+"Tapanuli Tengah, Kab.",2021,11.985,TRUE
+"Tapanuli Tengah, Kab.",2022,11.59,TRUE
+"Tapanuli Tengah, Kab.",2023,11.195,TRUE
+"Tapanuli Tengah, Kab.",2024,10.8,TRUE
+"Tapanuli Utara, Kab.",2015,11.41,FALSE
+"Tapanuli Utara, Kab.",2016,11.25,FALSE
+"Tapanuli Utara, Kab.",2017,11.35,FALSE
+"Tapanuli Utara, Kab.",2018,9.75,FALSE
+"Tapanuli Utara, Kab.",2019,9.48,FALSE
+"Tapanuli Utara, Kab.",2020,9.37,FALSE
+"Tapanuli Utara, Kab.",2021,9.18,TRUE
+"Tapanuli Utara, Kab.",2022,8.99,TRUE
+"Tapanuli Utara, Kab.",2023,8.8,TRUE
+"Tapanuli Utara, Kab.",2024,8.61,TRUE
+"Tapin, Kab.",2015,3.88,FALSE
+"Tapin, Kab.",2016,3.7,FALSE
+"Tapin, Kab.",2017,3.77,FALSE
+"Tapin, Kab.",2018,3.7,FALSE
+"Tapin, Kab.",2019,3.41,FALSE
+"Tapin, Kab.",2020,3.06,FALSE
+"Tapin, Kab.",2021,2.74,TRUE
+"Tapin, Kab.",2022,2.42,TRUE
+"Tapin, Kab.",2023,2.1,TRUE
+"Tapin, Kab.",2024,1.78,TRUE
+"Tarakan, Kota",2015,5.11,FALSE
+"Tarakan, Kota",2016,5.17,FALSE
+"Tarakan, Kota",2017,6.32,FALSE
+"Tarakan, Kota",2018,6.15,FALSE
+"Tarakan, Kota",2019,6,FALSE
+"Tarakan, Kota",2020,6.24,FALSE
+"Tarakan, Kota",2021,6.285,TRUE
+"Tarakan, Kota",2022,6.33,TRUE
+"Tarakan, Kota",2023,6.375,TRUE
+"Tarakan, Kota",2024,6.42,TRUE
+"Tasikmalaya, Kab.",2015,11.99,FALSE
+"Tasikmalaya, Kab.",2016,11.24,FALSE
+"Tasikmalaya, Kab.",2017,10.84,FALSE
+"Tasikmalaya, Kab.",2018,9.85,FALSE
+"Tasikmalaya, Kab.",2019,9.12,FALSE
+"Tasikmalaya, Kab.",2020,10.34,FALSE
+"Tasikmalaya, Kab.",2021,10.585,TRUE
+"Tasikmalaya, Kab.",2022,10.83,TRUE
+"Tasikmalaya, Kab.",2023,11.075,TRUE
+"Tasikmalaya, Kab.",2024,11.32,TRUE
+"Tasikmalaya, Kota",2015,16.28,FALSE
+"Tasikmalaya, Kota",2016,15.6,FALSE
+"Tasikmalaya, Kota",2017,14.8,FALSE
+"Tasikmalaya, Kota",2018,12.71,FALSE
+"Tasikmalaya, Kota",2019,11.6,FALSE
+"Tasikmalaya, Kota",2020,12.97,FALSE
+"Tasikmalaya, Kota",2021,13.1,TRUE
+"Tasikmalaya, Kota",2022,13.23,TRUE
+"Tasikmalaya, Kota",2023,13.36,TRUE
+"Tasikmalaya, Kota",2024,13.49,TRUE
+"Tebing Tinggi, Kota",2015,12.03,FALSE
+"Tebing Tinggi, Kota",2016,11.7,FALSE
+"Tebing Tinggi, Kota",2017,11.9,FALSE
+"Tebing Tinggi, Kota",2018,10.27,FALSE
+"Tebing Tinggi, Kota",2019,9.94,FALSE
+"Tebing Tinggi, Kota",2020,9.85,FALSE
+"Tebing Tinggi, Kota",2021,9.64,TRUE
+"Tebing Tinggi, Kota",2022,9.43,TRUE
+"Tebing Tinggi, Kota",2023,9.22,TRUE
+"Tebing Tinggi, Kota",2024,9.01,TRUE
+"Tebo, Kab.",2015,7.12,FALSE
+"Tebo, Kab.",2016,6.87,FALSE
+"Tebo, Kab.",2017,6.79,FALSE
+"Tebo, Kab.",2018,6.58,FALSE
+"Tebo, Kab.",2019,6.47,FALSE
+"Tebo, Kab.",2020,6.26,FALSE
+"Tebo, Kab.",2021,6.1,TRUE
+"Tebo, Kab.",2022,5.94,TRUE
+"Tebo, Kab.",2023,5.78,TRUE
+"Tebo, Kab.",2024,5.62,TRUE
+"Tegal, Kab.",2015,10.09,FALSE
+"Tegal, Kab.",2016,10.1,FALSE
+"Tegal, Kab.",2017,9.9,FALSE
+"Tegal, Kab.",2018,7.94,FALSE
+"Tegal, Kab.",2019,7.64,FALSE
+"Tegal, Kab.",2020,8.14,FALSE
+"Tegal, Kab.",2021,8.24,TRUE
+"Tegal, Kab.",2022,8.34,TRUE
+"Tegal, Kab.",2023,8.44,TRUE
+"Tegal, Kab.",2024,8.54,TRUE
+"Tegal, Kota",2015,8.26,FALSE
+"Tegal, Kota",2016,8.2,FALSE
+"Tegal, Kota",2017,8.11,FALSE
+"Tegal, Kota",2018,7.81,FALSE
+"Tegal, Kota",2019,7.47,FALSE
+"Tegal, Kota",2020,7.8,FALSE
+"Tegal, Kota",2021,7.795,TRUE
+"Tegal, Kota",2022,7.79,TRUE
+"Tegal, Kota",2023,7.785,TRUE
+"Tegal, Kota",2024,7.78,TRUE
+"Teluk Bintuni, Kab.",2015,36.66,FALSE
+"Teluk Bintuni, Kab.",2016,34.72,FALSE
+"Teluk Bintuni, Kab.",2017,34.32,FALSE
+"Teluk Bintuni, Kab.",2018,31.3,FALSE
+"Teluk Bintuni, Kab.",2019,30.57,FALSE
+"Teluk Bintuni, Kab.",2020,29.39,FALSE
+"Teluk Bintuni, Kab.",2021,28.435,TRUE
+"Teluk Bintuni, Kab.",2022,27.48,TRUE
+"Teluk Bintuni, Kab.",2023,26.525,TRUE
+"Teluk Bintuni, Kab.",2024,25.57,TRUE
+"Teluk Wondama, Kab.",2015,37.44,FALSE
+"Teluk Wondama, Kab.",2016,36.37,FALSE
+"Teluk Wondama, Kab.",2017,36.37,FALSE
+"Teluk Wondama, Kab.",2018,33.32,FALSE
+"Teluk Wondama, Kab.",2019,32.42,FALSE
+"Teluk Wondama, Kab.",2020,30.91,FALSE
+"Teluk Wondama, Kab.",2021,29.705,TRUE
+"Teluk Wondama, Kab.",2022,28.5,TRUE
+"Teluk Wondama, Kab.",2023,27.295,TRUE
+"Teluk Wondama, Kab.",2024,26.09,TRUE
+"Temanggung, Kab.",2015,11.76,FALSE
+"Temanggung, Kab.",2016,11.6,FALSE
+"Temanggung, Kab.",2017,11.46,FALSE
+"Temanggung, Kab.",2018,9.87,FALSE
+"Temanggung, Kab.",2019,9.42,FALSE
+"Temanggung, Kab.",2020,9.96,FALSE
+"Temanggung, Kab.",2021,10.005,TRUE
+"Temanggung, Kab.",2022,10.05,TRUE
+"Temanggung, Kab.",2023,10.095,TRUE
+"Temanggung, Kab.",2024,10.14,TRUE
+"Ternate, Kota",2015,2.99,FALSE
+"Ternate, Kota",2016,2.67,FALSE
+"Ternate, Kota",2017,2.73,FALSE
+"Ternate, Kota",2018,3,FALSE
+"Ternate, Kota",2019,3.14,FALSE
+"Ternate, Kota",2020,3.46,FALSE
+"Ternate, Kota",2021,3.69,TRUE
+"Ternate, Kota",2022,3.92,TRUE
+"Ternate, Kota",2023,4.15,TRUE
+"Ternate, Kota",2024,4.38,TRUE
+"Timor Tengah Selatan, Kab.",2015,31.12,FALSE
+"Timor Tengah Selatan, Kab.",2016,29.89,FALSE
+"Timor Tengah Selatan, Kab.",2017,29.44,FALSE
+"Timor Tengah Selatan, Kab.",2018,28.06,FALSE
+"Timor Tengah Selatan, Kab.",2019,27.87,FALSE
+"Timor Tengah Selatan, Kab.",2020,27.49,FALSE
+"Timor Tengah Selatan, Kab.",2021,27.205,TRUE
+"Timor Tengah Selatan, Kab.",2022,26.92,TRUE
+"Timor Tengah Selatan, Kab.",2023,26.635,TRUE
+"Timor Tengah Selatan, Kab.",2024,26.35,TRUE
+"Timor Tengah Utara, Kab.",2015,25.2,FALSE
+"Timor Tengah Utara, Kab.",2016,24.07,FALSE
+"Timor Tengah Utara, Kab.",2017,23.52,FALSE
+"Timor Tengah Utara, Kab.",2018,22.31,FALSE
+"Timor Tengah Utara, Kab.",2019,22.45,FALSE
+"Timor Tengah Utara, Kab.",2020,22.28,FALSE
+"Timor Tengah Utara, Kab.",2021,22.265,TRUE
+"Timor Tengah Utara, Kab.",2022,22.25,TRUE
+"Timor Tengah Utara, Kab.",2023,22.235,TRUE
+"Timor Tengah Utara, Kab.",2024,22.22,TRUE
+"Toba Samosir, Kab.",2015,10.21,FALSE
+"Toba Samosir, Kab.",2016,10.08,FALSE
+"Toba Samosir, Kab.",2017,10.19,FALSE
+"Toba Samosir, Kab.",2018,8.67,FALSE
+"Toba Samosir, Kab.",2019,8.6,FALSE
+"Toba Samosir, Kab.",2020,8.71,FALSE
+"Toba Samosir, Kab.",2021,8.73,TRUE
+"Toba Samosir, Kab.",2022,8.75,TRUE
+"Toba Samosir, Kab.",2023,8.77,TRUE
+"Toba Samosir, Kab.",2024,8.79,TRUE
+"Tojo Una-Una, Kab.",2015,18.79,FALSE
+"Tojo Una-Una, Kab.",2016,18.56,FALSE
+"Tojo Una-Una, Kab.",2017,18.15,FALSE
+"Tojo Una-Una, Kab.",2018,18.27,FALSE
+"Tojo Una-Una, Kab.",2019,17.16,FALSE
+"Tojo Una-Una, Kab.",2020,16.39,FALSE
+"Tojo Una-Una, Kab.",2021,15.45,TRUE
+"Tojo Una-Una, Kab.",2022,14.51,TRUE
+"Tojo Una-Una, Kab.",2023,13.57,TRUE
+"Tojo Una-Una, Kab.",2024,12.63,TRUE
+"Toli-Toli, Kab.",2015,13.64,FALSE
+"Toli-Toli, Kab.",2016,13.47,FALSE
+"Toli-Toli, Kab.",2017,13.3,FALSE
+"Toli-Toli, Kab.",2018,13.66,FALSE
+"Toli-Toli, Kab.",2019,13.09,FALSE
+"Toli-Toli, Kab.",2020,12.85,FALSE
+"Toli-Toli, Kab.",2021,12.445,TRUE
+"Toli-Toli, Kab.",2022,12.04,TRUE
+"Toli-Toli, Kab.",2023,11.635,TRUE
+"Toli-Toli, Kab.",2024,11.23,TRUE
+"Tolikara, Kab.",2015,34,FALSE
+"Tolikara, Kab.",2016,33.63,FALSE
+"Tolikara, Kab.",2017,32.73,FALSE
+"Tolikara, Kab.",2018,33.14,FALSE
+"Tolikara, Kab.",2019,32.9,FALSE
+"Tolikara, Kab.",2020,32.04,FALSE
+"Tolikara, Kab.",2021,31.49,TRUE
+"Tolikara, Kab.",2022,30.94,TRUE
+"Tolikara, Kab.",2023,30.39,TRUE
+"Tolikara, Kab.",2024,29.84,TRUE
+"Tomohon, Kota",2015,6.78,FALSE
+"Tomohon, Kota",2016,6.56,FALSE
+"Tomohon, Kota",2017,6.47,FALSE
+"Tomohon, Kota",2018,5.95,FALSE
+"Tomohon, Kota",2019,5.62,FALSE
+"Tomohon, Kota",2020,5.6,FALSE
+"Tomohon, Kota",2021,5.425,TRUE
+"Tomohon, Kota",2022,5.25,TRUE
+"Tomohon, Kota",2023,5.075,TRUE
+"Tomohon, Kota",2024,4.9,TRUE
+"Toraja Utara, Kab.",2015,15.19,FALSE
+"Toraja Utara, Kab.",2016,14.57,FALSE
+"Toraja Utara, Kab.",2017,14.41,FALSE
+"Toraja Utara, Kab.",2018,13.37,FALSE
+"Toraja Utara, Kab.",2019,12.41,FALSE
+"Toraja Utara, Kab.",2020,12.01,FALSE
+"Toraja Utara, Kab.",2021,11.33,TRUE
+"Toraja Utara, Kab.",2022,10.65,TRUE
+"Toraja Utara, Kab.",2023,9.97,TRUE
+"Toraja Utara, Kab.",2024,9.29,TRUE
+"Trenggalek, Kab.",2015,13.39,FALSE
+"Trenggalek, Kab.",2016,13.24,FALSE
+"Trenggalek, Kab.",2017,12.96,FALSE
+"Trenggalek, Kab.",2018,12.02,FALSE
+"Trenggalek, Kab.",2019,10.98,FALSE
+"Trenggalek, Kab.",2020,11.62,FALSE
+"Trenggalek, Kab.",2021,11.42,TRUE
+"Trenggalek, Kab.",2022,11.22,TRUE
+"Trenggalek, Kab.",2023,11.02,TRUE
+"Trenggalek, Kab.",2024,10.82,TRUE
+"Tual, Kota",2015,24.9,FALSE
+"Tual, Kota",2016,24.74,FALSE
+"Tual, Kota",2017,24,FALSE
+"Tual, Kota",2018,23.42,FALSE
+"Tual, Kota",2019,22.68,FALSE
+"Tual, Kota",2020,22.51,FALSE
+"Tual, Kota",2021,22.055,TRUE
+"Tual, Kota",2022,21.6,TRUE
+"Tual, Kota",2023,21.145,TRUE
+"Tual, Kota",2024,20.69,TRUE
+"Tuban, Kab.",2015,17.08,FALSE
+"Tuban, Kab.",2016,17.14,FALSE
+"Tuban, Kab.",2017,16.87,FALSE
+"Tuban, Kab.",2018,15.31,FALSE
+"Tuban, Kab.",2019,14.58,FALSE
+"Tuban, Kab.",2020,15.91,FALSE
+"Tuban, Kab.",2021,16.21,TRUE
+"Tuban, Kab.",2022,16.51,TRUE
+"Tuban, Kab.",2023,16.81,TRUE
+"Tuban, Kab.",2024,17.11,TRUE
+"Tulang Bawang Barat, Kab.",2015,8.23,FALSE
+"Tulang Bawang Barat, Kab.",2016,8.4,FALSE
+"Tulang Bawang Barat, Kab.",2017,8.11,FALSE
+"Tulang Bawang Barat, Kab.",2018,8.1,FALSE
+"Tulang Bawang Barat, Kab.",2019,7.75,FALSE
+"Tulang Bawang Barat, Kab.",2020,7.39,FALSE
+"Tulang Bawang Barat, Kab.",2021,7.035,TRUE
+"Tulang Bawang Barat, Kab.",2022,6.68,TRUE
+"Tulang Bawang Barat, Kab.",2023,6.325,TRUE
+"Tulang Bawang Barat, Kab.",2024,5.97,TRUE
+"Tulang Bawang, Kab.",2015,10.25,FALSE
+"Tulang Bawang, Kab.",2016,10.2,FALSE
+"Tulang Bawang, Kab.",2017,10.09,FALSE
+"Tulang Bawang, Kab.",2018,9.7,FALSE
+"Tulang Bawang, Kab.",2019,9.35,FALSE
+"Tulang Bawang, Kab.",2020,9.33,FALSE
+"Tulang Bawang, Kab.",2021,9.145,TRUE
+"Tulang Bawang, Kab.",2022,8.96,TRUE
+"Tulang Bawang, Kab.",2023,8.775,TRUE
+"Tulang Bawang, Kab.",2024,8.59,TRUE
+"Tulungagung, Kab.",2015,8.57,FALSE
+"Tulungagung, Kab.",2016,8.23,FALSE
+"Tulungagung, Kab.",2017,8.04,FALSE
+"Tulungagung, Kab.",2018,7.27,FALSE
+"Tulungagung, Kab.",2019,6.74,FALSE
+"Tulungagung, Kab.",2020,7.33,FALSE
+"Tulungagung, Kab.",2021,7.36,TRUE
+"Tulungagung, Kab.",2022,7.39,TRUE
+"Tulungagung, Kab.",2023,7.42,TRUE
+"Tulungagung, Kab.",2024,7.45,TRUE
+"Wajo, Kab.",2015,7.66,FALSE
+"Wajo, Kab.",2016,7.47,FALSE
+"Wajo, Kab.",2017,7.38,FALSE
+"Wajo, Kab.",2018,7.5,FALSE
+"Wajo, Kab.",2019,6.91,FALSE
+"Wajo, Kab.",2020,6.95,FALSE
+"Wajo, Kab.",2021,6.675,TRUE
+"Wajo, Kab.",2022,6.4,TRUE
+"Wajo, Kab.",2023,6.125,TRUE
+"Wajo, Kab.",2024,5.85,TRUE
+"Wakatobi, Kab.",2015,16.88,FALSE
+"Wakatobi, Kab.",2016,16.46,FALSE
+"Wakatobi, Kab.",2017,16.19,FALSE
+"Wakatobi, Kab.",2018,14.85,FALSE
+"Wakatobi, Kab.",2019,14.75,FALSE
+"Wakatobi, Kab.",2020,14.31,FALSE
+"Wakatobi, Kab.",2021,14.04,TRUE
+"Wakatobi, Kab.",2022,13.77,TRUE
+"Wakatobi, Kab.",2023,13.5,TRUE
+"Wakatobi, Kab.",2024,13.23,TRUE
+"Waropen, Kab.",2015,31.41,FALSE
+"Waropen, Kab.",2016,31.25,FALSE
+"Waropen, Kab.",2017,30.82,FALSE
+"Waropen, Kab.",2018,30.53,FALSE
+"Waropen, Kab.",2019,30.95,FALSE
+"Waropen, Kab.",2020,29.54,FALSE
+"Waropen, Kab.",2021,29.045,TRUE
+"Waropen, Kab.",2022,28.55,TRUE
+"Waropen, Kab.",2023,28.055,TRUE
+"Waropen, Kab.",2024,27.56,TRUE
+"Way Kanan, Kab.",2015,14.61,FALSE
+"Way Kanan, Kab.",2016,14.58,FALSE
+"Way Kanan, Kab.",2017,14.06,FALSE
+"Way Kanan, Kab.",2018,13.52,FALSE
+"Way Kanan, Kab.",2019,13.07,FALSE
+"Way Kanan, Kab.",2020,12.9,FALSE
+"Way Kanan, Kab.",2021,12.59,TRUE
+"Way Kanan, Kab.",2022,12.28,TRUE
+"Way Kanan, Kab.",2023,11.97,TRUE
+"Way Kanan, Kab.",2024,11.66,TRUE
+"Wonogiri, Kab.",2015,12.98,FALSE
+"Wonogiri, Kab.",2016,13.12,FALSE
+"Wonogiri, Kab.",2017,12.9,FALSE
+"Wonogiri, Kab.",2018,10.75,FALSE
+"Wonogiri, Kab.",2019,10.25,FALSE
+"Wonogiri, Kab.",2020,10.86,FALSE
+"Wonogiri, Kab.",2021,10.915,TRUE
+"Wonogiri, Kab.",2022,10.97,TRUE
+"Wonogiri, Kab.",2023,11.025,TRUE
+"Wonogiri, Kab.",2024,11.08,TRUE
+"Wonosobo, Kab.",2015,21.45,FALSE
+"Wonosobo, Kab.",2016,20.53,FALSE
+"Wonosobo, Kab.",2017,20.32,FALSE
+"Wonosobo, Kab.",2018,17.58,FALSE
+"Wonosobo, Kab.",2019,16.63,FALSE
+"Wonosobo, Kab.",2020,17.36,FALSE
+"Wonosobo, Kab.",2021,17.25,TRUE
+"Wonosobo, Kab.",2022,17.14,TRUE
+"Wonosobo, Kab.",2023,17.03,TRUE
+"Wonosobo, Kab.",2024,16.92,TRUE
+"Yahukimo, Kab.",2015,41.26,FALSE
+"Yahukimo, Kab.",2016,40.62,FALSE
+"Yahukimo, Kab.",2017,39.33,FALSE
+"Yahukimo, Kab.",2018,39.25,FALSE
+"Yahukimo, Kab.",2019,38.82,FALSE
+"Yahukimo, Kab.",2020,37.34,FALSE
+"Yahukimo, Kab.",2021,36.385,TRUE
+"Yahukimo, Kab.",2022,35.43,TRUE
+"Yahukimo, Kab.",2023,34.475,TRUE
+"Yahukimo, Kab.",2024,33.52,TRUE
+"Yalimo, Kab.",2015,35.88,FALSE
+"Yalimo, Kab.",2016,35.8,FALSE
+"Yalimo, Kab.",2017,34.97,FALSE
+"Yalimo, Kab.",2018,35.45,FALSE
+"Yalimo, Kab.",2019,34.52,FALSE
+"Yalimo, Kab.",2020,32.82,FALSE
+"Yalimo, Kab.",2021,31.505,TRUE
+"Yalimo, Kab.",2022,30.19,TRUE
+"Yalimo, Kab.",2023,28.875,TRUE
+"Yalimo, Kab.",2024,27.56,TRUE
+"Yogyakarta, Kota",2015,8.75,FALSE
+"Yogyakarta, Kota",2016,7.7,FALSE
+"Yogyakarta, Kota",2017,7.64,FALSE
+"Yogyakarta, Kota",2018,6.98,FALSE
+"Yogyakarta, Kota",2019,6.84,FALSE
+"Yogyakarta, Kota",2020,7.27,FALSE
+"Yogyakarta, Kota",2021,7.415,TRUE
+"Yogyakarta, Kota",2022,7.56,TRUE
+"Yogyakarta, Kota",2023,7.705,TRUE
+"Yogyakarta, Kota",2024,7.85,TRUE

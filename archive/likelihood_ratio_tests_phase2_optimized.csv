@@ -1,0 +1,5 @@
+"Hypothesis","LR","df","p_value","significant"
+"H1: Violence effect",24.405029628957,1,7.80646185916112e-07,TRUE
+"H2: Fatality effect",2.11124049861974,1,0.146220744550682,FALSE
+"H3: State intervention",26.1771099558682,1,3.11493078886116e-07,TRUE
+"Full model vs baseline",-7791.02801602527,3,1,FALSE

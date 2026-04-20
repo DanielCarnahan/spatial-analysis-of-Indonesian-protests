@@ -1,0 +1,7 @@
+"Parameter","Estimate","Interpretation"
+"mu",0.001,"Background rate (spontaneous events)"
+"K",0.2,"Productivity (triggering strength)"
+"c",0.5,"Temporal offset (days)"
+"p",1.2,"Temporal power-law decay"
+"d",5,"Spatial scale (km²)"
+"q",1.2,"Spatial power-law decay"

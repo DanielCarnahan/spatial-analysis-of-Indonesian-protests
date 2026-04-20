@@ -1,0 +1,148 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.3.0
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Warning messages:
+1: package ‘ggplot2’ was built under R version 4.3.3 
+2: package ‘tibble’ was built under R version 4.3.3 
+3: package ‘purrr’ was built under R version 4.3.3 
+4: package ‘lubridate’ was built under R version 4.3.3 
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║           UNIFIED MODEL ESTIMATION: PROTEST DIFFUSION                    ║
+╚══════════════════════════════════════════════════════════════════════════╝
+
+Using jitter scale from command line: 2.0
+=== LOADING DATA ===
+
+Jitter scale: 2.0 days (same-day events spread over 0-2.0)
+Events: 12576 total (1979 severe, 10597 peaceful)
+Period: 3590 days (9.8 years)
+Date range: 2015-01-01 to 2024-10-27
+
+=== BUILDING FULL INTEGRATION GRID ===
+
+Warning message:
+There was 1 warning in `mutate()`.
+ℹ In argument: `population = as.numeric(population)`.
+Caused by warning:
+! NAs introduced by coercion 
+Full integration grid: 60358 district-months
+  Districts: 514
+  Months: 118
+
+Covariate ranges:
+  log_pop: 10.01 to 15.70 (mean: 13.41)
+  poverty: 0.017 to 0.437 (mean: 0.096)
+  log_cpi: 4.587 to 4.875 (mean: 4.794)
+
+╔══════════════════════════════════════════════════════════════╗
+║  MODEL 0: POISSON (Background Only)                         ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+Empirical rate: 0.006845 per district-day (2.50 per district-year)
+Grid mean log_pop: 12.63, poverty: 0.122, log_cpi: 4.741
+Starting β₀: -4.98
+
+Running multi-start optimization...
+  Start 1/3... LL=-68947.7, conv=0
+  Start 2/3... LL=-68951.5, conv=0
+  Start 3/3... LL=-68953.6, conv=0
+
+Model 0 Results:
+  Log-likelihood: -68947.70
+  β₀ = -9.0612
+  γ (population) = 0.6630
+  δ (poverty) = -2.4999
+  ζ (log_cpi) = -1.1580
+
+╔══════════════════════════════════════════════════════════════╗
+║  MODEL 1: UNIVARIATE HAWKES                                 ║
+╚══════════════════════════════════════════════════════════════╝
+
+Running multi-start optimization...
+  Start 1/10... LL=6719.4, conv=0
+  Start 2/10... LL=6719.6, conv=0
+  Start 3/10... LL=6719.6, conv=0
+  Start 4/10... LL=6719.6, conv=0
+  Start 5/10... LL=6718.8, conv=0
+  Start 6/10... LL=6719.3, conv=0
+  Start 7/10... LL=6719.5, conv=0
+  Start 8/10... LL=6719.5, conv=0
+  Start 9/10... LL=6718.7, conv=0
+  Start 10/10... LL=6719.7, conv=0
+
+Model 1 Results:
+  Log-likelihood: 6719.65
+  Convergence code: 0
+  γ (population) = 2.9751
+  δ (poverty) = -9.4192
+  ζ (log_cpi) = -8.1034
+  α (triggering) = 0.4069
+  β (decay) = 0.4067 (half-life = 1.70 days)
+  Branching ratio = 1.0004
+  ⚠️  WARNING: Branching ratio > 0.9 (near-critical process)
+
+╔══════════════════════════════════════════════════════════════╗
+║  MODEL 2: BIVARIATE HAWKES - SKIPPED                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+╔══════════════════════════════════════════════════════════════╗
+║  MODEL COMPARISON                                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Model fit summary:
+─────────────────────────────────────────────────────────────────
+Model                        Log-Lik   Params          AIC          BIC
+─────────────────────────────────────────────────────────────────
+M0: Poisson                 -68947.7       13     137921.4     138018.1
+M1: Univariate Hawkes         6719.7       15     -13409.3     -13297.7
+─────────────────────────────────────────────────────────────────
+
+Likelihood Ratio Tests:
+─────────────────────────────────────────────────────────────────
+Test 1: M1 vs M0 (Does triggering exist?)
+  LR statistic: 151334.70, df: 2, p-value: 0.00e+00
+  *** SIGNIFICANT: Self-excitation improves fit ***
+
+╔══════════════════════════════════════════════════════════════╗
+║  SAVING RESULTS                                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Saved: model_results_jitter_2.0.rds
+
+╔══════════════════════════════════════════════════════════════╗
+║  SUMMARY                                                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Configuration: Jitter scale = 2.0 days
+─────────────────────────────────────────────────────────────────
+
+KEY FINDINGS:
+─────────────────────────────────────────────────────────────────
+
+1. COVARIATE EFFECTS (from univariate Hawkes model):
+   γ (population): 2.9751
+   δ (poverty): -9.4192 → higher poverty associated with LOWER protest rates
+   ζ (log_cpi): -8.1034 → higher prices associated with FEWER protests
+
+2. TRIGGERING (univariate model):
+   α (triggering rate): 0.4069
+   β (decay rate): 0.4067
+   Half-life: 1.70 days (40.9 hours)
+   Branching ratio: 1.0004
+   ⚠️  Near-critical process (branching ratio > 0.9)
+
+3. MODEL SELECTION:
+   Best model by BIC: Univariate Hawkes
+
+╔══════════════════════════════════════════════════════════════╗
+║  ESTIMATION COMPLETE                                         ║
+╚══════════════════════════════════════════════════════════════╝

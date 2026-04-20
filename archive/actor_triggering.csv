@@ -1,0 +1,6 @@
+"condition","mean_triggered","median_triggered","sd_triggered","n_focal","actor"
+"actor1 == 'Protesters (Indonesia)'",10.3,3,16.0719200230231,500,"Protesters (Indonesia)"
+"actor1 == 'Rioters (Indonesia)'",5.766,2,11.8946293938413,500,"Rioters (Indonesia)"
+"actor1 == 'Protesters (Afghanistan)'",10.0666666666667,6,11.2227697917115,90,"Protesters (Afghanistan)"
+"actor1 == 'Protesters (International)'",20.2758620689655,12,19.9210881654236,29,"Protesters (International)"
+"actor1 == 'Protesters (Myanmar)'",17,13.5,14.9888847706114,4,"Protesters (Myanmar)"

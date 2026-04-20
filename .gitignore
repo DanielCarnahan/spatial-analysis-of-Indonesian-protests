@@ -1,0 +1,40 @@
+# macOS
+.DS_Store
+
+# R
+.Rhistory
+.Rapp.history
+.RData
+.Ruserdata
+
+# knitr / rmarkdown caches and intermediates
+*_cache/
+*_files/
+reproducible_analysis.log
+reproducible_analysis.tex
+reproducible_analysis_files/
+reproducible_analysis_cache/
+
+# LaTeX intermediates
+*.aux
+*.out
+*.nav
+*.snm
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Model fit state — huge, regeneratable
+checkpoints_*/
+
+# Large model outputs (>10 MB)
+model_results_discrete_hawkes.rds
+model_results_identity_hawkes.rds
+
+# Stray top-level plot file
+Rplots.pdf
+
+# Unused GADM shapefile levels (>50 MB; Rmd only reads level 2)
+/Indonesian district-level shapefile copy 2/gadm41_IDN_3.*
+/Indonesian district-level shapefile copy 2/gadm41_IDN_4.*

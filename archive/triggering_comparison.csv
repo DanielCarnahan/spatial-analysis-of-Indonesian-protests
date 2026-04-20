@@ -1,0 +1,9 @@
+"condition","mean_triggered","median_triggered","sd_triggered","n_focal"
+"is_violent == TRUE",6.586,2,12.2851313751955,500
+"is_peaceful == TRUE",8.774,3,13.3872087724602,500
+"fatalities > 0",3.73026315789473,1,9.30994653937663,152
+"fatalities == 0",9.482,3,14.1555089228799,500
+"state_intervention == TRUE",5.728,2,10.0039078536685,500
+"state_intervention == FALSE",9.518,3,14.9398820662114,500
+"event_type == 'Riots'",6.35,2,12.0161672988148,500
+"event_type == 'Protests'",11.492,4,17.5637954275162,500

@@ -1,0 +1,80 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+Compiling C++ likelihood function...
+✓ C++ compiled
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   HAWKES MODEL WITHOUT POVERTY (SIMPLIFIED)                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+SPECIFICATION:
+  Background: μ(d,y) = exp(β₀ + γ·log(pop) + Σ β_year)
+             (poverty effect δ REMOVED for better identification)
+  Triggering: α(marks) = exp(β₀_trig + β_riot + β_fatal + β_student + β_labor)
+  Kernel: g(t) = exp(-β·t)
+  Intensity: λ(t) = μ(d,y) + Σ α(marks_i)·g(t-t_i)
+
+DIAGNOSTIC MOTIVATION:
+  → Poverty had SE = 33.15, p = 0.97 (completely non-significant)
+  → Contributed to 9/18 negative eigenvalues in Hessian
+  → Dropping poverty: smallest change to fix identification issues
+
+✓ Parameter transformations defined
+✓ Created checkpoint directory: checkpoints_model_no_poverty
+
+=== LOADING DATA ===
+Loaded 15914 events
+Time range: 2015 to 2024 
+✓ Using full dataset: 15914 events across 10 years
+Poverty data coverage: 15914 (100.0%) [not used in model]
+Using complete cases: 15914 events (100.0% of total)
+Riot events: 1411 (8.9%)
+Events with fatalities: 151 (0.9%)
+Student-led events: 5026 (31.6%)
+Labor-led events: 3429 (21.5%)
+
+=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===
+Found 2384 unique district-year combinations
+Observation period: 3587.0 days (9.82 years)
+
+=== IMPLEMENTING MODEL WITHOUT POVERTY ===
+
+=== PREPARING DATA FOR ESTIMATION ===
+Sample size: 15914 events
+District-years: 2384
+✓ Ready for optimization
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   FITTING MODEL WITHOUT POVERTY                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+--- Fitting Model WITHOUT Poverty (Simplified) ---
+Using MULTI-START optimization with 5 starting points
+Starting fresh optimization...
+
+=== MULTI-START OPTIMIZATION (5 starts) ===
+
+--- Start 1/5: Data-driven ---
+  Initial: γ=0.130, δ=FIXED(0)
+  → LL: -78693.15 | γ=0.0235 | Conv: 0 | Time: 25.2 min
+
+--- Start 2/5: Conservative ---
+  Initial: γ=0.200, δ=FIXED(0)
+  → LL: -78696.95 | γ=0.0198 | Conv: 0 | Time: 1031.2 min
+
+--- Start 3/5: Proportional ---
+  Initial: γ=0.800, δ=FIXED(0)

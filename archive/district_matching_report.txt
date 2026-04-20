@@ -1,0 +1,66 @@
+DISTRICT MATCHING REPORT (SPATIAL MATCHING)
+Generated: 2025-11-04 16:34:57.388654 
+
+====================================================================== 
+
+SPATIAL MATCHING METHOD
+
+Used GADM 4.1 shapefile (Level 2: districts/regencies) to spatially
+match protest coordinates to official admin boundaries, then matched
+GADM names to population CSV format.
+
+This correctly distinguishes Kota (city) from Kabupaten (regency)
+for the 27 districts with both versions (e.g., Bandung, Kota vs Bandung, Kab.)
+
+SUMMARY STATISTICS
+
+Total protests: 16467
+  With coordinates: 16467
+  Spatially matched: 16445 (99.9%)
+  Matched to population: 15914 (96.6%)
+  Final dataset: 15914 protests (96.6% retention)
+  Dropped: 553 protests (3.4%)
+
+UNMATCHED PROTESTS
+
+admin2 n
+Kendari 156
+Pangkalpinang 66
+Palangka Raya 65
+Tanjung Pinang 46
+Tarakan 32
+Pematang Siantar 27
+Mandailing Natal 17
+Tambrauw 17
+Tidore Kepulauan 13
+Labuhan Batu 11
+Padang Sidempuan 11
+Paser 11
+Tanjung Balai 11
+West Tanjung Jabung 11
+Pangkajene and Islands 10
+Banyu Asin 7
+Makassar 7
+Tulang Bawang 5
+East Tanjung Jabung 4
+North Labuhan Batu 4
+Gunungsitoli 2
+Tebing Tinggi 2
+Aceh Tamiang 1
+Balikpapan 1
+Bangka 1
+Bintan 1
+Central Maluku 1
+East Seram Bagian 1
+Lima Puluh 1
+Mempawah 1
+North Lombok 1
+Probolinggo 1
+Raja Ampat 1
+Rokan Hilir 1
+Sitaro Islands 1
+South Manokwari 1
+Takalar 1
+Tanggamus 1
+Teluk Wondama 1
+Thousand Islands 1

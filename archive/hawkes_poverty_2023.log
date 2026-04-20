@@ -1,0 +1,352 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+Compiling C++ likelihood function...
+✓ C++ compiled
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   HAWKES MODEL WITH POVERTY RATE COVARIATE                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+SPECIFICATION:
+  Background: μ(d,y) = exp(β₀ + γ·log(pop) + δ·poverty_decimal + Σ β_year)
+             (poverty_decimal = poverty_rate/100, range 0.017-0.437)
+  Triggering: α(marks) = exp(β₀_trig + β_violence·violent + β_state·intervention)
+  Kernel: g(t) = exp(-β·t)
+  Intensity: λ(t) = μ(d,y) + Σ α(marks_i)·g(t-t_i)
+
+HYPOTHESIS:
+  → Larger districts have lower poverty (cor = -0.480)
+  → If poverty explains sub-proportional effect, γ should increase
+  → Baseline γ ≈ 0.35, with poverty expect γ ≈ 0.6-1.0
+
+✓ Parameter transformations verified
+✓ Created checkpoint directory: checkpoints_model_poverty
+
+=== LOADING DATA WITH POVERTY ===
+Loaded 15914 events with poverty data
+Time range: 2015 to 2024 
+⚠ SINGLE-YEAR MODE: Filtered to 2023 only (3146 events)
+Poverty data coverage: 3146 (100.0%)
+
+Poverty rate summary (rescaled to decimal):
+  Mean: 0.0909 (9.09%)
+  Median: 0.0765 (7.65%)
+  Range: 0.0199 to 0.3916 (1.99% to 39.16%)
+
+Correlation (log(pop) vs poverty): -0.399
+  ✓ Low to moderate correlation
+
+Using complete cases: 3146 events (100.0% of total)
+Violent events: 264 (8.4%)
+Events with state intervention: 124 (3.9%)
+
+=== CALCULATING DISTRICT-YEAR OBSERVATION TIMES ===
+Found 353 unique district-year combinations
+Observation period: 363.0 days (0.99 years)
+
+=== IMPLEMENTING MODEL WITH POVERTY ===
+
+=== PREPARING DATA FOR ESTIMATION ===
+Sample size: 3146 events
+District-years: 353
+Skipping time matrix pre-computation (C++ handles this)...
+✓ Ready for optimization
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   FITTING MODEL WITH POVERTY RATE                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+
+--- Fitting Model with Poverty Rate (Multi-Start) ---
+Using MULTI-START optimization with 5 starting points
+Starting fresh optimization...
+
+=== MULTI-START OPTIMIZATION (5 starts) ===
+
+--- Start 1/5: Data-driven ---
+  Initial: γ=0.350, δ=0.000
+  → LL: -28453.58 | γ=0.6595, δ=-10.4136 | Conv: 0 | Time: 1.0 min
+
+--- Start 2/5: Conservative ---
+  Initial: γ=0.200, δ=0.500
+  → LL: -28453.58 | γ=0.6596, δ=-10.4141 | Conv: 0 | Time: 0.9 min
+
+--- Start 3/5: Proportional ---
+  Initial: γ=0.800, δ=0.200
+  → LL: -28453.58 | γ=0.6595, δ=-10.4135 | Conv: 0 | Time: 1.3 min
+
+--- Start 4/5: Negative-poverty ---
+  Initial: γ=0.500, δ=-0.500
+  → LL: -28453.58 | γ=0.6595, δ=-10.4135 | Conv: 0 | Time: 0.9 min
+
+--- Start 5/5: High-poverty ---
+  Initial: γ=0.250, δ=1.000
+  → LL: -28453.58 | γ=0.6595, δ=-10.4136 | Conv: 0 | Time: 1.2 min
+
+╔══════════════════════════════════════════════════════════════╗
+║  BEST START: Conservative (LL=-28453.58)
+╚══════════════════════════════════════════════════════════════╝
+
+Re-running best initialization with full tracking...
+
+    💾 Checkpoint 1: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 1]
+
+    💾 Checkpoint 2: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 2]
+
+    💾 Checkpoint 3: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 3]
+
+    💾 Checkpoint 4: LL=-28453.61 (best: -28453.58) | γ=0.6601 δ=-10.4141
+    LL: -28453.61 | γ=0.6601 δ=-10.4141 [eval 4]
+
+    💾 Checkpoint 5: LL=-28453.61 (best: -28453.58) | γ=0.6592 δ=-10.4141
+    LL: -28453.61 | γ=0.6592 δ=-10.4141 [eval 5]
+
+    💾 Checkpoint 6: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4068
+    LL: -28453.58 | γ=0.6596 δ=-10.4068 [eval 6]
+
+    💾 Checkpoint 7: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4214
+    LL: -28453.58 | γ=0.6596 δ=-10.4214 [eval 7]
+
+    💾 Checkpoint 8: LL=-28467.83 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28467.83 | γ=0.6596 δ=-10.4141 [eval 8]
+
+    💾 Checkpoint 9: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 9]
+
+    💾 Checkpoint 10: LL=-28453.62 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.62 | γ=0.6596 δ=-10.4141 [eval 10]
+
+    💾 Checkpoint 11: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 11]
+
+    💾 Checkpoint 12: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 12]
+
+    💾 Checkpoint 13: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 13]
+
+    💾 Checkpoint 14: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 14]
+
+    💾 Checkpoint 15: LL=-28460.04 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28460.04 | γ=0.6596 δ=-10.4141 [eval 15]
+
+    💾 Checkpoint 16: LL=-29202.69 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.69 | γ=0.5695 δ=-10.4630 [eval 16]
+
+    💾 Checkpoint 17: LL=-29201.85 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29201.85 | γ=0.5695 δ=-10.4630 [eval 17]
+
+    💾 Checkpoint 18: LL=-29203.53 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29203.53 | γ=0.5695 δ=-10.4630 [eval 18]
+
+    💾 Checkpoint 19: LL=-29198.01 (best: -28453.58) | γ=0.5699 δ=-10.4630
+    LL: -29198.01 | γ=0.5699 δ=-10.4630 [eval 19]
+
+    💾 Checkpoint 20: LL=-29207.36 (best: -28453.58) | γ=0.5691 δ=-10.4630
+    LL: -29207.36 | γ=0.5691 δ=-10.4630 [eval 20]
+
+    💾 Checkpoint 21: LL=-29202.25 (best: -28453.58) | γ=0.5695 δ=-10.4558
+    LL: -29202.25 | γ=0.5695 δ=-10.4558 [eval 21]
+
+    💾 Checkpoint 22: LL=-29203.13 (best: -28453.58) | γ=0.5695 δ=-10.4703
+    LL: -29203.13 | γ=0.5695 δ=-10.4703 [eval 22]
+
+    💾 Checkpoint 23: LL=-29216.22 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29216.22 | γ=0.5695 δ=-10.4630 [eval 23]
+
+    💾 Checkpoint 24: LL=-29202.69 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.69 | γ=0.5695 δ=-10.4630 [eval 24]
+
+    💾 Checkpoint 25: LL=-29202.72 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.72 | γ=0.5695 δ=-10.4630 [eval 25]
+
+    💾 Checkpoint 26: LL=-29202.69 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.69 | γ=0.5695 δ=-10.4630 [eval 26]
+
+    💾 Checkpoint 27: LL=-29202.69 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.69 | γ=0.5695 δ=-10.4630 [eval 27]
+
+    💾 Checkpoint 28: LL=-29202.69 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.69 | γ=0.5695 δ=-10.4630 [eval 28]
+
+    💾 Checkpoint 29: LL=-29202.69 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29202.69 | γ=0.5695 δ=-10.4630 [eval 29]
+
+    💾 Checkpoint 30: LL=-29208.30 (best: -28453.58) | γ=0.5695 δ=-10.4630
+    LL: -29208.30 | γ=0.5695 δ=-10.4630 [eval 30]
+
+    💾 Checkpoint 31: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 31]
+
+    💾 Checkpoint 32: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 32]
+
+    💾 Checkpoint 33: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 33]
+
+    💾 Checkpoint 34: LL=-28453.61 (best: -28453.58) | γ=0.6601 δ=-10.4141
+    LL: -28453.61 | γ=0.6601 δ=-10.4141 [eval 34]
+
+    💾 Checkpoint 35: LL=-28453.61 (best: -28453.58) | γ=0.6592 δ=-10.4141
+    LL: -28453.61 | γ=0.6592 δ=-10.4141 [eval 35]
+
+    💾 Checkpoint 36: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4068
+    LL: -28453.58 | γ=0.6596 δ=-10.4068 [eval 36]
+
+    💾 Checkpoint 37: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4214
+    LL: -28453.58 | γ=0.6596 δ=-10.4214 [eval 37]
+
+    💾 Checkpoint 38: LL=-28467.83 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28467.83 | γ=0.6596 δ=-10.4141 [eval 38]
+
+    💾 Checkpoint 39: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 39]
+
+    💾 Checkpoint 40: LL=-28453.62 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.62 | γ=0.6596 δ=-10.4141 [eval 40]
+
+    💾 Checkpoint 41: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 41]
+
+    💾 Checkpoint 42: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 42]
+
+    💾 Checkpoint 43: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 43]
+
+    💾 Checkpoint 44: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 44]
+
+    💾 Checkpoint 45: LL=-28460.04 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28460.04 | γ=0.6596 δ=-10.4141 [eval 45]
+
+    💾 Checkpoint 46: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 46]
+
+    💾 Checkpoint 47: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 47]
+
+    💾 Checkpoint 48: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 48]
+
+    💾 Checkpoint 49: LL=-28453.61 (best: -28453.58) | γ=0.6601 δ=-10.4141
+    LL: -28453.61 | γ=0.6601 δ=-10.4141 [eval 49]
+
+    💾 Checkpoint 50: LL=-28453.61 (best: -28453.58) | γ=0.6592 δ=-10.4141
+    LL: -28453.61 | γ=0.6592 δ=-10.4141 [eval 50]
+
+    💾 Checkpoint 51: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4068
+    LL: -28453.58 | γ=0.6596 δ=-10.4068 [eval 51]
+
+    💾 Checkpoint 52: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4214
+    LL: -28453.58 | γ=0.6596 δ=-10.4214 [eval 52]
+
+    💾 Checkpoint 53: LL=-28467.83 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28467.83 | γ=0.6596 δ=-10.4141 [eval 53]
+
+    💾 Checkpoint 54: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 54]
+
+    💾 Checkpoint 55: LL=-28453.62 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.62 | γ=0.6596 δ=-10.4141 [eval 55]
+
+    💾 Checkpoint 56: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 56]
+
+    💾 Checkpoint 57: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 57]
+
+    💾 Checkpoint 58: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 58]
+
+    💾 Checkpoint 59: LL=-28453.58 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28453.58 | γ=0.6596 δ=-10.4141 [eval 59]
+
+    💾 Checkpoint 60: LL=-28460.04 (best: -28453.58) | γ=0.6596 δ=-10.4141
+    LL: -28460.04 | γ=0.6596 δ=-10.4141 [eval 60]
+final  value 28453.582800 
+converged
+
+  ✓ Optimization complete in 5.32 minutes
+  Log-likelihood: -28453.58
+  Convergence: 0
+  Final γ: 0.6596
+  Final δ: -10.4141
+✓ Final checkpoint saved: checkpoints_model_poverty/model-MODEL_POVERTY-FINAL.rds
+
+  Cleaned up 60 intermediate checkpoints
+
+
+╔══════════════════════════════════════════════════════════════╗
+║         MODEL WITH POVERTY RESULTS                           ║
+╚══════════════════════════════════════════════════════════════╝
+
+MODEL FIT:
+  Log-likelihood: -28453.58
+  AIC: 56939.17
+  BIC: 57036.03
+  Parameters: 16
+  Runtime: 5.32 minutes
+  Best starting point: Conservative
+
+MULTI-START COMPARISON:
+-----------------------
+  1. Data-driven        LL=-28453.58 | γ=0.6595, δ=-10.4136 | Conv=0 | 1.0 min
+★ 2. Conservative       LL=-28453.58 | γ=0.6596, δ=-10.4141 | Conv=0 | 0.9 min
+  3. Proportional       LL=-28453.58 | γ=0.6595, δ=-10.4135 | Conv=0 | 1.3 min
+  4. Negative-poverty   LL=-28453.58 | γ=0.6595, δ=-10.4135 | Conv=0 | 0.9 min
+  5. High-poverty       LL=-28453.58 | γ=0.6595, δ=-10.4136 | Conv=0 | 1.2 min
+
+BACKGROUND RATE PARAMETERS:
+---------------------------
+  β₀ (baseline): -11.9157
+  γ (population elasticity): 0.6596 ★
+    → Interpretation: 10× population → 4.6× more protests
+  δ (poverty effect): -10.4141 ★
+    → Interpretation: +0.01 poverty (1%) → 0.901× more protests
+    → Or equivalently: +0.10 poverty (10%) → 0.353× more protests
+    → Lower poverty → MORE protests (unexpected!)
+
+  INTERPRETATION:
+  → γ increased from baseline (0.35), suggesting poverty partially
+    explains the sub-proportional population effect
+
+YEAR EFFECTS (relative to 2015):
+
+TRIGGERING PARAMETERS:
+----------------------
+  β₀_trig: -5.0000
+  β_violence: -3.0000 (exp = 0.050)
+  β_state: -3.0000 (exp = 0.050)
+  Decay: 2.0000 (half-life = 0.3 days)
+
+✓ Saved: model_poverty.rds
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL WITH POVERTY ESTIMATION COMPLETE                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+NEXT STEPS:
+-----------
+1. Compare AIC/BIC with baseline Model B (17_model_comparison.R)
+2. Check if poverty explains population effect (γ increased?)
+3. Residual analysis to validate improved fit
+4. Consider interaction terms if needed
+

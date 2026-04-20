@@ -1,0 +1,3 @@
+"Hypothesis","LR","df","p_value","significant"
+"H2: Marks persist after space",0.0354153189164208,2,0.982448199819925,FALSE
+"H3: Spatial-mark interaction",-269.327461724309,1,1,FALSE

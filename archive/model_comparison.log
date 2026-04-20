@@ -1,0 +1,120 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL COMPARISON: LIKELIHOOD RATIO TESTS                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+=== LOADING MODEL RESULTS ===
+✓ Model 0 (Poisson): LL = -112980.7 | k = 12 
+✓ Model 1 (Basic Hawkes): LL = -79441.39 | k = 14 
+✓ Model 2 (Hawkes with marks): LL = -78693.63 | k = 18 
+
+╔══════════════════════════════════════════════════════════════╗
+║   KEY FINDING: MODEL 1 (BASIC HAWKES) ANALYSIS               ║
+╚══════════════════════════════════════════════════════════════╝
+
+Model 1 specification:
+  λ(t) = μ(background) + α·exp(-β·Δt)
+  where α is CONSTANT (no mark dependence)
+
+RESULT: Model 1 converged to α ≈ 0
+  • Base triggering: α = 0.0000 (essentially zero)
+  • Log-likelihood: -79441.39 
+  • Better than Poisson, worse than Model 2
+
+INTERPRETATION:
+  The optimizer chose minimal triggering effect, suggesting that
+  a UNIFORM triggering rate does not adequately capture protest
+  contagion. Instead, the data require HETEROGENEOUS triggering
+  where different protest types have different contagion effects.
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL COMPARISON TABLE                                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+                   Model     LogLik  k      AIC      BIC
+        Model 0: Poisson -112980.68 12 225985.4 226077.5
+   Model 1: Basic Hawkes  -79441.39 14 158910.8 159018.2
+ Model 2: Hawkes + Marks  -78693.63 18 157423.3 157561.4
+
+Best by log-likelihood: Model 2: Hawkes + Marks 
+Best by AIC: Model 2: Hawkes + Marks 
+Best by BIC: Model 2: Hawkes + Marks 
+
+Δ AIC (Model 1 vs Model 0): -67074.58 
+Δ AIC (Model 2 vs Model 1): -1487.53 
+Δ AIC (Model 2 vs Model 0): -68562.11 
+
+╔══════════════════════════════════════════════════════════════╗
+║   LR TEST 1: MODEL 1 VS MODEL 0                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Testing: H₀: Model 0 (Poisson) is adequate
+         H₁: Model 1 (Basic Hawkes) improves fit
+
+Test statistic:
+  LR = 2(ℓ₁ - ℓ₀)
+     = 2(-79441.39 - -112980.7)
+     = 67078.58 
+
+Degrees of freedom: 2 
+  (Model 1 adds 2 parameters: β₀_trig, β_decay)
+
+Distribution under H₀: χ²(2)
+
+p-value: <2e-16 
+
+✓ REJECT H₀ at α = 0.001 level
+  → Strong evidence for self-excitation (triggering exists)
+
+╔══════════════════════════════════════════════════════════════╗
+║   LR TEST 2: MODEL 2 VS MODEL 1                              ║
+╚══════════════════════════════════════════════════════════════╝
+
+Testing: H₀: Model 1 (constant triggering) is adequate
+         H₁: Model 2 (mark-dependent triggering) improves fit
+
+Test statistic:
+  LR = 2(ℓ₂ - ℓ₁)
+     = 2(-78693.63 - -79441.39)
+     = 1495.53 
+
+Degrees of freedom: 4 
+  (Model 2 adds 4 mark effect parameters)
+
+Distribution under H₀: χ²(4)
+
+p-value: <2e-16 
+
+✓ REJECT H₀ at α = 0.001 level
+  → Strong evidence that mark effects improve model
+
+╔══════════════════════════════════════════════════════════════╗
+║   LR TEST 3: MODEL 2 VS MODEL 0 (OVERALL)                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+Testing: H₀: Model 0 (Poisson) is adequate
+         H₁: Model 2 (Hawkes with marks) improves fit
+
+LR = 68574.11 | df = 6 | p-value: <2e-16 
+
+✓ REJECT H₀ at α = 0.001 level
+  → Strong overall evidence for self-excitation + mark effects
+
+╔══════════════════════════════════════════════════════════════╗
+║   INTERPRETATION                                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+MODEL SELECTION:
+Error: object 'lr_stat' not found
+Execution halted

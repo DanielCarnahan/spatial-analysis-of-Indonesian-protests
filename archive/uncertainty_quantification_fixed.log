@@ -1,0 +1,169 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+Compiling C++ likelihood function...
+✓ C++ compiled
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   UNCERTAINTY QUANTIFICATION FOR HAWKES MODEL                ║
+╚══════════════════════════════════════════════════════════════╝
+
+=== LOADING FITTED MODEL ===
+Loaded model with LL = -78693.63
+Parameters: 18
+Runtime: 205.3 minutes
+
+=== RELOADING DATA ===
+Loaded 15914 events
+District-years: 2297
+✓ Data reloaded
+
+=== COMPUTING HESSIAN MATRIX ===
+This may take several minutes...
+
+Computing Hessian (this takes ~5-10 minutes)...
+✓ Hessian computed in 8.4 minutes
+  Dimension: 18 x 18
+
+⚠ Warning: Hessian has negative eigenvalues
+  Minimum eigenvalue: -3.074723
+Warning message:
+In sqrt(diag(vcov_matrix)) : NaNs produced
+
+=== COMPUTING STANDARD ERRORS (DELTA METHOD) ===
+
+✓ Standard errors computed
+
+=== INDIVIDUAL PARAMETER HYPOTHESIS TESTS ===
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   PARAMETER ESTIMATES WITH STANDARD ERRORS                   ║
+╚══════════════════════════════════════════════════════════════╝
+
+                     Parameter   Estimate        SE     z_stat    p_value
+                 β₀ (baseline) -14.875252       NaN        NaN        NaN
+                γ (population)   0.126602       NaN        NaN        NaN
+                   δ (poverty)   1.251961 3.315e+01  3.777e-02  9.699e-01
+                        β_2016  -2.146071       NaN        NaN        NaN
+                        β_2017  -2.798343       NaN        NaN        NaN
+                        β_2018  -2.601713       NaN        NaN        NaN
+                        β_2019  -2.808131       NaN        NaN        NaN
+                        β_2020  -2.565996       NaN        NaN        NaN
+                        β_2021  -2.497859       NaN        NaN        NaN
+                        β_2022  -2.710042       NaN        NaN        NaN
+                        β_2023  -2.645542 1.451e+01 -1.823e-01  8.553e-01
+                        β_2024  -2.573093 8.304e+00 -3.099e-01  7.567e-01
+ β₀_trig (baseline triggering) -10.000000 1.323e+00 -7.558e+00  4.080e-14
+                        β_Riot   1.582465 2.976e+00  5.317e-01  5.949e-01
+                  β_Fatalities   1.677755 5.457e-02  3.075e+01 1.328e-207
+                 β_Student-led  -1.571405 1.044e-01 -1.505e+01  3.331e-51
+                   β_Labor-led  -4.998443 8.925e-05 -5.601e+04  0.000e+00
+                       β_decay   0.001454 4.652e-05  3.126e+01 1.831e-214
+   CI_lower  CI_upper Significant
+        NaN       NaN          NA
+        NaN       NaN          NA
+ -63.722980 66.226902       FALSE
+        NaN       NaN          NA
+        NaN       NaN          NA
+        NaN       NaN          NA
+        NaN       NaN          NA
+        NaN       NaN          NA
+        NaN       NaN          NA
+        NaN       NaN          NA
+ -31.087534 25.796451       FALSE
+ -18.848361 13.702174       FALSE
+ -12.593137 -7.406863        TRUE
+  -4.251007  7.415936       FALSE
+   1.570806  1.784704        TRUE
+  -1.776021 -1.366789        TRUE
+  -4.998618 -4.998268        TRUE
+   0.001363  0.001545        TRUE
+
+Significance codes: *** p<0.001, ** p<0.01, * p<0.05
+Significant parameters: NA / 18
+
+=== LIKELIHOOD RATIO TESTS ===
+
+Model comparison requires log-likelihoods from alternative specifications.
+Current model (Model C): LL = -78,693.63
+
+Planned likelihood ratio tests:
+1. Full model vs No marks (H₀: all β_mark = 0)
+2. Full model vs No poverty (H₀: δ = 0)
+3. Year FX vs Linear trend (H₀: year effects follow linear trend)
+
+Note: These require fitting restricted models separately.
+See log files for model comparison results.
+
+=== SAVING RESULTS ===
+✓ Saved: uncertainty_results.rds
+✓ Saved: parameter_estimates_with_se.csv
+
+=== GENERATING LATEX TABLES ===
+✓ Saved: table_background_parameters.tex
+✓ Saved: table_triggering_parameters.tex
+
+╔══════════════════════════════════════════════════════════════╗
+║   SUMMARY OF KEY FINDINGS                                    ║
+╚══════════════════════════════════════════════════════════════╝
+
+HYPOTHESIS TEST RESULTS:
+------------------------
+
+H1 (Riot effect):
+  Estimate: 1.582 (SE = 2.976)
+  z = 0.53, p = 0.5949
+  95% CI: [-4.251, 7.416]
+  Multiplier: exp(1.582) = 4.87
+  → NOT SUPPORTED
+
+H2 (Fatalities effect):
+  Estimate: 1.678 (SE = 0.055)
+  z = 30.75, p = 0.0000
+  95% CI: [1.571, 1.785]
+  Multiplier: exp(1.678) = 5.35
+  → SUPPORTED: Fatal events significantly increase triggering
+
+H3a (Student-led effect):
+  Estimate: -1.571 (SE = 0.104)
+  z = -15.05, p = 0.0000
+  95% CI: [-1.776, -1.367]
+  Multiplier: exp(-1.571) = 0.21
+  → SIGNIFICANT: Student-led protests SUPPRESS triggering
+
+H3b (Labor-led effect):
+  Estimate: -4.998 (SE = 0.000)
+  z = -56007.85, p = 0.0000
+  95% CI: [-4.999, -4.998]
+  Multiplier: exp(-4.998) = 0.007
+  → SIGNIFICANT: Labor-led protests STRONGLY SUPPRESS triggering
+
+H4 (Poverty effect on background rate):
+  Estimate: 1.252 (SE = 33.150)
+  z = 0.04, p = 0.9699
+  95% CI: [-63.723, 66.227]
+  → NOT SUPPORTED
+
+
+╔══════════════════════════════════════════════════════════════╗
+║   UNCERTAINTY QUANTIFICATION COMPLETE                        ║
+╚══════════════════════════════════════════════════════════════╝
+
+OUTPUT FILES:
+- uncertainty_results.rds (full results object)
+- parameter_estimates_with_se.csv (results table)
+- table_background_parameters.tex (LaTeX table)
+- table_triggering_parameters.tex (LaTeX table)
+

@@ -1,0 +1,242 @@
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Warning message:
+package ‘ggplot2’ was built under R version 4.3.3 
+Warning message:
+package ‘Rcpp’ was built under R version 4.3.3 
+
+╔══════════════════════════════════════════════════════════════╗
+║   MODEL DIAGNOSTICS AND COLLINEARITY ANALYSIS                ║
+╚══════════════════════════════════════════════════════════════╝
+
+=== LOADING RESULTS ===
+Loaded Hessian: 18 x 18
+Parameters: 18
+
+╔══════════════════════════════════════════════════════════════╗
+║   1. HESSIAN EIGENVALUE ANALYSIS                             ║
+╚══════════════════════════════════════════════════════════════╝
+
+Eigenvalue Summary:
+  Minimum: -3.074723
+  Maximum: 21482.960040
+  Condition number: 6.99e+03
+  Negative eigenvalues: 9 / 18
+
+All eigenvalues:
+  λ_1 = 21482.960040 
+  λ_2 =   481.680865 
+  λ_3 =   256.354980 
+  λ_4 =    95.108859 
+  λ_5 =     0.571294 
+  λ_6 =     0.069731 
+  λ_7 =     0.002273 
+  λ_8 =     0.001313 
+  λ_9 =     0.000527 
+  λ_10 =    -0.000288 [NEGATIVE]
+  λ_11 =    -0.000404 [NEGATIVE]
+  λ_12 =    -0.000723 [NEGATIVE]
+  λ_13 =    -0.000953 [NEGATIVE]
+  λ_14 =    -0.001420 [NEGATIVE]
+  λ_15 =    -0.002536 [NEGATIVE]
+  λ_16 =    -0.009436 [NEGATIVE]
+  λ_17 =    -0.170954 [NEGATIVE]
+  λ_18 =    -3.074723 [NEGATIVE]
+
+Parameters contributing to negative eigenvalues:
+  Eigenvalue 10 (λ = -0.000288):
+    beta_2019_raw: 0.9987
+    beta_2022_raw: -0.0446
+    beta_2020_raw: -0.0161
+  Eigenvalue 11 (λ = -0.000404):
+    beta_2022_raw: 0.9971
+    beta_2020_raw: -0.0459
+    beta_2019_raw: 0.0430
+  Eigenvalue 12 (λ = -0.000723):
+    beta_2020_raw: -0.9907
+    beta_2021_raw: 0.1257
+    beta_2022_raw: -0.0399
+  Eigenvalue 13 (λ = -0.000953):
+    beta_2021_raw: -0.9904
+    beta_2020_raw: -0.1224
+    beta_2022_raw: -0.0385
+  Eigenvalue 14 (λ = -0.001420):
+    beta_2017_raw: -0.9994
+    beta_2021_raw: 0.0240
+    beta_2018_raw: -0.0164
+  Eigenvalue 15 (λ = -0.002536):
+    beta_2018_raw: -0.9997
+    beta_2017_raw: 0.0166
+    beta_2016_raw: -0.0141
+  Eigenvalue 16 (λ = -0.009436):
+    beta_2016_raw: 0.9980
+    beta_0_bg: -0.0566
+    delta_raw: 0.0188
+  Eigenvalue 17 (λ = -0.170954):
+    beta_0_bg: 0.9241
+    delta_raw: 0.3652
+    gamma_raw: -0.1001
+  Eigenvalue 18 (λ = -3.074723):
+    gamma_raw: -0.9949
+    beta_0_bg: -0.0879
+    delta_raw: -0.0497
+
+╔══════════════════════════════════════════════════════════════╗
+║   2. PARAMETER CORRELATION MATRIX                            ║
+╚══════════════════════════════════════════════════════════════╝
+
+Warning message:
+In sqrt(diag(vcov_clean)) : NaNs produced
+Highly correlated parameter pairs (|r| > 0.80):
+  beta_riot_raw <-> beta_fatal_raw: r = -0.8862
+
+null device 
+          1 
+✓ Saved: correlation_matrix.png
+
+╔══════════════════════════════════════════════════════════════╗
+║   3. PARAMETER IDENTIFICATION ISSUES                         ║
+╚══════════════════════════════════════════════════════════════╝
+
+Parameters with NaN standard errors (9 / 18):
+  β₀ (baseline): estimate = -14.8753
+  γ (population): estimate = 0.1266
+  β_2016: estimate = -2.1461
+  β_2017: estimate = -2.7983
+  β_2018: estimate = -2.6017
+  β_2019: estimate = -2.8081
+  β_2020: estimate = -2.5660
+  β_2021: estimate = -2.4979
+  β_2022: estimate = -2.7100
+
+Parameter bounds check:
+  (Sigmoid transformations map unbounded → bounded)
+
+  γ (population): 0.1266 (raw = -2.7767, range [0.01, 2.00])
+  δ (poverty): 1.2520 (raw = 0.1254, range [-20, 20])
+
+  Year effects (range [-3, 3]):
+    2016: -2.1461
+    2017: -2.7983
+    2018: -2.6017
+    2019: -2.8081
+    2020: -2.5660
+    2021: -2.4979
+    2022: -2.7100
+    2023: -2.6455
+    2024: -2.5731
+
+  Mark effects (range [-5, 5]):
+    Riot: 1.5825
+    Fatalities: 1.6778
+    Student: -1.5714
+    Labor: -4.9984 ⚠ Near lower bound
+
+╔══════════════════════════════════════════════════════════════╗
+║   4. DATA CORRELATION CHECK                                  ║
+╚══════════════════════════════════════════════════════════════╝
+
+Correlation (log_pop, poverty_decimal): -0.480
+
+Correlation by year:
+  2015: r = -0.625 (n = 479)
+  2016: r = -0.599 (n = 355)
+  2017: r = -0.700 (n = 234)
+  2018: r = -0.564 (n = 928)
+  2019: r = -0.580 (n = 1315)
+  2020: r = -0.505 (n = 1693)
+  2021: r = -0.506 (n = 1843)
+  2022: r = -0.414 (n = 3118)
+  2023: r = -0.399 (n = 3146)
+  2024: r = -0.444 (n = 2803)
+
+╔══════════════════════════════════════════════════════════════╗
+║   5. PARAMETER STABILITY                                     ║
+╚══════════════════════════════════════════════════════════════╝
+
+Note: Full multi-start comparison requires loading all checkpoints.
+Currently showing best fit only.
+  Best LL: -78693.63
+  Convergence: 0
+
+╔══════════════════════════════════════════════════════════════╗
+║   6. RECOMMENDATIONS                                         ║
+╚══════════════════════════════════════════════════════════════╝
+
+Based on diagnostic analysis:
+
+1. NEGATIVE EIGENVALUES:
+   Problem: Hessian is not positive definite
+   Likely cause: Model overparameterization
+   → Some parameters are not well-identified
+   → Flat likelihood surface in some directions
+
+2. NaN STANDARD ERRORS:
+   9 / 18 parameters have undefined SEs
+   Affected: β₀ (baseline), γ (population), β_2016, β_2017, β_2018, ...
+   → These parameters cannot be reliably estimated
+
+3. PARAMETERS WITH LARGE STANDARD ERRORS (SE > 10):
+   δ (poverty): SE = 33.15
+   β_2023: SE = 14.51
+   → High uncertainty, poorly identified
+
+RECOMMENDED ACTIONS:
+-------------------
+
+Option A: SIMPLIFY TEMPORAL STRUCTURE
+  • Replace 9 year fixed effects with linear trend
+  • Reduces parameters from 18 → 10
+  • Previous test: LL = -113,113 (much worse)
+  • But may improve identifiability
+
+Option B: DROP POVERTY
+  • Poverty effect has huge SE (33.15) and is non-significant
+  • May be collinear with log(pop) despite r = -0.48
+  • Test: Fit model without delta parameter
+  • Reduces parameters from 18 → 17
+
+Option C: COMBINE YEAR EFFECTS
+  • Group years into periods (e.g., 2015-2017, 2018-2020, 2021-2024)
+  • Reduces 9 year effects → 2-3 period effects
+  • Reduces parameters from 18 → 11-12
+
+Option D: SIMPLIFY MARKS
+  • Student and labor both suppress triggering
+  • Could combine into single "organized" indicator
+  • Reduces parameters from 18 → 17
+
+Option E: USE BOOTSTRAP (NO SIMPLIFICATION)
+  • Accept that Hessian-based SEs don't work
+  • Use bootstrap resampling for inference
+  • Computationally expensive but robust
+  • Recommended if you want to keep full model
+
+PRIORITY RECOMMENDATION:
+  1. Try Option B (drop poverty) - smallest change, may fix issue
+  2. If still problematic, try Option C (combine year effects)
+  3. If inference still needed, use Option E (bootstrap)
+
+=== SAVING DIAGNOSTIC REPORT ===
+✓ Saved: model_diagnostics.rds
+✓ Saved: correlation_matrix.png
+
+╔══════════════════════════════════════════════════════════════╗
+║   DIAGNOSTICS COMPLETE                                       ║
+╚══════════════════════════════════════════════════════════════╝
+
+Next steps:
+1. Review recommendations above
+2. Decide on model simplification strategy
+3. Re-fit simplified model
+4. If needed, use bootstrap for final inference
+

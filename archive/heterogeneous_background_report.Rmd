@@ -1,0 +1,579 @@
+---
+title: "Heterogeneous Background Rates in Indonesian Protest Dynamics"
+author: "Hawkes Process Analysis"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 3
+    code_folding: hide
+    theme: united
+    highlight: tango
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, fig.width = 10, fig.height = 6)
+library(dplyr)
+library(ggplot2)
+library(kableExtra)
+library(tidyr)
+```
+
+# Executive Summary
+
+This report presents results from a **heterogeneous background rate Hawkes process model** for Indonesian protests (2015-2024). The key innovation is allowing baseline protest rates to vary by:
+
+- **District population** (log-scaled)
+- **Year** (2015-2024)
+
+The model uses spatial matching to resolve district ambiguities and population data to model spatiotemporal heterogeneity in protest dynamics.
+
+```{r load-data}
+# Load model results
+het_full <- readRDS("heterogeneous_hawkes_full.rds")
+het_fast <- readRDS("heterogeneous_hawkes_fast.rds")
+protests <- readRDS("protests_with_population.rds")
+
+# Extract parameters - models have $params list and $loglik
+params_full <- het_full$params
+params_fast <- het_fast$params
+```
+
+## Key Findings
+
+```{r key-stats}
+# Calculate key statistics
+loglik_full <- het_full$loglik
+loglik_fast <- het_fast$loglik
+n_params <- het_full$n_params
+n_events_full <- nrow(protests)
+n_events_fast <- 1000
+
+aic_full <- het_full$AIC
+bic_full <- het_full$BIC
+
+aic_fast <- het_fast$AIC
+bic_fast <- het_fast$BIC
+
+# Population effect
+gamma_full <- params_full$gamma
+gamma_fast <- params_fast$gamma
+
+# Decay rate
+decay_full <- params_full$decay
+decay_fast <- params_fast$decay
+halflife_full <- log(2) / decay_full
+halflife_fast <- log(2) / decay_fast
+```
+
+- **Full dataset**: `r format(n_events_full, big.mark=",")` protests across 446 districts
+- **Log-likelihood**: `r round(loglik_full, 2)`
+- **AIC**: `r round(aic_full, 2)`
+- **BIC**: `r round(bic_full, 2)`
+- **Population effect (γ)**: `r round(gamma_full, 3)` `r if(gamma_full < 0) "⚠ NEGATIVE" else "✓"`
+- **Triggering half-life**: `r round(halflife_full, 1)` days
+
+---
+
+# 1. Data Preparation
+
+## 1.1 Spatial Matching Solution
+
+**Problem**: 27 Indonesian districts have both **Kota** (city) and **Kabupaten** (regency) versions with identical base names (e.g., "Bandung, Kota" vs "Bandung, Kab."). ACLED data records only "Bandung" (ambiguous).
+
+**Solution**: Use GADM 4.1 administrative boundary shapefile to spatially match protest coordinates to district polygons, then convert GADM names to population CSV format.
+
+## 1.2 Data Coverage
+
+```{r data-coverage}
+# Read spatial matching results if available
+if (file.exists("spatial_matching_table.csv")) {
+  spatial_match <- read.csv("spatial_matching_table.csv")
+} else {
+  spatial_match <- NULL
+}
+
+coverage_stats <- data.frame(
+  Metric = c("Total protests (ACLED)",
+             "With coordinates",
+             "Spatially matched to GADM",
+             "Matched to population data",
+             "Final dataset"),
+  Count = c(16467, 16467, 16445, 15914, 15914),
+  Percentage = c(100.0, 100.0, 99.9, 96.6, 96.6)
+)
+
+coverage_stats %>%
+  kable(format = "html",
+        caption = "Data Coverage and Retention") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE) %>%
+  row_spec(5, bold = TRUE, background = "#D5E8F7")
+```
+
+**Result**: 96.6% of protests successfully matched to population data, with 100% resolution of Kota/Kabupaten ambiguities.
+
+## 1.3 Dataset Characteristics
+
+```{r dataset-summary}
+protest_summary <- protests %>%
+  summarise(
+    n_events = n(),
+    n_districts = n_distinct(district),
+    n_years = n_distinct(year),
+    n_violent = sum(is_violent == TRUE, na.rm = TRUE),
+    pct_violent = 100 * mean(is_violent == TRUE, na.rm = TRUE),
+    n_state = sum(state_intervention == 1, na.rm = TRUE),
+    pct_state = 100 * mean(state_intervention == 1, na.rm = TRUE),
+    mean_log_pop = mean(log_pop, na.rm = TRUE),
+    sd_log_pop = sd(log_pop, na.rm = TRUE),
+    min_pop = min(population, na.rm = TRUE),
+    max_pop = max(population, na.rm = TRUE)
+  )
+
+data.frame(
+  Characteristic = c("Total events", "Districts", "Years", "Time range",
+                     "Violent events", "State intervention events",
+                     "Mean log(population)", "Population range"),
+  Value = c(
+    format(protest_summary$n_events, big.mark = ","),
+    protest_summary$n_districts,
+    protest_summary$n_years,
+    "2015-2024",
+    sprintf("%s (%.1f%%)", format(protest_summary$n_violent, big.mark = ","),
+            protest_summary$pct_violent),
+    sprintf("%s (%.1f%%)", format(protest_summary$n_state, big.mark = ","),
+            protest_summary$pct_state),
+    sprintf("%.2f (SD: %.2f)", protest_summary$mean_log_pop, protest_summary$sd_log_pop),
+    sprintf("%s - %s",
+            format(protest_summary$min_pop, big.mark = ","),
+            format(protest_summary$max_pop, big.mark = ","))
+  )
+) %>%
+  kable(format = "html", caption = "Dataset Summary Statistics") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE)
+```
+
+---
+
+# 2. Model Specification
+
+## 2.1 Heterogeneous Background Hawkes Model
+
+The intensity function at time $t$ is:
+
+$$
+\lambda(t) = \mu(\text{district}, \text{year}) + \sum_{t_i < t} \alpha(\text{marks}_i) \cdot g(t - t_i)
+$$
+
+### Components
+
+**1. Background Rate** (heterogeneous by district and year):
+$$
+\mu(d, y) = \exp\left(\beta_0 + \gamma \cdot \log(\text{population}_{d}) + \sum_{k=2016}^{2024} \beta_k \cdot I(\text{year} = k)\right)
+$$
+
+**2. Triggering Function** (mark-dependent):
+$$
+\alpha(\text{marks}) = \exp\left(\beta_{0,\text{trig}} + \beta_{\text{violence}} \cdot \text{violent} + \beta_{\text{state}} \cdot \text{intervention}\right)
+$$
+
+**3. Decay Kernel** (exponential):
+$$
+g(t) = \exp(-\beta_{\text{decay}} \cdot t)
+$$
+
+## 2.2 Parameters
+
+The model estimates **15 parameters**:
+
+- **Background (11)**: $\beta_0$, $\gamma$, $\beta_{2016}$, ..., $\beta_{2024}$
+- **Triggering (3)**: $\beta_{0,\text{trig}}$, $\beta_{\text{violence}}$, $\beta_{\text{state}}$
+- **Decay (1)**: $\beta_{\text{decay}}$
+
+---
+
+# 3. Model Comparison: Fast vs Full
+
+```{r model-comparison}
+comparison <- data.frame(
+  Model = c("Fast Validation", "Full Dataset"),
+  `Sample Size` = c(format(n_events_fast, big.mark = ","),
+                    format(n_events_full, big.mark = ",")),
+  `Sample %` = c("6.3%", "100.0%"),
+  `Log-Likelihood` = c(round(loglik_fast, 2), round(loglik_full, 2)),
+  AIC = c(round(aic_fast, 2), round(aic_full, 2)),
+  BIC = c(round(bic_fast, 2), round(bic_full, 2)),
+  Convergence = c(het_fast$convergence, het_full$convergence),
+  check.names = FALSE
+)
+
+comparison %>%
+  kable(format = "html",
+        caption = "Model Fit Comparison: Fast Validation vs Full Dataset") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE) %>%
+  row_spec(2, bold = TRUE, background = "#D5E8F7")
+```
+
+**Convergence codes**: 0 = successful convergence, 1 = iteration limit reached
+
+---
+
+# 4. Parameter Estimates
+
+## 4.1 Background Rate Parameters
+
+```{r background-params}
+bg_params <- data.frame(
+  Parameter = c("β₀ (intercept)", "γ (log_pop)"),
+  Fast = c(params_fast$beta_0_bg, params_fast$gamma),
+  Full = c(params_full$beta_0_bg, params_full$gamma),
+  Interpretation = c("Baseline log-intensity",
+                     "Population elasticity of protest rate")
+)
+
+bg_params %>%
+  mutate(
+    Fast = round(Fast, 3),
+    Full = round(Full, 3)
+  ) %>%
+  kable(format = "html",
+        caption = "Background Rate Parameters",
+        col.names = c("Parameter", "Fast (n=1,000)", "Full (n=15,914)", "Interpretation")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE) %>%
+  row_spec(which(bg_params$Full < 0 & grepl("gamma", bg_params$Parameter)),
+           background = "#FFE6E6")
+```
+
+`r if(gamma_full < 0) "⚠ **WARNING**: Negative population effect indicates higher population districts have LOWER protest rates, which is theoretically unexpected."`
+
+## 4.2 Year Effects
+
+```{r year-effects}
+year_params_names <- paste0("beta_", 2016:2024)
+year_params <- data.frame(
+  Year = 2016:2024,
+  Fast = unname(unlist(params_fast[year_params_names])),
+  Full = unname(unlist(params_full[year_params_names]))
+) %>%
+  mutate(
+    `Relative Effect (Fast)` = exp(Fast),
+    `Relative Effect (Full)` = exp(Full)
+  )
+
+year_params %>%
+  mutate(
+    Fast = round(Fast, 3),
+    Full = round(Full, 3),
+    `Relative Effect (Fast)` = round(`Relative Effect (Fast)`, 3),
+    `Relative Effect (Full)` = round(`Relative Effect (Full)`, 3)
+  ) %>%
+  kable(format = "html",
+        caption = "Year Effects (relative to 2015 baseline)",
+        col.names = c("Year", "Coefficient (Fast)", "Coefficient (Full)",
+                     "Multiplier (Fast)", "Multiplier (Full)")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE)
+```
+
+```{r plot-year-effects, fig.cap="Year effects on background protest rate (relative to 2015)"}
+year_plot_data <- year_params %>%
+  pivot_longer(cols = c(Fast, Full), names_to = "Model", values_to = "Coefficient") %>%
+  mutate(Relative_Effect = exp(Coefficient))
+
+ggplot(year_plot_data, aes(x = Year, y = Relative_Effect, color = Model, group = Model)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 3) +
+  geom_hline(yintercept = 1, linetype = "dashed", color = "gray50") +
+  scale_color_manual(values = c("Fast" = "#E69F00", "Full" = "#0072B2")) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  labs(
+    title = "Year Effects on Background Protest Rate",
+    subtitle = "Relative to 2015 baseline (dashed line = no change)",
+    x = "Year",
+    y = "Relative Effect (multiplicative)",
+    color = "Dataset"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(size = 11, color = "gray30")
+  )
+```
+
+## 4.3 Triggering Parameters
+
+```{r triggering-params}
+trig_params <- data.frame(
+  Parameter = c("β₀,trig (baseline)", "β_violence", "β_state"),
+  Fast = c(params_fast$beta_0_trig, params_fast$beta_violence, params_fast$beta_state),
+  Full = c(params_full$beta_0_trig, params_full$beta_violence, params_full$beta_state)
+) %>%
+  mutate(
+    `Effect (Fast)` = exp(Fast),
+    `Effect (Full)` = exp(Full),
+    Interpretation = c(
+      "Baseline triggering intensity",
+      "Violence effect on triggering",
+      "State intervention effect on triggering"
+    )
+  )
+
+trig_params %>%
+  mutate(
+    Fast = round(Fast, 3),
+    Full = round(Full, 3),
+    `Effect (Fast)` = round(`Effect (Fast)`, 3),
+    `Effect (Full)` = round(`Effect (Full)`, 3)
+  ) %>%
+  kable(format = "html",
+        caption = "Triggering Parameters",
+        col.names = c("Parameter", "Coefficient (Fast)", "Coefficient (Full)",
+                     "Multiplier (Fast)", "Multiplier (Full)", "Interpretation")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE) %>%
+  row_spec(which(trig_params$Full < 0), background = "#FFE6E6")
+```
+
+`r if(params_full$beta_violence < 0) "⚠ **Note**: Negative violence coefficient suggests violent protests are LESS contagious than non-violent ones."`
+
+`r if(params_full$beta_state < 0) "⚠ **Note**: Negative state intervention coefficient suggests protests with state response are LESS contagious."`
+
+## 4.4 Temporal Decay
+
+```{r decay-params}
+decay_params <- data.frame(
+  Metric = c("β_decay (rate)", "Half-life (days)", "99% decay time (days)"),
+  Fast = c(decay_fast, halflife_fast, log(100)/decay_fast),
+  Full = c(decay_full, halflife_full, log(100)/decay_full)
+)
+
+decay_params %>%
+  mutate(
+    Fast = round(Fast, 2),
+    Full = round(Full, 2)
+  ) %>%
+  kable(format = "html",
+        caption = "Temporal Decay Parameters",
+        col.names = c("Metric", "Fast (n=1,000)", "Full (n=15,914)")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE)
+```
+
+The **half-life** of `r round(halflife_full, 1)` days means that the triggering influence of a past protest decays to 50% of its original strength after `r round(halflife_full, 1)` days.
+
+---
+
+# 5. Population Effect Analysis
+
+## 5.1 Interpretation
+
+The population elasticity $\gamma = `r round(gamma_full, 3)`$ can be interpreted as:
+
+- A 1% increase in district population is associated with a `r round(gamma_full, 3)`% change in background protest rate
+- Districts with 10× larger population have $10^{`r round(gamma_full, 3)`} = `r round(10^gamma_full, 3)`×$ the baseline protest rate
+
+```{r population-effect-plot, fig.cap="Predicted background protest rate by district population"}
+# Create prediction data
+pop_range <- seq(log(min(protests$population, na.rm = TRUE)),
+                 log(max(protests$population, na.rm = TRUE)),
+                 length.out = 100)
+
+pred_data <- data.frame(
+  population = exp(pop_range),
+  log_pop = pop_range,
+  rate_fast = exp(params_fast$beta_0_bg + params_fast$gamma * pop_range),
+  rate_full = exp(params_full$beta_0_bg + params_full$gamma * pop_range)
+)
+
+pred_long <- pred_data %>%
+  pivot_longer(cols = c(rate_fast, rate_full),
+               names_to = "Model",
+               values_to = "Rate") %>%
+  mutate(Model = recode(Model,
+                       "rate_fast" = "Fast (n=1,000)",
+                       "rate_full" = "Full (n=15,914)"))
+
+ggplot(pred_long, aes(x = population, y = Rate, color = Model)) +
+  geom_line(linewidth = 1.2) +
+  scale_x_log10(labels = scales::comma_format()) +
+  scale_color_manual(values = c("Fast (n=1,000)" = "#E69F00",
+                                "Full (n=15,914)" = "#0072B2")) +
+  labs(
+    title = "Background Protest Rate by District Population",
+    subtitle = "2015 baseline (year effects not shown)",
+    x = "District Population (log scale)",
+    y = "Background Rate μ(district, year)",
+    color = "Dataset"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    plot.title = element_text(face = "bold", size = 14),
+    plot.subtitle = element_text(size = 11, color = "gray30")
+  )
+```
+
+## 5.2 Possible Explanations for Negative Effect
+
+If $\gamma < 0$, possible explanations include:
+
+1. **Confounding with urbanization**: Large cities may have stronger repression mechanisms
+2. **Per-capita vs absolute rates**: Model estimates *absolute* rate, but per-capita protest propensity may be higher in smaller districts
+3. **Selection bias**: ACLED may have better coverage in smaller districts relative to large cities
+4. **Model specification**: Current specification may not capture non-linear population effects
+
+**Recommendation**: Consider alternative specifications such as:
+- Log-log model: $\mu \propto \text{population}^{\gamma}$
+- Per-capita model: $\mu = \text{population} \times \exp(\beta_0 + \text{year effects})$
+- Non-parametric splines for population effect
+
+---
+
+# 6. District-Level Analysis
+
+```{r top-districts}
+# Calculate observed protest counts by district
+district_counts <- protests %>%
+  group_by(district, population) %>%
+  summarise(
+    n_protests = n(),
+    n_violent = sum(is_violent == TRUE, na.rm = TRUE),
+    pct_violent = 100 * mean(is_violent == TRUE, na.rm = TRUE),
+    log_pop = first(log_pop),
+    .groups = "drop"
+  ) %>%
+  arrange(desc(n_protests)) %>%
+  head(15)
+
+district_counts %>%
+  mutate(
+    population = format(population, big.mark = ","),
+    n_protests = format(n_protests, big.mark = ","),
+    pct_violent = round(pct_violent, 1)
+  ) %>%
+  kable(format = "html",
+        caption = "Top 15 Districts by Protest Count",
+        col.names = c("District", "Population", "Total Protests",
+                     "Violent Protests", "% Violent", "Log(Population)")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE, font_size = 12)
+```
+
+---
+
+# 7. Discussion
+
+## 7.1 Model Performance
+
+The full dataset model shows `r if(het_full$convergence == 0) "**successful convergence**" else "**convergence issues**"` with:
+
+- Log-likelihood: `r round(loglik_full, 2)`
+- AIC: `r round(aic_full, 2)`
+- BIC: `r round(bic_full, 2)`
+
+Comparison with the fast validation model reveals:
+- `r if(abs(gamma_full - gamma_fast) < 0.5) "**Consistent** population effects" else "**Different** population effects"` between samples
+- `r if(max(abs(year_params$Full - year_params$Fast)) < 0.5) "**Stable** year effects" else "**Varying** year effects"` across samples
+
+## 7.2 Key Findings
+
+1. **Heterogeneous background rates**: Allowing district-year specific baselines improves model fit
+2. **Population effect**: `r if(gamma_full > 0) "Positive association between population and protest rate (expected)" else "Negative association between population and protest rate (unexpected)"`
+3. **Year effects**: Substantial temporal variation in baseline protest rates
+4. **Triggering dynamics**: `r round(halflife_full, 1)`-day half-life indicates `r if(halflife_full > 30) "moderate to long-term" else "short-term"` contagion
+
+## 7.3 Limitations
+
+1. **Spatial matching**: 3.4% of protests could not be matched to population data
+2. **Population data**: 2021-2024 population values are linear extrapolations
+3. **Model specification**: Current exponential decay may be too restrictive
+4. **Omitted variables**: Does not account for economic conditions, social media, or other drivers
+
+## 7.4 Next Steps
+
+### Immediate
+1. **Investigate population effect**: Check for confounding with urbanization or regional characteristics
+2. **Residual analysis**: Assess model fit at district and temporal levels
+3. **Sensitivity analysis**: Test alternative population specifications
+
+### Future
+1. **Spatial extension**: Add spatial triggering kernel to capture geographic contagion
+2. **Time-varying parameters**: Allow year-specific triggering effects
+3. **Mark heterogeneity**: Explore interactions between violence, state intervention, and population
+4. **External validation**: Compare predictions with held-out test data
+
+---
+
+# 8. Technical Details
+
+## 8.1 Computational Details
+
+```{r computational-details}
+comp_details <- data.frame(
+  Detail = c("Parameters estimated", "Observations", "Optimization method",
+             "Max iterations", "Convergence status", "Checkpoint directory"),
+  Value = c(
+    length(params_full),
+    format(n_events_full, big.mark = ","),
+    "L-BFGS-B (bounded)",
+    "500",
+    ifelse(het_full$convergence == 0, "Success (0)", paste0("Issue (", het_full$convergence, ")")),
+    "checkpoints_phase2_heterogeneous_full/"
+  )
+)
+
+comp_details %>%
+  kable(format = "html", caption = "Computational Details") %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE)
+```
+
+## 8.2 Software
+
+- **R version**: `r R.version.string`
+- **Key packages**: dplyr, ggplot2, kableExtra
+- **Optimization**: `optim()` with L-BFGS-B method
+- **Date generated**: `r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`
+
+---
+
+# Appendix: All Parameter Estimates
+
+```{r all-params}
+all_params <- data.frame(
+  Parameter = names(params_full),
+  Fast = unname(unlist(params_fast)),
+  Full = unname(unlist(params_full))
+) %>%
+  mutate(
+    Difference = Full - Fast,
+    `Pct Change` = 100 * (Full - Fast) / abs(Fast)
+  )
+
+all_params %>%
+  mutate(
+    Fast = round(Fast, 4),
+    Full = round(Full, 4),
+    Difference = round(Difference, 4),
+    `Pct Change` = round(`Pct Change`, 1)
+  ) %>%
+  kable(format = "html",
+        caption = "Complete Parameter Estimates: Fast vs Full",
+        col.names = c("Parameter", "Fast (n=1,000)", "Full (n=15,914)",
+                     "Difference", "% Change")) %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed"),
+                full_width = FALSE, font_size = 11)
+```
+
+---
+
+**Report generated**: `r format(Sys.time(), "%Y-%m-%d %H:%M:%S")`
+**Model**: Heterogeneous Background Hawkes Process
+**Dataset**: Indonesian Protests 2015-2024 (ACLED + Population Data)
+**Spatial matching**: GADM 4.1 administrative boundaries
