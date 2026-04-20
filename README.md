@@ -2,6 +2,14 @@
 
 Analysis of protest contagion patterns using spatial point process models on ACLED data (2015-2024).
 
+## Reproducing the analysis
+
+The paper is `reproducible_analysis.Rmd`; knit it to regenerate all results. It reads the raw data files at the repo root (ACLED xlsx, district population CSV, CPI CSV) and `gadm41_IDN_2.shp` from the shapefile directory.
+
+**Not in git (download separately from [GADM](https://gadm.org/download_country.html)):** the shapefile bundle's unused levels `gadm41_IDN_3.*` (90 MB) and `gadm41_IDN_4.*` (208 MB) are gitignored because they exceed GitHub's size limits and the analysis does not use them. Only level 2 (districts) is needed.
+
+Earlier iteration scripts, model checkpoints, and draft Rmds live in `archive/` and are not required to reproduce the paper.
+
 ## Quick Start
 
 ### View Results
